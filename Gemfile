@@ -10,18 +10,13 @@ gem 'puma', '~> 3.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.1.1'
 
-# Use Puma as the app server
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-underscore'
-end
+gem 'react-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
