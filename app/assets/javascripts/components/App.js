@@ -1,16 +1,5 @@
-'use strict';
+import React from 'react';
 
-import React, {Component} from 'react';
-import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
-
-class App extends Component {
-
-  render() {
-    return (
-      <div>Hello world!</div>
-    );
-  }
-
+export default function () {
+  return <div>Hello world!</div>;
 }
-
-export default App;

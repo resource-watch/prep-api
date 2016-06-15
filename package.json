@@ -6,7 +6,12 @@
     "babel-preset-stage-2": "^6.5.0",
     "babelify": "^7.3.0",
     "browserify": "~10.2.4",
-    "browserify-incremental": "^3.1.1"
+    "browserify-incremental": "^3.1.1",
+    "eslint": "^2.12.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.4.2",
+    "eslint-plugin-react": "^5.1.1"
   },
   "dependencies": {
     "react": "^15.1.0",
