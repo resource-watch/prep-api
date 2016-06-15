@@ -1,22 +1,21 @@
-'use strict';
+import React from 'react';
+import { connect } from 'react-redux';
+import HomepagePage from './containers/HomepagePage';
+import { Router, Route } from 'react-router';
 
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import AppContainer from './containers/app';
-import {Router, Route} from 'react-router';
-
-class Routes extends Component{
-  render(){
-    return (
-      <Router history={this.props.history}>
-        <Route path="/" component={AppContainer}>
-        </Route>
-      </Router>
-    );
-  }
+function Routes(props) {
+  return (
+    <Router history={props.history}>
+      <Route path="/" component={HomepagePage} />
+    </Router>
+  );
 }
 
-let mapStateToProps = state => ({});
-let mapDispatchToProps = dispatch => ({});
+Routes.propTypes = {
+  history: React.PropTypes.object.isRequired,
+};
+
+const mapStateToProps = () => ({});
+const mapDispatchToProps = () => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes);
