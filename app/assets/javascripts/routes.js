@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HomepagePage from './containers/HomepagePage';
+import HomePage from './containers/HomePage';
 import { Router, Route } from 'react-router';
 
 function Routes(props) {
   return (
     <Router history={props.history}>
-      <Route path="/" component={HomepagePage} />
+      <Route path="/" component={HomePage} />
     </Router>
   );
 }
