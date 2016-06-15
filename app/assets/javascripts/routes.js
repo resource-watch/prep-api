@@ -12,7 +12,7 @@ function Routes(props) {
 }
 
 Routes.propTypes = {
-  history: React.PropTypes.object.isRequired,
+  history: React.PropTypes.object.isRequired
 };
 
 const mapStateToProps = () => ({});
