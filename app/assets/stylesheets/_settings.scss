@@ -1,6 +1,8 @@
 /* General layout */
 $wrapper-max-width:      1140px;
-$wrapper-mobile-padding:   20px;
+$wrapper-padding:          70px;
+$wrapper-tablet-padding:   30px;
+$wrapper-mobile-padding:   15px;
 
 /* Font families */
 $font-family-1: "Open Sans", sans-serif;
@@ -28,3 +30,18 @@ $color-3: #25b5cd;
 $color-4: #6bbf51;
 $color-5: #ffffff;
 $color-6: #fafafa;
+
+/* Breakpoints */
+$breakpoint-mobile-small:  320px;
+$breakpoint-mobile-large:  425px;
+$breakpoint-tablet:        768px;
+$breakpoint-laptop:       1024px;
+
+/* Media queries */
+$mq-mobile-small: "screen and (min-width: #{$breakpoint-mobile-small})";
+$mq-mobile-large: "screen and (min-width: #{$breakpoint-mobile-large})";
+$mq-tablet:       "screen and (min-width: #{$breakpoint-tablet})";
+$mq-laptop:       "screen and (min-width: #{$breakpoint-laptop})";
+
+$mq-wrapper-exact-width: "screen and (min-width: #{$wrapper-max-width})";
+$mq-wrapper-width:       "screen and (min-width: #{$wrapper-max-width + 2 * $wrapper-padding})";
