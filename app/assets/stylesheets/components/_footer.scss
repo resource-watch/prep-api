@@ -1,4 +1,70 @@
 .c-footer {
   color: $color-5;
-  background-color: $color-1;
+  background-color: $color-7;
+
+  .partners {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 25px 0;
+    border-bottom: 3px solid rgba(lighten($color-7, 20%), .3);
+
+    img.wri        { max-width: 114px; }
+    img.esri       { max-width:  99px; }
+    img.vizzuality { max-width: 105px; }
+    img.nasa       { max-width:  65px; }
+    img.descartes  { max-width: 126px; }
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0 15px 0;
+
+    > .media {
+      flex-basis: 50px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    > .links {
+      margin: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        margin-right: 15px;
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: -8px;
+          top: 7px;
+          width: 1px;
+          height: calc(100% - 10px);
+          background-color: $color-2;
+        }
+
+        a {
+          font-weight: $font-weight-bold;
+          font-size: $font-size-small;
+          color: $color-5;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+          &:after { content: none; }
+        }
+      }
+    }
+  }
 }
