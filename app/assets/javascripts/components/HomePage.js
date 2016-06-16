@@ -1,5 +1,11 @@
 import React from 'react';
+import Footer from '../containers/Footer';
 
 export default function () {
-  return <div>Welcome to the homepage!</div>;
+  return (
+    <div>
+      Welcome to the homepage!
+      <Footer />
+    </div>
+  );
 }
