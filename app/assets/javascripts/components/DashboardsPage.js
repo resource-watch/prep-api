@@ -13,11 +13,15 @@ export default function () {
           <div className="content">
             <div>
               <Title inverse center>Do you have relevant data about climate?</Title>
-              <Button inverse borderType={1}>Create your dashboard</Button>
+              <div className="button-container">
+                <Button inverse borderType={1}>Create your dashboard</Button>
+              </div>
             </div>
             <div>
-              <Title inverse center>Would you like to improve a dashboard?</Title>
-              <Button inverse borderType={1}>Get in touch</Button>
+              <Title inverse center> Would you like to improve a dashboard?</Title>
+              <div className="button-container">
+                <Button inverse borderType={1}>Get in touch</Button>
+              </div>
             </div>
           </div>
         </div>

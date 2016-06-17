@@ -1,14 +1,36 @@
 .l-dashboards {
 
   > .pre-header {
-    padding: 70px 0 90px 0;
+    padding: 40px 0 60px 0;
     background-color: $color-8;
+
+    @media #{$mq-tablet} {
+      padding: 70px 0 90px 0;
+    }
 
     .content {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      color: red;
+
+      > div {
+        text-align: center;
+        flex-basis: 100%;
+        margin-bottom: 50px;
+        &:last-of-type { margin-bottom: 0; }
+
+        @media #{$mq-tablet} {
+          flex-basis: calc(50% - 20px);
+          margin-bottom: 0;
+        }
+
+        > .button-container {
+          margin-top: 30px;
+          @media #{$mq-tablet} {
+            margin-top: 40px;
+          }
+        }
+      }
     }
   }
 
