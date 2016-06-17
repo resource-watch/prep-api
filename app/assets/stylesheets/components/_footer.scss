@@ -10,6 +10,25 @@
     padding: 25px 0;
     border-bottom: 3px solid rgba(lighten($color-7, 20%), .3);
 
+    a {
+      flex-basis: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      &:last-of-type { margin-bottom: 0; }
+
+      @media #{$mq-mobile-large} {
+        flex-basis: 50%;
+        &:last-of-type { flex-basis: 100%; }
+      }
+
+      @media #{$mq-tablet} {
+        flex-basis: auto;
+        margin-bottom: 0;
+        text-align: left;
+        &:last-of-type { flex-basis: auto; }
+      }
+    }
+
     img.wri        { max-width: 114px; }
     img.esri       { max-width:  99px; }
     img.vizzuality { max-width: 105px; }
@@ -19,9 +38,14 @@
 
   footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     padding: 25px 0 15px 0;
+
+    @media #{$mq-tablet} {
+      justify-content: space-between;
+    }
 
     > .media {
       flex-basis: 50px;
@@ -33,7 +57,17 @@
 
     > .links {
       margin: 0;
+      margin-top: 10px;
+      padding: 0;
       list-style: none;
+      flex-basis: 100%;
+      text-align: center;
+
+      @media #{$mq-tablet} {
+        margin-top: 0;
+        flex-basis: auto;
+        text-align: left;
+      }
 
       li {
         position: relative;
