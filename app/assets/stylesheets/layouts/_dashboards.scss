@@ -1,0 +1,15 @@
+.l-dashboards {
+
+  > .pre-header {
+    padding: 70px 0 90px 0;
+    background-color: $color-8;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: red;
+    }
+  }
+
+}
