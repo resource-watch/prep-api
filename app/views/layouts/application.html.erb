@@ -11,6 +11,10 @@
 
   <body>
     <%= yield %>
+    <%= include_gon(
+      :watch => false,
+      :camel_case => true
+    ) %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

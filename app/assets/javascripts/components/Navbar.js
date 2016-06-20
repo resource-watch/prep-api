@@ -20,7 +20,7 @@ class Navbar extends React.Component {
         <div className="wrapper">
           <div className="content">
             <a className="logo" href="/">
-              <img src="<%= asset_path('preplogo@2x.png') %>" alt="Preparedness for Resilience" />
+              <img src={gon.logo} alt="Preparedness for Resilience" />
             </a>
             <button
               type="button"
