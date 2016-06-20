@@ -3,9 +3,10 @@ import Footer from '../containers/Footer';
 import Title from '../containers/Title';
 import Button from '../containers/Button';
 
-export default function () {
+export default function (props) {
   return (
     <div className="l-dashboards">
+      <HeaderComponent currentPage={props.currentPage} dark/>
       Welcome to the dashboards!
 
       <div className="other-links">

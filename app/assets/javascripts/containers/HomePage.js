@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import HomePage from '../components/HomePage';
 
 const mapStateToProps = (state, location) => ({
-  currentPage: location.location.pathname
+  currentPage: location.route.path
 });
 const mapDispatchToProps = () => ({});
 

@@ -4,7 +4,7 @@ import Footer from '../containers/Footer';
 export default function (props) {
   return (
     <div>
-      <HeaderComponent currentPage={props.currentPage} small dark/>
+      <HeaderComponent currentPage={props.currentPage} dark/>
         Welcome to the homepage!
       <Footer />
     </div>

@@ -17,24 +17,34 @@ class HeaderComponent extends React.Component {
       <div className={classNames.join(' ')}>
         <div className="wrapper">
           <div className="content">
-            <a className="logo" href="#">
+            <a className="logo" href="/">
               <img src="<%= asset_path('preplogo@2x.png') %>" alt="Preparedness for Resilience" />
             </a>
             <button
               type="button"
-              className={['navbar-toggle', this.state.open ? 'is-active' : ''].join(' ')}
+              className={['navbar-toggle', this.state.open ? '-open' : ''].join(' ')}
               onClick={() => this.setState({ open: !this.state.open })}
             >
               <span></span>
             </button>
-            <nav className={['navbar', this.state.open ? '-open' : ''].join(' ')} >
+            <nav className={["navbar", this.state.open ? '-open' : ''].join(' ')} >
               <ul className="links">
-                <li className="link"><a href="#">Data</a></li>
-                <li className="link"><a href="#">Dashboards</a></li>
-                <li className="link"><a href="#">Insights</a></li>
+                <li className={["link", this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>
+                  <a href="#">Data</a>
+                </li>
+                <li className={["link", this.props.currentPage === 'dashboards' ? '-active' : ''].join(' ')}>
+                  <a href="<%= Rails.application.routes.url_helpers.dashboards_path %>">Dashboards</a>
+                </li>
+                <li className={["link", this.props.currentPage === 'insights' ? '-active' : ''].join(' ')}>
+                  <a href="#">Insights</a>
+                </li>
                 <li className="link separator"></li>
-                <li className="link -secondary"><a href="#">Search</a></li>
-                <li className="link -secondary"><a href="#">English</a></li>
+                <li className="link -secondary">
+                  <a href="#">Search</a>
+                </li>
+                <li className="link -secondary">
+                  <a href="#">English</a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -61,4 +71,9 @@ HeaderComponent.propTypes = {
    * Default: false
    */
   dark: React.PropTypes.bool,
+  /**
+   * The current page location
+   * Default: ''
+   */
+  currentPage: React.PropTypes.string,
 };
