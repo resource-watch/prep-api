@@ -7,7 +7,7 @@ import Footer from './Footer';
 function HomePage(props) {
   return (
     <div>
-      <Header>
+      <Header type="large">
         <Navbar currentPage={props.currentPage} />
         <Title inverse borderType={1} type={'mega'}>
           Enabling collective action to manage climate risks

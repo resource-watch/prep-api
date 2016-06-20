@@ -5,14 +5,20 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 590px;
+  min-height: 415px;
   @media #{$mq-tablet} {
-    min-height: 775px;
+    min-height: 640px;
   }
   &.-small {
     min-height: 320px;
     @media #{$mq-tablet} {
       min-height: 415px;
+    }
+  }
+  &.-large {
+    min-height: 590px;
+    @media #{$mq-tablet} {
+      min-height: 775px;
     }
   }
 }

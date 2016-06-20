@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Header from './Header';
 import Navbar from './Navbar';
 import Title from './Title';
@@ -9,7 +10,7 @@ import Footer from './Footer';
 function DashboardsPage(props) {
   return (
     <div className="l-dashboards">
-      <Header small>
+      <Header type="small">
         <Navbar currentPage={props.currentPage} />
         <Title inverse center borderType={1} type="page"> Dashboards </Title>
       </Header>
@@ -17,11 +18,11 @@ function DashboardsPage(props) {
       <div className="wrapper">
         <div className="cards">
           <Card borderType={1}>
-            <a href="#">
+            <Link to={"dashboards/framer-assesses-crops-impact"}>
               <Title type="content">
                 Framer assesses possible impacts of climate change on his crops (grapes)
               </Title>
-            </a>
+            </Link>
             <p className="content">
               Farmer X would need to understand how to best prepare for any
               future changes in climate that may impact his grapes. Based on key

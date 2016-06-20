@@ -3,7 +3,7 @@ import React from 'react';
 function Header(props) {
   const classes = ['c-header'];
 
-  if (props.small) classes.push('-small');
+  if (props.type) classes.push(`-${props.type}`);
 
   return (
     <div className={classes.join(' ')}>
@@ -18,13 +18,14 @@ function Header(props) {
 
 Header.propTypes = {
   /**
-   * Define the height of the banner
+   * Define the type of Header
    * Accepted values:
-   * 	- true:  small size
-   * 	- false: large size
-   * Default: false
+   * 	- "small": short header
+   * 	- "normal": common header size
+   * 	- "large": large header
+   * Default: "normal"
    */
-  small: React.PropTypes.bool,
+  type: React.PropTypes.string,
   /**
    * Define the content of the header
    * Required
