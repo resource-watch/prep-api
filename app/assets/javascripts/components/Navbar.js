@@ -36,10 +36,10 @@ class Navbar extends React.Component {
                 <li className={['link', this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>
                   <Link to="/data">Data</Link>
                 </li>
-                <li className={['link', this.props.currentPage === 'dashboards' ? '-active' : ''].join(' ')}>
+                <li className={['link', /^dashboards/.test(this.props.currentPage) ? '-active' : ''].join(' ')}>
                   <Link to="/dashboards">Dashboards</Link>
                 </li>
-                <li className={['link', this.props.currentPage === 'insights' ? '-active' : ''].join(' ')}>
+                <li className={['link', /^insights/.test(this.props.currentPage) ? '-active' : ''].join(' ')}>
                   <Link to="/insights">Insights</Link>
                 </li>
                 <li className="link separator"></li>
