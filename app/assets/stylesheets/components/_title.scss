@@ -23,7 +23,15 @@
     > h1, h2, h3 {
       font-family: $font-family-1;
       font-weight: $font-weight-light;
-      font-size: $font-size-huge;
+      font-size: $font-size-big;
+
+      @media #{$mq-mobile-large} {
+        font-size: $font-size-x-big;
+      }
+
+      @media #{$mq-tablet} {
+        font-size: $font-size-huge;
+      }
     }
   }
 

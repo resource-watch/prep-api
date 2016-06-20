@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class Navbar extends React.Component {
   constructor() {
@@ -11,7 +12,8 @@ class Navbar extends React.Component {
   render() {
     const classNames = [
       'c-navbar',
-      this.props.small ? '-small' : '',
+      this.state.open ? '-open' : '',
+      this.props.dark ? '-dark' : '',
       this.props.dark ? '-dark' : '',
     ];
 
@@ -19,26 +21,26 @@ class Navbar extends React.Component {
       <div className={classNames.join(' ')}>
         <div className="wrapper">
           <div className="content">
-            <a className="logo" href="/">
-              <img src={gon.logo} alt="Preparedness for Resilience" />
-            </a>
+            <Link to={"/"} className="logo">
+              <img src={gon.assets.logo} alt="Preparedness for Resilience" />
+            </Link>
             <button
               type="button"
-              className={['navbar-toggle', this.state.open ? '-open' : ''].join(' ')}
+              className="navbar-toggle"
               onClick={() => this.setState({ open: !this.state.open })}
             >
               <span></span>
             </button>
-            <nav className={['navbar', this.state.open ? '-open' : ''].join(' ')} >
+            <nav className="navbar">
               <ul className="links">
                 <li className={['link', this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>
-                  <a href="#">Data</a>
+                  <Link to={"data"}>Data</Link>
                 </li>
                 <li className={['link', this.props.currentPage === 'dashboards' ? '-active' : ''].join(' ')}>
-                  <a href="<%= Rails.application.routes.url_helpers.dashboards_path %>">Dashboards</a>
+                  <Link to={"dashboards"}>Dashboards</Link>
                 </li>
                 <li className={['link', this.props.currentPage === 'insights' ? '-active' : ''].join(' ')}>
-                  <a href="#">Insights</a>
+                  <Link to={"insights"}>Insights</Link>
                 </li>
                 <li className="link separator"></li>
                 <li className="link -secondary">

@@ -1,11 +1,18 @@
 .c-header {
-  min-height: 775px;
   background: image-url('bg-dashboards-image@2x.png');
   background-size: cover;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
+  min-height: 590px;
+  @media #{$mq-tablet} {
+    min-height: 775px;
+  }
   &.-small {
-    min-height: 415px;
+    min-height: 320px;
+    @media #{$mq-tablet} {
+      min-height: 415px;
+    }
   }
 }

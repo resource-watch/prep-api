@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
 
   def index
-    gon.logo = get_asset_path('preplogo@2x.png')
+    gon.assets = {
+      :logo => get_asset_path('preplogo@2x.png')
+    }
   end
 
   private
