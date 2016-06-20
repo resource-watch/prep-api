@@ -1,4 +1,6 @@
-class NavbarComponent extends React.Component {
+import React from 'react';
+
+class Navbar extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -18,7 +20,7 @@ class NavbarComponent extends React.Component {
         <div className="wrapper">
           <div className="content">
             <a className="logo" href="/">
-              <img src="<%= asset_path('preplogo@2x.png') %>" alt="Preparedness for Resilience" />
+              <img src={gon.logo} alt="Preparedness for Resilience" />
             </a>
             <button
               type="button"
@@ -54,7 +56,7 @@ class NavbarComponent extends React.Component {
   }
 }
 
-NavbarComponent.propTypes = {
+Navbar.propTypes = {
   /**
    * Define the size of the header
    * Accepted values:
@@ -77,3 +79,5 @@ NavbarComponent.propTypes = {
    */
   currentPage: React.PropTypes.string,
 };
+
+export default Navbar;

@@ -9,6 +9,7 @@ gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 gem 'puma', '~> 3.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.1.1'
+gem 'gon', '~> 6.0.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
