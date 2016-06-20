@@ -22,5 +22,10 @@ HeaderComponent.propTypes = {
    * 	- false: large size
    * Default: false
    */
-  small: React.PropTypes.bool
+  small: React.PropTypes.bool,
+  /**
+   * Define the content of the header
+   * Required
+   */
+  children: React.PropTypes.array.isRequired
 };

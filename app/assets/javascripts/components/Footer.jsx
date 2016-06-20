@@ -1,4 +1,4 @@
-function FooterComponent () {
+function FooterComponent() {
   return (
     <div className="c-footer">
       <div className="wrapper">
