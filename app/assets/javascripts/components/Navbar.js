@@ -34,13 +34,13 @@ class Navbar extends React.Component {
             <nav className="navbar">
               <ul className="links">
                 <li className={['link', this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>
-                  <Link to={"data"}>Data</Link>
+                  <Link to="/data">Data</Link>
                 </li>
                 <li className={['link', this.props.currentPage === 'dashboards' ? '-active' : ''].join(' ')}>
-                  <Link to={"dashboards"}>Dashboards</Link>
+                  <Link to="/dashboards">Dashboards</Link>
                 </li>
                 <li className={['link', this.props.currentPage === 'insights' ? '-active' : ''].join(' ')}>
-                  <Link to={"insights"}>Insights</Link>
+                  <Link to="/insights">Insights</Link>
                 </li>
                 <li className="link separator"></li>
                 <li className="link -secondary">
