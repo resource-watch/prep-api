@@ -2,11 +2,140 @@ import React from 'react';
 import Footer from '../containers/Footer';
 import Title from '../containers/Title';
 import Button from '../containers/Button';
+import Card from '../containers/Card';
 
 export default function () {
   return (
     <div className="l-dashboards">
       Welcome to the dashboards!
+
+      <div className="wrapper">
+        <div className="cards">
+          <Card borderType={1}>
+            <a href="#">
+              <Title type="content">
+                Framer assesses possible impacts of climate change on his crops (grapes)
+              </Title>
+            </a>
+            <p className="content">
+              Farmer X would need to understand how to best prepare for any
+              future changes in climate that may impact his grapes. Based on key
+              thresholds for climate variables of interest (temperature and
+                precipitation), Farmer X evaluate the suitability to grow
+                different types of grapes...
+            </p>
+            <a href="#">
+              <img
+                src="/logos/university-washington@2x.png"
+                className="logo -washington"
+                alt="University of Washington"
+              />
+            </a>
+          </Card>
+          <Card borderType={1}>
+            <Title type="content">
+              City Planner assesses possible impacts of Climate Change on Puget
+              Sound’s built environment
+            </Title>
+            <p className="content">
+              Most climate change effects are likely to increase the potential
+              for damage to infrastructure and service disruptions (unplanned
+              transportation closures, delays, or detours) in the Puget Sound
+              region, although some risks may decrease.
+            </p>
+            <a href="#">
+              <img
+                src="/logos/university-washington@2x.png"
+                className="logo -washington"
+                alt="University of Washington"
+              />
+            </a>
+          </Card>
+          <Card borderType={1}>
+            <Title type="content">
+              City Planner assesses possible impacts of Climate Change on Puget
+              Sound’s built environment
+            </Title>
+            <p className="content">
+              Most climate change effects are likely to increase the potential
+              for damage to infrastructure and service disruptions (unplanned
+              transportation closures, delays, or detours) in the Puget Sound
+              region, although some risks may decrease.
+            </p>
+            <a href="#">
+              <img
+                src="/logos/nasa@2x.png"
+                className="logo -nasa"
+                alt="NASA"
+              />
+            </a>
+          </Card>
+          <Card borderType={1}>
+            <a href="#">
+              <Title type="content">
+                Framer assesses possible impacts of climate change on his crops (grapes)
+              </Title>
+            </a>
+            <p className="content">
+              Farmer X would need to understand how to best prepare for any
+              future changes in climate that may impact his grapes. Based on key
+              thresholds for climate variables of interest (temperature and
+                precipitation), Farmer X evaluate the suitability to grow
+                different types of grapes...
+            </p>
+            <a href="#">
+              <img
+                src="/logos/wri@2x.png"
+                className="logo -wri"
+                alt="World Resources Institute"
+              />
+            </a>
+          </Card>
+          <Card borderType={1}>
+            <a href="#">
+              <Title type="content">
+                Framer assesses possible impacts of climate change on his crops (grapes)
+              </Title>
+            </a>
+            <p className="content">
+              Farmer X would need to understand how to best prepare for any
+              future changes in climate that may impact his grapes. Based on key
+              thresholds for climate variables of interest (temperature and
+                precipitation), Farmer X evaluate the suitability to grow
+                different types of grapes...
+            </p>
+            <a href="#">
+              <img
+                src="/logos/esri@2x.png"
+                className="logo -esri"
+                alt="esri"
+              />
+            </a>
+          </Card>
+          <Card borderType={1}>
+            <Title type="content">
+              City Planner assesses possible impacts of Climate Change on Puget
+              Sound’s built environment
+            </Title>
+            <p className="content">
+              Most climate change effects are likely to increase the potential
+              for damage to infrastructure and service disruptions (unplanned
+              transportation closures, delays, or detours) in the Puget Sound
+              region, although some risks may decrease.
+            </p>
+            <a href="#">
+              <img
+                src="/logos/nasa@2x.png"
+                className="logo -nasa"
+                alt="NASA"
+              />
+            </a>
+          </Card>
+          <div className="button-container">
+            <Button borderType={2}>Show more results</Button>
+          </div>
+        </div>
+      </div>
 
       <div className="other-links">
         <div className="wrapper">

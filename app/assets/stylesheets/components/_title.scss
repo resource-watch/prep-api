@@ -43,7 +43,13 @@
   }
 
   &.-center { text-align: center; }
-  &.-inverse > h1, h2, h3, h4, h4 > a { color: $color-5; }
+  &.-inverse {
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h4 > a { color: $color-5; }
+  }
 
   &.-border {
     > h1, h2, h3 {

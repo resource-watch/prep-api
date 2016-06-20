@@ -1,5 +1,45 @@
 .l-dashboards {
 
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    padding-top: 60px;
+
+    @media #{$mq-tablet} {
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    > div {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+
+      @media #{$mq-tablet} {
+        flex-basis: calc(50% - 10px);
+      }
+    }
+
+    .content {
+      margin-top: 25px;
+      line-height: 28px;
+    }
+
+    .logo {
+      margin-top: 10px;
+      &.-washington { max-width: 219px; }
+      &.-nasa       { max-width:  73px; }
+      &.-wri        { max-width: 142px; }
+      &.-esri       { max-width: 108px; }
+    }
+
+    .button-container {
+      flex-basis: 100%;
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+
   > .other-links {
     padding: 40px 0;
     background-color: $color-9;
