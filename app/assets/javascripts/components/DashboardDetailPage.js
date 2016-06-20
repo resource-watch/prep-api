@@ -1,11 +1,19 @@
 import React from 'react';
 import Header from './Header';
 import Navbar from './Navbar';
+import DashboardIntro from './DashboardIntro';
 import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
 
 function DashboardDetailPage(props) {
+  const detailData = {
+    description: 'This dashboard provides a summary of the mechanisms by which climate could affect change in Washington State. We also provide access to recent and ongoing efforts by communities, agencies, tribes, and organizations that are working to prepare for the effects of climate change.',
+    slug: 'framer-assesses-crops-impact',
+    author: { name: 'Joe Casola', email: 'jcasola@uw.edu' },
+    companyLogoUrl: gon.assets.lightUniversityWashingtonLogo,
+  };
+
   return (
     <div className="l-dashboards">
       <Header>
@@ -15,7 +23,8 @@ function DashboardDetailPage(props) {
         </Title>
       </Header>
       <div className="wrapper">
-        <Title center>Hello World</Title>
+        <DashboardIntro data={detailData} />
+        <Title center>I'm in the {props.dashboardSlug} dashboard</Title>
       </div>
 
       <div className="other-dashboards">
