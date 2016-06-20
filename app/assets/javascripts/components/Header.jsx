@@ -1,0 +1,26 @@
+function HeaderComponent(props) {
+  const classes = ['c-header'];
+
+  if (props.small) classes.push('-small');
+
+  return (
+    <div className={classes.join(' ')}>
+      <div className="wrapper">
+        <div className="content">
+          {props.children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+HeaderComponent.propTypes = {
+  /**
+   * Define the height of the banner
+   * Accepted values:
+   * 	- true:  small size
+   * 	- false: large size
+   * Default: false
+   */
+  small: React.PropTypes.bool
+};

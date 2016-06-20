@@ -1,29 +1,29 @@
 import React from 'react';
-import Footer from '../containers/Footer';
-import Title from '../containers/Title';
-import Button from '../containers/Button';
 
 export default function (props) {
   return (
     <div className="l-dashboards">
-      <HeaderComponent currentPage={props.currentPage} dark/>
+      <HeaderComponent small>
+        <NavbarComponent currentPage={props.currentPage} />
+        <TitleComponent inverse center borderType={1} type={'page'}>Dashboards</TitleComponent>
+      </HeaderComponent>
       Welcome to the dashboards!
 
       <div className="other-links">
         <div className="wrapper">
           <div className="cards-container">
             <div className="card -map">
-              <Title inverse center>Data on the map</Title>
+              <TitleComponent inverse center>Data on the map</TitleComponent>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               <a href="">
-                <Button color={1}>Explore the map</Button>
+                <ButtonComponent color={1}>Explore the map</ButtonComponent>
               </a>
             </div>
             <div className="card -image">
-              <Title inverse center>Insights</Title>
+              <TitleComponent inverse center>Insights</TitleComponent>
               <p>Integer id placerat ligula, eget consequat sapien. Duis nec neque scelerisque</p>
               <a href="">
-                <Button color={1}>Explore the insights</Button>
+                <ButtonComponent color={1}>Explore the insights</ButtonComponent>
               </a>
             </div>
           </div>
@@ -34,22 +34,22 @@ export default function (props) {
         <div className="wrapper">
           <div className="content">
             <div>
-              <Title inverse center>Do you have relevant data about climate?</Title>
+              <TitleComponent inverse center>Do you have relevant data about climate?</TitleComponent>
               <a href="" className="button-container">
-                <Button inverse borderType={1}>Create your dashboard</Button>
+                <ButtonComponent inverse borderType={1}>Create your dashboard</ButtonComponent>
               </a>
             </div>
             <div>
-              <Title inverse center> Would you like to improve a dashboard?</Title>
+              <TitleComponent inverse center> Would you like to improve a dashboard?</TitleComponent>
               <a href="" className="button-container">
-                <Button inverse borderType={1}>Get in touch</Button>
+                <ButtonComponent inverse borderType={1}>Get in touch</ButtonComponent>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <Footer />
+      <FooterComponent />
     </div>
   );
 }

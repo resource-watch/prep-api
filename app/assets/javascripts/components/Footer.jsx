@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function () {
+function FooterComponent () {
   return (
     <div className="c-footer">
       <div className="wrapper">

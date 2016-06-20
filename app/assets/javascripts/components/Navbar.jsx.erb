@@ -1,4 +1,4 @@
-class HeaderComponent extends React.Component {
+class NavbarComponent extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -8,7 +8,7 @@ class HeaderComponent extends React.Component {
 
   render() {
     const classNames = [
-      'c-header',
+      'c-navbar',
       this.props.small ? '-small' : '',
       this.props.dark ? '-dark' : '',
     ];
@@ -27,15 +27,15 @@ class HeaderComponent extends React.Component {
             >
               <span></span>
             </button>
-            <nav className={["navbar", this.state.open ? '-open' : ''].join(' ')} >
+            <nav className={['navbar', this.state.open ? '-open' : ''].join(' ')} >
               <ul className="links">
-                <li className={["link", this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>
+                <li className={['link', this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>
                   <a href="#">Data</a>
                 </li>
-                <li className={["link", this.props.currentPage === 'dashboards' ? '-active' : ''].join(' ')}>
+                <li className={['link', this.props.currentPage === 'dashboards' ? '-active' : ''].join(' ')}>
                   <a href="<%= Rails.application.routes.url_helpers.dashboards_path %>">Dashboards</a>
                 </li>
-                <li className={["link", this.props.currentPage === 'insights' ? '-active' : ''].join(' ')}>
+                <li className={['link', this.props.currentPage === 'insights' ? '-active' : ''].join(' ')}>
                   <a href="#">Insights</a>
                 </li>
                 <li className="link separator"></li>
@@ -54,7 +54,7 @@ class HeaderComponent extends React.Component {
   }
 }
 
-HeaderComponent.propTypes = {
+NavbarComponent.propTypes = {
   /**
    * Define the size of the header
    * Accepted values:

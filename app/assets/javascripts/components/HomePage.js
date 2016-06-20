@@ -1,12 +1,14 @@
 import React from 'react';
-import Footer from '../containers/Footer';
 
 export default function (props) {
   return (
     <div>
-      <HeaderComponent currentPage={props.currentPage} dark/>
+      <HeaderComponent>
+        <NavbarComponent currentPage={props.currentPage} />
+        <TitleComponent inverse borderType={1} type={'mega'}>Enabling collective action to manage climate risks</TitleComponent>
+      </HeaderComponent>
         Welcome to the homepage!
-      <Footer />
+      <FooterComponent />
     </div>
   );
 }

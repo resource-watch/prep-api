@@ -1,6 +1,4 @@
-import React from 'react';
-
-function Button(props) {
+function ButtonComponent(props) {
   const classes = ['c-button'];
 
   if (props.color) classes.push(`-color-${props.color}`);
@@ -15,7 +13,7 @@ function Button(props) {
   );
 }
 
-Button.propTypes = {
+ButtonComponent.propTypes = {
   /**
    * Define the color of the button's content
    * Accepted values:
@@ -57,5 +55,3 @@ Button.propTypes = {
    */
   children: React.PropTypes.string.isRequired
 };
-
-export default Button;
