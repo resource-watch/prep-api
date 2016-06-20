@@ -27,10 +27,6 @@
 
     .logo {
       margin-top: 10px;
-      &.-washington { max-width: 219px; }
-      &.-nasa       { max-width:  73px; }
-      &.-wri        { max-width: 142px; }
-      &.-esri       { max-width: 108px; }
     }
 
     .button-container {
@@ -125,6 +121,38 @@
             margin-top: 40px;
           }
         }
+      }
+    }
+  }
+
+  > .other-dashboards {
+    padding: 30px 0 40px 0;
+    background-color: $color-8;
+
+    @media #{$mq-tablet} {
+      padding: 50px 0 70px 0;
+    }
+
+    .other-cards {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin: 25px 0 0 0;
+
+      > div {
+        flex-basis: 100%;
+        margin-bottom: 50px;
+        &:last-of-type { margin-bottom: 0; }
+
+        @media #{$mq-tablet} {
+          flex-basis: calc(50% - 20px);
+          margin-bottom: 0;
+        }
+      }
+
+      .content {
+        line-height: 28px;
       }
     }
   }

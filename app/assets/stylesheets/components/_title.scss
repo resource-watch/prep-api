@@ -76,22 +76,28 @@
       }
     }
 
-    &.-border-2 > h1, h2, h3 {
-      &:after {
-        color: $color-3;
-        background-color: $color-3;
+    &.-border-2 {
+      > h1, h2, h3 {
+        &:after {
+          color: $color-3;
+          background-color: $color-3;
+        }
       }
     }
 
-    &.-border-3 > h1, h2, h3 {
-      &:after {
-        color: $color-4;
-        background-color: $color-4;
+    &.-border-3 {
+      > h1, h2, h3 {
+        &:after {
+          color: $color-4;
+          background-color: $color-4;
+        }
       }
     }
 
-    &.-center > h1, h2, h3 {
-      &:after { left: calc(50% - 60px); }
+    &.-center {
+      > h1, h2, h3 {
+        &:after { left: calc(50% - 60px); }
+      }
     }
 
     &.-subtitle {
@@ -101,12 +107,14 @@
       }
     }
 
-    &.-mega > h1, h2, h3 {
-      &:after {
-        content: '|';
-        display: inline;
-        position: static;
-        background-color: transparent;
+    &.-mega {
+      > h1, h2, h3 {
+        &:after {
+          content: '|';
+          display: inline;
+          position: static;
+          background-color: transparent;
+        }
       }
     }
   }

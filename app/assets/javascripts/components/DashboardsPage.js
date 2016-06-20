@@ -12,7 +12,7 @@ function DashboardsPage(props) {
     <div className="l-dashboards">
       <Header type="small">
         <Navbar currentPage={props.currentPage} />
-        <Title inverse center borderType={1} type="page"> Dashboards </Title>
+        <Title inverse center borderType={1} type="page">Dashboards</Title>
       </Header>
 
       <div className="wrapper">
@@ -20,7 +20,8 @@ function DashboardsPage(props) {
           <Card borderType={1}>
             <Link to={"dashboards/framer-assesses-crops-impact"}>
               <Title type="content">
-                Framer assesses possible impacts of climate change on his crops (grapes)
+                Framer assesses possible impacts of climate change on his crops
+                (grapes)
               </Title>
             </Link>
             <p className="content">
@@ -32,8 +33,9 @@ function DashboardsPage(props) {
             </p>
             <a href="#">
               <img
-                src="/logos/university-washington@2x.png"
-                className="logo -washington"
+                src={gon.assets.universityWashingtonLogo}
+                width="219"
+                className="logo"
                 alt="University of Washington"
               />
             </a>
@@ -51,8 +53,9 @@ function DashboardsPage(props) {
             </p>
             <a href="#">
               <img
-                src="/logos/university-washington@2x.png"
-                className="logo -washington"
+                src={gon.assets.universityWashingtonLogo}
+                width="219"
+                className="logo"
                 alt="University of Washington"
               />
             </a>
@@ -70,8 +73,9 @@ function DashboardsPage(props) {
             </p>
             <a href="#">
               <img
-                src="/logos/nasa@2x.png"
-                className="logo -nasa"
+                src={gon.assets.nasaLogo}
+                width="73"
+                className="logo"
                 alt="NASA"
               />
             </a>
@@ -79,7 +83,8 @@ function DashboardsPage(props) {
           <Card borderType={1}>
             <a href="#">
               <Title type="content">
-                Framer assesses possible impacts of climate change on his crops (grapes)
+                Framer assesses possible impacts of climate change on his crops
+                (grapes)
               </Title>
             </a>
             <p className="content">
@@ -91,8 +96,9 @@ function DashboardsPage(props) {
             </p>
             <a href="#">
               <img
-                src="/logos/wri@2x.png"
-                className="logo -wri"
+                src={gon.assets.wriLogo}
+                width="142"
+                className="logo"
                 alt="World Resources Institute"
               />
             </a>
@@ -100,7 +106,8 @@ function DashboardsPage(props) {
           <Card borderType={1}>
             <a href="#">
               <Title type="content">
-                Framer assesses possible impacts of climate change on his crops (grapes)
+                Framer assesses possible impacts of climate change on his crops
+                (grapes)
               </Title>
             </a>
             <p className="content">
@@ -112,8 +119,9 @@ function DashboardsPage(props) {
             </p>
             <a href="#">
               <img
-                src="/logos/esri@2x.png"
-                className="logo -esri"
+                src={gon.assets.esriLogo}
+                width="108"
+                className="logo"
                 alt="esri"
               />
             </a>
@@ -131,8 +139,9 @@ function DashboardsPage(props) {
             </p>
             <a href="#">
               <img
-                src="/logos/nasa@2x.png"
-                className="logo -nasa"
+                src={gon.assets.nasaLogo}
+                width="73"
+                className="logo"
                 alt="NASA"
               />
             </a>
@@ -155,7 +164,10 @@ function DashboardsPage(props) {
             </div>
             <div className="card -image">
               <Title inverse center>Insights</Title>
-              <p>Integer id placerat ligula, eget consequat sapien. Duis nec neque scelerisque</p>
+              <p>
+                Integer id placerat ligula, eget consequat sapien. Duis nec
+                neque scelerisque
+              </p>
               <a href="">
                 <Button color={1}>Explore the insights</Button>
               </a>
@@ -166,15 +178,19 @@ function DashboardsPage(props) {
 
       <div className="pre-header">
         <div className="wrapper">
-          <div className="content">
+          <div className="content -centered">
             <div>
-              <Title inverse center>Do you have relevant data about climate?</Title>
+              <Title inverse center>
+                Do you have relevant data about climate?
+              </Title>
               <a href="" className="button-container">
                 <Button inverse borderType={1}>Create your dashboard</Button>
               </a>
             </div>
             <div>
-              <Title inverse center> Would you like to improve a dashboard?</Title>
+              <Title inverse center>
+                Would you like to improve a dashboard?
+              </Title>
               <a href="" className="button-container">
                 <Button inverse borderType={1}>Get in touch</Button>
               </a>

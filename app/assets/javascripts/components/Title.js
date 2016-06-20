@@ -19,7 +19,11 @@ function Title(props) {
   if (props.subtitle) {
     classes.push('-subtitle');
     if (props.subtitle.href) {
-      subtitle = <h4><a href={props.subtitle.href}>{props.subtitle.title}</a></h4>;
+      subtitle = (
+        <h4>
+          <a href={props.subtitle.href}>{props.subtitle.title}</a>
+        </h4>
+      );
     } else {
       subtitle = <h4>{props.subtitle.title}</h4>;
     }
