@@ -1,4 +1,6 @@
-function HeaderComponent(props) {
+import React from 'react';
+
+function Header(props) {
   const classes = ['c-header'];
 
   if (props.small) classes.push('-small');
@@ -14,7 +16,7 @@ function HeaderComponent(props) {
   );
 }
 
-HeaderComponent.propTypes = {
+Header.propTypes = {
   /**
    * Define the height of the banner
    * Accepted values:
@@ -29,3 +31,5 @@ HeaderComponent.propTypes = {
    */
   children: React.PropTypes.array.isRequired
 };
+
+export default Header;

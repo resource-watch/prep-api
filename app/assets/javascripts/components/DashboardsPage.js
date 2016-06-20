@@ -1,20 +1,26 @@
 import React from 'react';
+import Header from './Header';
+import Navbar from './Navbar';
+import Title from './Title';
+import Card from './Card';
+import Button from './Button';
+import Footer from './Footer';
 
-export default function (props) {
+function DashboardsPage(props) {
   return (
     <div className="l-dashboards">
-      <HeaderComponent small>
-        <NavbarComponent currentPage={props.currentPage} />
-        <TitleComponent inverse center borderType={1} type="page"> Dashboards </TitleComponent>
-      </HeaderComponent>
+      <Header small>
+        <Navbar currentPage={props.currentPage} />
+        <Title inverse center borderType={1} type="page"> Dashboards </Title>
+      </Header>
 
       <div className="wrapper">
         <div className="cards">
-          <CardComponent borderType={1}>
+          <Card borderType={1}>
             <a href="#">
-              <TitleComponent type="content">
+              <Title type="content">
                 Framer assesses possible impacts of climate change on his crops (grapes)
-              </TitleComponent>
+              </Title>
             </a>
             <p className="content">
               Farmer X would need to understand how to best prepare for any
@@ -30,12 +36,12 @@ export default function (props) {
                 alt="University of Washington"
               />
             </a>
-          </CardComponent>
-          <CardComponent borderType={1}>
-            <TitleComponent type="content">
+          </Card>
+          <Card borderType={1}>
+            <Title type="content">
               City Planner assesses possible impacts of Climate Change on Puget
               Sound’s built environment
-            </TitleComponent>
+            </Title>
             <p className="content">
               Most climate change effects are likely to increase the potential
               for damage to infrastructure and service disruptions (unplanned
@@ -49,12 +55,12 @@ export default function (props) {
                 alt="University of Washington"
               />
             </a>
-          </CardComponent>
-          <CardComponent borderType={1}>
-            <TitleComponent type="content">
+          </Card>
+          <Card borderType={1}>
+            <Title type="content">
               City Planner assesses possible impacts of Climate Change on Puget
               Sound’s built environment
-            </TitleComponent>
+            </Title>
             <p className="content">
               Most climate change effects are likely to increase the potential
               for damage to infrastructure and service disruptions (unplanned
@@ -68,12 +74,12 @@ export default function (props) {
                 alt="NASA"
               />
             </a>
-          </CardComponent>
-          <CardComponent borderType={1}>
+          </Card>
+          <Card borderType={1}>
             <a href="#">
-              <TitleComponent type="content">
+              <Title type="content">
                 Framer assesses possible impacts of climate change on his crops (grapes)
-              </TitleComponent>
+              </Title>
             </a>
             <p className="content">
               Farmer X would need to understand how to best prepare for any
@@ -89,12 +95,12 @@ export default function (props) {
                 alt="World Resources Institute"
               />
             </a>
-          </CardComponent>
-          <CardComponent borderType={1}>
+          </Card>
+          <Card borderType={1}>
             <a href="#">
-              <TitleComponent type="content">
+              <Title type="content">
                 Framer assesses possible impacts of climate change on his crops (grapes)
-              </TitleComponent>
+              </Title>
             </a>
             <p className="content">
               Farmer X would need to understand how to best prepare for any
@@ -110,12 +116,12 @@ export default function (props) {
                 alt="esri"
               />
             </a>
-          </CardComponent>
-          <CardComponent borderType={1}>
-            <TitleComponent type="content">
+          </Card>
+          <Card borderType={1}>
+            <Title type="content">
               City Planner assesses possible impacts of Climate Change on Puget
               Sound’s built environment
-            </TitleComponent>
+            </Title>
             <p className="content">
               Most climate change effects are likely to increase the potential
               for damage to infrastructure and service disruptions (unplanned
@@ -129,9 +135,9 @@ export default function (props) {
                 alt="NASA"
               />
             </a>
-          </CardComponent>
+          </Card>
           <div className="button-container">
-            <ButtonComponent borderType={2}>Show more results</ButtonComponent>
+            <Button borderType={2}>Show more results</Button>
           </div>
         </div>
       </div>
@@ -140,17 +146,17 @@ export default function (props) {
         <div className="wrapper">
           <div className="cards-container">
             <div className="card -map">
-              <TitleComponent inverse center>Data on the map</TitleComponent>
+              <Title inverse center>Data on the map</Title>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               <a href="">
-                <ButtonComponent color={1}>Explore the map</ButtonComponent>
+                <Button color={1}>Explore the map</Button>
               </a>
             </div>
             <div className="card -image">
-              <TitleComponent inverse center>Insights</TitleComponent>
+              <Title inverse center>Insights</Title>
               <p>Integer id placerat ligula, eget consequat sapien. Duis nec neque scelerisque</p>
               <a href="">
-                <ButtonComponent color={1}>Explore the insights</ButtonComponent>
+                <Button color={1}>Explore the insights</Button>
               </a>
             </div>
           </div>
@@ -161,22 +167,31 @@ export default function (props) {
         <div className="wrapper">
           <div className="content">
             <div>
-              <TitleComponent inverse center>Do you have relevant data about climate?</TitleComponent>
+              <Title inverse center>Do you have relevant data about climate?</Title>
               <a href="" className="button-container">
-                <ButtonComponent inverse borderType={1}>Create your dashboard</ButtonComponent>
+                <Button inverse borderType={1}>Create your dashboard</Button>
               </a>
             </div>
             <div>
-              <TitleComponent inverse center> Would you like to improve a dashboard?</TitleComponent>
+              <Title inverse center> Would you like to improve a dashboard?</Title>
               <a href="" className="button-container">
-                <ButtonComponent inverse borderType={1}>Get in touch</ButtonComponent>
+                <Button inverse borderType={1}>Get in touch</Button>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <FooterComponent />
+      <Footer />
     </div>
   );
 }
+
+DashboardsPage.propTypes = {
+  /**
+   * Define the route path (from the router)
+   */
+  currentPage: React.PropTypes.string,
+};
+
+export default DashboardsPage;

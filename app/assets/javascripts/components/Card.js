@@ -1,4 +1,6 @@
-function CardComponent(props) {
+import React from 'react';
+
+function Card(props) {
   const classes = ['c-card'];
 
   if (props.inverse) classes.push('-inverse');
@@ -11,7 +13,7 @@ function CardComponent(props) {
   );
 }
 
-CardComponent.propTypes = {
+Card.propTypes = {
   /**
    * Define the color of the content
    * Accepted values:
@@ -34,3 +36,5 @@ CardComponent.propTypes = {
    */
   children: React.PropTypes.array.isRequired
 };
+
+export default Card;

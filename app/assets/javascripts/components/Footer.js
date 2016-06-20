@@ -1,4 +1,4 @@
-function FooterComponent() {
+export default function () {
   return (
     <div className="c-footer">
       <div className="wrapper">

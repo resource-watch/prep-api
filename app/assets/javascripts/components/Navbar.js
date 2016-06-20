@@ -1,4 +1,6 @@
-class NavbarComponent extends React.Component {
+import React from 'react';
+
+class Navbar extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -54,7 +56,7 @@ class NavbarComponent extends React.Component {
   }
 }
 
-NavbarComponent.propTypes = {
+Navbar.propTypes = {
   /**
    * Define the size of the header
    * Accepted values:
@@ -77,3 +79,5 @@ NavbarComponent.propTypes = {
    */
   currentPage: React.PropTypes.string,
 };
+
+export default Navbar;

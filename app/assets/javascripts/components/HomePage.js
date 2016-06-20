@@ -1,14 +1,29 @@
 import React from 'react';
+import Header from './Header';
+import Navbar from './Navbar';
+import Title from './Title';
+import Footer from './Footer';
 
-export default function (props) {
+function HomePage(props) {
   return (
     <div>
-      <HeaderComponent>
-        <NavbarComponent currentPage={props.currentPage} />
-        <TitleComponent inverse borderType={1} type={'mega'}>Enabling collective action to manage climate risks</TitleComponent>
-      </HeaderComponent>
+      <Header>
+        <Navbar currentPage={props.currentPage} />
+        <Title inverse borderType={1} type={'mega'}>
+          Enabling collective action to manage climate risks
+        </Title>
+      </Header>
         Welcome to the homepage!
-      <FooterComponent />
+      <Footer />
     </div>
   );
 }
+
+HomePage.propTypes = {
+  /**
+   * Define the route path (from the router)
+   */
+  currentPage: React.PropTypes.string,
+};
+
+export default HomePage;

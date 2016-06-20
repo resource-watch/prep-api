@@ -1,4 +1,6 @@
-function TitleComponent(props) {
+import React from 'react';
+
+function Title(props) {
   const classes = ['c-title'];
 
   if (props.type) classes.push(`-${props.type}`);
@@ -31,7 +33,7 @@ function TitleComponent(props) {
   );
 }
 
-TitleComponent.propTypes = {
+Title.propTypes = {
   /**
    * Define the type of Title
    * Accepted values:
@@ -80,3 +82,5 @@ TitleComponent.propTypes = {
    */
   children: React.PropTypes.string.isRequired
 };
+
+export default Title;
