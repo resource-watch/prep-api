@@ -50,13 +50,15 @@ function DashboardDetailPage(props) {
           dashboardSlug={props.dashboardSlug}
           currentPage={props.currentPage}
         />
-        <NavTab
-          activeTab={props.dashboardTab}
-          baseUrl={`/dashboards/${props.dashboardSlug}`}
-        />
+      </div>
 
+      <NavTab
+        activeTab={props.dashboardTab}
+        baseUrl={`/dashboards/${props.dashboardSlug}`}
+      />
+
+      <div className="wrapper">
         {content}
-
       </div>
 
       <div className="other-dashboards">

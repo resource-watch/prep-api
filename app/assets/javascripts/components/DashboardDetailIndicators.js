@@ -5,7 +5,7 @@ import Map from './Map';
 
 function DashboardDetailIndicators() {
   return (
-    <div className="l-indicators">
+    <div className="indicators">
       <Title center borderType={1}>
         Observed temperature Changes in Puget Sound
       </Title>
