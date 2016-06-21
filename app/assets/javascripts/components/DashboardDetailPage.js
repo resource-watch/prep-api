@@ -2,11 +2,11 @@ import React from 'react';
 import Header from './Header';
 import Navbar from './Navbar';
 import DashboardIntro from './DashboardIntro';
-import MapCard from './MapCard';
-import Map from './Map';
+import DashboardDetailIndicators from './DashboardDetailIndicators';
 import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
+import NavTab from './NavTab';
 
 function DashboardDetailPage(props) {
   const detailData = {
@@ -20,6 +20,21 @@ function DashboardDetailPage(props) {
     companyLogoUrl: gon.assets.lightUniversityWashingtonLogo,
   };
 
+  let content;
+  switch (props.dashboardTab) {
+    case 'insights':
+      content = 'Insights tab';
+      break;
+
+    case 'tools':
+      content = 'Tools tab';
+      break;
+
+    default:
+      content = <DashboardDetailIndicators />;
+      break;
+  }
+
   return (
     <div className="l-dashboards">
       <Header>
@@ -30,13 +45,18 @@ function DashboardDetailPage(props) {
       </Header>
 
       <div className="wrapper">
-        <DashboardIntro data={detailData} />
-      </div>
+        <DashboardIntro
+          data={detailData}
+          dashboardSlug={props.dashboardSlug}
+          currentPage={props.currentPage}
+        />
+        <NavTab
+          activeTab={props.dashboardTab}
+          baseUrl={`/dashboards/${props.dashboardSlug}`}
+        />
 
-      <div className="wrapper">
-        <MapCard title="Skagit River Near Mount Vernon">
-          <Map />
-        </MapCard>
+        {content}
+
       </div>
 
       <div className="other-dashboards">
@@ -101,7 +121,12 @@ DashboardDetailPage.propTypes = {
   /**
    * Define the slug of the dashboard
    */
-  dashboardSlug: React.PropTypes.string.isRequired
+  dashboardSlug: React.PropTypes.string.isRequired,
+  /**
+   * Define the selected tab of the dashboard
+   * Default: "indicators"
+   */
+  dashboardTab: React.PropTypes.string.isRequired
 };
 
 export default DashboardDetailPage;
