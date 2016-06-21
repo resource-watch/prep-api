@@ -43,20 +43,20 @@ function DashboardDetailPage(props) {
         </Title>
       </Header>
       <div className="wrapper">
-        <DashboardIntro data={detailData} />
+        <DashboardIntro
+          data={detailData}
+          dashboardSlug={props.dashboardSlug}
+          currentPage={props.currentPage}
+        />
+
+        <NavTab
+          activeTab={props.dashboardTab}
+          baseUrl={`/dashboards/${props.dashboardSlug}`}
+        />
+
+        {content}
+
       </div>
-
-      <NavTab
-        activeTab={props.dashboardTab}
-        baseUrl={`/dashboards/${props.dashboardSlug}`}
-      />
-
-      {content}
-
-      <div className="wrapper">
-        <Title center>I'm in the {props.dashboardSlug} dashboard</Title>
-      </div>
-
       <div className="other-dashboards">
         <div className="wrapper">
           <Title inverse borderType={1}>Other dashboards</Title>

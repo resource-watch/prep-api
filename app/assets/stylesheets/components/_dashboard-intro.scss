@@ -51,15 +51,18 @@
       @media #{$mq-tablet} {
         padding: 4rem;
       }
-      > p {
-        display: block;
+      > .container {
         max-width: 700px;
         margin:0 auto;
-        color: $color-1;
-        font-family: $font-family-1;
-        font-size: $font-size-normal;
-      	line-height: 1.6;
-      	letter-spacing: -0.1px;
+
+        > p {
+          display: block;
+          color: $color-1;
+          font-family: $font-family-1;
+          font-size: $font-size-normal;
+          line-height: 1.6;
+          letter-spacing: -0.1px;
+        }
       }
 
       &:after,

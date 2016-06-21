@@ -1,4 +1,5 @@
 import React from 'react';
+import ToolbarActions from '../containers/ToolbarActions';
 
 function DashboardIntro(props) {
   const classes = ['c-dashboard-intro'];
@@ -16,7 +17,13 @@ function DashboardIntro(props) {
           </div>
         </div>
         <div className="content">
-          <p> {props.data.description} </p>
+          <div className="container">
+            <ToolbarActions
+              dashboardSlug={props.dashboardSlug}
+              currentSection={props.currentPage.split('/')[0]}
+            />
+            <p> {props.data.description} </p>
+          </div>
         </div>
       </div>
     </div>
@@ -32,7 +39,15 @@ DashboardIntro.propTypes = {
    * - companyLogoUrl: string
    * Required
    */
-  data: React.PropTypes.object.isRequired
+  data: React.PropTypes.object.isRequired,
+  /**
+   * Define the route path (from the router)
+   */
+  currentPage: React.PropTypes.string,
+  /**
+   * Define the slug of the dashboard detail
+   */
+  dashboardSlug: React.PropTypes.string,
 };
 
 export default DashboardIntro;
