@@ -7,6 +7,7 @@ import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
 import NavTab from './NavTab';
+import RelatedDatasets from './RelatedDatasets';
 
 function DashboardDetailPage(props) {
   const detailData = {
@@ -58,6 +59,8 @@ function DashboardDetailPage(props) {
         {content}
 
       </div>
+
+      <RelatedDatasets />
 
       <div className="other-dashboards">
         <div className="wrapper">
