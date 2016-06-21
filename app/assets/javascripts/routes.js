@@ -10,7 +10,7 @@ function Routes(props) {
     <Router history={props.history}>
       <Route path="/" component={HomePage} />
       <Route path="dashboards" component={DashboardsPage} />
-      <Route path="dashboards/:slug" component={DashboardDetailPage} />
+      <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
     </Router>
   );
 }
