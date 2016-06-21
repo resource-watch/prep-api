@@ -1,0 +1,18 @@
+%box-shadow-animation {
+  &:after {
+    content: "";
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: all .3s ease-out;
+    z-index: -1;
+  }
+  &:hover:after {
+    opacity: 1;
+  }
+}

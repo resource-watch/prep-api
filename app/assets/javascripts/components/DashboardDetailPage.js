@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Navbar from './Navbar';
 import DashboardIntro from './DashboardIntro';
+import DashboardDetailIndicators from './DashboardDetailIndicators';
 import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
@@ -30,7 +31,7 @@ function DashboardDetailPage(props) {
       break;
 
     default:
-      content = 'Indicators tab';
+      content = <DashboardDetailIndicators />;
       break;
   }
 
@@ -42,13 +43,13 @@ function DashboardDetailPage(props) {
           Dashboard detail page
         </Title>
       </Header>
+
       <div className="wrapper">
         <DashboardIntro
           data={detailData}
           dashboardSlug={props.dashboardSlug}
           currentPage={props.currentPage}
         />
-
         <NavTab
           activeTab={props.dashboardTab}
           baseUrl={`/dashboards/${props.dashboardSlug}`}
@@ -57,6 +58,7 @@ function DashboardDetailPage(props) {
         {content}
 
       </div>
+
       <div className="other-dashboards">
         <div className="wrapper">
           <Title inverse borderType={1}>Other dashboards</Title>
