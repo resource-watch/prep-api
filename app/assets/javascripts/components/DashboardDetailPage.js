@@ -57,7 +57,7 @@ function DashboardDetailPage(props) {
         baseUrl={`/dashboards/${props.dashboardSlug}`}
       />
 
-      <div className="wrapper">
+      <div className="wrapper tab-container">
         {content}
       </div>
 
