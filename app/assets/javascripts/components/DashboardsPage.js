@@ -18,7 +18,7 @@ function DashboardsPage(props) {
       <div className="wrapper">
         <div className="cards">
           <Card borderType={1}>
-            <Link to="/dashboards/framer-assesses-crops-impact">
+            <Link to="/dashboards/framer-assesses-crops-impact/indicators">
               <Title type="content">
                 Framer assesses possible impacts of climate change on his crops
                 (grapes)

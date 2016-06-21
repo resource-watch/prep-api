@@ -5,6 +5,7 @@ import DashboardIntro from './DashboardIntro';
 import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
+import NavTab from './NavTab';
 
 function DashboardDetailPage(props) {
   const detailData = {
@@ -17,6 +18,21 @@ function DashboardDetailPage(props) {
     author: { name: 'Joe Casola', email: 'jcasola@uw.edu' },
     companyLogoUrl: gon.assets.lightUniversityWashingtonLogo,
   };
+
+  let content;
+  switch (props.dashboardTab) {
+    case 'insights':
+      content = 'Insights tab';
+      break;
+
+    case 'tools':
+      content = 'Tools tab';
+      break;
+
+    default:
+      content = 'Indicators tab';
+      break;
+  }
 
   return (
     <div className="l-dashboards">
@@ -32,9 +48,15 @@ function DashboardDetailPage(props) {
           dashboardSlug={props.dashboardSlug}
           currentPage={props.currentPage}
         />
-        <Title center>I'm in the {props.dashboardSlug} dashboard</Title>
-      </div>
 
+        <NavTab
+          activeTab={props.dashboardTab}
+          baseUrl={`/dashboards/${props.dashboardSlug}`}
+        />
+
+        {content}
+
+      </div>
       <div className="other-dashboards">
         <div className="wrapper">
           <Title inverse borderType={1}>Other dashboards</Title>
@@ -97,7 +119,12 @@ DashboardDetailPage.propTypes = {
   /**
    * Define the slug of the dashboard
    */
-  dashboardSlug: React.PropTypes.string.isRequired
+  dashboardSlug: React.PropTypes.string.isRequired,
+  /**
+   * Define the selected tab of the dashboard
+   * Default: "indicators"
+   */
+  dashboardTab: React.PropTypes.string.isRequired
 };
 
 export default DashboardDetailPage;
