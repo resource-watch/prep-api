@@ -1,0 +1,1 @@
+export const SET_MODAL_SHARE = 'SET_MODAL_SHARE';

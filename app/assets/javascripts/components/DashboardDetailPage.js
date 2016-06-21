@@ -23,7 +23,11 @@ function DashboardDetailPage(props) {
         </Title>
       </Header>
       <div className="wrapper">
-        <DashboardIntro data={detailData} />
+        <DashboardIntro
+          data={detailData}
+          dashboardSlug={props.dashboardSlug}
+          currentPage={props.currentPage}
+        />
         <Title center>I'm in the {props.dashboardSlug} dashboard</Title>
       </div>
 
@@ -86,6 +90,10 @@ DashboardDetailPage.propTypes = {
    * Define the route path (from the router)
    */
   currentPage: React.PropTypes.string,
+  /**
+   * Define the slug of the dashboard detail
+   */
+  dashboardSlug: React.PropTypes.string,
 };
 
 export default DashboardDetailPage;
