@@ -6,10 +6,15 @@
     margin:  0;
     padding: 0;
     list-style: none;
-    height: 60px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @media #{$mq-mobile-small} {
+      height: 60px;
+      flex-direction: row;
+    }
 
     li {
       position: relative;
