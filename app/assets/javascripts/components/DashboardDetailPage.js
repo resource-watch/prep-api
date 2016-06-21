@@ -8,7 +8,11 @@ import Footer from './Footer';
 
 function DashboardDetailPage(props) {
   const detailData = {
-    description: 'This dashboard provides a summary of the mechanisms by which climate could affect change in Washington State. We also provide access to recent and ongoing efforts by communities, agencies, tribes, and organizations that are working to prepare for the effects of climate change.',
+    description: `This dashboard provides a summary of the mechanisms by which
+      climate could affect change in Washington State. We also provide access to
+      recent and ongoing efforts by communities, agencies, tribes, and
+      organizations that are working to prepare for the effects of climate
+      change.`,
     slug: 'framer-assesses-crops-impact',
     author: { name: 'Joe Casola', email: 'jcasola@uw.edu' },
     companyLogoUrl: gon.assets.lightUniversityWashingtonLogo,
@@ -86,6 +90,10 @@ DashboardDetailPage.propTypes = {
    * Define the route path (from the router)
    */
   currentPage: React.PropTypes.string,
+  /**
+   * Define the slug of the dashboard
+   */
+  dashboardSlug: React.PropTypes.string.isRequired
 };
 
 export default DashboardDetailPage;
