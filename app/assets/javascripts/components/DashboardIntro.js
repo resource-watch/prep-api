@@ -8,7 +8,7 @@ function DashboardIntro(props) {
       <div className="container">
         <div className="top-bar">
           <div className="logo">
-            <img src={props.data.companyLogoUrl} alt=""/>
+            <img src={props.data.companyLogoUrl} alt="" />
           </div>
           <div className="author">
             <span>{props.data.author.name}</span>

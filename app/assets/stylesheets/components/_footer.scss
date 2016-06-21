@@ -29,11 +29,13 @@
       }
     }
 
-    img.wri        { max-width: 114px; }
-    img.esri       { max-width:  99px; }
-    img.vizzuality { max-width: 105px; }
-    img.nasa       { max-width:  65px; }
-    img.descartes  { max-width: 126px; }
+    img.wri        { width: 114px; }
+    img.esri       { width:  99px; }
+    img.vizzuality { width: 105px; }
+    img.nasa       { width:  65px; }
+    img.descartes  { width: 126px; }
+
+    img { max-width: 100%; }
   }
 
   footer {
