@@ -3,6 +3,7 @@ import Header from './Header';
 import Navbar from './Navbar';
 import DashboardIntro from './DashboardIntro';
 import MapCard from './MapCard';
+import Map from './Map';
 import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
@@ -34,7 +35,7 @@ function DashboardDetailPage(props) {
 
       <div className="wrapper">
         <MapCard title="Skagit River Near Mount Vernon">
-          I will be a map soon
+          <Map />
         </MapCard>
       </div>
 

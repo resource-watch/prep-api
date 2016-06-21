@@ -6,7 +6,8 @@
     }
   },
   "globals": {
-    "gon": true
+    "gon": true,
+    "L": true
   },
   "rules": {
     "comma-dangle": 0,

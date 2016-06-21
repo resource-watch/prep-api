@@ -10,10 +10,12 @@ function MapCard(props) {
           {props.title}
         </Title>
         <div className="tooltip">
-          <Tooltip />
+          <Tooltip content="" />
         </div>
       </div>
-      {props.children}
+      <div className="content">
+        {props.children}
+      </div>
     </div>
   );
 }
@@ -24,10 +26,10 @@ MapCard.propTypes = {
    */
   title: React.PropTypes.string,
   /**
-   * Define the text content of the button
+   * Define the content of the card
    * Required
    */
-  children: React.PropTypes.array.isRequired
+  children: React.PropTypes.object.isRequired
 };
 
 export default MapCard;
