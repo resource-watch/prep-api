@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Navbar from './Navbar';
 import DashboardIntro from './DashboardIntro';
+import MapCard from './MapCard';
 import Title from './Title';
 import Card from './Card';
 import Footer from './Footer';
@@ -26,9 +27,15 @@ function DashboardDetailPage(props) {
           Dashboard detail page
         </Title>
       </Header>
+
       <div className="wrapper">
         <DashboardIntro data={detailData} />
-        <Title center>I'm in the {props.dashboardSlug} dashboard</Title>
+      </div>
+
+      <div className="wrapper">
+        <MapCard title="Skagit River Near Mount Vernon">
+          I will be a map soon
+        </MapCard>
       </div>
 
       <div className="other-dashboards">

@@ -1,0 +1,20 @@
+.c-map-card {
+  padding: 20px 30px;
+  border: solid 2px $color-10;
+  position: relative;
+
+  @extend %box-shadow-animation;
+
+  > .header {
+    padding-right: 2rem;
+    >.tooltip {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  > .content {
+
+  }
+}
