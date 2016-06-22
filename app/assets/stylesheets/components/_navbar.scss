@@ -14,6 +14,7 @@ $navbar-toggle-color: $color-5;
   top:0;
   left: 0;
   right: 0;
+  transition: background-color .3s ease-out .3s;
 
   .content {
     height: $navbar-height;
@@ -90,7 +91,7 @@ $navbar-toggle-color: $color-5;
     will-change: transform;
     transform-origin: top center;
     transform:scaleY(0);
-    transition: .3s transform;
+    transition: .3s transform, background-color 0s .3s;
     z-index: 10;
 
     @media screen and (min-width: #{$navbar-breakpoint}) {
@@ -171,11 +172,13 @@ $navbar-toggle-color: $color-5;
   }
 
   &.-open {
+    transition: background-color 0s ease-in-out;
     background-color: rgba($color-1, 0.9);
 
     .navbar {
       transform: scaleY(1);
       background-color: rgba($color-1, 0.9);
+      transition: .3s transform, background-color 0s 0s;
 
       .links { opacity: 1; }
     }
