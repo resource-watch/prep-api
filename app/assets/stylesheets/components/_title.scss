@@ -23,17 +23,6 @@
     text-decoration: none;
   }
 
-  > .legend {
-    font-family: $font-family-1;
-    font-weight: $font-weight-bold;
-    font-size: $font-size-x-small;
-    line-height: 1.8;
-    letter-spacing: 0.3px;
-    color: $color-2;
-    text-transform: uppercase;
-
-  }
-
   &.-mega {
     > h1, h2, h3 {
       font-family: $font-family-1;

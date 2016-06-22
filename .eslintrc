@@ -7,7 +7,8 @@
   },
   "globals": {
     "gon": true,
-    "L": true
+    "L": true,
+    "vg": true
   },
   "rules": {
     "comma-dangle": 0,

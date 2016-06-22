@@ -20,6 +20,11 @@ class Map extends React.Component {
   }
 }
 
-Map.propTypes = {};
+Map.propTypes = {
+  /**
+  * Define the layers data of the map
+  */
+  data: React.PropTypes.any.isRequired,
+};
 
 export default Map;

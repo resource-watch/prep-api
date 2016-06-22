@@ -11,7 +11,7 @@ function Title(props) {
   let title = <h2>{props.children}</h2>;
   if (props.type && (props.type === 'mega' || props.type === 'page')) {
     title = <h1>{props.children}</h1>;
-  } else if (props.type && props.type === 'content' || props.type ==='mini') {
+  } else if (props.type && props.type === 'content' || props.type === 'mini') {
     title = <h3>{props.children}</h3>;
   }
 
@@ -29,14 +29,8 @@ function Title(props) {
     }
   }
 
-  let legend;
-  if (props.legend) {
-    legend = <span className="legend">{props.legend}</span>;
-  }
-
   return (
     <div className={classes.join(' ')}>
-      {legend}
       {title}
       {subtitle}
     </div>
@@ -80,11 +74,6 @@ Title.propTypes = {
    * Default: no border (i.e. prop not defined)
    */
   borderType: React.PropTypes.number,
-  /**
-   * Define the text above the title
-   * Default: no subtitle (i.e. prop not defined)
-   */
-  legend: React.PropTypes.string,
   /**
    * Define the text below the title
    * Accepted values:

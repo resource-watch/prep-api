@@ -1,22 +1,17 @@
 import React from 'react';
-import Title from './Title';
-import Tooltip from './Tooltip';
+import ContentCard from './ContentCard';
+import Map from './Map';
 
 function MapCard(props) {
+  const header = {
+    title: props.title,
+    legend: 'Map'
+  };
+
   return (
-    <div className="c-map-card">
-      <div className="header">
-        <Title type="mini" legend="Map">
-          {props.title}
-        </Title>
-        <div className="tooltip">
-          <Tooltip content="" />
-        </div>
-      </div>
-      <div className="content">
-        {props.children}
-      </div>
-    </div>
+    <ContentCard header={header} >
+      <Map data={props.data} />
+    </ContentCard>
   );
 }
 
@@ -24,12 +19,11 @@ MapCard.propTypes = {
   /**
    * Define the card title
    */
-  title: React.PropTypes.string,
+  title: React.PropTypes.string.isRequired,
   /**
-   * Define the content of the card
-   * Required
+   * Define layers data to the map
    */
-  children: React.PropTypes.object.isRequired
+  data: React.PropTypes.object.isRequired
 };
 
 export default MapCard;
