@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Tooltip(props) {
+function Tooltip() {
   return (
     <div className="c-tooltip">
       <span>i</span>

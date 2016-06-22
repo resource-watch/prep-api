@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from './Title';
-import Tooltip from './Tooltip';
+import Title from '../commons/Title';
+import Tooltip from '../commons/Tooltip';
 
 function ContentCard(props) {
   let legend;

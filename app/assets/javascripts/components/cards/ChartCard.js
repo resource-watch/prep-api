@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentCard from './ContentCard';
-import VegaChart from './VegaChart';
+import VegaChart from '../commons/VegaChart';
 
 function ChartCard(props) {
   const header = {

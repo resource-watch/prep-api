@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import ToolbarActions from '../components/ToolbarActions';
+import ToolbarActions from '../../components/commons/ToolbarActions';
 
-import { openShare } from '../actions/toolbar';
+import { openShare } from '../../actions/toolbar';
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch) => {
