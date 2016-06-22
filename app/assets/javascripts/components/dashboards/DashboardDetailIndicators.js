@@ -1,6 +1,6 @@
 import React from 'react';
-import MapCard from './MapCard';
-import ChartCard from './ChartCard';
+import MapCard from '../cards/MapCard';
+import ChartCard from '../cards/ChartCard';
 
 function DashboardDetailIndicators() {
   const vegaSpec ={

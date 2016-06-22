@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
-import Navbar from './Navbar';
-import Title from './Title';
-import Footer from './Footer';
+import Header from '../commons/Header';
+import Navbar from '../commons/Navbar';
+import Title from '../commons/Title';
+import Footer from '../commons/Footer';
 
 function HomePage(props) {
   return (

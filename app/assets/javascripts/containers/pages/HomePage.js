@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import HomePage from '../components/HomePage';
+import HomePage from '../../components/pages/HomePage';
 
 const mapStateToProps = (state, location) => ({
   currentPage: location.route.path

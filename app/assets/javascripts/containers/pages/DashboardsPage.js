@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import DashboardsPage from '../components/DashboardsPage';
+import DashboardsPage from '../../components/pages/DashboardsPage';
 
 const mapStateToProps = (state, location) => ({
   currentPage: location.route.path

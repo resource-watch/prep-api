@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './Header';
-import Navbar from './Navbar';
-import DashboardIntro from './DashboardIntro';
-import DashboardDetailIndicators from './DashboardDetailIndicators';
-import Title from './Title';
-import Card from './Card';
-import Footer from './Footer';
-import NavTab from './NavTab';
-import RelatedDatasets from './RelatedDatasets';
+import Header from '../commons/Header';
+import Navbar from '../commons/Navbar';
+import DashboardIntro from '../dashboards//DashboardIntro';
+import DashboardDetailIndicators from '../dashboards/DashboardDetailIndicators';
+import Title from '../commons/Title';
+import Card from '../cards/Card';
+import Footer from '../commons/Footer';
+import NavTab from '../commons/NavTab';
+import RelatedDatasets from '../commons/RelatedDatasets';
 
 function DashboardDetailPage(props) {
   const detailData = {

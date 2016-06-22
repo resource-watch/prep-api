@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Header from './Header';
-import Navbar from './Navbar';
-import Title from './Title';
-import Card from './Card';
-import Button from './Button';
-import Footer from './Footer';
+import Header from '../commons/Header';
+import Navbar from '../commons/Navbar';
+import Title from '../commons/Title';
+import Card from '../cards/Card';
+import Button from '../commons/Button';
+import Footer from '../commons/Footer';
 
 function DashboardsPage(props) {
   return (

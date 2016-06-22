@@ -1,5 +1,5 @@
 import React from 'react';
-import ToolbarActions from '../containers/ToolbarActions';
+import ToolbarActions from '../../containers/commons/ToolbarActions';
 
 function DashboardIntro(props) {
   const classes = ['c-dashboard-intro'];
