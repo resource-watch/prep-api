@@ -22,12 +22,11 @@
 
       @media #{$mq-tablet} {
         flex-basis: calc(50% - 10px);
-      }
-    }
 
-    .content {
-      margin-top: 25px;
-      line-height: 28px;
+        &.-large {
+          flex-basis: 100%;
+        }
+      }
     }
 
     .logo {

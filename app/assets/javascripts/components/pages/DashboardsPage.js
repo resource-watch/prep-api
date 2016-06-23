@@ -41,10 +41,14 @@ function DashboardsPage(props) {
             </a>
           </Card>
           <Card borderType={1}>
-            <Title type="content">
-              City Planner assesses possible impacts of Climate Change on Puget
-              Sound’s built environment
-            </Title>
+            <Link
+              to="/dashboards/city-planner-assesses-possible-impacts/indicators"
+            >
+              <Title type="content">
+                City Planner assesses possible impacts of Climate Change on
+                Puget Sounds built environment
+              </Title>
+            </Link>
             <p className="content">
               Most climate change effects are likely to increase the potential
               for damage to infrastructure and service disruptions (unplanned
@@ -63,7 +67,7 @@ function DashboardsPage(props) {
           <Card borderType={1}>
             <Title type="content">
               City Planner assesses possible impacts of Climate Change on Puget
-              Sound’s built environment
+              Soundâ€™s built environment
             </Title>
             <p className="content">
               Most climate change effects are likely to increase the potential
@@ -129,7 +133,7 @@ function DashboardsPage(props) {
           <Card borderType={1}>
             <Title type="content">
               City Planner assesses possible impacts of Climate Change on Puget
-              Sound’s built environment
+              Soundâ€™s built environment
             </Title>
             <p className="content">
               Most climate change effects are likely to increase the potential

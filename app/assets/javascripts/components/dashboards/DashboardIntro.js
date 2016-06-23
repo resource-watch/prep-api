@@ -9,7 +9,7 @@ function DashboardIntro(props) {
       <div className="container">
         <div className="top-bar">
           <div className="logo">
-            <img src={props.data.companyLogoUrl} alt="" />
+            <img src={gon.assets[props.data.partner.logo]} alt="" />
           </div>
           <div className="author">
             <span>{props.data.author.name}</span>
@@ -17,7 +17,7 @@ function DashboardIntro(props) {
           </div>
         </div>
         <div className="content">
-          <div className="container">
+          <div className="wrapper-mini">
             <ToolbarActions
               dashboardSlug={props.dashboardSlug}
               currentSection={props.currentPage.split('/')[0]}

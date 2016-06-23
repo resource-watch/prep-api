@@ -1,8 +1,12 @@
 .c-content-card {
-  border: solid 2px $color-10;
   position: relative;
+  border: solid 2px #eeeeee;
+  transition: box-shadow .3s ease-out, border-color .3s ease-out;
 
-  @extend %box-shadow-animation;
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+  }
 
   > .header {
     padding: 10px 20px 20px;

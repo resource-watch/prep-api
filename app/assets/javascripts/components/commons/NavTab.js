@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 function NavBar(props) {
   return (
     <div className="c-nav-tab">
-      <div className="wrapper">
+      <div className="wrapper-mini">
         <ul>
           <li className={props.activeTab === 'indicators' ? '-active' : ''}>
             <Link to={`${props.baseUrl}/indicators`}>Indicators</Link>

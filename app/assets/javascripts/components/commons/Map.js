@@ -9,7 +9,7 @@ class Map extends React.Component {
     });
 
     // adding basemap
-    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+    L.tileLayer(this.props.data.tile, {
       maxZoom: 18
     }).addTo(this.map, 1);
   }
