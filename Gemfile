@@ -11,7 +11,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.1.1'
 gem 'gon', '~> 6.0.1'
 
-# Use SCSS for stylesheets
+# Assets managment
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
