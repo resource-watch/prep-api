@@ -10,10 +10,10 @@
   </head>
 
   <body>
-    <% if notice do %>
+    <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
-    <% if alert do %>
+    <% if alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>

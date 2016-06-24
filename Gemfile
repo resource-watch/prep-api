@@ -10,6 +10,7 @@ gem 'puma', '~> 3.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.1.1'
 gem 'gon', '~> 6.0.1'
+gem 'paperclip', '~> 5.0.0.beta1'
 
 # Assets managment
 gem 'sass-rails', '~> 5.0'
@@ -26,7 +27,6 @@ gem 'pg', '~> 0.18'
 # Active admin
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
 gem 'activeadmin', github: 'activeadmin'
-gem 'rspec-rails', '>= 3.5.0.beta1'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'kaminari', github: 'amatsuda/kaminari', branch: '0-17-stable'
 gem 'formtastic', github: 'justinfrench/formtastic'
