@@ -4,12 +4,18 @@
     <title>PreparednesForResilience</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet" type="text/css">
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
+    <% if notice do %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert do %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <%= include_gon(
       :watch => false,

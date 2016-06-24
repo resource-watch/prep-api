@@ -23,6 +23,17 @@ gem 'browserify-rails'
 # Active record
 gem 'pg', '~> 0.18'
 
+# Active admin
+gem 'devise', git: 'git@github.com:plataformatec/devise.git'
+gem 'activeadmin', github: 'activeadmin'
+gem 'rspec-rails', '>= 3.5.0.beta1'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'kaminari', github: 'amatsuda/kaminari', branch: '0-17-stable'
+gem 'formtastic', github: 'justinfrench/formtastic'
+gem 'draper', github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
+# To fix a Draper deprecation error
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-leaflet', '0.7.7'
   gem 'rails-assets-d3', '~> 3.5.16'
