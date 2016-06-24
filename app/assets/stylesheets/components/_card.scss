@@ -1,8 +1,13 @@
 .c-card {
   padding: 20px 30px;
 
+  > .content {
+    margin-top: 25px;
+    line-height: 28px;
+  }
+
   &.-border-1 { border: 2px solid $color-10; }
   &.-border-2 { border: 2px solid $color-2; }
-  
+
   &.-inverse { color: $color-5; }
 }

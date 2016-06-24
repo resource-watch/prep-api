@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import HomePage from './containers/HomePage';
-import DashboardsPage from './containers/DashboardsPage';
-import DashboardDetailPage from './containers/DashboardDetailPage';
+import HomePage from './containers/pages/HomePage';
+import DashboardsPage from './containers/pages/DashboardsPage';
+import DashboardDetailPage from './containers/pages/DashboardDetailPage';
 import { Router, Route } from 'react-router';
 
 function Routes(props) {

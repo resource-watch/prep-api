@@ -23,7 +23,7 @@ MapCard.propTypes = {
   /**
    * Define layers data to the map
    */
-  data: React.PropTypes.object.isRequired
+  data: React.PropTypes.any.isRequired
 };
 
 export default MapCard;

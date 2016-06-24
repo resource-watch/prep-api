@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 
-.wrapper {
+.wrapper, .wrapper-mini {
   padding: 0 $wrapper-mobile-padding;
 
   @media #{$mq-mobile-large} {
@@ -33,4 +33,8 @@ a {
     margin: 0 auto;
     max-width: $wrapper-max-width;
   }
+}
+
+.wrapper-mini {
+  max-width: $wrapper-mini-max-width;
 }
