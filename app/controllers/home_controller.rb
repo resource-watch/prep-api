@@ -14,7 +14,10 @@ class HomeController < ApplicationController
       :lightDescartesLogo => get_asset_path('logos/descartes-light@2x.png'),
       :lightUniversityWashingtonLogo => get_asset_path('logos/university-washington-light@2x.png'),
       :lightWriLogo => get_asset_path('logos/wri-light@2x.png'),
-      :lightVizzualityLogo => get_asset_path('logos/vizzuality-light@2x')
+      :lightVizzualityLogo => get_asset_path('logos/vizzuality-light@2x'),
+      # Homepage
+      :homeAccessible => get_asset_path('home-accessible@2x.jpg'),
+      :homeUnderstanding => get_asset_path('home-understanding@2x.jpg')
     }
   end
 
