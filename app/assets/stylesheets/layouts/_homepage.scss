@@ -254,8 +254,12 @@
         }
       }
 
-      .content { height: auto; }
-      > div    { height: 100%; }
+      .content {
+        height: calc(100% - 80px);
+        padding: 10px 20px 20px;
+      }
+
+      > div { height: 100%; }
     }
 
     .link {
