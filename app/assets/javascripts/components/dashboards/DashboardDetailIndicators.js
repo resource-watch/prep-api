@@ -21,7 +21,6 @@ function DashboardDetailIndicators(props) {
         content.push(
           <div className="-large" key={`indicator-${index}`}>
             <MapCard
-              tooltip
               title="Skagit River Near Mount Vernon"
               data={indicator.data}
             />
