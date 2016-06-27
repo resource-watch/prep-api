@@ -12,7 +12,7 @@ function DashboardDetailIndicators(props) {
             <ChartCard
               title={indicator.title}
               subtitle={indicator.subtitle}
-              data={indicator.data}
+              data={indicator}
             />
           </div>
         );
