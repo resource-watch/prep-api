@@ -55,7 +55,11 @@ Button.propTypes = {
    * Define the text content of the button
    * Required
    */
-  children: React.PropTypes.string.isRequired
+  children: React.PropTypes.string.isRequired,
+  /**
+   * Define click handler function
+   */
+  click: React.PropTypes.func
 };
 
 export default Button;

@@ -21,9 +21,12 @@ function ContentCard(props) {
           {props.header.title}
         </Title>
         {subtitle}
-        <div className="tooltip">
-          <Tooltip content="" />
-        </div>
+
+        {props.dataTooltip &&
+          <div className="tooltip">
+            <Tooltip data={props.dataTooltip} />
+          </div>
+        }
       </div>
       <div className="content">
         {props.children}
@@ -43,6 +46,11 @@ ContentCard.propTypes = {
    *  }
    */
   header: React.PropTypes.object.isRequired,
+  /**
+   * Define tooltip content data
+   * Required
+   */
+  dataTooltip: React.PropTypes.any,
   /**
    * Define the content of the card
    * Required

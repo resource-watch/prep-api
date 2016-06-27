@@ -8,8 +8,8 @@ function ChartCard(props) {
     subtitle: props.subtitle
   };
   return (
-    <ContentCard header={header}>
-      <VegaChart data={props.data} />
+    <ContentCard header={header} dataTooltip={props.data}>
+      <VegaChart data={props.data.data} />
     </ContentCard>
   );
 }

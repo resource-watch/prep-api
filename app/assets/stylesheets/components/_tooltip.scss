@@ -1,5 +1,5 @@
 .c-tooltip {
-  > span {
+  > .icon {
     display: block;
     width: 22px;
     height: 22px;
@@ -11,6 +11,7 @@
     text-align: center;
     color: $color-1;
 
+    cursor: pointer;
     border: 1px solid $color-10;
     border-radius: 50%;
   }
