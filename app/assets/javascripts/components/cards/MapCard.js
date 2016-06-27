@@ -9,7 +9,10 @@ function MapCard(props) {
   };
 
   return (
-    <ContentCard header={header} >
+    <ContentCard
+      header={header}
+      dataTooltip={props.tooltip ? props.data : null}
+    >
       <Map data={props.data} />
     </ContentCard>
   );
@@ -20,6 +23,10 @@ MapCard.propTypes = {
    * Define the card title
    */
   title: React.PropTypes.string.isRequired,
+  /**
+   * Define it the card has tooltip
+   */
+  tooltip: React.PropTypes.bool,
   /**
    * Define layers data to the map
    */

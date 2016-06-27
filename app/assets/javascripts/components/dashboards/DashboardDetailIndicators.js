@@ -10,6 +10,7 @@ function DashboardDetailIndicators(props) {
         content.push(
           <div key={`indicator-${index}`}>
             <ChartCard
+              tooltip
               title={indicator.title}
               subtitle={indicator.subtitle}
               data={indicator}
@@ -20,6 +21,7 @@ function DashboardDetailIndicators(props) {
         content.push(
           <div className="-large" key={`indicator-${index}`}>
             <MapCard
+              tooltip
               title="Skagit River Near Mount Vernon"
               data={indicator.data}
             />

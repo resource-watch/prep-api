@@ -48,14 +48,13 @@ ContentCard.propTypes = {
   header: React.PropTypes.object.isRequired,
   /**
    * Define tooltip content data
-   * Required
    */
   dataTooltip: React.PropTypes.any,
   /**
    * Define the content of the card
    * Required
    */
-  children: React.PropTypes.object.isRequired
+  children: React.PropTypes.object
 };
 
 export default ContentCard;
