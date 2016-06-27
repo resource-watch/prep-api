@@ -26,6 +26,7 @@ module PreparednesForResilience
     config.generators do |g|
       g.assets          false
       g.helper          false
+      g.test            false
     end
 
     config.browserify_rails.commandline_options = "-t babelify"
