@@ -11,7 +11,7 @@ function MapCard(props) {
   return (
     <ContentCard
       header={header}
-      dataTooltip={props.tooltip ? props.data : null}
+      dataTooltip={props.tooltip ? props.data : false}
     >
       <Map data={props.data} />
     </ContentCard>

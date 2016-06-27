@@ -3,11 +3,20 @@
 
   > .content {
     margin-top: 25px;
+    margin-bottom: 5px;
     line-height: 28px;
+  }
+
+  > .link {
+    display: block;
+    margin-bottom: 18px;
+    font-weight: $font-weight-bold;
+    color: $color-11;
   }
 
   &.-border-1 { border: 2px solid $color-10; }
   &.-border-2 { border: 2px solid $color-2; }
 
   &.-inverse { color: $color-5; }
+
 }
