@@ -496,5 +496,45 @@
         "tile": "http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png"
       }
     }
+  ],
+  "insights":[
+    {
+      "title": "Framer assesses possible impacts of climate change on his crops (grapes)",
+      "content": "Farmer X would need to understand how to best prepare for any future changes in climate that may impact his grapes. Based on key thresholds for climate variables of interest (temperature and precipitation), Farmer X evaluate the suitability to grow different types of grapes...",
+      "slug": "framer-assesses-crops-impact",
+      "partner": {
+        "href": "http://www.vizzuality.com",
+        "logo": "universityWashingtonLogo"
+      }
+    },
+    {
+      "title": "City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment",
+      "content": "Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.",
+      "slug": "city-planner-assesses-possible-impacts",
+      "partner": {
+        "href": "http://www.vizzuality.com",
+        "logo": "universityWashingtonLogo"
+      }
+    }
+  ],
+  "tools":[
+    {
+      "title": "Climate Adaptation Knowledge Exchange (CAKE)",
+      "content": "Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.",
+      "href": "http://www.vizzuality.com",
+      "partner": {
+        "href": "http://www.vizzuality.com",
+        "logo": "universityWashingtonLogo"
+      }
+    },
+    {
+      "title": "AdaptWest Climate Adaptation Planning Database",
+      "content": "Planners can access data and detailed information for much of North America to compare conservation approaches and inform planning.",
+      "href": "http://www.vizzuality.com",
+      "partner": {
+        "href": "http://www.vizzuality.com",
+        "logo": "universityWashingtonLogo"
+      }
+    }
   ]
 }
