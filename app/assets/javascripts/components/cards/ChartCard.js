@@ -10,7 +10,7 @@ function ChartCard(props) {
   return (
     <ContentCard
       header={header}
-      dataTooltip={props.tooltip ? props.data : null}
+      dataTooltip={props.tooltip ? props.data : false}
     >
       {props.data && props.data.data &&
         <VegaChart data={props.data.data} />

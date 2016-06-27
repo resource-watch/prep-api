@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../commons/Header';
 import Navbar from '../commons/Navbar';
 import DashboardIntro from '../dashboards//DashboardIntro';
+import DashboardDetailTools from '../dashboards/DashboardDetailTools';
+import DashboardDetailInsights from '../dashboards/DashboardDetailInsights';
 import DashboardDetailIndicators from '../dashboards/DashboardDetailIndicators';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
@@ -27,11 +29,15 @@ class DashboardDetailPage extends React.Component {
     let content;
     switch (this.props.dashboardTab) {
       case 'insights':
-        content = 'Insights tab';
+        content = (<DashboardDetailInsights
+          data={this.props.data.insights}
+        />);
         break;
 
       case 'tools':
-        content = 'Tools tab';
+        content = (<DashboardDetailTools
+          data={this.props.data.tools}
+        />);
         break;
 
       default:
