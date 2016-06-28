@@ -1,14 +1,5 @@
 $navbar-breakpoint: 870px;
 
-$navbar-height:       80px;
-$navbar-height-small: 44px;
-
-$navbar-toggle-width:  24px;
-$navbar-toggle-height:  2px;
-$navbar-toggle-spacing: 5px;
-$navbar-toggle-border-radius: 1px;
-$navbar-toggle-color: $color-5;
-
 .c-navbar {
   position: absolute;
   top:0;
@@ -37,48 +28,10 @@ $navbar-toggle-color: $color-5;
   }
 
   .navbar-toggle {
-    width: $navbar-toggle-width;
-    height: $navbar-toggle-height * 3 + $navbar-toggle-spacing * 2;
-    cursor: pointer;
-    background: none;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    overflow: visible;
-    position: relative;
-    transition: opacity 0.3s linear;
+    @include hamburger-icon();
 
     @media screen and (min-width: #{$navbar-breakpoint}){
       display: none
-    }
-
-    > span {
-      position: relative;
-      top: $navbar-toggle-height + $navbar-toggle-spacing;
-      transition: transform 0.3s ease-in,
-                  background-color 0.3s ease-in;
-
-      &,
-      &:before,
-      &:after {
-        display: block;
-        left: 0;
-        height: $navbar-toggle-height;
-        width:  $navbar-toggle-width;
-        background-color: $navbar-toggle-color;
-        border-radius: $navbar-toggle-border-radius;
-      }
-
-      &:before,
-      &:after {
-        position: absolute;
-        content: "";
-        transition: transform 0.3s ease;
-      }
-
-      &:before { top:    -($navbar-toggle-height + $navbar-toggle-spacing); }
-      &:after  { bottom: -($navbar-toggle-height + $navbar-toggle-spacing); }
     }
   }
 
@@ -198,19 +151,6 @@ $navbar-toggle-color: $color-5;
       transition: .3s transform, background-color 0s 0s;
 
       .links { opacity: 1; }
-    }
-
-    .navbar-toggle > span {
-      background-color: transparent;
-      transition: transform 0.3s ease-in;
-
-      &:before {
-        transform: translate3d(0, $navbar-toggle-height + $navbar-toggle-spacing, 0) rotate(45deg);
-      }
-
-      &:after {
-        transform: translate3d(0, ($navbar-toggle-height + $navbar-toggle-spacing) * -1, 0) rotate(-45deg);
-      }
     }
   }
 

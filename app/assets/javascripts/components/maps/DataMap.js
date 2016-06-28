@@ -1,11 +1,17 @@
 import React from 'react';
 
 class DataMap extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      toolbarOpen: true
+    }
+  }
   componentDidMount() {
     this.map = L.map(this.refs.map, {
       scrollWheelZoom: false,
       zoomControl: false,
-      center: [48.246038, -122.589823],
+      center: [48.46038, -123.889823],
       zoom: 8,
     });
     L.control.zoom({ position: 'topright' }).addTo(this.map);
@@ -16,8 +22,28 @@ class DataMap extends React.Component {
     }).addTo(this.map, 1);
   }
 
+  toggleToolbarStatus() {
+    this.setState({
+      toolbarOpen: !this.state.toolbarOpen
+    });
+  }
+
   render() {
-    return <div className="c-data-map" ref="map"> </div>;
+    return (<div className="c-data-map">
+      <div className={['toolbar', this.state.toolbarOpen ? '-open' : ''].join(' ')}>
+        <div className="actions">
+          <div>
+            <button
+              className={['toggle-status', this.state.toolbarOpen ? '-open' : ''].join(' ')}
+              onClick={() => this.toggleToolbarStatus()}
+            >
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="map" ref="map"></div>
+    </div>);
   }
 }
 

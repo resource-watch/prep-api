@@ -11,8 +11,12 @@ class Navbar extends React.Component {
 
   render() {
     const classNames = ['c-navbar'];
+    const toggleClassName = ['navbar-toggle'];
 
-    if (this.state.open) classNames.push('-open');
+    if (this.state.open) {
+      classNames.push('-open');
+      toggleClassName.push('-open');
+    }
     if (this.props.small) classNames.push('-small');
     if (this.props.dark) classNames.push('-dark');
 
@@ -23,12 +27,12 @@ class Navbar extends React.Component {
             <Link to={"/"} className="logo">
               <img src={gon.assets.logo} alt="Preparedness for Resilience" />
             </Link>
-            <div
-              className="navbar-toggle"
+            <button
+              className={toggleClassName.join(' ')}
               onClick={() => this.setState({ open: !this.state.open })}
             >
               <span></span>
-            </div>
+            </button>
             <nav className="navbar">
               <ul className="links">
                 <li className={['link', this.props.currentPage === 'data' ? '-active' : ''].join(' ')}>

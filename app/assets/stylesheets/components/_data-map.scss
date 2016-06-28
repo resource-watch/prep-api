@@ -1,5 +1,50 @@
 .c-data-map {
   height: 100%;
+  position: relative;
+  > .toolbar {
+    position: absolute;
+    top: $navbar-height-small;
+    left: 0;
+    height: calc(100% - #{$navbar-height-small});
+    width: 350px;
+
+    background-color: rgba($color-5, 0.9);
+    z-index: 1;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+
+    > .actions {
+      position: absolute;
+      top: 0;
+      right: -30px;
+      background-color: $color-7;
+      > div {
+        display: block;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        background-color: $color-7;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >.toggle-status {
+          @include hamburger-icon(16px, 2px, 3px, 1px, $color-5);
+        }
+      }
+    }
+
+    &.-open {
+      transform: translateX(0);
+    }
+  }
+  > .map {
+    height: 100%;
+  }
   .leaflet-top {
     top: 50px
   }
