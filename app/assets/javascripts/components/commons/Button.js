@@ -9,7 +9,10 @@ function Button(props) {
   if (props.fill) classes.push('-fill');
 
   return (
-    <button className={classes.join(' ')}>
+    <button
+      className={classes.join(' ')}
+      onClick={props.click || (() => {})}
+    >
       {props.children}
     </button>
   );

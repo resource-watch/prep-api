@@ -328,13 +328,13 @@
       @media #{$mq-tablet} {
         flex-direction: row;
       }
-    }
 
-    .content {
-      color: $color-6;
+      > .content {
+        color: $color-6;
 
-      @media #{$mq-tablet} {
-        flex-basis: calc(50% - 35px);
+        @media #{$mq-tablet} {
+          flex-basis: calc(50% - 35px);
+        }
       }
     }
 
