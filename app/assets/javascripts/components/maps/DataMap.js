@@ -1,11 +1,13 @@
 import React from 'react';
 
+import Switch from '../commons/Switch';
+
 class DataMap extends React.Component {
   constructor() {
     super();
     this.state = {
       toolbarOpen: true
-    }
+    };
   }
   componentDidMount() {
     this.map = L.map(this.refs.map, {
@@ -40,6 +42,9 @@ class DataMap extends React.Component {
               <span></span>
             </button>
           </div>
+        </div>
+        <div className="content">
+          <Switch />
         </div>
       </div>
       <div className="map" ref="map"></div>
