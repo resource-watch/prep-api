@@ -15,6 +15,7 @@ $navbar-toggle-color: $color-5;
   left: 0;
   right: 0;
   transition: background-color .3s ease-out .3s;
+  z-index: 2;
 
   .content {
     height: $navbar-height;
@@ -169,15 +170,19 @@ $navbar-toggle-color: $color-5;
         max-width: none;
       }
     }
+    .navbar .links .link > a {
+      padding-bottom: 6px;
+      border-bottom-width: 3px;
+    }
   }
 
   &.-open {
     transition: background-color 0s ease-in-out;
-    background-color: rgba($color-1, 0.9);
+    background-color: rgba($color-1, 0.8);
 
     .navbar {
       transform: scaleY(1);
-      background-color: rgba($color-1, 0.9);
+      background-color: rgba($color-1, 0.8);
       transition: .3s transform, background-color 0s 0s;
 
       .links { opacity: 1; }
@@ -198,7 +203,12 @@ $navbar-toggle-color: $color-5;
   }
 
   &.-dark {
-    background-color: $color-1;
-    .navbar { background-color: $color-1; }
+    background-color: rgba($color-1, 0.8);
+    .navbar {
+      background-color: rgba($color-1, 0.8);
+      @media #{$mq-mobile-large} {
+        background-color: transparent;
+      }
+    }
   }
 }
