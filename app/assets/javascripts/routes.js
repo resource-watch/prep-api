@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import HomePage from './containers/pages/HomePage';
 import DashboardsPage from './containers/pages/DashboardsPage';
 import DashboardDetailPage from './containers/pages/DashboardDetailPage';
+import PartnersPage from './containers/pages/PartnersPage';
 import { Router, Route } from 'react-router';
 
 function Routes(props) {
@@ -11,6 +12,7 @@ function Routes(props) {
       <Route path="/" component={HomePage} />
       <Route path="dashboards" component={DashboardsPage} />
       <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
+      <Route path="partners" component={PartnersPage} />
     </Router>
   );
 }
