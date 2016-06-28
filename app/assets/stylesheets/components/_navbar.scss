@@ -1,7 +1,7 @@
 $navbar-breakpoint: 870px;
 
 $navbar-height:       80px;
-$navbar-height-small: 40px;
+$navbar-height-small: 44px;
 
 $navbar-toggle-width:  24px;
 $navbar-toggle-height:  2px;
@@ -140,6 +140,18 @@ $navbar-toggle-color: $color-5;
           border-bottom: 2px solid $color-2;
         }
 
+        &.-active {
+          &:first-of-type > a {
+            border-color: $color-4;
+          }
+          &:nth-of-type(2) > a {
+            border-color: $color-2;
+          }
+          &:nth-of-type(3) > a {
+            border-color: $color-3;
+          }
+        }
+
         &.-secondary > a {
           font-weight: $font-weight-normal;
         }
@@ -163,7 +175,7 @@ $navbar-toggle-color: $color-5;
     .navbar { top: $navbar-height-small; }
 
     .logo {
-      height: calc(100% - 20px);
+      height: calc(100% - 16px);
 
       img {
         height: 100%;
@@ -171,7 +183,7 @@ $navbar-toggle-color: $color-5;
       }
     }
     .navbar .links .link > a {
-      padding-bottom: 6px;
+      padding-bottom: 8px;
       border-bottom-width: 3px;
     }
   }
@@ -203,10 +215,10 @@ $navbar-toggle-color: $color-5;
   }
 
   &.-dark {
-    background-color: rgba($color-1, 0.8);
+    background-color: rgba($color-7, 0.8);
     .navbar {
-      background-color: rgba($color-1, 0.8);
-      @media #{$mq-mobile-large} {
+      background-color: rgba($color-7, 0.8);
+      @media #{$mq-tablet} {
         background-color: transparent;
       }
     }

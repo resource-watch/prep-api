@@ -4,9 +4,11 @@ class DataMap extends React.Component {
   componentDidMount() {
     this.map = L.map(this.refs.map, {
       scrollWheelZoom: false,
+      zoomControl: false,
       center: [48.246038, -122.589823],
       zoom: 8,
     });
+    L.control.zoom({ position: 'topright' }).addTo(this.map);
 
     // adding basemap
     L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
