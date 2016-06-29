@@ -8,7 +8,6 @@
     height: calc(100% - #{$navbar-height-small});
     width: 100%;
     background-color: $color-5;
-    overflow: auto;
     z-index: 1;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
@@ -43,7 +42,9 @@
     }
 
     > .content {
+      height: 100%;
       padding: 1rem;
+      overflow: auto;
       > .layer {
         margin: 15px 0;
         display: flex;
