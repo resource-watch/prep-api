@@ -3,6 +3,7 @@ $hamburguer-height:  2px;
 $hamburguer-spacing: 5px;
 $hamburguer-border-radius: 1px;
 $hamburguer-color: $color-5;
+$hamburguer-hover-color: $color-5;
 $hamburguer-transition: 0.3s;
 
 @mixin hamburger-icon (
@@ -11,6 +12,7 @@ $hamburguer-transition: 0.3s;
     $spacing: $hamburguer-spacing,
     $border-radius: $hamburguer-border-radius,
     $color: $hamburguer-color,
+    $hover-color: $hamburguer-hover-color,
     $transition: $hamburguer-transition ) {
   width: $width;
   height: $height * 3 + $spacing * 2;
@@ -23,6 +25,8 @@ $hamburguer-transition: 0.3s;
   overflow: visible;
   position: relative;
   transition: opacity $transition linear;
+  padding: 10px;
+  box-sizing: content-box;
   > span {
     position: relative;
     top: 0;
@@ -44,11 +48,18 @@ $hamburguer-transition: 0.3s;
     &:after {
       position: absolute;
       content: "";
-      transition: transform $transition ease;
+      transition: transform $transition ease,
+                  background-color $transition ease-in;
     }
 
     &:before { top:    -($height + $spacing); }
     &:after  { bottom: -($height + $spacing); }
+  }
+
+  &:hover span {
+    &, &:after, &:before {
+      background-color: $hover-color;
+    }
   }
 
   &.-open {
