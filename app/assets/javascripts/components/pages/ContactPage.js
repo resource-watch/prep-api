@@ -29,7 +29,7 @@ function ContactPage(props) {
 
       <div className="wrapper">
 
-        <div id="what-is-prep" className="text-content">
+        <div className="text-content">
           <p>
             <b>This website is under development.</b><br />
             Please reach out to&nbsp;

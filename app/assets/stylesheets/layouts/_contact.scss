@@ -5,6 +5,7 @@
 
     @media #{$mq-mobile-large} {
       margin: 50px 0 40px 0;
+      min-height: calc(100vh - 560px);
     }
 
     > p { line-height: 1.5; }
