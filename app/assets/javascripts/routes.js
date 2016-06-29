@@ -4,6 +4,7 @@ import HomePage from './containers/pages/HomePage';
 import DashboardsPage from './containers/pages/DashboardsPage';
 import DashboardDetailPage from './containers/pages/DashboardDetailPage';
 import PartnersPage from './containers/pages/PartnersPage';
+import AboutPage from './containers/pages/AboutPage';
 import { Router, Route } from 'react-router';
 
 function Routes(props) {
@@ -13,6 +14,7 @@ function Routes(props) {
       <Route path="dashboards" component={DashboardsPage} />
       <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
       <Route path="partners" component={PartnersPage} />
+      <Route path="about" component={AboutPage} />
     </Router>
   );
 }
