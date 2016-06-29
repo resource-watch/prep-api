@@ -6,6 +6,7 @@ import DashboardDetailPage from './containers/pages/DashboardDetailPage';
 import PartnersPage from './containers/pages/PartnersPage';
 import AboutPage from './containers/pages/AboutPage';
 import FAQsPage from './containers/pages/FAQsPage';
+import ContactPage from './containers/pages/ContactPage';
 import { Router, Route } from 'react-router';
 
 function Routes(props) {
@@ -17,6 +18,7 @@ function Routes(props) {
       <Route path="partners" component={PartnersPage} />
       <Route path="about" component={AboutPage} />
       <Route path="faqs" component={FAQsPage} />
+      <Route path="contact" component={ContactPage} />
     </Router>
   );
 }
