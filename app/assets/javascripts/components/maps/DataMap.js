@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Switch from '../commons/Switch';
+import Button from '../commons/Button';
 
 class DataMap extends React.Component {
   constructor() {
@@ -33,7 +34,10 @@ class DataMap extends React.Component {
     this.props.data.layers.forEach((layer, index) => {
       layers.push(
         <div className="layer" key={`map-layer-${index}`}>
-          <Switch onChange={this.props.switchChange.bind(this, layer.id)} checked={layer.active || false} />
+          <Switch
+            onChange={() => this.props.switchChange(layer.id)}
+            checked={layer.active || false}
+          />
           <span className="title">{layer.title}</span>
         </div>
       );
@@ -64,6 +68,14 @@ class DataMap extends React.Component {
         </div>
         <div className="content">
           {content}
+        </div>
+        <div className="actions-mobile">
+          <Button
+            borderType={2}
+            click={() => this.toggleToolbarStatus()}
+          >
+            Apply
+          </Button>
         </div>
       </div>
       <div className="map" ref="map"></div>
