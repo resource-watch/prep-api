@@ -74,9 +74,9 @@ class DashboardsPage extends React.Component {
               <div className="card -map">
                 <Title inverse center>Data on the map</Title>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                <a href="">
+                <Link to="/data">
                   <Button color={1}>Explore the map</Button>
-                </a>
+                </Link>
               </div>
               <div className="card -image">
                 <Title inverse center>Insights</Title>
@@ -84,9 +84,9 @@ class DashboardsPage extends React.Component {
                   Integer id placerat ligula, eget consequat sapien. Duis nec
                   neque scelerisque
                 </p>
-                <a href="">
+                <Link to="/insights">
                   <Button color={1}>Explore the insights</Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>
                   Do you have relevant data about climate?
                 </Title>
-                <a href="" className="button-container">
+                <a href="#" className="button-container">
                   <Button inverse borderType={1}>Create your dashboard</Button>
                 </a>
               </div>
@@ -107,9 +107,9 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>
                   Would you like to improve a dashboard?
                 </Title>
-                <a href="" className="button-container">
+                <Link to="/contact" className="button-container">
                   <Button inverse borderType={1}>Get in touch</Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
