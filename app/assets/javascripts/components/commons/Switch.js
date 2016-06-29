@@ -1,40 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router';
 
-class Switch extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      checked: false
-    };
-  }
-
-  toggleStatus() {
-    const checked = !this.state.checked;
-    this.setState({
-      checked
-    });
-    // this.props.onChange(checked);
-  }
-
-  render() {
-    const classNames = ['c-switch'];
-    if (this.state.checked) classNames.push('-checked');
-    return (
-      <div className={classNames.join(' ')} onClick={() => this.toggleStatus()} >
-      </div>
-    );
-  }
+function Switch(props) {
+  const classNames = ['c-switch'];
+  if (props.checked) classNames.push('-checked');
+  return (
+    <span className={classNames.join(' ')} onClick={() => props.onChange()} >
+    </span>
+  );
 }
 
 Switch.propTypes = {
-  className: React.PropTypes.string,
-  prefixCls: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  checkedChildren: React.PropTypes.any,
-  unCheckedChildren: React.PropTypes.any,
-  onChange: React.PropTypes.func,
-  onMouseUp: React.PropTypes.func,
+  /**
+  * Define the component "state"
+  */
+  checked: React.PropTypes.bool,
+  /**
+  * Define the function to handle the changes
+  */
+  onChange: React.PropTypes.func.isRequired
 };
 
 export default Switch;

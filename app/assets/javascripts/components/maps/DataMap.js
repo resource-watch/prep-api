@@ -9,6 +9,7 @@ class DataMap extends React.Component {
       toolbarOpen: true
     };
   }
+
   componentDidMount() {
     this.map = L.map(this.refs.map, {
       scrollWheelZoom: false,
@@ -24,6 +25,22 @@ class DataMap extends React.Component {
     }).addTo(this.map, 1);
   }
 
+  getLayers() {
+    const layers = [];
+    if (!this.props.data.layers.length) {
+      return (<p> There are no data layers </p>);
+    }
+    this.props.data.layers.forEach((layer, index) => {
+      layers.push(
+        <div className="layer" key={`map-layer-${index}`}>
+          <Switch onChange={this.props.switchChange.bind(this, layer.id)} checked={layer.active || false} />
+          <span className="title">{layer.title}</span>
+        </div>
+      );
+    });
+    return layers;
+  }
+
   toggleToolbarStatus() {
     this.setState({
       toolbarOpen: !this.state.toolbarOpen
@@ -31,6 +48,8 @@ class DataMap extends React.Component {
   }
 
   render() {
+    let content = this.getLayers();
+
     return (<div className="c-data-map">
       <div className={['toolbar', this.state.toolbarOpen ? '-open' : ''].join(' ')}>
         <div className="actions">
@@ -44,7 +63,7 @@ class DataMap extends React.Component {
           </div>
         </div>
         <div className="content">
-          <Switch />
+          {content}
         </div>
       </div>
       <div className="map" ref="map"></div>
@@ -57,6 +76,10 @@ DataMap.propTypes = {
   * Define the layers data of the map
   */
   data: React.PropTypes.any,
+  /**
+  * Define the layers on change switch function
+  */
+  switchChange: React.PropTypes.func.isRequired,
 };
 
 export default DataMap;
