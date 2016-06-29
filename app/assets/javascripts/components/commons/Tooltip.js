@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+import Title from './Title';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -18,7 +19,15 @@ class Tooltip extends React.Component {
   }
 
   render() {
-    let content = <span>Hi! I'm the {this.props.data.title} tooltip</span>;
+    let content = (
+      <div>
+        <Title type="mini">{this.props.data.title}</Title>
+        <p>
+          The website is under development. Further information will go here.
+        </p>
+      </div>
+    );
+
     return (
       <div className="c-tooltip">
         <span className="icon" onClick={() => this.setState({ tooltipOpen: true })}>i</span>
