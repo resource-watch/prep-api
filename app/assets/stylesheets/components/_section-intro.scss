@@ -1,4 +1,4 @@
-.c-dashboard-intro {
+.c-section-intro {
   position: relative;
   > .container {
     margin-top: -60px;
@@ -37,8 +37,14 @@
           @media #{$mq-tablet} {
             color: $color-5;
           }
-          &.highlight {
+          &.-color-1 {
             color: $color-2;
+          }
+          &.-color-2 {
+            color: $color-3;
+          }
+          &.-color-3 {
+            color: $color-4;
           }
         }
       }

@@ -8,7 +8,7 @@
   border-radius: 22px;
   background-color: rgba($color-1, 0.3);
   cursor: pointer;
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.15s ease-out;
 
   &:after {
     content: " ";
@@ -21,7 +21,7 @@
     background-color: $color-5;
     cursor: pointer;
     transform: translateX(3px);
-    transition: transform 0.3s ease-out;
+    transition: transform 0.15s ease-out;
   }
 
   &.-checked {

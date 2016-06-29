@@ -10,6 +10,7 @@ function ChartCard(props) {
   return (
     <ContentCard
       header={header}
+      pageType={props.pageType}
       dataTooltip={props.tooltip && props.data}
     >
       {props.data && props.data.data &&
@@ -35,7 +36,16 @@ ChartCard.propTypes = {
   /**
    * Define layers data to the map
    */
-  data: React.PropTypes.any.isRequired
+  data: React.PropTypes.any.isRequired,
+  /**
+   * Define the page type color
+   * Accepted values:
+   * 	- 1: yellow border
+   * 	- 2: blue border
+   * 	- 3: green border
+   * Default: no border (i.e. prop not defined)
+   */
+  pageType: React.PropTypes.number,
 };
 
 export default ChartCard;

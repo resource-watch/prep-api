@@ -10,8 +10,8 @@ import Footer from '../commons/Footer';
 class DashboardsPage extends React.Component {
 
   componentDidMount() {
-    this.props.getDashboardList();
-    this.pageType = 1; // For page colors, 1 = yellow
+    this.props.getInsightsList();
+    this.pageType = 2; // For page colors, 2 = blue
   }
 
   getContent() {
@@ -26,8 +26,8 @@ class DashboardsPage extends React.Component {
     let items = [];
     this.props.data.forEach((item, index) => {
       items.push(
-        <Card borderType={4} key={`dashboard-item-${index}`}>
-          <Link to={`/dashboards/${item.slug}`}>
+        <Card borderType={4} key={`insight-item-${index}`}>
+          <Link to={`/insights/${item.slug}`}>
             <Title type="content">
               {item.title}
             </Title>
@@ -65,7 +65,7 @@ class DashboardsPage extends React.Component {
         <Header type="small" pageType={this.pageType}>
           <Navbar currentPage={this.props.currentPage} />
           <Title inverse center borderType={this.pageType} type="page">
-            Dashboards
+            Insights
           </Title>
         </Header>
 
@@ -82,13 +82,13 @@ class DashboardsPage extends React.Component {
                 </Link>
               </div>
               <div className="card -image">
-                <Title inverse center>Insights</Title>
+                <Title inverse center>Dashboards</Title>
                 <p>
                   Integer id placerat ligula, eget consequat sapien. Duis nec
                   neque scelerisque
                 </p>
-                <Link to="/insights">
-                  <Button color={this.pageType}>Explore the insights</Button>
+                <Link to="/dashboards">
+                  <Button color={this.pageType}>Explore the dashboards</Button>
                 </Link>
               </div>
             </div>
@@ -134,11 +134,11 @@ DashboardsPage.propTypes = {
    */
   currentPage: React.PropTypes.string,
   /**
-   * Define function to get the dashboard list
+   * Define function to get the insights list
    */
-  getDashboardList: React.PropTypes.func.isRequired,
+  getInsightsList: React.PropTypes.func.isRequired,
   /**
-   * Define dashboards list data
+   * Define insights list data
    */
   data: React.PropTypes.array,
 };

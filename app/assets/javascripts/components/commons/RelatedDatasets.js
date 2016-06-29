@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Modal from './Modal';
 import Title from './Title';
 
-export default class RelatedDatasets extends React.Component {
+class RelatedDatasets extends React.Component {
 
   constructor(props) {
     super(props);
@@ -115,3 +115,17 @@ export default class RelatedDatasets extends React.Component {
   }
 
 }
+
+RelatedDatasets.propTypes = {
+  /**
+   * Define the page type color
+   * Accepted values:
+   * 	- 1: yellow border
+   * 	- 2: blue border
+   * 	- 3: green border
+   * Default: no border (i.e. prop not defined)
+   */
+  pageType: React.PropTypes.number,
+};
+
+export default RelatedDatasets;

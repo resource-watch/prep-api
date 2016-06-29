@@ -2,20 +2,17 @@ import React from 'react';
 import Header from '../commons/Header';
 import Navbar from '../commons/Navbar';
 import SectionIntro from '../commons/SectionIntro';
-import DashboardDetailTools from '../dashboards/DashboardDetailTools';
-import DashboardDetailInsights from '../dashboards/DashboardDetailInsights';
 import DashboardDetailIndicators from '../dashboards/DashboardDetailIndicators';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
 import Footer from '../commons/Footer';
-import NavTab from '../commons/NavTab';
 import RelatedDatasets from '../commons/RelatedDatasets';
 
 class DashboardDetailPage extends React.Component {
 
   componentDidMount() {
-    this.props.getDashboardBySlug(this.props.dashboardSlug);
-    this.pageType = 1; // For page colors, 1 = yellow
+    this.props.getInsightBySlug(this.props.insightSlug);
+    this.pageType = 2; // For page colors, 2 = blue
   }
 
   getContent() {
@@ -26,47 +23,22 @@ class DashboardDetailPage extends React.Component {
         </div>
       );
     }
-
-    let content;
-    switch (this.props.dashboardTab) {
-      case 'insights':
-        content = (<DashboardDetailInsights
-          data={this.props.data.insights}
-        />);
-        break;
-
-      case 'tools':
-        content = (<DashboardDetailTools
-          data={this.props.data.tools}
-        />);
-        break;
-
-      default:
-        content = (<DashboardDetailIndicators
-          pageType={this.pageType}
-          data={this.props.data.indicators}
-        />);
-        break;
-    }
-
     return (
       <div>
         <div className="wrapper">
           <SectionIntro
             data={this.props.data}
             pageType={this.pageType}
-            dashboardSlug={this.props.dashboardSlug}
+            insightSlug={this.props.insightSlug}
             currentPage={this.props.currentPage}
           />
         </div>
 
-        <NavTab
-          activeTab={this.props.dashboardTab}
-          baseUrl={`/dashboards/${this.props.dashboardSlug}`}
-        />
-
-        <div className="wrapper tab-container">
-          {content}
+        <div className="wrapper">
+          <DashboardDetailIndicators
+            pageType={this.pageType}
+            data={this.props.data.indicators}
+          />
         </div>
       </div>
     );
@@ -77,7 +49,7 @@ class DashboardDetailPage extends React.Component {
     let title;
     if (this.props.data && this.props.data.title) {
       title = (
-        <Title inverse center borderType={1} type="page">
+        <Title inverse center borderType={this.pageType} type="page">
           {this.props.data.title}
         </Title>
       );
@@ -91,13 +63,13 @@ class DashboardDetailPage extends React.Component {
 
         {content}
 
-        <RelatedDatasets />
+        <RelatedDatasets pageType={this.pageType} />
 
         <div className="other-dashboards">
           <div className="wrapper">
-            <Title inverse borderType={1}>Other dashboards</Title>
+            <Title inverse borderType={this.pageType}>Other dashboards</Title>
             <div className="other-cards">
-              <Card inverse borderType={2}>
+              <Card inverse borderType={this.pageType}>
                 <Title type="content" inverse>
                   Framer assesses possible impacts of climate change on his
                   crops (grapes)
@@ -118,10 +90,10 @@ class DashboardDetailPage extends React.Component {
                   />
                 </a>
               </Card>
-              <Card inverse borderType={2}>
+              <Card inverse borderType={this.pageType}>
                 <Title type="content" inverse>
                   City Planner assesses possible impacts of Climate Change on
-                  Puget Sound's built environment
+                  Puget Soundâ€™s built environment
                 </Title>
                 <p className="content">
                   Most climate change effects are likely to increase the
@@ -156,12 +128,12 @@ DashboardDetailPage.propTypes = {
   /**
    * Define the slug of the dashboard
    */
-  dashboardSlug: React.PropTypes.string.isRequired,
+  insightSlug: React.PropTypes.string.isRequired,
   /**
    * Define the selected tab of the dashboard
    * Default: "indicators"
    */
-  dashboardTab: React.PropTypes.string.isRequired,
+  insightTab: React.PropTypes.string.isRequired,
   /**
    * Define detail dashboards data
    */
@@ -169,7 +141,7 @@ DashboardDetailPage.propTypes = {
   /**
    * Define the function to get the dashboard detail data
    */
-  getDashboardBySlug: React.PropTypes.func.isRequired
+  getInsightBySlug: React.PropTypes.func.isRequired
 };
 
 export default DashboardDetailPage;

@@ -45,7 +45,7 @@ class HomePage extends React.Component {
 
     return (
       <div className="l-homepage">
-        <Header type="large">
+        <Header type="large" pageType={4}>
           <Navbar currentPage={this.props.currentPage} />
           <Title inverse borderType={1} type={'mega'}>
             Enabling collective action to manage climate risks

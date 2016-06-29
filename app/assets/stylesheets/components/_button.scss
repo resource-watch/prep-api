@@ -10,6 +10,7 @@
   background-color: transparent;
 
   &.-color-1 { color: $color-2; }
+  &.-color-2 { color: $color-3; }
   &.-color-3 { color: $color-4; }
   &.-inverse { color: $color-6; }
 
@@ -17,14 +18,19 @@
     border: 2px solid $color-2;
     &.-fill { background-color: $color-2; }
   }
-  
+
   &.-border-2 {
-    border: 2px solid $color-1;
-    &.-fill { background-color: $color-1; }
+    border: 2px solid $color-3;
+    &.-fill { background-color: $color-3; }
   }
 
   &.-border-3 {
     border: 2px solid $color-4;
     &.-fill { background-color: $color-4; }
+  }
+
+  &.-border-4 {
+    border: 2px solid $color-1;
+    &.-fill { background-color: $color-1; }
   }
 }

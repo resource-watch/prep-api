@@ -17,8 +17,16 @@
       font-size: $font-size-x-small;
       line-height: 1.8;
       letter-spacing: 0.3px;
-      color: $color-11;
       text-transform: uppercase;
+      &.-color-1 {
+        color: $color-11;
+      }
+      &.-color-2 {
+        color: $color-3;
+      }
+      &.-color-3 {
+        color: $color-4;
+      }
     }
 
     >.tooltip {

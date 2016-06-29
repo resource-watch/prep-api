@@ -25,8 +25,10 @@ Card.propTypes = {
   /**
    * Define the color of the border of the button
    * Accepted values:
-   * 	- 1: grey
-   * 	- 2: yellow
+   * 	- 1: yellow
+   * 	- 2: blue
+   * 	- 3: green
+   * 	- 4: grey
    * Default: no border (i.e. prop not defined)
    */
   borderType: React.PropTypes.number,

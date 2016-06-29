@@ -5,7 +5,7 @@ import {
 
 export function getDataMap() {
   return dispatch => {
-    fetch('/data/map-data-layers.json')
+    fetch('/data/map/map-data-layers.json')
       .then(response => (response.json()))
       .then(data => {
         dispatch({
