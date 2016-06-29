@@ -6,7 +6,7 @@ import Navbar from '../commons/Navbar';
 import Title from '../commons/Title';
 import Footer from '../commons/Footer';
 import ChartCard from '../cards/ChartCard';
-import Map from '../commons/Map';
+import Map from '../maps/Map';
 import Button from '../commons/Button';
 import Modal from '../commons/Modal';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentCard from './ContentCard';
-import Map from '../commons/Map';
+import Map from '../maps/Map';
 
 function MapCard(props) {
   const header = {

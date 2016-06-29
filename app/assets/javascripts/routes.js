@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import useScroll from 'react-router-scroll';
 import { Router, Route, applyRouterMiddleware } from 'react-router';
 import HomePage from './containers/pages/HomePage';
+import DataPage from './containers/pages/DataPage';
 import DashboardsPage from './containers/pages/DashboardsPage';
 import DashboardDetailPage from './containers/pages/DashboardDetailPage';
 import PartnersPage from './containers/pages/PartnersPage';
@@ -74,6 +75,7 @@ function Routes(props) {
       render={applyRouterMiddleware(useScroll(shouldUpdateScroll))}
     >
       <Route path="/" component={HomePage} />
+      <Route path="data" component={DataPage} />
       <Route path="dashboards" component={DashboardsPage} />
       <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
       <Route path="partners" component={PartnersPage} />
