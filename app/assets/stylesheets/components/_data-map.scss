@@ -6,13 +6,16 @@
     top: $navbar-height-small;
     left: 0;
     height: calc(100% - #{$navbar-height-small});
-    width: 350px;
-
-    background-color: rgba($color-5, 0.9);
+    width: 100%;
+    background-color: $color-5;
     z-index: 1;
-
     transform: translateX(-100%);
-    transition: transform 0.1s ease-out;
+    transition: transform 0.3s ease-out;
+
+    @media #{$mq-tablet} {
+      width: 350px;
+      background-color: rgba($color-5, 0.9);
+    }
 
     > .actions {
       position: absolute;
@@ -53,6 +56,15 @@
       }
     }
 
+    > .actions-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media #{$mq-tablet} {
+        display: none;
+      }
+    }
+
     &.-open {
       transform: translateX(0);
     }
@@ -61,7 +73,8 @@
     height: 100%;
   }
   .leaflet-top {
-    top: 50px
+    top: 50px;
+    z-index: 0;
   }
   .leaflet-control-zoom {
     box-shadow: none;
