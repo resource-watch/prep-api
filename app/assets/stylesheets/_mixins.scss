@@ -31,7 +31,7 @@ $hamburguer-transition: 0.3s;
     position: relative;
     top: 0;
     transition: transform $transition ease-in,
-                background-color $transition ease-in;
+                background-color 0.1s ease-in;
 
     &,
     &:before,
@@ -49,7 +49,7 @@ $hamburguer-transition: 0.3s;
       position: absolute;
       content: "";
       transition: transform $transition ease,
-                  background-color $transition ease-in;
+                  background-color 0.1s ease-in;
     }
 
     &:before { top:    -($height + $spacing); }
