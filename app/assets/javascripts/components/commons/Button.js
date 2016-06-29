@@ -25,7 +25,8 @@ Button.propTypes = {
    * 	- 1: yellow
    * 	- 2: blue
    * 	- 3: green
-   * Default: 2
+   * 	- 4: dark blue
+   * Default: 4
    */
   color: React.PropTypes.number,
   /**

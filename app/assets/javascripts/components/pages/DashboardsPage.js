@@ -62,7 +62,7 @@ class DashboardsPage extends React.Component {
     let content = this.getContent();
     return (
       <div className="l-dashboards">
-        <Header type="small">
+        <Header type="small" pageType={this.pageType}>
           <Navbar currentPage={this.props.currentPage} />
           <Title inverse center borderType={this.pageType} type="page">
             Dashboards
@@ -78,7 +78,7 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>Data on the map</Title>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                 <Link to="/data">
-                  <Button color={1}>Explore the map</Button>
+                  <Button color={this.pageType}>Explore the map</Button>
                 </Link>
               </div>
               <div className="card -image">
@@ -88,7 +88,7 @@ class DashboardsPage extends React.Component {
                   neque scelerisque
                 </p>
                 <Link to="/insights">
-                  <Button color={1}>Explore the insights</Button>
+                  <Button color={this.pageType}>Explore the insights</Button>
                 </Link>
               </div>
             </div>
@@ -103,7 +103,9 @@ class DashboardsPage extends React.Component {
                   Do you have relevant data about climate?
                 </Title>
                 <a href="#" className="button-container">
-                  <Button inverse borderType={this.pageType}>Create your dashboard</Button>
+                  <Button inverse borderType={this.pageType}>
+                    Create your dashboard
+                  </Button>
                 </a>
               </div>
               <div>
@@ -111,7 +113,9 @@ class DashboardsPage extends React.Component {
                   Would you like to improve a dashboard?
                 </Title>
                 <Link to="/contact" className="button-container">
-                  <Button inverse borderType={this.pageType}>Get in touch</Button>
+                  <Button inverse borderType={this.pageType}>
+                    Get in touch
+                  </Button>
                 </Link>
               </div>
             </div>

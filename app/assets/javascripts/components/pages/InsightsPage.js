@@ -62,7 +62,7 @@ class DashboardsPage extends React.Component {
     let content = this.getContent();
     return (
       <div className="l-dashboards">
-        <Header type="small">
+        <Header type="small" pageType={this.pageType}>
           <Navbar currentPage={this.props.currentPage} />
           <Title inverse center borderType={this.pageType} type="page">
             Insights
@@ -78,7 +78,7 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>Data on the map</Title>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                 <Link to="/data">
-                  <Button color={1}>Explore the map</Button>
+                  <Button color={this.pageType}>Explore the map</Button>
                 </Link>
               </div>
               <div className="card -image">
@@ -88,7 +88,7 @@ class DashboardsPage extends React.Component {
                   neque scelerisque
                 </p>
                 <Link to="/dashboards">
-                  <Button color={1}>Explore the dashboards</Button>
+                  <Button color={this.pageType}>Explore the dashboards</Button>
                 </Link>
               </div>
             </div>

@@ -84,7 +84,7 @@ class DashboardDetailPage extends React.Component {
     }
     return (
       <div className="l-dashboards">
-        <Header>
+        <Header pageType={this.pageType}>
           <Navbar currentPage={this.props.currentPage} />
           {title}
         </Header>
