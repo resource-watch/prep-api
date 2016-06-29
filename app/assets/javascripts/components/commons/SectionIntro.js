@@ -1,11 +1,9 @@
 import React from 'react';
 import ToolbarActions from '../../containers/commons/ToolbarActions';
 
-function DashboardIntro(props) {
-  const classes = ['c-dashboard-intro'];
-
+function SectionIntro(props) {
   return (
-    <div className={classes.join(' ')}>
+    <div className={"c-section-intro"}>
       <div className="container">
         <div className="top-bar">
           <div className="logo">
@@ -13,13 +11,13 @@ function DashboardIntro(props) {
           </div>
           <div className="author">
             <span>{props.data.author.name}</span>
-            <span className="highlight">{props.data.author.email}</span>
+            <span className={`-color-${props.pageType}`}>{props.data.author.email}</span>
           </div>
         </div>
         <div className="content">
           <div className="wrapper-mini">
             <ToolbarActions
-              dashboardSlug={props.dashboardSlug}
+              pageType={props.pageType}
               currentSection={props.currentPage.split('/')[0]}
             />
             <p> {props.data.description} </p>
@@ -30,7 +28,7 @@ function DashboardIntro(props) {
   );
 }
 
-DashboardIntro.propTypes = {
+SectionIntro.propTypes = {
   /**
    * Data of intro detail with the below structure:
    * - description: string
@@ -45,9 +43,14 @@ DashboardIntro.propTypes = {
    */
   currentPage: React.PropTypes.string,
   /**
-   * Define the slug of the dashboard detail
+   * Define the page type color
+   * Accepted values:
+   * 	- 1: yellow border
+   * 	- 2: blue border
+   * 	- 3: green border
+   * Default: no border (i.e. prop not defined)
    */
-  dashboardSlug: React.PropTypes.string,
+  pageType: React.PropTypes.number
 };
 
-export default DashboardIntro;
+export default SectionIntro;

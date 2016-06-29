@@ -5,12 +5,14 @@ import Tooltip from '../commons/Tooltip';
 function ContentCard(props) {
   let legend;
   if (props.header.legend) {
-    legend = <span className="legend">{props.header.legend}</span>;
+    legend = (<span className={['legend', `-color-${props.pageType}`].join(' ')}>
+    {props.header.legend}</span>);
   }
 
   let subtitle;
   if (props.header.subtitle) {
-    subtitle = <span className="legend">{props.header.subtitle}</span>;
+    subtitle = (<span className={['legend', `-color-${props.pageType}`].join(' ')}>
+    {props.header.subtitle}</span>);
   }
 
   return (
@@ -54,7 +56,16 @@ ContentCard.propTypes = {
    * Define the content of the card
    * Required
    */
-  children: React.PropTypes.object
+  children: React.PropTypes.object,
+  /**
+   * Define the page type color
+   * Accepted values:
+   * 	- 1: yellow border
+   * 	- 2: blue border
+   * 	- 3: green border
+   * Default: no border (i.e. prop not defined)
+   */
+  pageType: React.PropTypes.number,
 };
 
 export default ContentCard;

@@ -71,7 +71,7 @@
         text-align: left;
       }
 
-      li {
+      > li {
         position: relative;
         display: inline-block;
         margin: 0;
@@ -100,6 +100,15 @@
           margin-right: 0;
           &:after { content: none; }
         }
+      }
+      &.-color-1 > li:after{
+        background-color: $color-2;
+      }
+      &.-color-2 > li:after{
+        background-color: $color-3;
+      }
+      &.-color-3 > li:after{
+        background-color: $color-4;
       }
     }
   }

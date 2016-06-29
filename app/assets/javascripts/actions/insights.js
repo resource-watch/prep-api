@@ -1,15 +1,15 @@
 import {
-  LIST_DASHBOARD_RECEIVED,
-  DETAIL_DASHBOARD_RECEIVED
+  LIST_INSIGHTS_RECEIVED,
+  DETAIL_INSIGHTS_RECEIVED
 } from '../constants';
 
-export function getDashboardList() {
+export function getInsightsList() {
   return dispatch => {
-    fetch('/data/dashboards/list.json')
+    fetch('/data/insights/list.json')
       .then(response => (response.json()))
       .then(data => {
         dispatch({
-          type: LIST_DASHBOARD_RECEIVED,
+          type: LIST_INSIGHTS_RECEIVED,
           payload: {
             data: data.data
           }
@@ -18,13 +18,13 @@ export function getDashboardList() {
     );
   };
 }
-export function getDashboardBySlug(slug) {
+export function getInsightBySlug(slug) {
   return dispatch => {
-    fetch(`/data/dashboards/${slug}.json`)
+    fetch(`/data/insights/${slug}.json`)
       .then(response => (response.json()))
       .then(data => {
         dispatch({
-          type: DETAIL_DASHBOARD_RECEIVED,
+          type: DETAIL_INSIGHTS_RECEIVED,
           payload: { data }
         });
       }

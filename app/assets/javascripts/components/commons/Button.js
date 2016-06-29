@@ -42,6 +42,7 @@ Button.propTypes = {
    * 	- 1: yellow
    * 	- 2: blue
    * 	- 3: green
+   * 	- 4: dark blue
    * Default: no border (i.e. prop not defined)
    */
   borderType: React.PropTypes.number,

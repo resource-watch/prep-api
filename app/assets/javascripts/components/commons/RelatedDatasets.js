@@ -1,10 +1,13 @@
+import React from 'react';
 import Title from './Title';
 
-export default function () {
+function RelatedDataset(props) {
   return (
     <div className="c-related-datasets">
       <div className="wrapper">
-        <Title borderType={1}>Related datasets</Title>
+        <Title borderType={props.pageType}>
+          Related datasets
+        </Title>
         <div className="datasets">
           <div className="dataset">
             <div className="title">
@@ -65,3 +68,17 @@ export default function () {
     </div>
   );
 }
+
+RelatedDataset.propTypes = {
+  /**
+   * Define the page type color
+   * Accepted values:
+   * 	- 1: yellow border
+   * 	- 2: blue border
+   * 	- 3: green border
+   * Default: no border (i.e. prop not defined)
+   */
+  pageType: React.PropTypes.number,
+};
+
+export default RelatedDataset;

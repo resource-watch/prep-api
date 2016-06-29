@@ -6,6 +6,8 @@ import HomePage from './containers/pages/HomePage';
 import DataPage from './containers/pages/DataPage';
 import DashboardsPage from './containers/pages/DashboardsPage';
 import DashboardDetailPage from './containers/pages/DashboardDetailPage';
+import InsightsPage from './containers/pages/InsightsPage';
+import InsightDetailPage from './containers/pages/InsightDetailPage';
 import PartnersPage from './containers/pages/PartnersPage';
 import AboutPage from './containers/pages/AboutPage';
 import FAQsPage from './containers/pages/FAQsPage';
@@ -78,6 +80,8 @@ function Routes(props) {
       <Route path="data" component={DataPage} />
       <Route path="dashboards" component={DashboardsPage} />
       <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
+      <Route path="insights" component={InsightsPage} />
+      <Route path="insights/:slug" component={InsightDetailPage} />
       <Route path="partners" component={PartnersPage} />
       <Route path="about" component={AboutPage} />
       <Route path="faqs" component={FAQsPage} />

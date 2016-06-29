@@ -14,8 +14,10 @@
     color: $color-11;
   }
 
-  &.-border-1 { border: 2px solid $color-10; }
-  &.-border-2 { border: 2px solid $color-2; }
+  &.-border-1 { border: 2px solid $color-2; }
+  &.-border-2 { border: 2px solid $color-3; }
+  &.-border-3 { border: 2px solid $color-4; }
+  &.-border-4 { border: 2px solid $color-10; }
 
   &.-inverse { color: $color-5; }
 
