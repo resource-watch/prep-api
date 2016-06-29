@@ -35,7 +35,9 @@ class RelatedDatasets extends React.Component {
     return (
       <div className="c-related-datasets">
         <div className="wrapper">
-          <Title borderType={1}>Related datasets</Title>
+          <Title borderType={this.props.pageType}>
+            Related datasets
+          </Title>
           <div className="datasets">
             <div className="dataset">
               <div className="title">
