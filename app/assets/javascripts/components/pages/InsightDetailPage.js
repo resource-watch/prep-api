@@ -93,7 +93,7 @@ class DashboardDetailPage extends React.Component {
               <Card inverse borderType={this.pageType}>
                 <Title type="content" inverse>
                   City Planner assesses possible impacts of Climate Change on
-                  Puget Soundâ€™s built environment
+                  Puget Sound's built environment
                 </Title>
                 <p className="content">
                   Most climate change effects are likely to increase the
