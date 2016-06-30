@@ -14,7 +14,7 @@ function ToolbarActions(props) {
         </Link>
       </div>
       <div className="right">
-        <button className="action" onClick={() => props.openShare()}>
+        <button className="action" onClick={() => props.openDownload()}>
           <svg className={svgClassNames.join(' ')} width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><title>icon download</title><g fill="none" fill-rule="evenodd"><path d="M4 0h2v7H4zM0 10h10v2H0z" /><path d="M4.243 8.192l.707.707L9.9 3.95 8.484 2.537 4.95 6.07 1.414 2.536 0 3.95l4.243 4.242z" /></g></svg>
           Download
         </button>
