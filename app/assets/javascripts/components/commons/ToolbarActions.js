@@ -14,11 +14,11 @@ function ToolbarActions(props) {
         </Link>
       </div>
       <div className="right">
-        <button className="action" onClick={() => props.openDownload()}>
+        <button className="action" onClick={props.openDownload}>
           <svg className={svgClassNames.join(' ')} width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><title>icon download</title><g fill="none" fill-rule="evenodd"><path d="M4 0h2v7H4zM0 10h10v2H0z" /><path d="M4.243 8.192l.707.707L9.9 3.95 8.484 2.537 4.95 6.07 1.414 2.536 0 3.95l4.243 4.242z" /></g></svg>
           Download
         </button>
-        <button className="action" onClick={() => props.openShare()}>
+        <button className="action" onClick={props.openShare}>
           <svg className={svgClassNames.join(' ')} width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><title>icon-share</title><g fill="none" fill-rule="evenodd"><path d="M6.45 1l1.414 1.414-4.95 4.95L1.5 5.95zM0 10h10v2H0z" /><path d="M9 1V0H2v2h5v5h2V1z" /></g></svg>
           Share
         </button>
@@ -38,6 +38,11 @@ ToolbarActions.propTypes = {
    * Required
    */
   openShare: React.PropTypes.func.isRequired,
+  /**
+   * Function to open download modal
+   * Required
+   */
+  openDownload: React.PropTypes.func.isRequired,
   /**
    * Define the page type color
    * Accepted values:

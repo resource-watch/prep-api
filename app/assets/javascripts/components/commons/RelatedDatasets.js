@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Modal from './Modal';
 import Title from './Title';
 
@@ -14,22 +13,13 @@ class RelatedDatasets extends React.Component {
 
   render() {
     const modal = (
-      <ReactCSSTransitionGroup
-        transitionName="modal"
-        transitionAppear
-        transitionAppearTimeout={300}
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
-      >
-        {this.state.modalOpen &&
-          <Modal close={() => this.setState({ modalOpen: false })}>
-            <div className="content">
-              The website is under development. Download details will be added
-              here.
-            </div>
-          </Modal>
-        }
-      </ReactCSSTransitionGroup>
+      this.state.modalOpen &&
+        <Modal close={() => this.setState({ modalOpen: false })}>
+          <div className="content">
+            The website is under development. Download details will be added
+            here.
+          </div>
+        </Modal>
     );
 
     return (
