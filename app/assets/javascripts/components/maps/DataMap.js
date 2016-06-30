@@ -2,6 +2,7 @@ import React from 'react';
 
 import Switch from '../commons/Switch';
 import Button from '../commons/Button';
+import FilterTab from '../../containers/commons/FilterTab';
 
 class DataMap extends React.Component {
   constructor() {
@@ -65,6 +66,9 @@ class DataMap extends React.Component {
               <span></span>
             </button>
           </div>
+        </div>
+        <div className="header">
+          <FilterTab />
         </div>
         <div className="content">
           {content}

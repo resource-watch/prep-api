@@ -1,0 +1,35 @@
+.c-filter-tab {
+  background-color: $color-9;
+
+  > ul {
+    position: relative;
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @media #{$mq-mobile-small} {
+      height: 60px;
+      flex-direction: row;
+    }
+
+    > li {
+      position: relative;
+      margin:  0;
+      height: 100%;
+      font-size: $font-size-x-small;
+      font-weight: $font-weight-bold;
+      line-height: 60px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      transition: opacity .3s ease-out;
+
+      @media #{$mq-mobile-large} {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}

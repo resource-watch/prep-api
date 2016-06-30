@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import ToolbarActions from '../../components/commons/ToolbarActions';
 
-import { openShare } from '../../actions/toolbar';
+import { setModalUnderDevelop } from '../../actions/modal';
 
 const mapStateToProps = () => ({});
 const mapDispatchToProps = (dispatch) => ({
-  openShare: () => dispatch(openShare())
+  openDownload: () => dispatch(setModalUnderDevelop(true)),
+  openShare: () => dispatch(setModalUnderDevelop(true))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ToolbarActions);

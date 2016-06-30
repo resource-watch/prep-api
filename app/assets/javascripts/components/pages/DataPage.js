@@ -1,6 +1,9 @@
 import React from 'react';
 import Navbar from '../commons/Navbar';
 import DataMap from '../../containers/commons/DataMap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Link } from 'react-router';
+import Modal from '../commons/Modal';
 
 class DataPage extends React.Component {
 
@@ -13,6 +16,22 @@ class DataPage extends React.Component {
       <div className="l-data">
         <Navbar small dark currentPage={this.props.currentPage} />
         <DataMap data={this.props.data} />
+        <ReactCSSTransitionGroup
+          transitionName="modal"
+          transitionAppear
+          transitionAppearTimeout={300}
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+        {this.props.modalOpen &&
+          <Modal close={() => this.props.setModalUnderDevelop(false)}>
+            <div className="content">
+              This page is currently under development.
+              Please reach us <Link to="/contact">here</Link>.
+            </div>
+          </Modal>
+        }
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
@@ -31,6 +50,14 @@ DataPage.propTypes = {
    * Define the map layers
    */
   data: React.PropTypes.any.isRequired,
+  /**
+   * Define the status of the modal
+   */
+  modalOpen: React.PropTypes.bool,
+  /**
+   * Define the function to handle the modal
+   */
+  setModalUnderDevelop: React.PropTypes.func.isRequired,
 };
 
 export default DataPage;
