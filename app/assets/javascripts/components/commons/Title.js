@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 function Title(props) {
   const classes = ['c-title'];
@@ -19,11 +20,20 @@ function Title(props) {
   if (props.subtitle) {
     classes.push('-subtitle');
     if (props.subtitle.href) {
-      subtitle = (
-        <h4>
-          <a href={props.subtitle.href}>{props.subtitle.title}</a>
-        </h4>
-      );
+      /* Temporary condition, should be removed when no other link withe "#" */
+      if (props.subtitle.href === '#') {
+        subtitle = (
+          <h4>
+            <a href={props.subtitle.href}>{props.subtitle.title}</a>
+          </h4>
+        );
+      } else {
+        subtitle = (
+          <h4>
+            <Link to={props.subtitle.href}>{props.subtitle.title}</Link>
+          </h4>
+        );
+      }
     } else {
       subtitle = <h4>{props.subtitle.title}</h4>;
     }
