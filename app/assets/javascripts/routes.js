@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import useScroll from 'react-router-scroll';
-import { Router, Route, applyRouterMiddleware } from 'react-router';
+import { IndexRoute, Router, Route, applyRouterMiddleware } from 'react-router';
+import ContainerPage from './containers/pages/ContainerPage';
 import HomePage from './containers/pages/HomePage';
 import DataPage from './containers/pages/DataPage';
 import DashboardsPage from './containers/pages/DashboardsPage';
@@ -76,16 +77,18 @@ function Routes(props) {
       history={props.history}
       render={applyRouterMiddleware(useScroll(shouldUpdateScroll))}
     >
-      <Route path="/" component={HomePage} />
-      <Route path="data" component={DataPage} />
-      <Route path="dashboards" component={DashboardsPage} />
-      <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
-      <Route path="insights" component={InsightsPage} />
-      <Route path="insights/:slug" component={InsightDetailPage} />
-      <Route path="partners" component={PartnersPage} />
-      <Route path="about" component={AboutPage} />
-      <Route path="faqs" component={FAQsPage} />
-      <Route path="contact" component={ContactPage} />
+      <Route path="/" component={ContainerPage}>
+        <IndexRoute component={HomePage} />
+        <Route path="data" component={DataPage} />
+        <Route path="dashboards" component={DashboardsPage} />
+        <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
+        <Route path="insights" component={InsightsPage} />
+        <Route path="insights/:slug" component={InsightDetailPage} />
+        <Route path="partners" component={PartnersPage} />
+        <Route path="about" component={AboutPage} />
+        <Route path="faqs" component={FAQsPage} />
+        <Route path="contact" component={ContactPage} />
+      </Route>
     </Router>
   );
 }
