@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import Header from '../commons/Header';
 import Navbar from '../commons/Navbar';
 import SectionIntro from '../commons/SectionIntro';
@@ -11,7 +10,6 @@ import Card from '../cards/Card';
 import Footer from '../commons/Footer';
 import NavTab from '../commons/NavTab';
 import RelatedDatasets from '../commons/RelatedDatasets';
-import Modal from '../commons/Modal';
 
 class DashboardDetailPage extends React.Component {
 
@@ -145,15 +143,6 @@ class DashboardDetailPage extends React.Component {
         </div>
 
         <Footer pageType={this.pageType} />
-
-        {this.props.modalOpen &&
-          <Modal close={() => this.props.setModalUnderDevelop(false)}>
-            <div className="content">
-              This page is currently under development.
-              Please reach us <Link to="/contact">here</Link>.
-            </div>
-          </Modal>
-        }
       </div>
     );
   }
@@ -180,15 +169,7 @@ DashboardDetailPage.propTypes = {
   /**
    * Define the function to get the dashboard detail data
    */
-  getDashboardBySlug: React.PropTypes.func.isRequired,
-  /**
-   * Define the development modal status
-   */
-  modalOpen: React.PropTypes.bool,
-  /**
-   * Define the function to handle development modal
-   */
-  setModalUnderDevelop: React.PropTypes.func.isRequired
+  getDashboardBySlug: React.PropTypes.func.isRequired
 };
 
 export default DashboardDetailPage;
