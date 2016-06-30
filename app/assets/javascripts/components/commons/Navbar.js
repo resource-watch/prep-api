@@ -45,10 +45,10 @@ class Navbar extends React.Component {
                   <Link to="/insights">Insights</Link>
                 </li>
                 <li className="link separator"></li>
-                <li className="link -secondary">
+                <li className="link -secondary -disable">
                   <a href="#">Search</a>
                 </li>
-                <li className="link -secondary">
+                <li className="link -secondary -disable">
                   <a href="#">English</a>
                 </li>
               </ul>

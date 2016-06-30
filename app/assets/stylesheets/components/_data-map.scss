@@ -42,7 +42,8 @@
     }
 
     > .content {
-      height: 100%;
+      //50px from the c-filter-tab
+      height: calc(100% - 50px);
       padding: 1rem;
       overflow: auto;
       > .layer {

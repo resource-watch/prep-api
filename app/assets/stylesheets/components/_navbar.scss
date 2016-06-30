@@ -109,6 +109,13 @@ $navbar-breakpoint: 870px;
           font-weight: $font-weight-normal;
         }
 
+        &.-disable > a {
+          cursor: not-allowed;
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+
         &.separator {
           padding: 0;
           display: inline-block;

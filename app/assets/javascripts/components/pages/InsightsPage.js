@@ -104,7 +104,7 @@ class DashboardsPage extends React.Component {
                 </Title>
                 <a href="#" className="button-container">
                   <Button inverse borderType={this.pageType}>
-                    Create your dashboard
+                    Create your insight
                   </Button>
                 </a>
               </div>
