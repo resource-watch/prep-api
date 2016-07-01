@@ -17,15 +17,15 @@ class DataPage extends React.Component {
         <DataMapSidebar />
         <DataMap data={this.props.data} />
         <DataMapLegend />
-
-        {this.props.modalOpen &&
-          <Modal close={() => this.props.setModalUnderDevelop(false)}>
-            <div className="content">
-              This page is currently under development.
-              Please reach us <Link to="/contact">here</Link>.
-            </div>
-          </Modal>
-        }
+        <Modal
+          opened={this.props.modalOpen}
+          close={() => this.props.setModalUnderDevelop(false)}
+        >
+          <div className="content">
+            This page is currently under development.
+            Please reach us <Link to="/contact">here</Link>.
+          </div>
+        </Modal>
       </div>
     );
   }

@@ -22,14 +22,10 @@ class Modal extends React.Component {
   }
 
   render() {
-    return (
-      <ReactCSSTransitionGroup
-        transitionName="modal"
-        transitionAppear
-        transitionAppearTimeout={300}
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
-      >
+    let modal;
+
+    if (this.props.opened) {
+      modal = (
         <div className="overlay" onClick={(e) => this.onClickOverlay(e)}>
           <div className="modal">
             <svg className="close-button" title="Close this modal" onClick={() => this.props.close()}>
@@ -38,6 +34,17 @@ class Modal extends React.Component {
             {this.props.children}
           </div>
         </div>
+      );
+    }
+    return (
+      <ReactCSSTransitionGroup
+        transitionName="modal"
+        transitionAppear
+        transitionAppearTimeout={300}
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}
+      >
+        {modal}
       </ReactCSSTransitionGroup>
     );
   }
@@ -49,6 +56,10 @@ Modal.propTypes = {
    * The callback method when closing the modal
    */
   close: React.PropTypes.func.isRequired,
+  /**
+   * Define whether the modal is opened or not
+   */
+  opened: React.PropTypes.bool.isRequired,
   /**
    * Define the content of the modal
    * Required

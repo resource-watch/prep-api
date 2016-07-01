@@ -103,6 +103,18 @@
       }
     }
 
+    &.-border-2 {
+      & > h1, h2, h3 {
+        &:after { color: $color-4; }
+      }
+    }
+
+    &.-border-3 {
+      & > h1, h2, h3 {
+        &:after { color: $color-3; }
+      }
+    }
+
     &.-center {
       > h1, h2, h3 {
         &:after { left: calc(50% - 60px); }

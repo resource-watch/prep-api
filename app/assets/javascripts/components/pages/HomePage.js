@@ -32,15 +32,6 @@ class HomePage extends React.Component {
       'graph-3': {data:{"padding":{"top":30,"left":28,"bottom":30,"right":5},"data":[{"name":"line","values":[{"x":"2010-01-01T00:00:00Z","y":2},{"x":"2010-02-01T00:00:00Z","y":3},{"x":"2010-03-01T00:00:00Z","y":1},{"x":"2010-04-01T00:00:00Z","y":3},{"x":"2010-05-01T00:00:00Z","y":3},{"x":"2010-06-01T00:00:00Z","y":8},{"x":"2010-07-01T00:00:00Z","y":16},{"x":"2010-08-01T00:00:00Z","y":24},{"x":"2010-09-01T00:00:00Z","y":12},{"x":"2010-10-01T00:00:00Z","y":10},{"x":"2010-11-01T00:00:00Z","y":8},{"x":"2010-12-01T00:00:00Z","y":6}],"format":{"parse":{"x":"date"}}},{"name":"area","values":[{"x":"2010-01-01T00:00:00Z","y":1},{"x":"2010-02-01T00:00:00Z","y":2},{"x":"2010-03-01T00:00:00Z","y":1},{"x":"2010-04-01T00:00:00Z","y":4},{"x":"2010-05-01T00:00:00Z","y":2},{"x":"2010-06-01T00:00:00Z","y":4},{"x":"2010-07-01T00:00:00Z","y":7},{"x":"2010-08-01T00:00:00Z","y":9},{"x":"2010-09-01T00:00:00Z","y":13},{"x":"2010-10-01T00:00:00Z","y":17},{"x":"2010-11-01T00:00:00Z","y":10},{"x":"2010-12-01T00:00:00Z","y":3}],"format":{"parse":{"x":"date"}}},{"name":"axis","values":[{"x":"Month","y":"Number of alerts"}]}],"scales":[{"name":"x","type":"time","range":"width","domain":{"fields":[{"data":"line","field":"x"},{"data":"area","field":"x"}]}},{"name":"y","type":"linear","range":"height","domain":{"fields":[{"data":"line","field":"y"},{"data":"area","field":"y"}]},"nice":true,"zero":false}],"axes":[{"name":"lbl","type":"x","scale":"x","ticks":5,"format":"%b","properties":{"ticks":{"strokeWidth":{"value":0}},"axis":{"stroke":{"value":"#3B4F63"},"opacity":{"value":0.5},"strokeWidth":{"value":0}},"labels":{"font":{"value":"\"Montserrat\", sans-serif"},"fontSize":{"value":10},"fontWeight":{"value":300},"fill":{"value":"#3B4F63"},"opacity":{"value":0.5},"dy":{"value":5}}}},{"type":"y","ticks":7,"scale":"y","grid":true,"layer":"back","format":"f","properties":{"ticks":{"stroke":{"value":"steelblue"}},"majorTicks":{"strokeWidth":{"value":0}},"axis":{"stroke":{"value":"#333"},"strokeWidth":{"value":0}},"grid":{"stroke":{"value":"#000"},"strokeOpacity":{"value":0.1},"strokeWidth":{"value":1}},"labels":{"fontSize":{"value":10},"fontWeight":{"value":300},"fill":{"value":"#3B4F63"},"opacity":{"value":0.5}}}}],"marks":[{"type":"line","from":{"data":"line"},"properties":{"enter":{"x":{"scale":"x","field":"x"},"y":{"scale":"y","field":"y"},"stroke":{"value":"#1a3e62"},"strokeWidth":{"value":3}}}},{"type":"area","from":{"data":"area"},"properties":{"enter":{"interpolate":{"value":"linear"},"x":{"scale":"x","field":"x"},"y":{"scale":"y","field":"y"},"y2":{"field":{"group":"height"}},"fill":{"value":"#000000"},"opacity":{"value":0.07}}}},{"type":"text","from":{"data":"axis"},"properties":{"enter":{"x":0,"y":0,"text":{"template":"{{datum.y | upper}}"},"dx":{"value":-25},"dy":{"value":-20},"font":{"value":"\"Montserrat\", sans-serif"},"fontSize":{"value":10},"fontWeight":{"value":700},"fill":{"value":"#3B4F63"},"opacity":{"value":0.5},"align":{"value":"left"}}}},{"type":"text","from":{"data":"axis"},"properties":{"enter":{"x":0,"y":{"field":{"group":"height"},"mult":1},"text":{"template":"{{datum.x | upper}}"},"dx":{"value":-25},"dy":{"value":22},"font":{"value":"\"Montserrat\", sans-serif"},"fontSize":{"value":10},"fontWeight":{"value":700},"fill":{"value":"#3B4F63"},"opacity":{"value":0.5},"align":{"value":"left"}}}}]}}
     };
 
-    const contactModal = (
-      <Modal close={() => this.setState({ contactModalOpen: false })}>
-        <div className="content">
-          This page is currently under development.
-          Please reach us <Link to="/contact">here</Link>.
-        </div>
-      </Modal>
-    );
-
     return (
       <div className="l-homepage">
         <Header type="large" pageType={4}>
@@ -93,6 +84,7 @@ class HomePage extends React.Component {
             <div className="content">
               <Title
                 border
+                borderType={3}
                 type="section"
                 subtitle={{
                   title: 'Go to insights',
@@ -199,6 +191,7 @@ class HomePage extends React.Component {
           <section className="homepage-map">
             <Title
               border
+              borderType={2}
               type="section"
               subtitle={{
                 title: 'Go to data',
@@ -250,7 +243,15 @@ class HomePage extends React.Component {
               </form>
 
             </div>
-            {this.state.contactModalOpen && contactModal}
+            <Modal
+              opened={this.state.contactModalOpen}
+              close={() => this.setState({ contactModalOpen: false })}
+            >
+              <div className="content">
+                This page is currently under development.
+                Please reach us <Link to="/contact">here</Link>.
+              </div>
+            </Modal>
           </div>
         </section>
 

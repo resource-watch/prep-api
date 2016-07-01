@@ -67,16 +67,6 @@ class DashboardsPage extends React.Component {
   render() {
     let content = this.getContent();
 
-    const modal = (
-      this.state.createInsightModalOpen &&
-        <Modal close={() => this.setState({ createInsightModalOpen: false })}>
-          <div className="content">
-            The website is under development. The feature will be available
-            later.
-          </div>
-        </Modal>
-    );
-
     return (
       <div className="l-dashboards">
         <Header type="small" pageType={this.pageType}>
@@ -143,7 +133,15 @@ class DashboardsPage extends React.Component {
             </div>
           </div>
 
-          {modal}
+          <Modal
+            opened={this.state.createInsightModalOpen}
+            close={() => this.setState({ createInsightModalOpen: false })}
+          >
+            <div className="content">
+              The website is under development. The feature will be available
+              later.
+            </div>
+          </Modal>
 
         </div>
 
