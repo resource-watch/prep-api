@@ -8,6 +8,7 @@ function Title(props) {
   if (props.center) classes.push('-center');
   if (props.inverse) classes.push('-inverse');
   if (props.border) classes.push('-border');
+  if (props.borderType) classes.push(`-border-${props.borderType}`);
 
   let title = <h2>{props.children}</h2>;
   if (props.type && (props.type === 'mega' || props.type === 'page')) {
@@ -83,6 +84,15 @@ Title.propTypes = {
    * Default: no border
    */
   border: React.PropTypes.bool,
+  /**
+   * Force the color of the border
+   * Accepted values:
+   * 	- 1: yellow border
+   * 	- 2: green border
+   * 	- 3: blue border
+   * Default: theme color (i.e. prop not defined)
+   */
+  borderType: React.PropTypes.number,
   /**
    * Define the text below the title
    * Accepted values:

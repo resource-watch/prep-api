@@ -84,6 +84,7 @@ class HomePage extends React.Component {
             <div className="content">
               <Title
                 border
+                borderType={3}
                 type="section"
                 subtitle={{
                   title: 'Go to insights',
@@ -190,6 +191,7 @@ class HomePage extends React.Component {
           <section className="homepage-map">
             <Title
               border
+              borderType={2}
               type="section"
               subtitle={{
                 title: 'Go to data',
