@@ -7,7 +7,7 @@ function Title(props) {
   if (props.type) classes.push(`-${props.type}`);
   if (props.center) classes.push('-center');
   if (props.inverse) classes.push('-inverse');
-  if (props.borderType) classes.push(`-border -border-${props.borderType}`);
+  if (props.border) classes.push('-border');
 
   let title = <h2>{props.children}</h2>;
   if (props.type && (props.type === 'mega' || props.type === 'page')) {
@@ -76,14 +76,13 @@ Title.propTypes = {
    */
   inverse: React.PropTypes.bool,
   /**
-   * Define the border below the title
+   * Define if the title has a border
    * Accepted values:
-   * 	- 1: yellow border
-   * 	- 2: blue border
-   * 	- 3: green border
-   * Default: no border (i.e. prop not defined)
+   * 	- true: title with border
+   * 	- false: no border
+   * Default: no border
    */
-  borderType: React.PropTypes.number,
+  border: React.PropTypes.bool,
   /**
    * Define the text below the title
    * Accepted values:

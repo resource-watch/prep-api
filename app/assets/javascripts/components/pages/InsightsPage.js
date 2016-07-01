@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Header from '../commons/Header';
-import Navbar from '../commons/Navbar';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
 import Button from '../commons/Button';
-import Footer from '../commons/Footer';
+import Modal from '../commons/Modal';
 
 class DashboardsPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      createInsightModalOpen: false
+    };
+  }
 
   componentDidMount() {
     this.props.getInsightsList();
@@ -26,7 +32,7 @@ class DashboardsPage extends React.Component {
     let items = [];
     this.props.data.forEach((item, index) => {
       items.push(
-        <Card borderType={4} key={`insight-item-${index}`}>
+        <Card border="neutral" key={`insight-item-${index}`}>
           <Link to={`/insights/${item.slug}`}>
             <Title type="content">
               {item.title}
@@ -51,7 +57,7 @@ class DashboardsPage extends React.Component {
         <div className="cards">
           {items}
           <div className="button-container">
-            <Button borderType={4}>Show more results</Button>
+            <Button border="neutral">Show more results</Button>
           </div>
         </div>
       </div>
@@ -60,11 +66,21 @@ class DashboardsPage extends React.Component {
 
   render() {
     let content = this.getContent();
+
+    const modal = (
+      this.state.createInsightModalOpen &&
+        <Modal close={() => this.setState({ createInsightModalOpen: false })}>
+          <div className="content">
+            The website is under development. The feature will be available
+            later.
+          </div>
+        </Modal>
+    );
+
     return (
       <div className="l-dashboards">
         <Header type="small" pageType={this.pageType}>
-          <Navbar currentPage={this.props.currentPage} />
-          <Title inverse center borderType={this.pageType} type="page">
+          <Title inverse center border type="page">
             Insights
           </Title>
         </Header>
@@ -78,7 +94,7 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>Data on the map</Title>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                 <Link to="/data">
-                  <Button color={this.pageType}>Explore the map</Button>
+                  <Button themeColor>Explore the map</Button>
                 </Link>
               </div>
               <div className="card -image">
@@ -88,7 +104,7 @@ class DashboardsPage extends React.Component {
                   neque scelerisque
                 </p>
                 <Link to="/dashboards">
-                  <Button color={this.pageType}>Explore the dashboards</Button>
+                  <Button themeColor>Explore the dashboards</Button>
                 </Link>
               </div>
             </div>
@@ -102,27 +118,35 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>
                   Do you have relevant data about climate?
                 </Title>
-                <a href="#" className="button-container">
-                  <Button inverse borderType={this.pageType}>
+                <div className="button-container">
+                  <Button
+                    inverse
+                    border
+                    click={() => this.setState({
+                      createInsightModalOpen: true
+                    })}
+                  >
                     Create your insight
                   </Button>
-                </a>
+                </div>
               </div>
               <div>
                 <Title inverse center>
                   Would you like to improve a dashboard?
                 </Title>
                 <Link to="/contact" className="button-container">
-                  <Button inverse borderType={this.pageType}>
+                  <Button inverse border>
                     Get in touch
                   </Button>
                 </Link>
               </div>
             </div>
           </div>
+
+          {modal}
+
         </div>
 
-        <Footer pageType={this.pageType} />
       </div>
     );
   }

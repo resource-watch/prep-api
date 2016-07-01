@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../commons/Navbar';
 import DataMapSidebar from '../../containers/maps/DataMapSidebar';
 import DataMapLegend from '../../containers/maps/DataMapLegend';
 import DataMap from '../maps/DataMap';
@@ -15,7 +14,6 @@ class DataPage extends React.Component {
   render() {
     return (
       <div className="l-data">
-        <Navbar small dark currentPage={this.props.currentPage} />
         <DataMapSidebar />
         <DataMap data={this.props.data} />
         <DataMapLegend />

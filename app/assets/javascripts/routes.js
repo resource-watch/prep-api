@@ -44,7 +44,7 @@ function shouldUpdateScroll(prevRouterProps, { location }) {
     if (routeParams.length) routeParams.splice(0, 1);
     if (nextRouteParams.length) nextRouteParams.splice(0, 1);
 
-    const paramsCount = Math.min(routeParams, nextRouteParams).length;
+    const paramsCount = Math.min(routeParams.length, nextRouteParams.length);
 
     let doesParamsMatch = true;
     for (let i = 0, j = paramsCount; i < j; i++) {
@@ -61,7 +61,8 @@ function shouldUpdateScroll(prevRouterProps, { location }) {
    * both the old path and the new one match (i.e. if the global regex and the
    * regex params match the two paths) */
   const regexes = [
-    /\/dashboards\/((?:[A-z]|[1-9]|-)+)(?:\/(?:.*))?/
+    /\/dashboards\/((?:[A-z]|[1-9]|-)+)(?:\/(?:.*))?/,
+    /\/insights\/((?:[A-z]|[1-9]|-)+)/
   ];
 
   for (let i = 0, j = regexes.length; i < j; i++) {

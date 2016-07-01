@@ -59,7 +59,7 @@ class DataMap extends React.Component {
         </div>
         <div className="actions-mobile">
           <Button
-            borderType={2}
+            border
             click={() => this.toggleToolbarStatus()}
           >
             Apply

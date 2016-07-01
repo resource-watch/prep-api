@@ -7,7 +7,7 @@ function DashboardDetailIndicators(props) {
   if (props.data) {
     props.data.forEach((card, index) => {
       content.push(
-        <Card borderType={1} key={`card-${index}`}>
+        <Card border="neutral" key={`card-${index}`}>
           <a target="_blank" href={card.href}>
             <Title type="content">
               {card.title}

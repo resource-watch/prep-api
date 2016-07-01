@@ -18,15 +18,10 @@
       line-height: 1.8;
       letter-spacing: 0.3px;
       text-transform: uppercase;
-      &.-color-1 {
-        color: $color-11;
-      }
-      &.-color-2 {
-        color: $color-3;
-      }
-      &.-color-3 {
-        color: $color-4;
-      }
+      color: $color-11;
+
+      .-theme-2 & { color: $color-4; }
+      .-theme-3 & { color: $color-3; }
     }
 
     >.tooltip {
