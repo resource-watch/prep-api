@@ -8,7 +8,7 @@ class DataMap extends React.Component {
   constructor() {
     super();
     this.state = {
-      toolbarOpen: true
+      sidebarOpen: true
     };
   }
 
@@ -33,18 +33,18 @@ class DataMap extends React.Component {
 
   toggleToolbarStatus() {
     this.setState({
-      toolbarOpen: !this.state.toolbarOpen
+      sidebarOpen: !this.state.sidebarOpen
     });
   }
 
   render() {
     let content = this.getContent();
     return (
-      <div className={['c-data-map-sidebar', this.state.toolbarOpen ? '-open' : ''].join(' ')}>
+      <div className={['c-data-map-sidebar', this.state.sidebarOpen ? '-open' : ''].join(' ')}>
         <div className="actions">
           <div>
             <button
-              className={['toggle-status', this.state.toolbarOpen ? '-open' : ''].join(' ')}
+              className={['toggle-status', this.state.sidebarOpen ? '-open' : ''].join(' ')}
               onClick={() => this.toggleToolbarStatus()}
             >
               <span></span>

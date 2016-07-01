@@ -3,7 +3,9 @@ import DataMapSidebar from '../../components/maps/DataMapSidebar';
 
 import { switchChange } from '../../actions/datamap';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  data: state.mapdata
+});
 const mapDispatchToProps = (dispatch) => ({
   switchChange: (id) => dispatch(switchChange(id))
 });

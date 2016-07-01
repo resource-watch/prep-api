@@ -4,9 +4,11 @@
   > .map {
     height: 100%;
   }
+  .leaflet-top, .leaflet-bottom {
+    z-index: 0;
+  }
   .leaflet-top {
     top: 50px;
-    z-index: 0;
   }
   .leaflet-control-zoom {
     box-shadow: none;
