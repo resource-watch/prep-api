@@ -12,16 +12,6 @@ class RelatedDatasets extends React.Component {
   }
 
   render() {
-    const modal = (
-      this.state.modalOpen &&
-        <Modal close={() => this.setState({ modalOpen: false })}>
-          <div className="content">
-            The website is under development. Download details will be added
-            here.
-          </div>
-        </Modal>
-    );
-
     return (
       <div className="c-related-datasets">
         <div className="wrapper">
@@ -100,7 +90,16 @@ class RelatedDatasets extends React.Component {
               </div>
             </div>
           </div>
-          {modal}
+
+          <Modal
+            opened={this.state.modalOpen}
+            close={() => this.setState({ modalOpen: false })}
+          >
+            <div className="content">
+              The website is under development. Download details will be added
+              here.
+            </div>
+          </Modal>
         </div>
       </div>
     );

@@ -12,16 +12,6 @@ class ToolbarActions extends React.Component {
     };
   }
   render() {
-    const modal = (
-      this.state.modalOpen &&
-        <Modal close={() => this.setState({ modalOpen: false })}>
-          <div className="content">
-            The website is under development. Download and share
-            details will be added here.
-          </div>
-        </Modal>
-    );
-
     return (
       <div className="c-toolbar-actions">
         <div className="left">
@@ -39,7 +29,16 @@ class ToolbarActions extends React.Component {
             <svg className="icon" width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><title>icon-share</title><g fill="none" fill-rule="evenodd"><path d="M6.45 1l1.414 1.414-4.95 4.95L1.5 5.95zM0 10h10v2H0z" /><path d="M9 1V0H2v2h5v5h2V1z" /></g></svg>
             Share
           </button>
-          {modal}
+
+          <Modal
+            opened={this.state.modalOpen}
+            close={() => this.setState({ modalOpen: false })}
+          >
+            <div className="content">
+              The website is under development. Download and share
+              details will be added here.
+            </div>
+          </Modal>
         </div>
       </div>
     );

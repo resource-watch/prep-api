@@ -29,13 +29,14 @@ class Tooltip extends React.Component {
     return (
       <div className="c-tooltip">
         <span className="icon" onClick={() => this.setState({ tooltipOpen: true })}>i</span>
-        {this.state.tooltipOpen &&
-          <Modal close={() => this.handleClickClose()}>
-            <div className="content">
-              {content}
-            </div>
-          </Modal>
-        }
+        <Modal
+          opened={this.state.tooltipOpen}
+          close={() => this.handleClickClose()}
+        >
+          <div className="content">
+            {content}
+          </div>
+        </Modal>
       </div>
     );
   }
