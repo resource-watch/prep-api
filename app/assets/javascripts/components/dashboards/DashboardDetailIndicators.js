@@ -13,7 +13,6 @@ function DashboardDetailIndicators(props) {
               tooltip
               title={indicator.title}
               subtitle={indicator.subtitle}
-              pageType={props.pageType}
               data={indicator}
             />
           </div>
@@ -23,7 +22,6 @@ function DashboardDetailIndicators(props) {
           <div className="-large" key={`indicator-${index}`}>
             <MapCard
               title="Skagit River Near Mount Vernon"
-              pageType={props.pageType}
               data={indicator.data}
             />
           </div>
@@ -42,16 +40,7 @@ DashboardDetailIndicators.propTypes = {
   /**
    * Define dashboard indicators data
    */
-  data: React.PropTypes.any.isRequired,
-  /**
-   * Define the page type color
-   * Accepted values:
-   * 	- 1: yellow border
-   * 	- 2: blue border
-   * 	- 3: green border
-   * Default: no border (i.e. prop not defined)
-   */
-  pageType: React.PropTypes.number
+  data: React.PropTypes.any.isRequired
 };
 
 export default DashboardDetailIndicators;

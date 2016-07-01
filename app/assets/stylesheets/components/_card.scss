@@ -12,12 +12,19 @@
     margin-bottom: 18px;
     font-weight: $font-weight-bold;
     color: $color-11;
+
+    .-theme-2 & { color: $color-4; }
+    .-theme-3 & { color: $color-3; }
   }
 
-  &.-border-1 { border: 2px solid $color-2; }
-  &.-border-2 { border: 2px solid $color-3; }
-  &.-border-3 { border: 2px solid $color-4; }
-  &.-border-4 { border: 2px solid $color-10; }
+  &.-border {
+    border: 2px solid $color-2;
+
+    .-theme-2 & { border-color: $color-4; }
+    .-theme-3 & { border-color: $color-3; }
+
+    &.-border-neutral { border-color: $color-10; }
+  }
 
   &.-inverse { color: $color-5; }
 

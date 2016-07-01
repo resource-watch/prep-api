@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Header from '../commons/Header';
-import Navbar from '../commons/Navbar';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
 import Button from '../commons/Button';
-import Footer from '../commons/Footer';
 
 class DashboardsPage extends React.Component {
 
@@ -26,7 +24,7 @@ class DashboardsPage extends React.Component {
     let items = [];
     this.props.data.forEach((item, index) => {
       items.push(
-        <Card borderType={4} key={`dashboard-item-${index}`}>
+        <Card border="neutral" key={`dashboard-item-${index}`}>
           <Link to={`/dashboards/${item.slug}`}>
             <Title type="content">
               {item.title}
@@ -51,7 +49,7 @@ class DashboardsPage extends React.Component {
         <div className="cards">
           {items}
           <div className="button-container">
-            <Button borderType={4}>Show more results</Button>
+            <Button border="neutral">Show more results</Button>
           </div>
         </div>
       </div>
@@ -63,8 +61,7 @@ class DashboardsPage extends React.Component {
     return (
       <div className="l-dashboards">
         <Header type="small" pageType={this.pageType}>
-          <Navbar currentPage={this.props.currentPage} />
-          <Title inverse center borderType={this.pageType} type="page">
+          <Title inverse center border type="page">
             Dashboards
           </Title>
         </Header>
@@ -78,7 +75,7 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>Data on the map</Title>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                 <Link to="/data">
-                  <Button color={this.pageType}>Explore the map</Button>
+                  <Button themeColor>Explore the map</Button>
                 </Link>
               </div>
               <div className="card -image">
@@ -88,7 +85,7 @@ class DashboardsPage extends React.Component {
                   neque scelerisque
                 </p>
                 <Link to="/insights">
-                  <Button color={this.pageType}>Explore the insights</Button>
+                  <Button themeColor>Explore the insights</Button>
                 </Link>
               </div>
             </div>
@@ -103,7 +100,7 @@ class DashboardsPage extends React.Component {
                   Do you have relevant data about climate?
                 </Title>
                 <a href="#" className="button-container">
-                  <Button inverse borderType={this.pageType}>
+                  <Button inverse border>
                     Create your dashboard
                   </Button>
                 </a>
@@ -113,7 +110,7 @@ class DashboardsPage extends React.Component {
                   Would you like to improve a dashboard?
                 </Title>
                 <Link to="/contact" className="button-container">
-                  <Button inverse borderType={this.pageType}>
+                  <Button inverse border>
                     Get in touch
                   </Button>
                 </Link>
@@ -122,7 +119,6 @@ class DashboardsPage extends React.Component {
           </div>
         </div>
 
-        <Footer pageType={this.pageType} />
       </div>
     );
   }

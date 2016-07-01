@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Header from '../commons/Header';
-import Navbar from '../commons/Navbar';
 import Title from '../commons/Title';
-import Footer from '../commons/Footer';
 import ChartCard from '../cards/ChartCard';
 import Map from '../maps/Map';
 import Button from '../commons/Button';
@@ -46,8 +44,7 @@ class HomePage extends React.Component {
     return (
       <div className="l-homepage">
         <Header type="large" pageType={4}>
-          <Navbar currentPage={this.props.currentPage} />
-          <Title inverse borderType={1} type={'mega'}>
+          <Title inverse border type={'mega'}>
             Enabling collective action to manage climate risks
           </Title>
         </Header>
@@ -55,7 +52,7 @@ class HomePage extends React.Component {
         <div className="wrapper">
           <section className="homepage-mission">
             <div className="content">
-              <Title borderType={1} type="section">
+              <Title border type="section">
                 Our mission
               </Title>
               <p>
@@ -73,7 +70,7 @@ class HomePage extends React.Component {
                 src={gon.assets.homeAccessible}
                 alt="Accessible, authoritative assessments"
               />
-              <Title borderType={1} type="section">
+              <Title border type="section">
                 Accessible, authoritative assessments
               </Title>
               <p>
@@ -95,7 +92,7 @@ class HomePage extends React.Component {
           <section className="homepage-problem">
             <div className="content">
               <Title
-                borderType={2}
+                border
                 type="section"
                 subtitle={{
                   title: 'Go to insights',
@@ -149,7 +146,7 @@ class HomePage extends React.Component {
           <div className="wrapper">
             <div className="content">
               <Title
-                borderType={1}
+                border
                 type="section"
                 subtitle={{
                   title: 'Go to dashboards',
@@ -201,7 +198,7 @@ class HomePage extends React.Component {
         <div className="wrapper">
           <section className="homepage-map">
             <Title
-              borderType={3}
+              border
               type="section"
               subtitle={{
                 title: 'Go to data',
@@ -228,7 +225,7 @@ class HomePage extends React.Component {
               <div className="content">
                 <Title
                   inverse
-                  borderType={1}
+                  border
                   type="section"
                 >
                   We want to hear from you
@@ -245,7 +242,7 @@ class HomePage extends React.Component {
                 <textarea placeholder="Your message here" className="message"></textarea>
                 <Button
                   fill
-                  borderType={1}
+                  border
                   click={e => this.onSubmitForm(e)}
                 >
                   Send message
@@ -257,7 +254,6 @@ class HomePage extends React.Component {
           </div>
         </section>
 
-        <Footer />
       </div>
     );
   }

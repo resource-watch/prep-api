@@ -91,18 +91,8 @@ $navbar-breakpoint: 870px;
 
         &.-active > a {
           border-bottom: 2px solid $color-2;
-        }
-
-        &.-active {
-          &:first-of-type > a {
-            border-color: $color-4;
-          }
-          &:nth-of-type(2) > a {
-            border-color: $color-2;
-          }
-          &:nth-of-type(3) > a {
-            border-color: $color-3;
-          }
+          .-theme-2 & { border-color: $color-4; }
+          .-theme-3 & { border-color: $color-3; }
         }
 
         &.-secondary > a {

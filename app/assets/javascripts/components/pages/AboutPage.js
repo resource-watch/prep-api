@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Header from '../commons/Header';
-import Navbar from '../commons/Navbar';
 import Title from '../commons/Title';
-import Footer from '../commons/Footer';
 
-export function AboutPage(props) {
+export function AboutPage() {
   return (
     <div className="l-about">
       <Header type="small">
-        <Navbar currentPage={props.currentPage} />
-        <Title inverse center borderType={1} type="page">
+        <Title inverse center border type="page">
           About
         </Title>
       </Header>
@@ -118,8 +115,6 @@ export function AboutPage(props) {
           </ul>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
