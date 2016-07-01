@@ -44,7 +44,7 @@ function shouldUpdateScroll(prevRouterProps, { location }) {
     if (routeParams.length) routeParams.splice(0, 1);
     if (nextRouteParams.length) nextRouteParams.splice(0, 1);
 
-    const paramsCount = Math.min(routeParams, nextRouteParams).length;
+    const paramsCount = Math.min(routeParams.length, nextRouteParams.length);
 
     let doesParamsMatch = true;
     for (let i = 0, j = paramsCount; i < j; i++) {
