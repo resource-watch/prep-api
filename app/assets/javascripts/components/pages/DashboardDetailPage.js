@@ -1,13 +1,11 @@
 import React from 'react';
 import Header from '../commons/Header';
-import Navbar from '../commons/Navbar';
 import SectionIntro from '../commons/SectionIntro';
 import DashboardDetailTools from '../dashboards/DashboardDetailTools';
 import DashboardDetailInsights from '../dashboards/DashboardDetailInsights';
 import DashboardDetailIndicators from '../dashboards/DashboardDetailIndicators';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
-import Footer from '../commons/Footer';
 import NavTab from '../commons/NavTab';
 import RelatedDatasets from '../commons/RelatedDatasets';
 
@@ -15,7 +13,6 @@ class DashboardDetailPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.pageType = 1; // For page colors, 1 = yellow
     props.getDashboardBySlug(props.dashboardSlug);
   }
 
@@ -57,7 +54,6 @@ class DashboardDetailPage extends React.Component {
 
       default:
         content = (<DashboardDetailIndicators
-          pageType={this.pageType}
           data={this.props.data.indicators}
         />);
         break;
@@ -68,7 +64,6 @@ class DashboardDetailPage extends React.Component {
         <div className="wrapper">
           <SectionIntro
             data={this.props.data}
-            pageType={this.pageType}
             dashboardSlug={this.props.dashboardSlug}
             currentPage={this.props.currentPage}
           />
@@ -91,15 +86,14 @@ class DashboardDetailPage extends React.Component {
     let title;
     if (this.props.data && this.props.data.title) {
       title = (
-        <Title inverse center borderType={1} type="page">
+        <Title inverse center border type="page">
           {this.props.data.title}
         </Title>
       );
     }
     return (
       <div className="l-dashboards">
-        <Header pageType={this.pageType}>
-          <Navbar currentPage={this.props.currentPage} />
+        <Header pageType={1}>
           {title}
         </Header>
 
@@ -109,9 +103,9 @@ class DashboardDetailPage extends React.Component {
 
         <div className="other-dashboards">
           <div className="wrapper">
-            <Title inverse borderType={1}>Other dashboards</Title>
+            <Title inverse border>Other dashboards</Title>
             <div className="other-cards">
-              <Card inverse borderType={this.pageType}>
+              <Card inverse border>
                 <Title type="content" inverse>
                   Framer assesses possible impacts of climate change on his
                   crops (grapes)
@@ -132,7 +126,7 @@ class DashboardDetailPage extends React.Component {
                   />
                 </a>
               </Card>
-              <Card inverse borderType={this.pageType}>
+              <Card inverse border>
                 <Title type="content" inverse>
                   City Planner assesses possible impacts of Climate Change on
                   Puget Sound's built environment
@@ -156,7 +150,6 @@ class DashboardDetailPage extends React.Component {
           </div>
         </div>
 
-        <Footer pageType={this.pageType} />
       </div>
     );
   }

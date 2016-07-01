@@ -41,7 +41,7 @@ Header.propTypes = {
    * Define the content of the header
    * Required
    */
-  children: React.PropTypes.array.isRequired
+  children: React.PropTypes.any
 };
 
 export default Header;

@@ -4,7 +4,8 @@ function Card(props) {
   const classes = ['c-card'];
 
   if (props.inverse) classes.push('-inverse');
-  if (props.borderType) classes.push(`-border-${props.borderType}`);
+  if (props.border) classes.push('-border');
+  if (props.border === 'neutral') classes.push('-border-neutral');
 
   return (
     <div className={classes.join(' ')}>
@@ -23,15 +24,13 @@ Card.propTypes = {
    */
   inverse: React.PropTypes.bool,
   /**
-   * Define the color of the border of the button
+   * Define the color of the border
    * Accepted values:
-   * 	- 1: yellow
-   * 	- 2: blue
-   * 	- 3: green
-   * 	- 4: grey
+   * 	- "": the color depends on the theme (i.e. prop without value)
+   * 	- "neutral": the color is grey
    * Default: no border (i.e. prop not defined)
    */
-  borderType: React.PropTypes.number,
+  border: React.PropTypes.any,
   /**
    * Define the text content of the button
    * Required

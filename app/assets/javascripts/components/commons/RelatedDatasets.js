@@ -25,7 +25,7 @@ class RelatedDatasets extends React.Component {
     return (
       <div className="c-related-datasets">
         <div className="wrapper">
-          <Title borderType={this.props.pageType}>
+          <Title border>
             Related datasets
           </Title>
           <div className="datasets">
@@ -107,17 +107,5 @@ class RelatedDatasets extends React.Component {
   }
 
 }
-
-RelatedDatasets.propTypes = {
-  /**
-   * Define the page type color
-   * Accepted values:
-   * 	- 1: yellow border
-   * 	- 2: blue border
-   * 	- 3: green border
-   * Default: no border (i.e. prop not defined)
-   */
-  pageType: React.PropTypes.number,
-};
 
 export default RelatedDatasets;
