@@ -8,6 +8,7 @@ import Title from '../commons/Title';
 import Card from '../cards/Card';
 import NavTab from '../commons/NavTab';
 import RelatedDatasets from '../commons/RelatedDatasets';
+import LoadingSpinner from '../commons/LoadingSpinner';
 
 class DashboardDetailPage extends React.Component {
 
@@ -31,11 +32,7 @@ class DashboardDetailPage extends React.Component {
 
   getContent() {
     if (!this.props.data) {
-      return (
-        <div className="loading">
-          TODO: ADD LOADER COMPONENT
-        </div>
-      );
+      return <LoadingSpinner />;
     }
 
     let content;
