@@ -4,8 +4,16 @@ import Header from '../commons/Header';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
 import Button from '../commons/Button';
+import Modal from '../commons/Modal';
 
 class DashboardsPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      createInsightModalOpen: false
+    };
+  }
 
   componentDidMount() {
     this.props.getInsightsList();
@@ -58,6 +66,17 @@ class DashboardsPage extends React.Component {
 
   render() {
     let content = this.getContent();
+
+    const modal = (
+      this.state.createInsightModalOpen &&
+        <Modal close={() => this.setState({ createInsightModalOpen: false })}>
+          <div className="content">
+            The website is under development. The feature will be available
+            later.
+          </div>
+        </Modal>
+    );
+
     return (
       <div className="l-dashboards">
         <Header type="small" pageType={this.pageType}>
@@ -99,11 +118,17 @@ class DashboardsPage extends React.Component {
                 <Title inverse center>
                   Do you have relevant data about climate?
                 </Title>
-                <a href="#" className="button-container">
-                  <Button inverse border>
+                <div className="button-container">
+                  <Button
+                    inverse
+                    border
+                    click={() => this.setState({
+                      createInsightModalOpen: true
+                    })}
+                  >
                     Create your insight
                   </Button>
-                </a>
+                </div>
               </div>
               <div>
                 <Title inverse center>
@@ -117,6 +142,9 @@ class DashboardsPage extends React.Component {
               </div>
             </div>
           </div>
+
+          {modal}
+
         </div>
 
       </div>
