@@ -12,14 +12,19 @@ html, body {
   font-weight: $font-weight-normal;
   color: $color-1;
   height: 100%;
-  > #app {
-    height: 100%;
-  }
 }
 
 
 a {
   text-decoration: none;
+}
+
+#app {
+  height: 100%;
+}
+
+.-height100 {
+  height: 100%;
 }
 
 .wrapper, .wrapper-mini {

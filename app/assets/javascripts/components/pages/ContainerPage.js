@@ -18,7 +18,8 @@ function ContainerPage(props) {
       regex: /^\/data$/,
       theme: 2,
       header: <Navbar small dark currentPage="data" />,
-      footer: ''
+      footer: '',
+      class: '-height100'
     },
     /* Dashboards */
     {
@@ -61,7 +62,7 @@ function ContainerPage(props) {
     .filter(rule => rule.regex.test(props.path))[0];
 
   return (
-    <div className={`-theme-${page.theme}`}>
+    <div className={[`-theme-${page.theme}`, page.class || ''].join(' ')}>
       {page.header}
       {props.children}
       {page.footer}
