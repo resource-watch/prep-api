@@ -18,7 +18,10 @@ class DashboardDetailPage extends React.Component {
       this.props.getInsightBySlug(nextProps.insightSlug);
     }
 
-    if (this.props.data !== nextProps.data) return true;
+    if (this.props.data !== nextProps.data ||
+      this.props.insightTab !== nextProps.insightTab) {
+      return true;
+    }
 
     return false;
   }
