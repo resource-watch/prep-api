@@ -42,6 +42,39 @@ $ rake db:migrate
 $ rake db:seed
 ```
 
+# How to use
+
+After install it, we can run server runing:
+
+```bash
+bundle exec rails server
+```
+
+## Rendering & mounting
+
+`react-rails` includes a view helper (`react_component`) and an unobtrusive JavaScript driver (`react_ujs`) which work together to put React components on the page. [More info](https://github.com/reactjs/react-rails#rendering--mounting).
+
+```erb
+<%= react_component('HelloMessage', name: 'John') %>
+```
+
+## Deploy
+
+Info about how to deploy in Heroku [here](https://devcenter.heroku.com/articles/getting-started-with-rails5).
+
+Use this command to use a existing project in Heroku:
+
+```bash
+heroku git:remote -a name-of-application
+```
+
+We need two official buildpacks:
+
+```bash
+heroku buildpacks:set heroku/ruby
+heroku buildpacks:add --index 1 heroku/nodejs
+``
+
 
 # License
 

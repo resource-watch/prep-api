@@ -1,12 +1,6 @@
 {
   "name": "rails-redux-scaffold",
   "devDependencies": {
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-2": "^6.5.0",
-    "babelify": "^7.3.0",
-    "browserify": "~10.2.4",
-    "browserify-incremental": "^3.1.1",
     "eslint": "^2.12.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.1",
@@ -14,6 +8,12 @@
     "eslint-plugin-react": "^5.1.1"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "~10.2.4",
+    "browserify-incremental": "^3.1.1",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
     "react-dom": "^15.1.0",

@@ -25,7 +25,7 @@ gem 'browserify-rails'
 gem 'pg', '~> 0.18'
 
 # Active admin
-gem 'devise', git: 'git@github.com:plataformatec/devise.git'
+gem 'devise', github: 'plataformatec/devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'kaminari', github: 'amatsuda/kaminari', branch: '0-17-stable'
@@ -51,3 +51,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'quiet_assets'
 end
+
+# Required for Heroku
+gem 'rails_12factor', group: :production
