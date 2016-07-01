@@ -1,0 +1,39 @@
+.c-toolbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+
+  border-bottom: 3px solid rgba($color-1,0.1);
+  .action {
+    font-family: $font-family-1;
+    font-size: $font-size-x-small;
+    font-weight: $font-weight-bold;
+    color: $color-1;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    > .icon {
+      margin-right: 5px;
+      &.-color-1 {
+        g, path {
+          fill: $color-2;
+        }
+      }
+      &.-color-2 {
+        g, path {
+          fill: $color-3;
+        }
+      }
+      &.-color-3 {
+        g, path {
+          fill: $color-4;
+        }
+      }
+    }
+  }
+}

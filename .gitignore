@@ -21,6 +21,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+*.log
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -33,3 +34,6 @@
 
 # Ignore environment variables
 /.env
+
+# Ignore node modules
+node_modules

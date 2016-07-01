@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "gon": true,
+    "L": true,
+    "vg": true
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "react/react-in-jsx-scope": 0,
+    "max-len": [
+      "error",
+      {
+        "code": 80,
+        "ignorePattern": "^(\\s.+className|\\s.+<svg)"
+      }
+    ]
+  }
+}
