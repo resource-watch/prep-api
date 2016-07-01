@@ -13,9 +13,23 @@ import RelatedDatasets from '../commons/RelatedDatasets';
 
 class DashboardDetailPage extends React.Component {
 
-  componentDidMount() {
-    this.props.getDashboardBySlug(this.props.dashboardSlug);
+  constructor(props) {
+    super(props);
     this.pageType = 1; // For page colors, 1 = yellow
+    props.getDashboardBySlug(props.dashboardSlug);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props.dashboardSlug !== nextProps.dashboardSlug) {
+      this.props.getDashboardBySlug(nextProps.dashboardSlug);
+    }
+
+    if (this.props.data !== nextProps.data ||
+      this.props.dashboardTab !== nextProps.dashboardTab) {
+      return true;
+    }
+
+    return false;
   }
 
   getContent() {
