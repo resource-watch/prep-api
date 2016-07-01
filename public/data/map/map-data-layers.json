@@ -2,67 +2,23 @@
   "layers": [
     {
       "id": 1,
-      "title":"Global temperature"
+      "type":"ArcGISTiledMapLayer",
+      "url":"https://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer",
+      "title":"Arcgis tiled map layer example",
+      "mosaicRule": {
+        "mosaicMethod": "esriMosaicLockRaster",
+        "lockRasterIds": [8]
+      }
     },
     {
       "id": 2,
-      "title":"Projected Change in average Annual Precipitation"
-    },
-    {
-      "id": 3,
-      "title":"Biological Responses to climate change"
-    },
-    {
-      "id": 4,
-      "title":"Human and natural influence"
-    },
-    {
-      "id": 5,
-      "title":"Global temperature"
-    },
-    {
-      "id": 6,
-      "title":"Projected Change in average Annual Precipitation"
-    },
-    {
-      "id": 7,
-      "title":"Biological Responses to climate change"
-    },
-    {
-      "id": 8,
-      "title":"Human and natural influence"
-    },
-    {
-      "id": 9,
-      "title":"Global temperature"
-    },
-    {
-      "id": 10,
-      "title":"Projected Change in average Annual Precipitation"
-    },
-    {
-      "id": 11,
-      "title":"Biological Responses to climate change"
-    },
-    {
-      "id": 12,
-      "title":"Human and natural influence"
-    },
-    {
-      "id": 13,
-      "title":"Global temperature"
-    },
-    {
-      "id": 14,
-      "title":"Projected Change in average Annual Precipitation"
-    },
-    {
-      "id": 15,
-      "title":"Biological Responses to climate change"
-    },
-    {
-      "id": 16,
-      "title":"Human and natural influence"
+      "type":"ArcGISImageMapLayer",
+      "url":"http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/World/Temperature/ImageServer",
+      "title":"Arcgis image layer example",
+      "mosaicRule": {
+        "mosaicMethod": "esriMosaicLockRaster",
+        "lockRasterIds": [8]
+      }
     }
   ]
 }

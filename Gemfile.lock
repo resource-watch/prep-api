@@ -231,6 +231,7 @@ GEM
       railties (= 5.0.0.rc2)
       sprockets-rails (>= 2.0.0)
     rails-assets-d3 (3.5.17)
+    rails-assets-esri-leaflet (1.0.3)
     rails-assets-leaflet (0.7.7)
     rails-assets-vega (2.5.2)
       rails-assets-d3 (>= 3.5.6, < 4)
@@ -321,6 +322,7 @@ DEPENDENCIES
   quiet_assets
   rails (>= 5.0.0.rc2, < 5.1)
   rails-assets-d3 (~> 3.5.16)!
+  rails-assets-esri-leaflet (= 1.0.3)!
   rails-assets-leaflet (= 0.7.7)!
   rails-assets-vega (~> 2.5.2)!
   ransack!
