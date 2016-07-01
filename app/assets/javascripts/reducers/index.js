@@ -1,11 +1,4 @@
-import modal from './modal';
-import dashboards from './dashboards';
-import insights from './insights';
-import mapdata from './mapdata';
-
-export default {
-  modal,
-  dashboards,
-  insights,
-  mapdata
-};
+export { default as modal } from './modal';
+export { default as dashboards } from './dashboards';
+export { default as insights } from './insights';
+export { default as mapdata } from './mapdata';
