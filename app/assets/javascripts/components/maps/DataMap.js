@@ -7,7 +7,7 @@ class DataMap extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.updateTiles(props.tiles);
+    this.updateLayers(props.tiles);
   }
 
   initMap() {
@@ -20,14 +20,13 @@ class DataMap extends React.Component {
     });
     L.control.zoom({ position: 'topright' }).addTo(this.map);
 
-    // adding basemap
     L.tileLayer(
       'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
       { maxZoom: 18 }
     ).addTo(this.map, 1);
   }
 
-  updateTiles() {
+  updateLayers() {
     if (this.props.data.layers.length) {
       this.props.data.layers.forEach((layer) => {
         this.updateMapLayer(layer);
@@ -58,9 +57,7 @@ class DataMap extends React.Component {
         break;
     }
     if (added) {
-      this.mapLayers[layer.id].on('load', () => {
-        console.log('Layer loaded', layer);
-      });
+      this.mapLayers[layer.id].on('load', () => {});
     }
   }
 

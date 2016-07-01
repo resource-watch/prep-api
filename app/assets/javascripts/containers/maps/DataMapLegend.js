@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
   data: getActiveLayers(state.mapdata.layers)
 });
 const mapDispatchToProps = (dispatch) => ({
-  click: () => dispatch(setModalUnderDevelop(true))
+  actionClick: () => dispatch(setModalUnderDevelop(true))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataMapLegend);
