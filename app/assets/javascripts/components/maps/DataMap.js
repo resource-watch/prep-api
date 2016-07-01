@@ -1,87 +1,92 @@
 import React from 'react';
 
-import Switch from '../commons/Switch';
-import Button from '../commons/Button';
-import FilterTab from '../../containers/commons/FilterTab';
-
 class DataMap extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      toolbarOpen: true
-    };
-  }
 
   componentDidMount() {
+    this.initMap();
+  }
+
+  componentWillReceiveProps(props) {
+    this.updateTiles(props.tiles);
+  }
+
+  initMap() {
+    this.mapLayers = {};
     this.map = L.map(this.refs.map, {
       scrollWheelZoom: false,
       zoomControl: false,
       center: [48.46038, -123.889823],
-      zoom: 8,
+      zoom: 3,
     });
     L.control.zoom({ position: 'topright' }).addTo(this.map);
 
     // adding basemap
-    L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-      maxZoom: 18
-    }).addTo(this.map, 1);
+    L.tileLayer(
+      'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+      { maxZoom: 18 }
+    ).addTo(this.map, 1);
   }
 
-  getLayers() {
-    const layers = [];
-    if (!this.props.data.layers.length) {
-      return (<p> There are no data layers </p>);
+  updateTiles() {
+    if (this.props.data.layers.length) {
+      this.props.data.layers.forEach((layer) => {
+        this.updateMapLayer(layer);
+      });
     }
-    this.props.data.layers.forEach((layer, index) => {
-      layers.push(
-        <div className="layer" key={`map-layer-${index}`}>
-          <Switch
-            onChange={() => this.props.switchChange(layer.id)}
-            checked={layer.active || false}
-          />
-          <span className="title">{layer.title}</span>
-        </div>
-      );
-    });
-    return layers;
   }
 
-  toggleToolbarStatus() {
-    this.setState({
-      toolbarOpen: !this.state.toolbarOpen
-    });
+  updateMapLayer(layer) {
+    if (layer.active && !this.mapLayers[layer.id]) {
+      this.addMapLayer(layer);
+    } else if (!layer.active && this.mapLayers[layer.id]) {
+      this.removeMapLayer(layer);
+    }
+  }
+
+  addMapLayer(layer) {
+    let added = false;
+    switch (layer.type) {
+      case 'ArcGISImageMapLayer':
+        this.addArcgisImageLayer(layer);
+        added = true;
+        break;
+      case 'ArcGISTiledMapLayer':
+        this.addArcgisTileLayer(layer);
+        added = true;
+        break;
+      default:
+        break;
+    }
+    if (added) {
+      this.mapLayers[layer.id].on('load', () => {
+        console.log('Layer loaded', layer);
+      });
+    }
+  }
+
+  addArcgisImageLayer(layer) {
+    this.mapLayers[layer.id] = L.esri.imageMapLayer({
+      url: layer.url,
+      mosaicRule: layer.mosaicRule,
+      useCors: false
+    }).addTo(this.map);
+  }
+
+  addArcgisTileLayer(layer) {
+    this.mapLayers[layer.id] = L.esri.tiledMapLayer({
+      url: layer.url,
+      mosaicRule: layer.mosaicRule,
+      useCors: false
+    }).addTo(this.map);
+  }
+
+  removeMapLayer(layer) {
+    this.map.removeLayer(this.mapLayers[layer.id]);
+    this.mapLayers[layer.id] = null;
   }
 
   render() {
-    let content = this.getLayers();
-
     return (<div className="c-data-map">
-      <div className={['toolbar', this.state.toolbarOpen ? '-open' : ''].join(' ')}>
-        <div className="actions">
-          <div>
-            <button
-              className={['toggle-status', this.state.toolbarOpen ? '-open' : ''].join(' ')}
-              onClick={() => this.toggleToolbarStatus()}
-            >
-              <span></span>
-            </button>
-          </div>
-        </div>
-        <div className="header">
-          <FilterTab />
-        </div>
-        <div className="content">
-          {content}
-        </div>
-        <div className="actions-mobile">
-          <Button
-            borderType={2}
-            click={() => this.toggleToolbarStatus()}
-          >
-            Apply
-          </Button>
-        </div>
-      </div>
       <div className="map" ref="map"></div>
     </div>);
   }
@@ -92,10 +97,6 @@ DataMap.propTypes = {
   * Define the layers data of the map
   */
   data: React.PropTypes.any,
-  /**
-  * Define the layers on change switch function
-  */
-  switchChange: React.PropTypes.func.isRequired,
 };
 
 export default DataMap;

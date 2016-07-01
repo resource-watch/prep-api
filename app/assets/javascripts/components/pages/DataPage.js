@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../commons/Navbar';
-import DataMap from '../../containers/commons/DataMap';
+import DataMapSidebar from '../../containers/maps/DataMapSidebar';
+import DataMap from '../maps/DataMap';
 import { Link } from 'react-router';
 import Modal from '../commons/Modal';
 
@@ -14,6 +15,7 @@ class DataPage extends React.Component {
     return (
       <div className="l-data">
         <Navbar small dark currentPage={this.props.currentPage} />
+        <DataMapSidebar data={this.props.data} />
         <DataMap data={this.props.data} />
 
         {this.props.modalOpen &&
