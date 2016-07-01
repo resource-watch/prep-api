@@ -8,8 +8,19 @@ import RelatedDatasets from '../commons/RelatedDatasets';
 
 class DashboardDetailPage extends React.Component {
 
-  componentDidMount() {
-    this.props.getInsightBySlug(this.props.insightSlug);
+  constructor(props) {
+    super(props);
+    props.getInsightBySlug(props.insightSlug);
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props.insightSlug !== nextProps.insightSlug) {
+      this.props.getInsightBySlug(nextProps.insightSlug);
+    }
+
+    if (this.props.data !== nextProps.data) return true;
+
+    return false;
   }
 
   getContent() {
