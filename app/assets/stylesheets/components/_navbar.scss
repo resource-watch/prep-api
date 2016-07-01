@@ -8,6 +8,10 @@ $navbar-breakpoint: 870px;
   transition: background-color .3s ease-out .3s;
   z-index: 2;
 
+  @media screen and (min-width: #{$navbar-breakpoint}) {
+    transition: none;
+  }
+
   .content {
     height: $navbar-height;
     display: flex;
