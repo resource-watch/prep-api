@@ -1,6 +1,7 @@
 import {
   MAP_DATA_RECEIVED,
-  SWITCH_CHANGED
+  SWITCH_CHANGED,
+  SET_SWITCH_STATUS
 } from '../constants';
 
 const initialState = {
@@ -17,6 +18,16 @@ export default function (state = initialState, action) {
       for (let i = 0, length = layers.length; i < length; i++) {
         if (layers[i].id === action.payload.id) {
           layers[i].active = !layers[i].active;
+          break;
+        }
+      }
+      return Object.assign({}, state, { layers });
+    }
+    case SET_SWITCH_STATUS: {
+      const layers = state.layers.slice(0);
+      for (let i = 0, length = layers.length; i < length; i++) {
+        if (layers[i].id === action.payload.id) {
+          layers[i].active = action.payload.status;
           break;
         }
       }

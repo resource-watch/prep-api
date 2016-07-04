@@ -51,6 +51,9 @@
       @media #{$mq-mobile-large} {
         flex-wrap: no-wrap;
       }
+      &:last-of-type {
+        margin: 0;
+      }
       > .title {
         flex-grow: 1;
         flex-basis: 100%;
