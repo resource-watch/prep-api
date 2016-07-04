@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import useScroll from 'react-router-scroll';
-import { Router, Route, applyRouterMiddleware } from 'react-router';
+import { IndexRoute, Router, Route, applyRouterMiddleware } from 'react-router';
+import ContainerPage from './containers/pages/ContainerPage';
 import HomePage from './containers/pages/HomePage';
 import DataPage from './containers/pages/DataPage';
 import DashboardsPage from './containers/pages/DashboardsPage';
@@ -43,7 +44,7 @@ function shouldUpdateScroll(prevRouterProps, { location }) {
     if (routeParams.length) routeParams.splice(0, 1);
     if (nextRouteParams.length) nextRouteParams.splice(0, 1);
 
-    const paramsCount = Math.min(routeParams, nextRouteParams).length;
+    const paramsCount = Math.min(routeParams.length, nextRouteParams.length);
 
     let doesParamsMatch = true;
     for (let i = 0, j = paramsCount; i < j; i++) {
@@ -60,7 +61,8 @@ function shouldUpdateScroll(prevRouterProps, { location }) {
    * both the old path and the new one match (i.e. if the global regex and the
    * regex params match the two paths) */
   const regexes = [
-    /\/dashboards\/((?:[A-z]|[1-9]|-)+)(?:\/(?:.*))?/
+    /\/dashboards\/((?:[A-z]|[1-9]|-)+)(?:\/(?:.*))?/,
+    /\/insights\/((?:[A-z]|[1-9]|-)+)/
   ];
 
   for (let i = 0, j = regexes.length; i < j; i++) {
@@ -76,16 +78,18 @@ function Routes(props) {
       history={props.history}
       render={applyRouterMiddleware(useScroll(shouldUpdateScroll))}
     >
-      <Route path="/" component={HomePage} />
-      <Route path="data" component={DataPage} />
-      <Route path="dashboards" component={DashboardsPage} />
-      <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
-      <Route path="insights" component={InsightsPage} />
-      <Route path="insights/:slug" component={InsightDetailPage} />
-      <Route path="partners" component={PartnersPage} />
-      <Route path="about" component={AboutPage} />
-      <Route path="faqs" component={FAQsPage} />
-      <Route path="contact" component={ContactPage} />
+      <Route path="/" component={ContainerPage}>
+        <IndexRoute component={HomePage} />
+        <Route path="data" component={DataPage} />
+        <Route path="dashboards" component={DashboardsPage} />
+        <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
+        <Route path="insights" component={InsightsPage} />
+        <Route path="insights/:slug" component={InsightDetailPage} />
+        <Route path="partners" component={PartnersPage} />
+        <Route path="about" component={AboutPage} />
+        <Route path="faqs" component={FAQsPage} />
+        <Route path="contact" component={ContactPage} />
+      </Route>
     </Router>
   );
 }

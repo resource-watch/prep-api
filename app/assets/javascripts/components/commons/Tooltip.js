@@ -2,8 +2,6 @@ import React from 'react';
 import Modal from './Modal';
 import Title from './Title';
 
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 class Tooltip extends React.Component {
   constructor(props) {
     super(props);
@@ -31,22 +29,14 @@ class Tooltip extends React.Component {
     return (
       <div className="c-tooltip">
         <span className="icon" onClick={() => this.setState({ tooltipOpen: true })}>i</span>
-
-        <ReactCSSTransitionGroup
-          transitionName="modal"
-          transitionAppear
-          transitionAppearTimeout={300}
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={300}
+        <Modal
+          opened={this.state.tooltipOpen}
+          close={() => this.handleClickClose()}
         >
-          {this.state.tooltipOpen &&
-            <Modal close={() => this.handleClickClose()}>
-              <div className="content">
-                {content}
-              </div>
-            </Modal>
-          }
-        </ReactCSSTransitionGroup>
+          <div className="content">
+            {content}
+          </div>
+        </Modal>
       </div>
     );
   }

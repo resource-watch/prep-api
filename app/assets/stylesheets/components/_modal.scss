@@ -16,8 +16,10 @@
     position: relative;
     padding: 2rem;;
     background-color: $color-5;
-    min-width: 370px;
 
+    @media #{$mq-mobile-large} {
+      min-width: 370px;
+    }
     @media #{$mq-tablet} {
       min-width: 620px;
     }

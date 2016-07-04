@@ -5,7 +5,7 @@ import Title from '../commons/Title';
 
 function DashboardDetailInsights(props) {
   const content = props.data.map((card, index) => (
-    <Card borderType={1} key={`card-${index}`}>
+    <Card border="neutral" key={`card-${index}`}>
       <Link to={`/insights/${card.slug}`}>
         <Title type="content">
           {card.title}

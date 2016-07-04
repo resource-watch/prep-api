@@ -86,6 +86,9 @@
           width: 1px;
           height: calc(100% - 10px);
           background-color: $color-2;
+
+          .-theme-2 & { background-color: $color-4; }
+          .-theme-3 & { background-color: $color-3; }
         }
 
         a {
@@ -100,15 +103,6 @@
           margin-right: 0;
           &:after { content: none; }
         }
-      }
-      &.-color-1 > li:after{
-        background-color: $color-2;
-      }
-      &.-color-2 > li:after{
-        background-color: $color-3;
-      }
-      &.-color-3 > li:after{
-        background-color: $color-4;
       }
     }
   }

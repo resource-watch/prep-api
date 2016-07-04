@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from '../commons/Header';
-import Navbar from '../commons/Navbar';
 import Title from '../commons/Title';
-import Footer from '../commons/Footer';
 
 /* Both emails are encoded with ROT13 */
 const FrancisEmail = 'stnffreg@jev.bet';
@@ -17,12 +15,11 @@ function decodeRot13(str) {
   });
 }
 
-function ContactPage(props) {
+function ContactPage() {
   return (
     <div className="l-contact">
       <Header type="small">
-        <Navbar currentPage={props.currentPage} />
-        <Title inverse center borderType={1} type="page">
+        <Title inverse center border type="page">
           Contact
         </Title>
       </Header>
@@ -42,7 +39,6 @@ function ContactPage(props) {
 
       </div>
 
-      <Footer />
     </div>
   );
 }

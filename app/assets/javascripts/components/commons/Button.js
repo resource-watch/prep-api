@@ -3,9 +3,10 @@ import React from 'react';
 function Button(props) {
   const classes = ['c-button'];
 
-  if (props.color) classes.push(`-color-${props.color}`);
+  if (props.themeColor) classes.push('-theme-color');
   if (props.inverse) classes.push('-inverse');
-  if (props.borderType) classes.push(`-border-${props.borderType}`);
+  if (props.border) classes.push('-border');
+  if (props.border === 'neutral') classes.push('-border-neutral');
   if (props.fill) classes.push('-fill');
 
   return (
@@ -22,13 +23,11 @@ Button.propTypes = {
   /**
    * Define the color of the button's content
    * Accepted values:
-   * 	- 1: yellow
-   * 	- 2: blue
-   * 	- 3: green
-   * 	- 4: dark blue
-   * Default: 4
+   *  - true: use the theme color
+   *  - false: use a dark blue color
+   * Default: false
    */
-  color: React.PropTypes.number,
+  themeColor: React.PropTypes.bool,
   /**
    * Define the color of the button's content
    * Accepted values:
@@ -40,13 +39,11 @@ Button.propTypes = {
   /**
    * Define the color of the border of the button
    * Accepted values:
-   * 	- 1: yellow
-   * 	- 2: blue
-   * 	- 3: green
-   * 	- 4: dark blue
+   *  - "": theme color (i.e. prop has no value)
+   * 	- "neutral": dark blue
    * Default: no border (i.e. prop not defined)
    */
-  borderType: React.PropTypes.number,
+  border: React.PropTypes.any,
   /**
    * Define the filling of the button
    * Accepted values:

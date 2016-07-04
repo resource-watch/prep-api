@@ -1,5 +1,17 @@
 {
-  "name": "rails-redux-scaffold",
+  "name": "reparedness-for-resilience",
+  "description": "Preparedness for resilience website",
+  "version": "0.1.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resource-watch/preparedness-for-resilience.git"
+  },
+  "author": "Vizzuality <hello@vizzuality.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/resource-watch/preparedness-for-resilience/issues"
+  },
   "devDependencies": {
     "eslint": "^2.12.0",
     "eslint-config-airbnb": "^9.0.1",

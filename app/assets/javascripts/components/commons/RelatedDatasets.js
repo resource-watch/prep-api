@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Modal from './Modal';
 import Title from './Title';
 
@@ -13,29 +12,10 @@ class RelatedDatasets extends React.Component {
   }
 
   render() {
-    const modal = (
-      <ReactCSSTransitionGroup
-        transitionName="modal"
-        transitionAppear
-        transitionAppearTimeout={300}
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
-      >
-        {this.state.modalOpen &&
-          <Modal close={() => this.setState({ modalOpen: false })}>
-            <div className="content">
-              The website is under development. Download details will be added
-              here.
-            </div>
-          </Modal>
-        }
-      </ReactCSSTransitionGroup>
-    );
-
     return (
       <div className="c-related-datasets">
         <div className="wrapper">
-          <Title borderType={this.props.pageType}>
+          <Title border>
             Related datasets
           </Title>
           <div className="datasets">
@@ -110,24 +90,21 @@ class RelatedDatasets extends React.Component {
               </div>
             </div>
           </div>
-          {modal}
+
+          <Modal
+            opened={this.state.modalOpen}
+            close={() => this.setState({ modalOpen: false })}
+          >
+            <div className="content">
+              The website is under development. Download details will be added
+              here.
+            </div>
+          </Modal>
         </div>
       </div>
     );
   }
 
 }
-
-RelatedDatasets.propTypes = {
-  /**
-   * Define the page type color
-   * Accepted values:
-   * 	- 1: yellow border
-   * 	- 2: blue border
-   * 	- 3: green border
-   * Default: no border (i.e. prop not defined)
-   */
-  pageType: React.PropTypes.number,
-};
 
 export default RelatedDatasets;
