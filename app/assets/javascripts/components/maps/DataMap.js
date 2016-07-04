@@ -5,7 +5,6 @@ import React from 'react';
 class DataMap extends React.Component {
   constructor() {
     super();
-    this.hasActiveLayers = false;
     this.state = {
       loading: false
     };
@@ -13,10 +12,11 @@ class DataMap extends React.Component {
 
   componentDidMount() {
     this.initMap();
+    this.updateLayers();
   }
 
-  componentWillReceiveProps(props) {
-    this.updateLayers(props.tiles);
+  componentWillReceiveProps() {
+    this.updateLayers();
   }
 
   initMap() {

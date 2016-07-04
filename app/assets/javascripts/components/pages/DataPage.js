@@ -8,7 +8,10 @@ import Modal from '../commons/Modal';
 class DataPage extends React.Component {
 
   componentDidMount() {
-    this.props.getDataMap();
+    if (!this.props.data.layers.length) {
+      console.log('getting data');
+      this.props.getDataMap();
+    }
   }
 
   render() {
