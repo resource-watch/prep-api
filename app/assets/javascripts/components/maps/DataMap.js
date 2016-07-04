@@ -5,6 +5,7 @@ import React from 'react';
 class DataMap extends React.Component {
   constructor() {
     super();
+    this.hasActiveLayers = false;
     this.state = {
       loading: false
     };
@@ -35,6 +36,7 @@ class DataMap extends React.Component {
   }
 
   updateLayers() {
+    this.hasActiveLayers = false;
     if (this.props.data.layers.length) {
       this.props.data.layers.forEach((layer) => {
         this.updateMapLayer(layer);
@@ -44,6 +46,7 @@ class DataMap extends React.Component {
 
   updateMapLayer(layer) {
     if (layer.active && !this.mapLayers[layer.id]) {
+      this.hasActiveLayers = true;
       this.addMapLayer(layer);
     } else if (!layer.active && this.mapLayers[layer.id]) {
       this.removeMapLayer(layer);
@@ -154,7 +157,10 @@ class DataMap extends React.Component {
   }
 
   render() {
-    const loading = this.state.loading ? <LoadingSpinner /> : null;
+    let loading;
+    if (this.state.loading && this.hasActiveLayers) {
+      loading = <LoadingSpinner />;
+    }
     return (<div className="c-data-map">
       <div className="map" ref="map"></div>
       {loading}
