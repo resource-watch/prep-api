@@ -1,6 +1,7 @@
 import {
   MAP_DATA_RECEIVED,
-  SWITCH_CHANGED
+  SWITCH_CHANGED,
+  SET_SWITCH_STATUS
 } from '../constants';
 
 export function getDataMap() {
@@ -23,5 +24,12 @@ export function switchChange(id) {
   return {
     type: SWITCH_CHANGED,
     payload: { id }
+  };
+}
+
+export function setSwitchStatus(id, status) {
+  return {
+    type: SET_SWITCH_STATUS,
+    payload: { id, status }
   };
 }

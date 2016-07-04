@@ -1,7 +1,7 @@
 import React from 'react';
 import DataMapSidebar from '../../containers/maps/DataMapSidebar';
+import DataMap from '../../containers/maps/DataMap';
 import DataMapLegend from '../../containers/maps/DataMapLegend';
-import DataMap from '../maps/DataMap';
 import { Link } from 'react-router';
 import Modal from '../commons/Modal';
 
@@ -15,7 +15,7 @@ class DataPage extends React.Component {
     return (
       <div className="l-data">
         <DataMapSidebar />
-        <DataMap data={this.props.data} />
+        <DataMap />
         <DataMapLegend />
         <Modal
           opened={this.props.modalOpen}

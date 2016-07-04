@@ -81,7 +81,7 @@ class DataMap extends React.Component {
   }
 
   addCartoLayer(layer) {
-    const request = new Request(`https://${layer.account}.cartodb.com/api/v1/map/`, {
+    const request = new Request(`https://${layer.account}.cartodb.com/api/v1/map`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -107,15 +107,19 @@ class DataMap extends React.Component {
         return this.handleTileError(layer);
       })
       .then((data) => {
-        const tileUrl = `https://${layer.account}.cartodb.com/api/v1/map/${data.layergroupid}/{z}/{x}/{y}.png`;
-        this.mapLayers[layer.id] = L.tileLayer(tileUrl).addTo(this.map, 1);
-        this.mapLayers[layer.id].on('load', () => {
-          this.handleTileLoaded(layer);
-        });
-        this.mapLayers[layer.id].on('tileerror', () => {
-          this.handleTileError(layer);
-        });
-      });
+        // we can switch off the layer while it is loading
+        if (layer.active) {
+          const tileUrl = `https://${layer.account}.cartodb.com/api/v1/map/${data.layergroupid}/{z}/{x}/{y}.png`;
+          this.mapLayers[layer.id] = L.tileLayer(tileUrl).addTo(this.map, 1);
+          this.mapLayers[layer.id].on('load', () => {
+            this.handleTileLoaded(layer);
+          });
+          this.mapLayers[layer.id].on('tileerror', () => {
+            this.handleTileError(layer);
+          });
+        }
+      })
+      .catch(() => this.props.onTileError(layer.id));
   }
 
   removeMapLayer(layer) {
@@ -127,7 +131,7 @@ class DataMap extends React.Component {
     console.log('TODO: handle tile loaded', layer.id);
   }
   handleTileError(layer) {
-    console.log('TODO: handle tile errors', layer.id);
+    this.props.onTileError(layer.id);
   }
 
   render() {
@@ -141,7 +145,11 @@ DataMap.propTypes = {
   /**
   * Define the layers data of the map
   */
-  data: React.PropTypes.any,
+  data: React.PropTypes.any.isRequired,
+  /**
+  * Define the function to handle a tile load erro
+  */
+  onTileError: React.PropTypes.func.isRequired,
 };
 
 export default DataMap;
