@@ -17,7 +17,8 @@
       "error",
       {
         "code": 80,
-        "ignorePattern": "^(\\s.+className|\\s.+<svg)"
+        "ignorePattern": "^(\\s.+className|\\s.+<svg)",
+        "ignoreUrls": true
       }
     ]
   }

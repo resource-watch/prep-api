@@ -43,21 +43,18 @@ class DataMap extends React.Component {
   }
 
   addMapLayer(layer) {
-    let added = false;
     switch (layer.type) {
       case 'ArcGISImageMapLayer':
         this.addArcgisImageLayer(layer);
-        added = true;
         break;
       case 'ArcGISTiledMapLayer':
         this.addArcgisTileLayer(layer);
-        added = true;
+        break;
+      case 'CartoLayer':
+        this.addCartoLayer(layer);
         break;
       default:
         break;
-    }
-    if (added) {
-      this.mapLayers[layer.id].on('load', () => {});
     }
   }
 
@@ -67,6 +64,9 @@ class DataMap extends React.Component {
       mosaicRule: layer.mosaicRule,
       useCors: false
     }).addTo(this.map);
+    this.mapLayers[layer.id].on('load', () => {
+      this.handleTileLoaded(layer);
+    });
   }
 
   addArcgisTileLayer(layer) {
@@ -75,11 +75,59 @@ class DataMap extends React.Component {
       mosaicRule: layer.mosaicRule,
       useCors: false
     }).addTo(this.map);
+    this.mapLayers[layer.id].on('load', () => {
+      this.handleTileLoaded(layer);
+    });
+  }
+
+  addCartoLayer(layer) {
+    const request = new Request(`https://${layer.account}.cartodb.com/api/v1/map/`, {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({
+        layers: [{
+          user_name: layer.account,
+          type: 'cartodb',
+          options: {
+            sql: layer.query,
+            cartocss: layer.cartocss,
+            cartocss_version: '2.3.0'
+          }
+        }]
+      })
+    });
+
+    fetch(request)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return this.handleTileError(layer);
+      })
+      .then((data) => {
+        const tileUrl = `https://${layer.account}.cartodb.com/api/v1/map/${data.layergroupid}/{z}/{x}/{y}.png`;
+        this.mapLayers[layer.id] = L.tileLayer(tileUrl).addTo(this.map, 1);
+        this.mapLayers[layer.id].on('load', () => {
+          this.handleTileLoaded(layer);
+        });
+        this.mapLayers[layer.id].on('tileerror', () => {
+          this.handleTileError(layer);
+        });
+      });
   }
 
   removeMapLayer(layer) {
     this.map.removeLayer(this.mapLayers[layer.id]);
     this.mapLayers[layer.id] = null;
+  }
+
+  handleTileLoaded(layer) {
+    console.log('TODO: handle tile loaded', layer.id);
+  }
+  handleTileError(layer) {
+    console.log('TODO: handle tile errors', layer.id);
   }
 
   render() {
