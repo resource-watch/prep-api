@@ -1,6 +1,14 @@
+import LoadingSpinner from '../commons/LoadingSpinner';
+
 import React from 'react';
 
 class DataMap extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: false
+    };
+  }
 
   componentDidMount() {
     this.initMap();
@@ -43,6 +51,11 @@ class DataMap extends React.Component {
   }
 
   addMapLayer(layer) {
+    if (!this.state.loading) {
+      this.setState({
+        loading: true
+      });
+    }
     switch (layer.type) {
       case 'ArcGISImageMapLayer':
         this.addArcgisImageLayer(layer);
@@ -127,16 +140,24 @@ class DataMap extends React.Component {
     this.mapLayers[layer.id] = null;
   }
 
-  handleTileLoaded(layer) {
-    console.log('TODO: handle tile loaded', layer.id);
+  handleTileLoaded() {
+    this.setState({
+      loading: false
+    });
   }
+
   handleTileError(layer) {
+    if (this.mapLayers[layer.id]) {
+      this.removeMapLayer(layer);
+    }
     this.props.onTileError(layer.id);
   }
 
   render() {
+    const loading = this.state.loading ? <LoadingSpinner /> : null;
     return (<div className="c-data-map">
       <div className="map" ref="map"></div>
+      {loading}
     </div>);
   }
 }
