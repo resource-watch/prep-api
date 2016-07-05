@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705143103) do
+ActiveRecord::Schema.define(version: 20160705164849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,27 @@ ActiveRecord::Schema.define(version: 20160705143103) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "dashboards", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "summary"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "content"
+    t.boolean  "published"
+    t.integer  "partner_id"
+    t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
+  end
+
+  create_table "dashboards_datasets", id: false, force: :cascade do |t|
+    t.integer "dashboard_id", null: false
+    t.integer "dataset_id",   null: false
+    t.index ["dashboard_id"], name: "index_dashboards_datasets_on_dashboard_id", using: :btree
+    t.index ["dataset_id"], name: "index_dashboards_datasets_on_dataset_id", using: :btree
   end
 
   create_table "dataset_types", force: :cascade do |t|

@@ -1,33 +1,22 @@
-ActiveAdmin.register_page "Dashboard" do
+ActiveAdmin.register Dashboard do
 
-  menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
+  permit_params :title,:slug, :summary, :content, :image, :partner_id, :published, dataset_ids: []
 
-  content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
-      end
+  form do |f|
+    f.semantic_errors
+    f.inputs 'Dashboards Detail' do
+      f.input :title, required: true
+      f.input :slug, required: true
+      f.input :summary
+      f.input :content
+      f.input :image, as: :file, :hint => f.object.image.present? \
+        ? image_tag(f.object.image.url)
+        : content_tag(:span, "no header image uploaded yet")
+      f.input :dataset
+      f.input :partner, required: true
+      f.input :published, as: :boolean
     end
+    f.actions
+  end
 
-    # Here is an example of a simple dashboard with columns and panels.
-    #
-    # columns do
-    #   column do
-    #     panel "Recent Posts" do
-    #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
-    #         end
-    #       end
-    #     end
-    #   end
-
-    #   column do
-    #     panel "Info" do
-    #       para "Welcome to ActiveAdmin."
-    #     end
-    #   end
-    # end
-  end # content
 end

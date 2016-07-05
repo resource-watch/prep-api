@@ -15,26 +15,26 @@ Partner.find_by_name("Vizzuality") || Partner.create!(
   url: 'http://vizzuality.com',
   contact_name: 'Vizzuality',
   contact_email: 'contact@vizzuality.com',
-  logo: File.new("db/partner-images-seed/vizzuality@2x.png"),
+  logo: File.new("db/fixtures/partner-images/vizzuality@2x.png"),
   published: true)
 Partner.find_by_name("WRI") || Partner.create!(
   name: 'WRI',
   url: 'http://www.wri.org/',
   contact_name: 'WRI',
   contact_email: 'contact@wri.com',
-  logo: File.new("db/partner-images-seed/wri@2x.png"),
+  logo: File.new("db/fixtures/partner-images/wri@2x.png"),
   published: true)
 Partner.find_by_name("Nasa") || Partner.create!(
   name: 'Nasa',
   url: 'https://www.nasa.gov/',
   contact_name: 'Nasa',
   contact_email: 'contact@nasa.gov',
-  logo: File.new("db/partner-images-seed/nasa@2x.png"),
+  logo: File.new("db/fixtures/partner-images/nasa@2x.png"),
   published: true)
 Partner.find_by_name("Washington University") || Partner.create!(
   name: 'Washington University',
   url: 'http://www.washington.edu/',
   contact_name: 'UW',
   contact_email: 'contact@uw.edu',
-  logo: File.new("db/partner-images-seed/university-washington@2x.png"),
+  logo: File.new("db/fixtures/partner-images/university-washington@2x.png"),
   published: true)

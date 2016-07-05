@@ -1,6 +1,6 @@
 ActiveAdmin.register Dataset do
 
-  permit_params :title, :summary, :slug, :content, :partner_id, :dataset_type_id, :published
+  permit_params :title,:slug, :summary, :content, :data_url, :dataset_type_id, :json_spec, :partner_id, :published
 
   form do |f|
     f.semantic_errors
