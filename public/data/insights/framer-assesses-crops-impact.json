@@ -7,13 +7,16 @@
     "email": "jcasola@uw.edu"
   },
   "partner": {
-    "logo": "lightUniversityWashingtonLogo"
+    "logo": "universityWashingtonLogo"
   },
   "indicators":[
     {
       "title": "Temperature change",
       "subtitle": "RELATIVE TO 1950-1999 AVERAGE",
       "type": "chart",
+      "partner": {
+        "logo": "lightUniversityWashingtonLogo"
+      },
       "data": {
         "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
         "data": [
@@ -403,6 +406,9 @@
       "type": "chart",
       "title": "Precipitation change",
       "subtitle": "RELATIVE TO 1950-1999 AVERAGE",
+      "partner": {
+        "logo": "universityWashingtonLogo"
+      },
       "data": {
         "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
         "data": [
