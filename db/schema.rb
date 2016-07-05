@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624102653) do
+ActiveRecord::Schema.define(version: 20160705132135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,26 @@ ActiveRecord::Schema.define(version: 20160624102653) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "dataset_types", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "datasets", force: :cascade do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.string   "slug"
+    t.text     "content"
+    t.boolean  "published"
+    t.integer  "partner_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "dataset_type_id"
+    t.text     "json_spec"
+    t.string   "data_url"
+    t.index ["dataset_type_id"], name: "index_datasets_on_dataset_type_id", using: :btree
+    t.index ["partner_id"], name: "index_datasets_on_partner_id", using: :btree
+  end
+
   create_table "partners", force: :cascade do |t|
     t.string   "name",                              null: false
     t.string   "url"
@@ -56,18 +76,6 @@ ActiveRecord::Schema.define(version: 20160624102653) do
     t.boolean  "published",         default: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-  end
-
-  create_table "widgets", force: :cascade do |t|
-    t.string   "title"
-    t.string   "summary"
-    t.string   "slug"
-    t.text     "content"
-    t.boolean  "published"
-    t.integer  "partner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["partner_id"], name: "index_widgets_on_partner_id", using: :btree
   end
 
 end
