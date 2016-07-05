@@ -7,7 +7,9 @@ ActiveAdmin.register Partner do
     f.inputs "Partner Details" do
       f.input :name, required: true
       f.input :url
-      f.input :logo, as: :file
+      f.input :contact_name
+      f.input :contact_email
+      f.input :logo, as: :file, :hint => image_tag(f.object.logo.url(:thumb))
       f.input :published, as: :boolean
     end
     f.actions
