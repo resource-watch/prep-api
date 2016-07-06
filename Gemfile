@@ -23,6 +23,8 @@ gem 'browserify-rails'
 
 # Active record
 gem 'pg', '~> 0.18'
+# Active record serializer
+gem 'active_model_serializers', '~> 0.10.0'
 
 # Active admin
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
