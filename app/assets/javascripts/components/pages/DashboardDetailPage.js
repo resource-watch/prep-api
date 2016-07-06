@@ -51,7 +51,7 @@ class DashboardDetailPage extends React.Component {
 
       default:
         content = (<DashboardDetailIndicators
-          data={this.props.data.indicators}
+          data={this.props.data.dataset}
         />);
         break;
     }
@@ -90,7 +90,7 @@ class DashboardDetailPage extends React.Component {
     }
     return (
       <div className="l-dashboards">
-        <Header pageType={1}>
+        <Header image={this.props.data && this.props.data.image}>
           {title}
         </Header>
 

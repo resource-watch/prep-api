@@ -11,7 +11,7 @@ class Api::DashboardsController < ApiController
   def show
     dashboard = Dashboard.find_by_slug(params[:slug])
     if dashboard
-      render json: dashboard, serializer: Api::DashboardDetailSerializer, status: 200
+      render json: dashboard, include: '**', serializer: Api::DashboardDetailSerializer, status: 200
     else
       render json: {status: 404, error: 'Dashboard not found'}
     end

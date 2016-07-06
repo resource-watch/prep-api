@@ -5,6 +5,7 @@ import Title from '../commons/Title';
 import Card from '../cards/Card';
 import Button from '../commons/Button';
 import Modal from '../commons/Modal';
+import LoadingSpinner from '../commons/LoadingSpinner';
 
 class DashboardsPage extends React.Component {
 
@@ -24,7 +25,7 @@ class DashboardsPage extends React.Component {
     if (!this.props.data) {
       return (
         <div>
-          TODO: loading component
+          <LoadingSpinner />
         </div>
       );
     }
@@ -43,7 +44,7 @@ class DashboardsPage extends React.Component {
           </p>
           <a href="#">
             <img
-              src={gon.assets[item.partner.logo]}
+              src={item.partner.logo}
               className="logo"
               alt={item.partner.name}
             />

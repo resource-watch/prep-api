@@ -5,14 +5,12 @@ import {
 
 export function getDashboardList() {
   return dispatch => {
-    fetch('/data/dashboards/list.json')
+    fetch('/api/dashboards')
       .then(response => (response.json()))
       .then(data => {
         dispatch({
           type: LIST_DASHBOARD_RECEIVED,
-          payload: {
-            data: data.data
-          }
+          payload: { data }
         });
       }
     );
@@ -20,7 +18,7 @@ export function getDashboardList() {
 }
 export function getDashboardBySlug(slug) {
   return dispatch => {
-    fetch(`/data/dashboards/${slug}.json`)
+    fetch(`/api/dashboards/${slug}`)
       .then(response => (response.json()))
       .then(data => {
         dispatch({

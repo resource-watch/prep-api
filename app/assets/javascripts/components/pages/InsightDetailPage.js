@@ -44,7 +44,7 @@ class DashboardDetailPage extends React.Component {
 
         <div className="wrapper">
           <DashboardDetailIndicators
-            data={this.props.data.indicators}
+            data={this.props.data.dataset}
           />
         </div>
       </div>

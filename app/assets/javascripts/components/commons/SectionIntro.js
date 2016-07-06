@@ -7,11 +7,11 @@ function SectionIntro(props) {
       <div className="container">
         <div className="top-bar">
           <div className="logo">
-            <img src={gon.assets[props.data.partner.logo]} alt="" />
+            <img src={props.data.partner.logo} alt={props.data.partner.name} />
           </div>
           <div className="author">
-            {props.data.author.name}
-            <span>{props.data.author.email}</span>
+            {props.data.partner.contact_name}
+            <span>{props.data.partner.contact_email}</span>
           </div>
         </div>
         <div className="content">
