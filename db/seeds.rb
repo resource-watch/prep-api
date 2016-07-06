@@ -855,6 +855,5 @@ Dashboard.find_by_title("city-planner-assesses-possible-impacts") || Dashboard.c
   summary: 'Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   partner_id: 3,
-  publihed: true,
   image: File.new("db/fixtures/images/dashboard/bg-dashboards-map@2x.png"),
   published: true)
