@@ -45,7 +45,8 @@ Dataset.find_by_slug("temperature-change") || Dataset.create!(
   slug: 'temperature-change',
   summary: 'Relative to 1950-199 average',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
-  data_url: '',
+  data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
+  published: true,
   dataset_type_id: 1,
   json_spec: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
@@ -438,7 +439,8 @@ Dataset.find_by_slug("precipitation-change") || Dataset.create!(
   slug: 'precipitation-change',
   summary: 'Relative to 1950-199 average',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
-  data_url: '',
+  data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
+  published: true,
   dataset_type_id: 1,
   json_spec: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
@@ -853,5 +855,6 @@ Dashboard.find_by_title("city-planner-assesses-possible-impacts") || Dashboard.c
   summary: 'Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   partner_id: 3,
+  publihed: true,
   image: File.new("db/fixtures/images/dashboard/bg-dashboards-map@2x.png"),
   published: true)
