@@ -15,4 +15,34 @@
     border: 1px solid $color-10;
     border-radius: 50%;
   }
+  .modal{
+    > .header {
+      margin-bottom: 15px;
+    }
+    > .content {
+      display: flex;
+      flex-wrap: wrap;
+      > div {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+
+        @media #{$mq-tablet} {
+          flex-basis: calc(50% - 10px);
+        }
+        > p {
+          display: block;
+          font-family: $font-family-1;
+          font-weight: $font-weight-normal;
+          font-size: $font-size-normal;
+          margin-bottom: 5px;
+          >span {
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+    }
+    .chart {
+      height: 400px;
+    }
+  }
 }

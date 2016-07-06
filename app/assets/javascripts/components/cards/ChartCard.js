@@ -9,6 +9,7 @@ function ChartCard(props) {
   };
   return (
     <ContentCard
+      noBorder={props.noBorder}
       header={header}
       dataTooltip={props.tooltip && props.data}
     >
@@ -32,6 +33,10 @@ ChartCard.propTypes = {
    * Define it the card has tooltip
    */
   tooltip: React.PropTypes.bool,
+  /**
+   * Define it the card has border
+   */
+  noBorder: React.PropTypes.bool,
   /**
    * Define layers data to the map
    */

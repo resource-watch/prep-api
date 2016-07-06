@@ -15,7 +15,7 @@ function ContentCard(props) {
   }
 
   return (
-    <div className="c-content-card">
+    <div className={['c-content-card', props.noBorder ? '-no-border' : ''].join(' ')}>
       <div className="header">
         {legend}
         <Title type="mini">
@@ -47,6 +47,10 @@ ContentCard.propTypes = {
    *  }
    */
   header: React.PropTypes.object.isRequired,
+  /**
+   * Define it the card has border
+   */
+  noBorder: React.PropTypes.bool,
   /**
    * Define tooltip content data
    */

@@ -1,0 +1,3 @@
+class DatasetType < ApplicationRecord
+
+end

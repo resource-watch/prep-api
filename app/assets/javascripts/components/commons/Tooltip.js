@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from './Modal';
 import Title from './Title';
+import ChartCard from '../cards/ChartCard';
 
 class Tooltip extends React.Component {
   constructor(props) {
@@ -18,11 +19,40 @@ class Tooltip extends React.Component {
 
   render() {
     let content = (
-      <div>
-        <Title type="mini">{this.props.data.title}</Title>
-        <p>
-          The website is under development. Further information will go here.
-        </p>
+      <div className="content">
+        <div>
+          {this.props.data && this.props.data.data &&
+            <ChartCard
+              noBorder
+              title={this.props.data.title}
+              subtitle={this.props.data.subtitle}
+              data={this.props.data}
+            />
+          }
+        </div>
+        <div>
+          <p>
+            <span>Description:</span>
+            description
+          </p>
+          <p>
+            <span>Data:</span>
+            data
+          </p>
+          <p>
+            <span>Topic:</span>
+            topic
+          </p>
+          <p>
+            <span>Area:</span>
+            area
+          </p>
+          <img
+            src={gon.assets[this.props.data.partner.logo]}
+            className="logo"
+            alt={this.props.data.partner.name}
+          />
+        </div>
       </div>
     );
 
@@ -33,9 +63,9 @@ class Tooltip extends React.Component {
           opened={this.state.tooltipOpen}
           close={() => this.handleClickClose()}
         >
-          <div className="content">
-            {content}
-          </div>
+
+          {content}
+
         </Modal>
       </div>
     );

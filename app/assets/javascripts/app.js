@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
@@ -29,13 +29,14 @@ const reducer = combineReducers({
 const middlewareRouter = routerMiddleware(browserHistory);
 const store = createStore(
   reducer,
-  /* The router middleware MUST be before thunk otherwise the URL changes inside
-   * a thunk function won't work properly */
-  applyMiddleware(middlewareRouter),
-  applyMiddleware(thunk),
-  /* Redux dev tool, install chrome extension in
-  * https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi */
-  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+  compose(
+    /* The router middleware MUST be before thunk otherwise the URL changes inside
+    * a thunk function won't work properly */
+    applyMiddleware(middlewareRouter, thunk),
+    /* Redux dev tool, install chrome extension in
+    * https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi */
+    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+  )
 );
 
 /**

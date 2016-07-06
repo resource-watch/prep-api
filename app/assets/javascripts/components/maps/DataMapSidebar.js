@@ -3,6 +3,7 @@ import React from 'react';
 import Switch from '../commons/Switch';
 import Button from '../commons/Button';
 import FilterTab from '../../containers/commons/FilterTab';
+import LoadingSpinner from '../commons/LoadingSpinner';
 
 class DataMap extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ class DataMap extends React.Component {
 
   getContent() {
     if (!this.props.data.layers.length) {
-      return (<p> There are no data layers </p>);
+      return <LoadingSpinner />;
     }
     const layers = [];
     this.props.data.layers.forEach((layer, index) => {
