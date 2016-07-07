@@ -51,7 +51,7 @@ class DashboardDetailPage extends React.Component {
 
       default:
         content = (<DashboardDetailIndicators
-          data={this.props.data.dataset}
+          data={this.props.data.indicator}
         />);
         break;
     }
