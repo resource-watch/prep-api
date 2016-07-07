@@ -4,8 +4,12 @@ class CreateWidgets < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :summary
       t.string :slug
+      t.string :data_url
       t.text :content
-      t.boolean :published
+      t.text :json_spec
+      t.boolean :published, default: false
+
+      t.belongs_to :widget_type
       t.belongs_to :partner
 
       t.timestamps

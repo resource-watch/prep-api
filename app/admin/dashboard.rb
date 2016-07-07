@@ -1,6 +1,6 @@
 ActiveAdmin.register Dashboard do
 
-  permit_params :title,:slug, :summary, :content, :image, :partner_id, :published, dataset_ids: []
+  permit_params :title,:slug, :summary, :content, :image, :partner_id, :published, :indicator_id
 
   form do |f|
     f.semantic_errors
@@ -12,7 +12,7 @@ ActiveAdmin.register Dashboard do
       f.input :image, as: :file, :hint => f.object.image.present? \
         ? image_tag(f.object.image.url)
         : content_tag(:span, "no header image uploaded yet")
-      f.input :dataset
+      f.input :indicator, :include_blank => false, required: true
       f.input :partner, required: true
       f.input :published, as: :boolean
     end

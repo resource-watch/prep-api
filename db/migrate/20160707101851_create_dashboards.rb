@@ -4,11 +4,12 @@ class CreateDashboards < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :slug
       t.text :summary
-      t.attachment :image
       t.text :content
-      t.boolean :published
+      t.attachment :image
+      t.boolean :published, default: false
 
       t.belongs_to :partner
+      t.belongs_to :indicator
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705164849) do
+ActiveRecord::Schema.define(version: 20160707101851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,46 +50,36 @@ ActiveRecord::Schema.define(version: 20160705164849) do
     t.string   "title"
     t.string   "slug"
     t.text     "summary"
+    t.text     "content"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.text     "content"
-    t.boolean  "published"
+    t.boolean  "published",          default: false
     t.integer  "partner_id"
+    t.integer  "indicator_id"
+    t.index ["indicator_id"], name: "index_dashboards_on_indicator_id", using: :btree
     t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
   end
 
-  create_table "dashboards_datasets", id: false, force: :cascade do |t|
-    t.integer "dashboard_id", null: false
-    t.integer "dataset_id",   null: false
-    t.index ["dashboard_id"], name: "index_dashboards_datasets_on_dashboard_id", using: :btree
-    t.index ["dataset_id"], name: "index_dashboards_datasets_on_dataset_id", using: :btree
+  create_table "indicators", force: :cascade do |t|
+    t.string "title"
+    t.text   "summary"
+    t.text   "content"
   end
 
-  create_table "dataset_types", force: :cascade do |t|
-    t.string "name", null: false
-  end
-
-  create_table "datasets", force: :cascade do |t|
-    t.string   "title"
-    t.string   "summary"
-    t.string   "slug"
-    t.text     "content"
-    t.boolean  "published"
-    t.integer  "partner_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "dataset_type_id"
-    t.text     "json_spec"
-    t.string   "data_url"
-    t.index ["dataset_type_id"], name: "index_datasets_on_dataset_type_id", using: :btree
-    t.index ["partner_id"], name: "index_datasets_on_partner_id", using: :btree
+  create_table "indicators_widgets", id: false, force: :cascade do |t|
+    t.integer "indicator_id", null: false
+    t.integer "widget_id",    null: false
+    t.index ["indicator_id"], name: "index_indicators_widgets_on_indicator_id", using: :btree
+    t.index ["widget_id"], name: "index_indicators_widgets_on_widget_id", using: :btree
   end
 
   create_table "partners", force: :cascade do |t|
     t.string   "name",                              null: false
     t.string   "url"
+    t.string   "contact_name"
+    t.string   "contact_email"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
@@ -97,8 +87,26 @@ ActiveRecord::Schema.define(version: 20160705164849) do
     t.boolean  "published",         default: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.string   "contact_name"
-    t.string   "contact_email"
+  end
+
+  create_table "widget_types", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "widgets", force: :cascade do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.string   "slug"
+    t.string   "data_url"
+    t.text     "content"
+    t.text     "json_spec"
+    t.boolean  "published",      default: false
+    t.integer  "widget_type_id"
+    t.integer  "partner_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["partner_id"], name: "index_widgets_on_partner_id", using: :btree
+    t.index ["widget_type_id"], name: "index_widgets_on_widget_type_id", using: :btree
   end
 
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   namespace :api do
-    resources :datasets, param: :slug
+    resources :widgets, param: :slug
     resources :dashboards, param: :slug
   end
 
