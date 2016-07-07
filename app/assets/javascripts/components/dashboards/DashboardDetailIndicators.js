@@ -4,8 +4,8 @@ import ChartCard from '../cards/ChartCard';
 
 function DashboardDetailIndicators(props) {
   let content = [];
-  if (props.data && props.data.widget.length) {
-    props.data.widget.forEach((indicator, index) => {
+  if (props.data && props.data.widgets.length) {
+    props.data.widgets.forEach((indicator, index) => {
       if (indicator.widget_type.name === 'chart') {
         content.push(
           <div key={`indicator-${index}`}>

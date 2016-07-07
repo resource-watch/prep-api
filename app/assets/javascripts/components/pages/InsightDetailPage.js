@@ -42,10 +42,8 @@ class DashboardDetailPage extends React.Component {
           />
         </div>
 
-        <div className="wrapper">
-          <DashboardDetailIndicators
-            data={this.props.data.indicator}
-          />
+        <div className="wrapper-mini">
+          {this.props.data.content}
         </div>
       </div>
     );
@@ -63,7 +61,7 @@ class DashboardDetailPage extends React.Component {
     }
     return (
       <div className="l-dashboards">
-        <Header pageType={2}>
+        <Header image={this.props.data && this.props.data.image}>
           {title}
         </Header>
 

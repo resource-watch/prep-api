@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :widgets, param: :slug
+    resources :insights, param: :slug
     resources :dashboards, param: :slug
   end
 

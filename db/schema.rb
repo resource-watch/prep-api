@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707101851) do
+ActiveRecord::Schema.define(version: 20160707143422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,20 @@ ActiveRecord::Schema.define(version: 20160707101851) do
     t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
   end
 
+  create_table "dashboards_insights", id: false, force: :cascade do |t|
+    t.integer "dashboard_id", null: false
+    t.integer "insight_id",   null: false
+    t.index ["dashboard_id"], name: "index_dashboards_insights_on_dashboard_id", using: :btree
+    t.index ["insight_id"], name: "index_dashboards_insights_on_insight_id", using: :btree
+  end
+
+  create_table "dashboards_tools", id: false, force: :cascade do |t|
+    t.integer "dashboard_id", null: false
+    t.integer "tool_id",      null: false
+    t.index ["dashboard_id"], name: "index_dashboards_tools_on_dashboard_id", using: :btree
+    t.index ["tool_id"], name: "index_dashboards_tools_on_tool_id", using: :btree
+  end
+
   create_table "indicators", force: :cascade do |t|
     t.string "title"
     t.text   "summary"
@@ -73,6 +87,21 @@ ActiveRecord::Schema.define(version: 20160707101851) do
     t.integer "widget_id",    null: false
     t.index ["indicator_id"], name: "index_indicators_widgets_on_indicator_id", using: :btree
     t.index ["widget_id"], name: "index_indicators_widgets_on_widget_id", using: :btree
+  end
+
+  create_table "insights", force: :cascade do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "summary"
+    t.text     "content"
+    t.string   "content_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "published",          default: false
+    t.integer  "partner_id"
+    t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
   end
 
   create_table "partners", force: :cascade do |t|
@@ -87,6 +116,12 @@ ActiveRecord::Schema.define(version: 20160707101851) do
     t.boolean  "published",         default: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+  end
+
+  create_table "tools", force: :cascade do |t|
+    t.string "title"
+    t.text   "summary"
+    t.string "url"
   end
 
   create_table "widget_types", force: :cascade do |t|

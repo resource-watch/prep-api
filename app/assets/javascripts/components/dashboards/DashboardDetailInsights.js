@@ -18,7 +18,7 @@ function DashboardDetailInsights(props) {
       {card.partner &&
         <a target="_blank" href={card.partner.href}>
           <img
-            src={gon.assets[card.partner.logo]}
+            src={card.partner.logo}
             className="logo"
             alt={card.partner.name}
           />

@@ -8,28 +8,18 @@ function DashboardDetailIndicators(props) {
     props.data.forEach((card, index) => {
       content.push(
         <Card border="neutral" key={`card-${index}`}>
-          <a target="_blank" href={card.href}>
+          <a target="_blank" href={card.url}>
             <Title type="content">
               {card.title}
             </Title>
           </a>
           <p className="content">
-            {card.content}
+            {card.summary}
           </p>
 
-          <a className="link" target="_blank" href={card.href}>
+          <a className="link" target="_blank" href={card.url}>
             Read more
           </a>
-
-          {card.partner &&
-            <a target="_blank" href={card.partner.href}>
-              <img
-                src={gon.assets[card.partner.logo]}
-                className="logo"
-                alt={card.partner.name}
-              />
-            </a>
-          }
         </Card>
       );
     });

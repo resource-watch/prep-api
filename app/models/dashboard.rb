@@ -6,5 +6,12 @@ class Dashboard < ApplicationRecord
 
   belongs_to :partner
   belongs_to :indicator
+  accepts_nested_attributes_for :indicator
+
+  has_and_belongs_to_many :insights
+  accepts_nested_attributes_for :insights
+
+  has_and_belongs_to_many :tools
+  accepts_nested_attributes_for :tools
 
 end
