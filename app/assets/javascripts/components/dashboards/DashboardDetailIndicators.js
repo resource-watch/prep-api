@@ -6,7 +6,7 @@ function DashboardDetailIndicators(props) {
   let content = [];
   if (props.data) {
     props.data.forEach((indicator, index) => {
-      if (indicator.type === 'chart') {
+      if (indicator.dataset_type.name === 'chart') {
         content.push(
           <div key={`indicator-${index}`}>
             <ChartCard
@@ -17,7 +17,7 @@ function DashboardDetailIndicators(props) {
             />
           </div>
         );
-      } else if (indicator.type === 'map') {
+      } else if (indicator.dataset_type.name === 'map') {
         content.push(
           <div className="-large" key={`indicator-${index}`}>
             <MapCard

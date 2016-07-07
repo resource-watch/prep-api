@@ -5,14 +5,12 @@ import {
 
 export function getInsightsList() {
   return dispatch => {
-    fetch('/data/insights/list.json')
+    fetch('/api/dashboards')
       .then(response => (response.json()))
       .then(data => {
         dispatch({
           type: LIST_INSIGHTS_RECEIVED,
-          payload: {
-            data: data.data
-          }
+          payload: { data }
         });
       }
     );
@@ -20,7 +18,7 @@ export function getInsightsList() {
 }
 export function getInsightBySlug(slug) {
   return dispatch => {
-    fetch(`/data/insights/${slug}.json`)
+    fetch(`/api/dashboards/${slug}`)
       .then(response => (response.json()))
       .then(data => {
         dispatch({

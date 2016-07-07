@@ -1,5 +1,5 @@
 class Api::DashboardSerializer < ActiveModel::Serializer
-  attributes :id, :title, :slug, :summary, :image, :content
+  attributes :id, :title, :slug, :summary, :content
 
-  has_many :dataset
+  belongs_to :partner, serializer: Api::PartnerSerializer
 end

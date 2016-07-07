@@ -2,12 +2,19 @@ import React from 'react';
 
 function Header(props) {
   const classes = ['c-header'];
+  let bgImage;
 
   if (props.type) classes.push(`-${props.type}`);
-  if (props.pageType) classes.push(`-type-${props.pageType}`);
+  if (props.image) {
+    bgImage = {
+      backgroundImage: `url(${props.image})`
+    };
+  } else if (props.pageType) {
+    classes.push(`-type-${props.pageType}`);
+  }
 
   return (
-    <div className={classes.join(' ')}>
+    <div className={classes.join(' ')} style={bgImage}>
       <div className="wrapper">
         <div className="content">
           {props.children}
@@ -34,9 +41,13 @@ Header.propTypes = {
    * 	- 2: insight background
    * 	- 3: data background
    * 	- 4: home background
-   * Default: 1
+   * Default: none (blue background)
    */
   pageType: React.PropTypes.number,
+  /**
+   * Define a custom image background
+   */
+  image: React.PropTypes.string,
   /**
    * Define the content of the header
    * Required
