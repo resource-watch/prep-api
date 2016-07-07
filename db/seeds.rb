@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.find_by_email("admin@example.com" ) || AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-DatasetType.find_by_name("Chart") || DatasetType.create!(name: 'Chart')
-DatasetType.find_by_name("Layer") || DatasetType.create!(name: 'Layer')
+DatasetType.find_by_name("chart") || DatasetType.create!(name: 'chart')
+DatasetType.find_by_name("layer") || DatasetType.create!(name: 'layer')
 
 Partner.find_by_name("Vizzuality") || Partner.create!(
   name: 'Vizzuality',

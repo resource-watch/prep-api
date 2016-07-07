@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from './Modal';
-import Title from './Title';
 import ChartCard from '../cards/ChartCard';
 
 class Tooltip extends React.Component {
@@ -21,7 +20,7 @@ class Tooltip extends React.Component {
     let content = (
       <div className="content">
         <div>
-          {this.props.data && this.props.data.data &&
+          {this.props.data &&
             <ChartCard
               noBorder
               title={this.props.data.title}
@@ -32,23 +31,23 @@ class Tooltip extends React.Component {
         </div>
         <div>
           <p>
-            <span>Description:</span>
-            description
+            <span>Description: </span>
+            {this.props.data.content}
           </p>
           <p>
-            <span>Data:</span>
-            data
+            <span>Data: </span>
+            {this.props.data.data_url}
           </p>
-          <p>
+          { /* <p>
             <span>Topic:</span>
             topic
           </p>
           <p>
             <span>Area:</span>
             area
-          </p>
+          </p>*/}
           <img
-            src={gon.assets[this.props.data.partner.logo]}
+            src={this.props.data.partner.logo}
             className="logo"
             alt={this.props.data.partner.name}
           />
