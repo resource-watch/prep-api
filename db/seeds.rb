@@ -14,7 +14,7 @@ WidgetType.find_by_name("layer") || WidgetType.create!(name: 'layer')
 
 
 # Insights
-Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
+insight1 = Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
   title: 'Framer assesses possible impacts of climate change on his crops (grapes)',
   slug: 'climate-adaption-knowlegde-exchange',
   summary: 'Farmer X would need to understand how to best prepare for any future changes in climate that may impact his grapes. Based on key thresholds for climate variables of interest (temperature and precipitation), Farmer X evaluate the suitability to grow different types of grapes...',
@@ -23,7 +23,7 @@ Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
   published: true,
   image: File.new("db/fixtures/images/headers/bg-insights-image@2x.jpg"),
   content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-edi.html')
-Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
+insight2 = Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
   title: 'City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment',
   slug: 'city-planner-climage-impact-on-puget',
   summary: 'Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.',
@@ -35,11 +35,11 @@ Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
 
 
 # Tools
-Tool.find_by_title("Climate Adaptation Knowledge Exchange (CAKE)") || Tool.create!(
+tool1 = Tool.find_by_title("Climate Adaptation Knowledge Exchange (CAKE)") || Tool.create!(
   title: 'Climate Adaptation Knowledge Exchange (CAKE)',
   summary: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   url: 'http://www.wri.org/')
-Tool.find_by_title("AdaptWest Climate Adaptation Planning Database") || Tool.create!(
+tool2 = Tool.find_by_title("AdaptWest Climate Adaptation Planning Database") || Tool.create!(
   title: 'AdaptWest Climate Adaptation Planning Database',
   summary: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   url: 'https://www.nasa.gov/')
@@ -77,7 +77,7 @@ Partner.find_by_name("Washington University") || Partner.create!(
 
 
 # Widgets
-Widget.find_by_slug("temperature-change") || Widget.create!(
+widget1 = Widget.find_by_slug("temperature-change") || Widget.create!(
   title: 'Temperature change',
   slug: 'temperature-change',
   summary: 'Relative to 1950-199 average',
@@ -470,7 +470,7 @@ Widget.find_by_slug("temperature-change") || Widget.create!(
     ]
   }',
   partner_id: 1)
-Widget.find_by_slug("precipitation-change") || Widget.create!(
+widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
   title: 'Precipitation change',
   slug: 'precipitation-change',
   summary: 'Relative to 1950-199 average',
@@ -887,14 +887,17 @@ Widget.find_by_slug("precipitation-change") || Widget.create!(
 
 
 # Indicators
-Indicator.find_by_title("Indicator widget example") || Indicator.create!(
+indicator1 = Indicator.find_by_title("Indicator widget example") || Indicator.create!(
   id: 1,
   title: 'Indicator widget example',
   summary: 'This is a collection of widgets example',
   content: 'The Puget Sound region has experienced long-term warming, a lengthening of the frost-free season, and more frequent nighttime heat waves.')
 
+indicator1.widgets << widget1
+indicator1.widgets << widget2
+
 # Dashboards
-Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.create!(
+dashboard = Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.create!(
   title: 'City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment',
   slug: 'city-planner-assesses-possible-impacts',
   summary: 'Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.',
@@ -903,3 +906,9 @@ Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.cr
   partner_id: 3,
   image: File.new("db/fixtures/images/headers/bg-dashboards-map@2x.png"),
   published: true)
+
+  dashboard.indicator = indicator1
+  dashboard.insights << insight1
+  dashboard.insights << insight2
+  dashboard.tools << tool1
+  dashboard.tools << tool2
