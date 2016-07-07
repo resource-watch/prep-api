@@ -20,6 +20,7 @@ Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
   summary: 'Farmer X would need to understand how to best prepare for any future changes in climate that may impact his grapes. Based on key thresholds for climate variables of interest (temperature and precipitation), Farmer X evaluate the suitability to grow different types of grapes...',
   content: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   partner_id: 2,
+  published: true,
   content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-edi.html')
 Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
   title: 'City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment',
@@ -27,6 +28,7 @@ Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
   summary: 'Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.',
   content: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   partner_id: 3,
+  published: true,
   content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-map.html')
 
 

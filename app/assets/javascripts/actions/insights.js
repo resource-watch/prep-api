@@ -5,7 +5,7 @@ import {
 
 export function getInsightsList() {
   return dispatch => {
-    fetch('/api/dashboards')
+    fetch('/api/insights')
       .then(response => (response.json()))
       .then(data => {
         dispatch({
@@ -16,9 +16,10 @@ export function getInsightsList() {
     );
   };
 }
+
 export function getInsightBySlug(slug) {
   return dispatch => {
-    fetch(`/api/dashboards/${slug}`)
+    fetch(`/api/insights/${slug}`)
       .then(response => (response.json()))
       .then(data => {
         dispatch({

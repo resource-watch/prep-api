@@ -6,6 +6,7 @@ class CreateInsights < ActiveRecord::Migration[5.0]
       t.text :summary
       t.text :content
       t.string :content_url
+      t.boolean :published, default: false
 
       t.belongs_to :partner
     end

@@ -8,7 +8,7 @@ ActiveAdmin.register Indicator do
       f.input :title, required: true
       f.input :summary
       f.input :content
-      f.input :widget
+      f.input :widgets
     end
     f.actions
   end

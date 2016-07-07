@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160707143422) do
     t.text    "summary"
     t.text    "content"
     t.string  "content_url"
+    t.boolean "published",   default: false
     t.integer "partner_id"
     t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
   end

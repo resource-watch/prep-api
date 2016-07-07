@@ -42,10 +42,8 @@ class DashboardDetailPage extends React.Component {
           />
         </div>
 
-        <div className="wrapper">
-          <DashboardDetailIndicators
-            data={this.props.data.indicator}
-          />
+        <div className="wrapper-mini">
+          {this.props.data.content}
         </div>
       </div>
     );
