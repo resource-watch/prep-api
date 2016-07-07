@@ -20,6 +20,7 @@
     position: relative;
     padding: 2rem;;
     background-color: $color-5;
+    max-width: $wrapper-max-width;
 
     @media #{$mq-mobile-large} {
       min-width: 370px;
