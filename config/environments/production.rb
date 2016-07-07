@@ -2,9 +2,9 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Basic Auth
-  config.middleware.use '::Rack::Auth::Basic' do |u, p|
-    [u, p] == [ENV['AUTH_USERNAME'], ENV['AUTH_PASSWORD']]
-  end
+  # config.middleware.use '::Rack::Auth::Basic' do |u, p|
+  #   [u, p] == [ENV['AUTH_USERNAME'], ENV['AUTH_PASSWORD']]
+  # end
 
   # Code is not reloaded between requests.
   config.cache_classes = true
