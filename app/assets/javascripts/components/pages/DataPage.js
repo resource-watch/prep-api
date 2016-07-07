@@ -9,7 +9,6 @@ class DataPage extends React.Component {
 
   componentDidMount() {
     if (!this.props.data.layers.length) {
-      console.log('getting data');
       this.props.getDataMap();
     }
   }

@@ -14,7 +14,7 @@ function ChartCard(props) {
       dataTooltip={props.tooltip && props.data}
     >
       {props.data && props.data.json_spec &&
-        <VegaChart data={JSON.parse(props.data.json_spec)} />
+        <VegaChart data={JSON.parse(JSON.stringify(props.data.json_spec))} />
       }
     </ContentCard>
   );
