@@ -3,6 +3,8 @@ class CreatePartners < ActiveRecord::Migration[5.0]
     create_table :partners do |t|
       t.string :name, null: false
       t.string :url
+      t.string :contact_name
+      t.string :contact_email
       t.attachment :logo
       t.boolean :published, default: false
 

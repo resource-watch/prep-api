@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.find_by_email("admin@example.com" ) || AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-DatasetType.find_by_name("chart") || DatasetType.create!(name: 'chart')
-DatasetType.find_by_name("layer") || DatasetType.create!(name: 'layer')
+WidgetType.find_by_name("chart") || WidgetType.create!(name: 'chart')
+WidgetType.find_by_name("layer") || WidgetType.create!(name: 'layer')
 
 Partner.find_by_name("Vizzuality") || Partner.create!(
   name: 'Vizzuality',
@@ -40,14 +40,14 @@ Partner.find_by_name("Washington University") || Partner.create!(
   published: true)
 
 
-Dataset.find_by_slug("temperature-change") || Dataset.create!(
+Widget.find_by_slug("temperature-change") || Widget.create!(
   title: 'Temperature change',
   slug: 'temperature-change',
   summary: 'Relative to 1950-199 average',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  dataset_type_id: 1,
+  widget_type_id: 1,
   json_spec: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
@@ -434,14 +434,14 @@ Dataset.find_by_slug("temperature-change") || Dataset.create!(
   }',
   partner_id: 1)
 
-Dataset.find_by_slug("precipitation-change") || Dataset.create!(
+Widget.find_by_slug("precipitation-change") || Widget.create!(
   title: 'Precipitation change',
   slug: 'precipitation-change',
   summary: 'Relative to 1950-199 average',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  dataset_type_id: 1,
+  widget_type_id: 1,
   json_spec: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
@@ -849,11 +849,18 @@ Dataset.find_by_slug("precipitation-change") || Dataset.create!(
   }',
   partner_id: 2)
 
-Dashboard.find_by_title("city-planner-assesses-possible-impacts") || Dashboard.create!(
+Indicator.find_by_title("Indicator widget example") || Indicator.create!(
+  id: 1,
+  title: 'Indicator widget example',
+  summary: 'This is a collection of widgets example',
+  content: 'The Puget Sound region has experienced long-term warming, a lengthening of the frost-free season, and more frequent nighttime heat waves.')
+
+Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.create!(
   title: 'City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment',
   slug: 'city-planner-assesses-possible-impacts',
   summary: 'Most climate change effects are likely to increase the potential for damage to infrastructure and service disruptions (unplanned transportation closures, delays, or detours) in the Puget Sound region, although some risks may decrease.',
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
+  indicator_id: 1,
   partner_id: 3,
   image: File.new("db/fixtures/images/dashboard/bg-dashboards-map@2x.png"),
   published: true)
