@@ -90,13 +90,17 @@ ActiveRecord::Schema.define(version: 20160707143422) do
   end
 
   create_table "insights", force: :cascade do |t|
-    t.string  "title"
-    t.string  "slug"
-    t.text    "summary"
-    t.text    "content"
-    t.string  "content_url"
-    t.boolean "published",   default: false
-    t.integer "partner_id"
+    t.string   "title"
+    t.string   "slug"
+    t.text     "summary"
+    t.text     "content"
+    t.string   "content_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean  "published",          default: false
+    t.integer  "partner_id"
     t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
   end
 

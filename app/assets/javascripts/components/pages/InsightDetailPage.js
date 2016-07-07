@@ -61,7 +61,7 @@ class DashboardDetailPage extends React.Component {
     }
     return (
       <div className="l-dashboards">
-        <Header pageType={2}>
+        <Header image={this.props.data && this.props.data.image}>
           {title}
         </Header>
 

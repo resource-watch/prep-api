@@ -21,6 +21,7 @@ Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
   content: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   partner_id: 2,
   published: true,
+  image: File.new("db/fixtures/images/headers/bg-insights-image@2x.jpg"),
   content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-edi.html')
 Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
   title: 'City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment',
@@ -29,6 +30,7 @@ Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
   content: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   partner_id: 3,
   published: true,
+  image: File.new("db/fixtures/images/headers/bg-insights-image@2x.jpg"),
   content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-map.html')
 
 
@@ -899,5 +901,5 @@ Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.cr
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   indicator_id: 1,
   partner_id: 3,
-  image: File.new("db/fixtures/images/dashboard/bg-dashboards-map@2x.png"),
+  image: File.new("db/fixtures/images/headers/bg-dashboards-map@2x.png"),
   published: true)
