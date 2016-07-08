@@ -30,12 +30,15 @@ const middlewareRouter = routerMiddleware(browserHistory);
 const store = createStore(
   reducer,
   compose(
-    /* The router middleware MUST be before thunk otherwise the URL changes inside
-    * a thunk function won't work properly */
+    /* The router middleware MUST be before thunk otherwise the URL changes
+    * inside a thunk function won't work properly */
     applyMiddleware(middlewareRouter, thunk),
     /* Redux dev tool, install chrome extension in
     * https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi */
-    typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+    typeof window === 'object' &&
+      typeof window.devToolsExtension !== 'undefined'
+        ? window.devToolsExtension()
+        : f => f
   )
 );
 

@@ -12,9 +12,10 @@ import LoadingSpinner from '../commons/LoadingSpinner';
 
 class DashboardDetailPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-    props.getDashboardBySlug(props.dashboardSlug);
+  componentDidMount() {
+    if (!this.props.data) {
+      this.props.getDashboardBySlug(this.props.dashboardSlug);
+    }
   }
 
   shouldComponentUpdate(nextProps) {

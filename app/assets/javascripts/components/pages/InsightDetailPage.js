@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../commons/Header';
 import SectionIntro from '../commons/SectionIntro';
-import DashboardDetailIndicators from '../dashboards/DashboardDetailIndicators';
 import Title from '../commons/Title';
 import Card from '../cards/Card';
 import RelatedDatasets from '../commons/RelatedDatasets';
@@ -9,9 +8,10 @@ import LoadingSpinner from '../commons/LoadingSpinner';
 
 class DashboardDetailPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-    props.getInsightBySlug(props.insightSlug);
+  componentDidMount() {
+    if (!this.props.data) {
+      this.props.getInsightBySlug(this.props.insightSlug);
+    }
   }
 
   shouldComponentUpdate(nextProps) {
@@ -40,10 +40,11 @@ class DashboardDetailPage extends React.Component {
             insightSlug={this.props.insightSlug}
             currentPage={this.props.currentPage}
           />
+          {this.props.data.content}
         </div>
 
-        <div className="wrapper-mini">
-          {this.props.data.content}
+        <div className="wrapper">
+          <iframe src={this.props.data.content_url}></iframe>
         </div>
       </div>
     );

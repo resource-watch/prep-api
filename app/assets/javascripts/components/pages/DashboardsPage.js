@@ -17,7 +17,9 @@ class DashboardsPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getDashboardList();
+    if (!this.props.data.length) {
+      this.props.getDashboardList();
+    }
     this.pageType = 1; // For page colors, 1 = yellow
   }
 
