@@ -15,7 +15,7 @@ function getActiveLayers(layers) {
 }
 
 const mapStateToProps = (state) => ({
-  data: getActiveLayers(state.mapdata.layers)
+  data: getActiveLayers(state.datasets.list)
 });
 const mapDispatchToProps = (dispatch) => ({
   actionClick: () => dispatch(setModalUnderDevelop(true))

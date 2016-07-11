@@ -8,8 +8,8 @@ import Modal from '../commons/Modal';
 class DataPage extends React.Component {
 
   componentDidMount() {
-    if (!this.props.data.layers.length) {
-      this.props.getDataMap();
+    if (!this.props.data.list.length) {
+      this.props.getDatasets();
     }
   }
 
@@ -39,11 +39,11 @@ DataPage.propTypes = {
    */
   currentPage: React.PropTypes.string,
   /**
-   * Define the function to get the map layers
+   * Define the function to get the datasets list
    */
-  getDataMap: React.PropTypes.func.isRequired,
+  getDatasets: React.PropTypes.func.isRequired,
   /**
-   * Define the map layers
+   * Define the map list
    */
   data: React.PropTypes.any.isRequired,
   /**

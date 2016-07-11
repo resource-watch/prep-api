@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import DataPage from '../../components/pages/DataPage';
 
-import { getDataMap } from '../../actions/datamap';
+import { getDatasets } from '../../actions/datasets';
 import { setModalUnderDevelop } from '../../actions/modal';
 
 const mapStateToProps = (state, location) => ({
   currentPage: location.route.path,
-  data: state.mapdata,
+  data: state.datasets,
   modalOpen: state.modal.open
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getDataMap: () => dispatch(getDataMap()),
+  getDatasets: () => dispatch(getDatasets()),
   setModalUnderDevelop: (status) =>
     dispatch(setModalUnderDevelop(status))
 });

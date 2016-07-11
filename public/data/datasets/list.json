@@ -1,7 +1,8 @@
 {
   "layers": [{
     "id": 1,
-    "type": "ArcGISTiledMapLayer",
+    "type":"map",
+    "mapType": "ArcGISTiledMapLayer",
     "url": "https://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer",
     "title": "Arcgis tiled map layer example",
     "mosaicRule": {
@@ -10,7 +11,8 @@
     }
   }, {
     "id": 2,
-    "type": "ArcGISImageMapLayer",
+    "type":"map",
+    "mapType": "ArcGISImageMapLayer",
     "url": "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/World/Temperature/ImageServer",
     "title": "Arcgis image layer example",
     "mosaicRule": {
@@ -19,7 +21,8 @@
     }
   }, {
     "id": 3,
-    "type": "CartoLayer",
+    "type":"map",
+    "mapType": "CartoLayer",
     "title": "Cartodb fire alerts",
     "account": "wri-01",
     "query": "SELECT * FROM vnp14imgtdl_nrt_global_7d where confidence like 'nominal'",
@@ -27,16 +30,23 @@
   }, {
     "id": 4,
     "title": "Cartodb Protected Areas",
-    "type": "CartoLayer",
+    "type":"map",
+    "mapType": "CartoLayer",
     "account": "wri-01",
     "query": "SELECT * FROM wdpa_protected_areas",
     "cartocss": "#wdpa_protected_areas{ polygon-fill: #5CA2D1; polygon-opacity: 0.7; line-color: #2167AB; line-width: 0.2; line-opacity: 1;}"
   }, {
     "id": 5,
     "title": "Cartodb Mammals richness",
-    "type": "CartoLayer",
+    "type":"map",
+    "mapType": "CartoLayer",
     "account": "simbiotica",
     "query": "SELECT * FROM mammalia",
     "cartocss": "#mammalia{ polygon-fill:transparent; line-color:transparent; polygon-opacity: 0.8; line-width: 0.5; line-opacity: 0.8;}#mammalia [ dn = 7] {polygon-fill: #B10026;line-color: #B10026;}#mammalia [ dn = 6] {polygon-fill: #E31A1C;line-color: #E31A1C;}#mammalia [ dn = 5] {polygon-fill: #FC4E2A;line-color: #FC4E2A;}#mammalia [ dn = 4] {polygon-fill: #FD8D3C;line-color: #FD8D3C;}#mammalia [ dn = 3] {polygon-fill: #FEB24C;line-color: #FEB24C;}#mammalia [ dn = 2] {polygon-fill: #FED976;line-color: #FED976;}"
+  }, {
+    "id": 6,
+    "title": "Chart dataset example",
+    "slug": "detail-example",
+    "type":"chart"
   }]
 }
