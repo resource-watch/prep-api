@@ -22,7 +22,7 @@ insight1 = Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insigh
   partner_id: 2,
   published: true,
   image: File.new("db/fixtures/images/headers/bg-insights-image@2x.jpg"),
-  content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-edi.html')
+  content_url: 'http://resource-watch.github.io/insights/interactive-map.html')
 insight2 = Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insight.create!(
   title: 'City Planner assesses possible impacts of Climate Change on Puget Sound’s built environment',
   slug: 'city-planner-climage-impact-on-puget',
@@ -31,7 +31,7 @@ insight2 = Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insig
   partner_id: 3,
   published: true,
   image: File.new("db/fixtures/images/headers/bg-insights-image@2x.jpg"),
-  content_url: 'https://github.com/resource-watch/insights/blob/gh-pages/interactive-map.html')
+  content_url: 'http://resource-watch.github.io/insights/interactive-edi.html')
 
 
 # Tools

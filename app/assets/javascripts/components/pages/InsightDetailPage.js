@@ -5,6 +5,7 @@ import Title from '../commons/Title';
 import Card from '../cards/Card';
 import RelatedDatasets from '../commons/RelatedDatasets';
 import LoadingSpinner from '../commons/LoadingSpinner';
+import IFrame from '../commons/IFrame';
 
 class DashboardDetailPage extends React.Component {
 
@@ -44,7 +45,9 @@ class DashboardDetailPage extends React.Component {
         </div>
 
         <div className="wrapper">
-          <iframe src={this.props.data.content_url}></iframe>
+          <div className="iframe-container">
+            <IFrame src={`/proxy?url=${this.props.data.content_url}`} />
+          </div>
         </div>
       </div>
     );
