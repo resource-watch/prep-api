@@ -1,17 +1,37 @@
 import React from 'react';
 import Title from '../commons/Title';
 import Header from '../commons/Header';
+import SectionIntro from '../commons/SectionIntro';
+import LoadingSpinner from '../commons/LoadingSpinner';
+import VegaChart from '../commons/VegaChart';
 
 class DataPageDetail extends React.Component {
 
   componentDidMount() {
-    if (!this.props.data.layers.length) {
-      this.props.getDataDetail();
+    if (!this.props.data) {
+      this.props.getDatasetBySlug(this.props.datasetSlug);
     }
   }
 
   getContent() {
-    return <div> Dataset detail content </div>;
+    if (!this.props.data) {
+      return <LoadingSpinner />;
+    }
+    return (<div>
+      <div className="wrapper">
+        <SectionIntro
+          data={this.props.data}
+          currentPage={this.props.currentPage}
+        />
+      </div>
+
+      <div className="wrapper">
+        <p>{this.props.data.summary}</p>
+        <div className="chart-container">
+          <VegaChart data={JSON.parse(JSON.stringify(this.props.data.json_spec.data))} />
+        </div>
+      </div>
+    </div>);
   }
 
   render() {
@@ -26,7 +46,7 @@ class DataPageDetail extends React.Component {
     }
     return (
       <div className="l-dashboards">
-        <Header image={this.props.data && this.props.data.image}>
+        <Header type="small">
           {title}
         </Header>
 
@@ -43,13 +63,17 @@ DataPageDetail.propTypes = {
    */
   currentPage: React.PropTypes.string,
   /**
+   * Define the slug of the dataset
+   */
+  datasetSlug: React.PropTypes.string.isRequired,
+  /**
    * Define the function to get the datataset detail data
    */
-  getDataDetail: React.PropTypes.func.isRequired,
+  getDatasetBySlug: React.PropTypes.func.isRequired,
   /**
    * Define the dataset data
    */
-  data: React.PropTypes.any.isRequired
+  data: React.PropTypes.any
 };
 
 export default DataPageDetail;

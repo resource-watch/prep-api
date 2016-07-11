@@ -5,7 +5,7 @@ import { getDatasetBySlug } from '../../actions/datasets';
 
 const mapStateToProps = (state, { params, route }) => ({
   currentPage: route.path,
-  dataSlug: params.slug,
+  datasetSlug: params.slug,
   data: state.datasets.detail[params.slug] || null
 });
 
