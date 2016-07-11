@@ -1,19 +1,34 @@
 import {
-  MAP_DATA_RECEIVED,
+  DATASET_LIST_RECEIVED,
+  DATASET_DETAIL_RECEIVED,
   SWITCH_CHANGED,
   SET_SWITCH_STATUS
 } from '../constants';
 
-export function getDataMap() {
+export function getDatasets() {
   return dispatch => {
-    fetch('/data/map/map-data-layers.json')
+    fetch('/data/datasets/list.json')
       .then(response => (response.json()))
       .then(data => {
         dispatch({
-          type: MAP_DATA_RECEIVED,
+          type: DATASET_LIST_RECEIVED,
           payload: {
             data: data.layers
           }
+        });
+      }
+    );
+  };
+}
+
+export function getDatasetBySlug(slug) {
+  return dispatch => {
+    fetch(`/data/datasets/${slug}.json`)
+      .then(response => (response.json()))
+      .then(data => {
+        dispatch({
+          type: DATASET_DETAIL_RECEIVED,
+          payload: { data }
         });
       }
     );

@@ -5,6 +5,7 @@ import { IndexRoute, Router, Route, applyRouterMiddleware } from 'react-router';
 import ContainerPage from './containers/pages/ContainerPage';
 import HomePage from './containers/pages/HomePage';
 import DataPage from './containers/pages/DataPage';
+import DataDetailPage from './containers/pages/DataDetailPage';
 import DashboardsPage from './containers/pages/DashboardsPage';
 import DashboardDetailPage from './containers/pages/DashboardDetailPage';
 import InsightsPage from './containers/pages/InsightsPage';
@@ -81,6 +82,7 @@ function Routes(props) {
       <Route path="/" component={ContainerPage}>
         <IndexRoute component={HomePage} />
         <Route path="data" component={DataPage} />
+        <Route path="data/:slug" component={DataDetailPage} />
         <Route path="dashboards" component={DashboardsPage} />
         <Route path="dashboards/:slug(/:tab)" component={DashboardDetailPage} />
         <Route path="insights" component={InsightsPage} />

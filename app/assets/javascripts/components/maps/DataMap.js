@@ -37,8 +37,8 @@ class DataMap extends React.Component {
 
   updateLayers() {
     this.hasActiveLayers = false;
-    if (this.props.data.layers.length) {
-      this.props.data.layers.forEach((layer) => {
+    if (this.props.data.length) {
+      this.props.data.forEach((layer) => {
         this.updateMapLayer(layer);
       });
     }
@@ -59,7 +59,7 @@ class DataMap extends React.Component {
         loading: true
       });
     }
-    switch (layer.type) {
+    switch (layer.mapType) {
       case 'ArcGISImageMapLayer':
         this.addArcgisImageLayer(layer);
         break;
@@ -172,7 +172,7 @@ DataMap.propTypes = {
   /**
   * Define the layers data of the map
   */
-  data: React.PropTypes.any.isRequired,
+  data: React.PropTypes.array.isRequired,
   /**
   * Define the function to handle a tile load erro
   */

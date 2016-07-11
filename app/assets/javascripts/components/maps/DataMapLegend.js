@@ -72,7 +72,7 @@ DataMapLegend.propTypes = {
   /**
   * Define the layers data of the map
   */
-  data: React.PropTypes.any,
+  data: React.PropTypes.array,
   /**
   * Define the function to the actions click
   */
