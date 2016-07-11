@@ -14,6 +14,10 @@ class IFrame extends React.Component {
     this.refs.iframe.addEventListener('load', () => this.onLoad());
   }
 
+  componentWillUnmount() {
+    this.refs.iframe.removeEventListener('load', () => this.onLoad());
+  }
+
   onLoad() {
     const height = this.refs.iframe.contentDocument.body.scrollHeight;
     this.setState({ loaded: true, height });
