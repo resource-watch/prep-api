@@ -29,6 +29,10 @@
         @media #{$mq-tablet} {
           flex-basis: calc(50% - 10px);
         }
+      }
+      .col-r {
+        display: flex;
+        flex-direction: column;
         > p {
           display: block;
           font-family: $font-family-1;
@@ -39,8 +43,20 @@
             font-weight: $font-weight-bold;
           }
         }
+        > .img-container {
+          margin-top: auto;
+          margin-bottom: 30px;
+        }
+        > .btn-container {
+          text-align: right;
+          margin-bottom: 15px;
+          > button:hover {
+            cursor: not-allowed;
+          }
+        }
       }
     }
+
     .chart {
       height: 400px;
     }

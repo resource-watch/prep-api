@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
+import Button from './Button';
 import ChartCard from '../cards/ChartCard';
 
 class Tooltip extends React.Component {
@@ -29,7 +30,10 @@ class Tooltip extends React.Component {
             />
           }
         </div>
-        <div>
+        <div className="col-r">
+          <div className="btn-container">
+            <Button border> Download </Button>
+          </div>
           <p>
             <span>Description: </span>
             {this.props.data.content}
@@ -46,11 +50,13 @@ class Tooltip extends React.Component {
             <span>Area:</span>
             area
           </p>*/}
-          <img
-            src={this.props.data.partner.logo}
-            className="logo"
-            alt={this.props.data.partner.name}
-          />
+          <div className="img-container">
+            <img
+              src={this.props.data.partner.logo}
+              className="logo"
+              alt={this.props.data.partner.name}
+            />
+          </div>
         </div>
       </div>
     );
