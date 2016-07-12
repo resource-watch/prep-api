@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>PreparednesForResilience</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet" type="text/css">
+    <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans:300,400,700', media: 'all' %>
+    <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=PT+Serif:400,700', media: 'all' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
@@ -21,7 +23,7 @@
       :watch => false,
       :camel_case => true
     ) %>
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch"></script>
+    <%= javascript_include_tag 'https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch' %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

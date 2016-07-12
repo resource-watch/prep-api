@@ -1,4 +1,5 @@
 class ProxyController < ApplicationController
+
   def index
     if params["url"]
       url = URI.parse(params["url"])
@@ -12,4 +13,5 @@ class ProxyController < ApplicationController
       render :text => "Url param is neccesary"
     end
   end
+
 end

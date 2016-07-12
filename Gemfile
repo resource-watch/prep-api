@@ -37,6 +37,7 @@ gem 'draper', github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 
 source 'https://rails-assets.org' do
+  gem 'rails-assets-normalize-css'
   gem 'rails-assets-leaflet', '0.7.7'
   gem 'rails-assets-esri-leaflet', '1.0.3'
   gem 'rails-assets-d3', '~> 3.5.16'

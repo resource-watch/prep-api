@@ -7,4 +7,4 @@
 //= require d3
 //= require vega
 
-//= require app.js
+//= require main.js

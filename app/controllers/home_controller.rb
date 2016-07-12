@@ -1,7 +1,5 @@
 class HomeController < ApplicationController
 
-  before_action :http_basic_authenticate
-
   def index
     gon.assets = {
       :logo => get_asset_path('preplogo@2x.png'),
@@ -33,12 +31,6 @@ class HomeController < ApplicationController
 
   private
 
-    def http_basic_authenticate
-      authenticate_or_request_with_http_basic do |name, password|
-        name == ENV['AUTH_USERNAME'] && password == ENV['AUTH_PASSWORD']
-      end
-    end
-    
     def get_asset_path(name)
       ActionController::Base.helpers.asset_path(name)
     end
