@@ -4,18 +4,17 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  # API endpoints
   namespace :api do
     resources :widgets, param: :slug
     resources :insights, param: :slug
     resources :dashboards, param: :slug
   end
 
+  # Proxy to use iframe
   get 'proxy', to:'proxy#index', as: 'proxy'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/*path', to: 'home#index', as: :home
-
-  root 'home#index'
-
+  # Homepage
+  root 'admin/home#index'
 
 end
