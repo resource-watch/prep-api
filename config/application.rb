@@ -29,6 +29,5 @@ module PreparednesForResilience
       g.test            false
     end
 
-    config.browserify_rails.commandline_options = "-t babelify"
   end
 end

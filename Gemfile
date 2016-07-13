@@ -18,8 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
-gem 'react-rails'
-gem 'browserify-rails'
 
 # Active record
 gem 'pg', '~> 0.18'
@@ -35,14 +33,6 @@ gem 'formtastic', github: 'justinfrench/formtastic'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
 # To fix a Draper deprecation error
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-normalize-css'
-  gem 'rails-assets-leaflet', '0.7.7'
-  gem 'rails-assets-esri-leaflet', '1.0.3'
-  gem 'rails-assets-d3', '~> 3.5.16'
-  gem 'rails-assets-vega', '~> 2.5.2'
-end
 
 group :development, :test do
   gem 'byebug', platform: :mri
