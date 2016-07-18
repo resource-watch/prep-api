@@ -1,25 +1,5 @@
 {
   "layers": [{
-    "id": 1,
-    "type":"map",
-    "mapType": "ArcGISTiledMapLayer",
-    "url": "https://services.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer",
-    "title": "Arcgis tiled map layer example",
-    "mosaicRule": {
-      "mosaicMethod": "esriMosaicLockRaster",
-      "lockRasterIds": [8]
-    }
-  }, {
-    "id": 2,
-    "type":"map",
-    "mapType": "ArcGISImageMapLayer",
-    "url": "http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/World/Temperature/ImageServer",
-    "title": "Arcgis image layer example",
-    "mosaicRule": {
-      "mosaicMethod": "esriMosaicLockRaster",
-      "lockRasterIds": [8]
-    }
-  }, {
     "id": 3,
     "type":"map",
     "mapType": "CartoLayer",

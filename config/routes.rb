@@ -11,9 +11,6 @@ Rails.application.routes.draw do
     resources :dashboards, param: :slug
   end
 
-  # Proxy to use iframe
-  get 'proxy', to:'proxy#index', as: 'proxy'
-
   # Homepage
   root 'admin/home#index'
 
