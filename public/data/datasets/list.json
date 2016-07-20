@@ -4,12 +4,14 @@
     "type":"map",
     "mapType": "CartoLayer",
     "title": "Cartodb fire alerts",
+    "slug": "cartodb-fire-alerts",
     "account": "wri-01",
     "query": "SELECT * FROM vnp14imgtdl_nrt_global_7d where confidence like 'nominal'",
     "cartocss": "#vnp14imgtdl_nrt_global_7d{ marker-fill: #FFCC00; marker-width: 2; marker-line-color: #FFF; marker-line-width: 1; marker-line-opacity: 1; marker-fill-opacity: 0.9; marker-comp-op: multiply; marker-type: ellipse; marker-placement: point; marker-allow-overlap: true; marker-clip: false; marker-multi-policy: largest;}"
   }, {
     "id": 4,
     "title": "Cartodb Protected Areas",
+    "slug": "cartodb-protected-areas",
     "type":"map",
     "mapType": "CartoLayer",
     "account": "wri-01",
@@ -18,6 +20,7 @@
   }, {
     "id": 5,
     "title": "Cartodb Mammals richness",
+    "slug": "cartodb-mammals-richness",
     "type":"map",
     "mapType": "CartoLayer",
     "account": "simbiotica",
