@@ -4,7 +4,7 @@ class Api::PartnersController < ApiController
   def index
     partners = Partner.all.where(published: true)
 
-    render json: partners
+    render json: partners, each_serializer: Api::PartnerSerializer, status: 200
   end
 
 end
