@@ -4,3 +4,4 @@ en:
     dashboard_welcome:
       welcome: Welcome to Active Admin. This is the default home page.
       call_to_action: To add dashboard sections, checkout 'app/admin/home.rb'
+    powered_by: ""
