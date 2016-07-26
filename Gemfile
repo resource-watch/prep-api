@@ -11,6 +11,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails', '~> 2.1.1'
 gem 'paperclip', '~> 5.0.0.beta1'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'faraday', '~> 0.9.2'
 
 # Assets managment
 gem 'sass-rails', '~> 5.0'
