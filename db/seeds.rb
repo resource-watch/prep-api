@@ -8,11 +8,6 @@
 AdminUser.find_by_email("admin@example.com" ) || AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 
-# Widget types
-WidgetType.find_by_name("chart") || WidgetType.create!(name: 'chart')
-WidgetType.find_by_name("layer") || WidgetType.create!(name: 'layer')
-
-
 # Insights
 insight1 = Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
   title: 'Framer assesses possible impacts of climate change on his crops (grapes)',
@@ -84,7 +79,6 @@ widget1 = Widget.find_by_slug("temperature-change") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  widget_type_id: 1,
   json_spec: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
@@ -477,7 +471,6 @@ widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  widget_type_id: 1,
   json_spec: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
