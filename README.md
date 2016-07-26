@@ -44,6 +44,8 @@ $ rake db:seed
 
 # How to use
 
+Duplicate `.env.sample`, rename to `.env` and finally set your options in that file.
+
 After install it, we can run server runing:
 
 ```bash
@@ -57,24 +59,6 @@ bundle exec rails server
 ```erb
 <%= react_component('HelloMessage', name: 'John') %>
 ```
-
-## Deploy
-
-Info about how to deploy in Heroku [here](https://devcenter.heroku.com/articles/getting-started-with-rails5).
-
-Use this command to use a existing project in Heroku:
-
-```bash
-heroku git:remote -a name-of-application
-```
-
-We need two official buildpacks:
-
-```bash
-heroku buildpacks:set heroku/ruby
-heroku buildpacks:add --index 1 heroku/nodejs
-``
-
 
 # License
 
