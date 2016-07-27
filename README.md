@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/resource-watch/prep-manager.svg?branch=master)](https://travis-ci.org/resource-watch/prep-manager)
 
-![Prep home](screenshot.png?raw=true "The Climate Partnership for Resilience and Preparedness")
+![PREP](screenshot.png?raw=true "The Climate Partnership for Resilience and Preparedness")
 
 
 ## Install
