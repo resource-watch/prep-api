@@ -54,8 +54,8 @@
         case 'widget[data_url]':
           input.value = data.query_url;
           break;
-        case 'widget[json_spec]':
-          input.value = JSON.stringify(data.chart);
+        case 'widget[widget_config]':
+          input.value = JSON.stringify(data.chart_config);
           break;
         default:
           break;

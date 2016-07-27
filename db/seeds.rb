@@ -79,7 +79,7 @@ widget1 = Widget.find_by_slug("temperature-change") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  json_spec: '{
+  widget_config: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
       {
@@ -471,7 +471,7 @@ widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  json_spec: '{
+  widget_config: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
       {
