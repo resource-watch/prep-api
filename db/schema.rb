@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 20160727134656) do
     t.boolean  "published",         default: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.text     "logo_dimensions"
+    t.string   "logo_dimensions"
   end
 
   create_table "tools", force: :cascade do |t|
