@@ -1,0 +1,84 @@
+'use strict';
+
+(function(window) {
+  var datasetSelect;
+  var visualizationSelect;
+  var form;
+
+  function onReady() {
+    datasetSelect = document.getElementById('widget_dataset');
+    visualizationSelect = document.getElementById('widget_visualization');
+    if ( datasetSelect !== undefined ) {
+      datasetSelect.addEventListener("change", onDatasetChanged);
+    }
+    if ( visualizationSelect !== undefined ) {
+      visualizationSelect.addEventListener("change", onVisualizationChanged);
+    }
+  }
+
+  function getDatasetVisualizations(datasetId) {
+    var params = {
+      app: 'PREP',
+      datasetId: datasetId,
+      template: true
+    }
+    return $.get('<%= ENV['RW_API_URL'] %>'+'/widgets', params);
+  }
+
+  function getVisualizationDetails(widgetId) {
+    return $.get('<%= ENV['RW_API_URL'] %>'+'/widgets/'+ widgetId);
+  }
+
+  function updateVisualizations(data) {
+    visualizationSelect.options.length = 0;
+    for (var i = 0, optionsLenght = data.length; i < optionsLenght; i++) {
+      var option = new Option(data[i].name, data[i].id);
+      visualizationSelect.options[visualizationSelect.options.length] = option;
+    }
+  }
+
+  function updateForm(data) {
+    form = document.getElementById('widget_form');
+    for (var i = 0, formLength=form.elements.length; i < formLength; i++) {
+      var input = form.elements[i];
+      switch (input.name) {
+        case 'widget[title]':
+          input.value = data.name;
+          break;
+        case 'widget[slug]':
+          input.value = data.slug;
+          break;
+        case 'widget[summary]':
+          input.value = data.description;
+          break;
+        case 'widget[data_url]':
+          input.value = data.query_url;
+          break;
+        case 'widget[json_spec]':
+          input.value = JSON.stringify(data.chart);
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  function onDatasetChanged(ev) {
+    var target = ev.currentTarget;
+    getDatasetVisualizations(target.options[target.selectedIndex].value)
+      .done(function(data){
+        updateVisualizations(data);
+      })
+  }
+
+  function onVisualizationChanged(ev) {
+    var target = ev.currentTarget;
+    getVisualizationDetails(target.options[target.selectedIndex].value)
+      .done(function(data){
+        updateForm(data);
+      })
+  }
+
+
+  document.addEventListener('DOMContentLoaded', onReady);
+})(window);
