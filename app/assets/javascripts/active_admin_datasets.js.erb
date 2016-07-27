@@ -8,10 +8,10 @@
   function onReady() {
     datasetSelect = document.getElementById('widget_dataset');
     visualizationSelect = document.getElementById('widget_visualization');
-    if ( datasetSelect !== undefined ) {
+    if ( datasetSelect ) {
       datasetSelect.addEventListener("change", onDatasetChanged);
     }
-    if ( visualizationSelect !== undefined ) {
+    if ( visualizationSelect ) {
       visualizationSelect.addEventListener("change", onVisualizationChanged);
     }
   }
