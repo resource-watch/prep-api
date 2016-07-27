@@ -156,11 +156,6 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    gon (6.0.1)
-      actionpack (>= 3.0)
-      json
-      multi_json
-      request_store (>= 1.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -193,7 +188,6 @@ GEM
     mimemagic (0.3.1)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
-    multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -303,7 +297,6 @@ DEPENDENCIES
   dotenv-rails (~> 2.1.1)
   draper!
   formtastic!
-  gon (~> 6.0.1)
   jquery-rails
   kaminari!
   listen (~> 3.0.5)

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>PreparednesForResilience</title>
+    <title>The Climate Partnership for Resilience and Preparedness</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans:300,400,700', media: 'all' %>
     <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=PT+Serif:400,700', media: 'all' %>
@@ -19,11 +19,6 @@
       <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
-    <%= include_gon(
-      :watch => false,
-      :camel_case => true
-    ) %>
-    <%= javascript_include_tag 'https://cdn.polyfill.io/v2/polyfill.min.js?features=Promise,fetch' %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
