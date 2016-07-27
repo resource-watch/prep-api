@@ -1,17 +1,19 @@
 # Administrator and API for [PREP application](https://github.com/resource-watch/prep-app)
 
-![Prep home](screenshot.png?raw=true "Preparednes forresilience")
+[![Build Status](https://travis-ci.org/resource-watch/prep-manager.svg?branch=master)](https://travis-ci.org/resource-watch/prep-manager)
+
+![Prep home](screenshot.png?raw=true "The Climate Partnership for Resilience and Preparedness")
 
 
 ## Install
 
-The app rides on [Ruby on Rails](http://rubyonrails.org) and [React](https://facebook.github.io/react/) both working together.
+The app rides on [Ruby on Rails](http://rubyonrails.org).
 
 Clone repo:
 
 ```bash
-$ git clone https://github.com/resource-watch/preparedness-for-resilience
-$ cd preparedness-for-resilience
+$ git clone https://github.com/resource-watch/prep-manager
+$ cd prep-manager
 ```
 
 We recommend managing your Ruby installation through
@@ -45,14 +47,6 @@ After install it, we can run server runing:
 
 ```bash
 bundle exec rails server
-```
-
-### Rendering & mounting
-
-`react-rails` includes a view helper (`react_component`) and an unobtrusive JavaScript driver (`react_ujs`) which work together to put React components on the page. [More info](https://github.com/reactjs/react-rails#rendering--mounting).
-
-```erb
-<%= react_component('HelloMessage', name: 'John') %>
 ```
 
 
