@@ -1,16 +1,19 @@
-# Preparednes-for-resilience
+# Administrator and API for [PREP application](https://github.com/resource-watch/prep-app)
 
-![Prep home](screenshot.png?raw=true "Preparednes forresilience")
+[![Build Status](https://travis-ci.org/resource-watch/prep-manager.svg?branch=master)](https://travis-ci.org/resource-watch/prep-manager)
 
-The app rides on [Ruby on Rails](http://rubyonrails.org) and [React](https://facebook.github.io/react/) both working together by [Vizzuality rails-redux-scaffolding](https://github.com/Vizzuality/rails-redux-scaffold)
+![Prep home](screenshot.png?raw=true "The Climate Partnership for Resilience and Preparedness")
 
-## Developing
+
+## Install
+
+The app rides on [Ruby on Rails](http://rubyonrails.org).
 
 Clone repo:
 
 ```bash
-$ git clone https://github.com/resource-watch/preparedness-for-resilience
-$ cd preparedness-for-resilience
+$ git clone https://github.com/resource-watch/prep-manager
+$ cd prep-manager
 ```
 
 We recommend managing your Ruby installation through
@@ -28,12 +31,6 @@ Install gem dependencies using [Bundler](http://bundler.io/)
 $ bundle install
 ```
 
-Installing front end dependencies:
-
-```bash
-$ npm install
-```
-
 Set up database:
 
 ```bash
@@ -42,7 +39,9 @@ $ rake db:migrate
 $ rake db:seed
 ```
 
-# How to use
+## Usage
+
+Duplicate `.env.sample`, rename to `.env` and finally set your options in that file.
 
 After install it, we can run server runing:
 
@@ -50,51 +49,16 @@ After install it, we can run server runing:
 bundle exec rails server
 ```
 
-## Rendering & mounting
 
-`react-rails` includes a view helper (`react_component`) and an unobtrusive JavaScript driver (`react_ujs`) which work together to put React components on the page. [More info](https://github.com/reactjs/react-rails#rendering--mounting).
+## Contributing
 
-```erb
-<%= react_component('HelloMessage', name: 'John') %>
-```
-
-## Deploy
-
-Info about how to deploy in Heroku [here](https://devcenter.heroku.com/articles/getting-started-with-rails5).
-
-Use this command to use a existing project in Heroku:
-
-```bash
-heroku git:remote -a name-of-application
-```
-
-We need two official buildpacks:
-
-```bash
-heroku buildpacks:set heroku/ruby
-heroku buildpacks:add --index 1 heroku/nodejs
-``
+1. Fork it!
+2. Create your feature branch: `git checkout -b feature/my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin feature/my-new-feature`
+5. Submit a pull request :D
 
 
-# License
+## LICENSE
 
-The MIT License (MIT)
-
-Copyright (c) 2015 Vizzuality
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT](LICENSE)
