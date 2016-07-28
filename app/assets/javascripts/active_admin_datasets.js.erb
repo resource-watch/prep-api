@@ -18,9 +18,9 @@
 
   function getDatasetVisualizations(datasetId) {
     var params = {
-      app: 'PREP',
-      datasetId: datasetId,
-      template: true
+      app: 'prep',
+      dataset: datasetId,
+      default: true
     }
     return $.get('<%= ENV['RW_API_URL'] %>'+'/widgets', params);
   }
@@ -31,6 +31,7 @@
 
   function updateVisualizations(data) {
     visualizationSelect.options.length = 0;
+    visualizationSelect.options[visualizationSelect.options.length] = new Option('', '');
     for (var i = 0, optionsLenght = data.length; i < optionsLenght; i++) {
       var option = new Option(data[i].name, data[i].id);
       visualizationSelect.options[visualizationSelect.options.length] = option;
@@ -55,7 +56,7 @@
           input.value = data.query_url;
           break;
         case 'widget[widget_config]':
-          input.value = JSON.stringify(data.chart_config);
+          input.value = JSON.stringify(data.widget_config);
           break;
         default:
           break;

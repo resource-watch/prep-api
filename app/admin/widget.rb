@@ -8,13 +8,13 @@ ActiveAdmin.register Widget do
     faraday.adapter  Faraday.default_adapter
   end
 
-  datasetRequest = conn.get '/datasets', { :app => 'PREP' }
+  datasetRequest = conn.get '/datasets', { :app => 'prep' }
   datasets = JSON.parse datasetRequest.body
 
   form :html => {:id => 'widget_form'} do |f|
 
     if (f.object.dataset)
-      params = { :app => 'PREP', :datasetId => f.object.dataset, :template => true}
+      params = { :app => 'prep', :datasetId => f.object.dataset, :default => true}
       visualizationRequest = conn.get '/widgets/'
       visualization = JSON.parse visualizationRequest.body
     else
