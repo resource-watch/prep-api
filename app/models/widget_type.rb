@@ -1,3 +1,0 @@
-class WidgetType < ApplicationRecord
-
-end
