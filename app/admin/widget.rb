@@ -15,7 +15,7 @@ ActiveAdmin.register Widget do
 
     if (f.object.dataset)
       params = { :app => 'prep', :datasetId => f.object.dataset, :default => true}
-      visualizationRequest = conn.get '/widgets/'
+      visualizationRequest = conn.get '/widgets/', params
       visualization = JSON.parse visualizationRequest.body
     else
       visualization = []
