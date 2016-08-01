@@ -4,6 +4,8 @@ services:
     image: postgres
     ports:
       - "5432:5432"
+    volumes:
+      - "/home/ubuntu/database-manager:/var/lib/postgresql"
   web:
     build: .
     ports:
