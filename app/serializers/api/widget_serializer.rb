@@ -1,6 +1,9 @@
 class Api::WidgetSerializer < ActiveModel::Serializer
-  attributes :id, :title, :summary, :slug, :content, :data_url, :json_spec
+  attributes :id, :title, :summary, :slug, :content, :data_url, :widget_config
+
+  def widget_config
+     JSON.parse (object.widget_config)
+  end
 
   belongs_to :partner, serializer: Api::PartnerSerializer
-  belongs_to :widget_type
 end
