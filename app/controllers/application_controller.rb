@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_apigateway
-    redirect_to "#{ENV['APIGATEWAY_URL']}?callbackUrl=#{auth_login_url}&token=true"
+    redirect_to "#{ENV['APIGATEWAY_URL']}/auth?callbackUrl=#{auth_login_url}&token=true"
   end
 
   private
