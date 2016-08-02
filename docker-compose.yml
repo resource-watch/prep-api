@@ -20,6 +20,8 @@ services:
       - POSTGRES_USER=postgres
     restart: always
     container_name: prep-manager
+    volumes:
+      - "/home/ubuntu/prep-manager/uploads:/usr/src/prep-manager/public/system"
     depends_on:
       - db
     links:
