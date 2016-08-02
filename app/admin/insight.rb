@@ -1,6 +1,6 @@
 ActiveAdmin.register Insight do
 
-  permit_params :title, :summary, :content, :content_url, :partner_id
+  permit_params :title, :slug, :summary, :content, :content_url, :partner_id, :published
 
   form do |f|
     f.semantic_errors
@@ -11,6 +11,7 @@ ActiveAdmin.register Insight do
       f.input :content
       f.input :content_url
       f.input :partner
+      f.input :published, as: :boolean
     end
     f.actions
   end
