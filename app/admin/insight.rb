@@ -1,6 +1,6 @@
 ActiveAdmin.register Insight do
 
-  permit_params :title, :slug, :summary, :content, :content_url, :partner_id, :published
+  permit_params :title, :slug, :summary, :content, :image, :content_url, :partner_id, :published
 
   form do |f|
     f.semantic_errors
