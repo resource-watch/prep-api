@@ -35,6 +35,12 @@ gem 'draper', github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
 # To fix a Draper deprecation error
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 
+# Libs
+source 'https://rails-assets.org' do
+  gem 'rails-assets-d3', '~> 3.5.16'
+  gem 'rails-assets-vega', '~> 2.5.2'
+end
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
