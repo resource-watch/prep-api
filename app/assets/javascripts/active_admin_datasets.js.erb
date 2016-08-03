@@ -76,8 +76,10 @@
   }
 
   function setPreview(data) {
-    console.log('previeing');
     var vegaObj = data.widget_config || {};
+
+    vegaObj.width = visualizationPreview.clientWidth;
+    vegaObj.height = visualizationPreview.clientHeight;
 
     vg.parse.spec(vegaObj, function(chart) {
       var chartVis = chart({
@@ -102,8 +104,8 @@
     getVisualizationDetails(target.options[target.selectedIndex].value)
       .done(function(data){
         updateForm(data);
+        setPreviewVisibility(true);
         setPreview(data);
-        setPreviewVisibility(true)
       })
   }
 
