@@ -25,6 +25,7 @@ ActiveAdmin.register Widget do
     f.inputs 'Widget Detail' do
       f.input :dataset, as: :select, collection: datasets.map{|dc|[dc['name'],dc['id'],{ :selected => dc['id']===f.object.dataset }]}
       f.input :visualization, as: :select, collection: visualization.map{|dc|[dc['name'],dc['id'],{ :selected => dc['id']===f.object.visualization }]}
+      div id: "widget-preview"
       f.input :title, required: true
       f.input :slug, required: true
       f.input :summary

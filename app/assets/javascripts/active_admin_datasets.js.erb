@@ -3,11 +3,14 @@
 (function(window) {
   var datasetSelect;
   var visualizationSelect;
+  var visualizationPreview;
   var form;
 
   function onReady() {
     datasetSelect = document.getElementById('widget_dataset');
     visualizationSelect = document.getElementById('widget_visualization');
+    visualizationPreview = document.getElementById('widget-preview');
+
     if ( datasetSelect ) {
       datasetSelect.addEventListener("change", onDatasetChanged);
     }
@@ -64,11 +67,33 @@
     }
   }
 
+  function setPreviewVisibility(show) {
+    if (show) {
+      visualizationPreview.style.display = 'block';
+    } else {
+      visualizationPreview.style.display = 'none';
+    }
+  }
+
+  function setPreview(data) {
+    console.log('previeing');
+    var vegaObj = data.widget_config || {};
+
+    vg.parse.spec(vegaObj, function(chart) {
+      var chartVis = chart({
+        el: visualizationPreview
+      });
+
+      chartVis.update();
+    });
+  }
+
   function onDatasetChanged(ev) {
     var target = ev.currentTarget;
     getDatasetVisualizations(target.options[target.selectedIndex].value)
       .done(function(data){
         updateVisualizations(data);
+        setPreviewVisibility(false);
       })
   }
 
@@ -77,6 +102,8 @@
     getVisualizationDetails(target.options[target.selectedIndex].value)
       .done(function(data){
         updateForm(data);
+        setPreview(data);
+        setPreviewVisibility(true)
       })
   }
 
