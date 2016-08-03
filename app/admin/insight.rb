@@ -9,6 +9,9 @@ ActiveAdmin.register Insight do
       f.input :slug, required: true
       f.input :summary
       f.input :content
+      f.input :image, as: :file, :hint => f.object.image.present? \
+        ? image_tag(f.object.image.url)
+        : content_tag(:span, "no header image uploaded yet")
       f.input :content_url
       f.input :partner
       f.input :published, as: :boolean
