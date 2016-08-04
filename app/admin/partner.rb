@@ -1,5 +1,16 @@
 ActiveAdmin.register Partner do
 
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :url
+    column :contact_name
+    column :contact_email
+    column :published
+    actions
+  end
+
   permit_params :name, :url, :logo, :white_logo, :contact_name, :contact_email, :published
 
   form do |f|

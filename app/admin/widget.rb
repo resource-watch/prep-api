@@ -1,5 +1,17 @@
 ActiveAdmin.register Widget do
 
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :summary
+    column :dataset
+    column :visualization
+    column :partner
+    column :published
+    actions
+  end
+
   permit_params :title, :slug, :summary, :content, :dataset, :visualization, :data_url, :widget_config, :partner_id, :published
 
   conn = Faraday.new(:url => ENV['RW_API_URL']) do |faraday|

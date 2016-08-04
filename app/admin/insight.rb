@@ -1,5 +1,16 @@
 ActiveAdmin.register Insight do
 
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :summary
+    column :content_url
+    column :partner
+    column :published
+    actions
+  end
+
   permit_params :title, :slug, :summary, :content, :image, :content_url, :partner_id, :published
 
   form do |f|

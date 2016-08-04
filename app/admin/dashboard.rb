@@ -1,6 +1,16 @@
 ActiveAdmin.register Dashboard do
 
-  permit_params :title,:slug, :summary, :content, :image, :partner_id, :published, :indicator_id, insight_ids:[], tool_ids:[]
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :summary
+    column :partner
+    column :published
+    actions
+  end
+
+  permit_params :title, :slug, :summary, :content, :image, :partner_id, :published, :indicator_id, insight_ids:[], tool_ids:[]
 
   form do |f|
     f.semantic_errors
