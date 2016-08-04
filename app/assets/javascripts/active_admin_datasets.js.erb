@@ -79,7 +79,8 @@
     var vegaObj = data.widget_config || {};
 
     vegaObj.width = visualizationPreview.clientWidth;
-    vegaObj.height = visualizationPreview.clientHeight;
+
+    visualizationPreview.innerHTML = '';
 
     vg.parse.spec(vegaObj, function(chart) {
       var chartVis = chart({
