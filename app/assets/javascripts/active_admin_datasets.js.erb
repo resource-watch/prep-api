@@ -36,7 +36,7 @@
     visualizationSelect.options.length = 0;
     visualizationSelect.options[visualizationSelect.options.length] = new Option('', '');
     for (var i = 0, optionsLenght = data.length; i < optionsLenght; i++) {
-      var option = new Option(data[i].name, data[i].id);
+      var option = new Option(data[i].attributes.name, data[i].id);
       visualizationSelect.options[visualizationSelect.options.length] = option;
     }
   }
@@ -47,19 +47,19 @@
       var input = form.elements[i];
       switch (input.name) {
         case 'widget[title]':
-          input.value = data.name;
+          input.value = data.attributes && data.attributes.name ? data.attributes.name : '';
           break;
         case 'widget[slug]':
-          input.value = data.slug;
+          input.value = data.attributes && data.attributes.slug ? data.attributes.slug : '';
           break;
         case 'widget[summary]':
-          input.value = data.description;
+          input.value = data.attributes && data.attributes.description ? data.attributes.description : '';
           break;
         case 'widget[data_url]':
-          input.value = data.query_url;
+          input.value = data.attributes && data.attributes.query_url ? data.attributes.query_url : '';
           break;
         case 'widget[widget_config]':
-          input.value = JSON.stringify(data.widget_config);
+          input.value = data.attributes && data.attributes.widget_config ? JSON.stringify(data.widget_config) : '';
           break;
         default:
           break;
@@ -76,7 +76,7 @@
   }
 
   function setPreview(data) {
-    var vegaObj = data.widget_config || {};
+    var vegaObj = data.attributes.widgetConfig || {};
 
     vegaObj.width = visualizationPreview.clientWidth;
 
@@ -95,19 +95,24 @@
     var target = ev.currentTarget;
     getDatasetVisualizations(target.options[target.selectedIndex].value)
       .done(function(data){
-        updateVisualizations(data);
+        updateVisualizations(data.data);
         setPreviewVisibility(false);
       })
   }
 
   function onVisualizationChanged(ev) {
     var target = ev.currentTarget;
-    getVisualizationDetails(target.options[target.selectedIndex].value)
-      .done(function(data){
-        updateForm(data);
-        setPreviewVisibility(true);
-        setPreview(data);
-      })
+    if (target.options[target.selectedIndex].value) {
+      getVisualizationDetails(target.options[target.selectedIndex].value)
+        .done(function(data){
+          updateForm(data.data);
+          setPreviewVisibility(true);
+          setPreview(data.data);
+        })
+    } else {
+      updateForm({});
+      setPreviewVisibility(false);
+    }
   }
 
 
