@@ -19,4 +19,12 @@ class Partner < ApplicationRecord
     end
   end
 
+  def self.published
+    self.where(published: true)
+  end
+
+  def self.featured
+    self.where(published: true, featured: true)
+  end
+
 end
