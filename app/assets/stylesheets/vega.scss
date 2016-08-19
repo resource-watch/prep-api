@@ -1,0 +1,12 @@
+#widget-preview {
+  margin: 10px 0 10px calc(20% + 8px);
+  width: calc(80% - 54px);
+}
+
+.vega {
+  > canvas {
+    background-color: white;
+    border: 1px solid #c9d0d6;
+    border-radius: 3px;
+  }
+}

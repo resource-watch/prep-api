@@ -1,6 +1,6 @@
 ActiveAdmin.register Tool do
 
-  permit_params :title, :summary, :content
+  permit_params :title, :summary, :content, :url
 
   form do |f|
     f.semantic_errors

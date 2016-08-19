@@ -8,11 +8,6 @@
 AdminUser.find_by_email("admin@example.com" ) || AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 
-# Widget types
-WidgetType.find_by_name("chart") || WidgetType.create!(name: 'chart')
-WidgetType.find_by_name("layer") || WidgetType.create!(name: 'layer')
-
-
 # Insights
 insight1 = Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
   title: 'Framer assesses possible impacts of climate change on his crops (grapes)',
@@ -33,6 +28,15 @@ insight2 = Insight.find_by_slug("city-planner-climage-impact-on-puget") || Insig
   image: File.new("db/fixtures/images/headers/bg-insights-image@2x.jpg"),
   content_url: 'http://resource-watch.github.io/insights/interactive-edi.html')
 
+insightSonoma = Insight.find_by_slug("understanding-sonoma-countys-climate-adaptation-plan") || Insight.create!(
+  title: 'Understanding Sonoma County\'s Climate Adaptation Plan',
+  slug: 'understanding-sonoma-countys-climate-adaptation-plan',
+  summary: 'Unprecedented warm conditions are projected to occur in both summer and winter seasons. Both extreme wet years and extreme dry years are likely to become more frequent. Preparing for the impacts of this increase weather variability is critically important.',
+  content: '',
+  published: true,
+  image: File.new("db/fixtures/images/headers/bg-sonoma-header.png"),
+  content_url: 'http://resource-watch.github.io/insights/sonoma.html')
+
 
 # Tools
 tool1 = Tool.find_by_title("Climate Adaptation Knowledge Exchange (CAKE)") || Tool.create!(
@@ -52,6 +56,7 @@ Partner.find_by_name("Vizzuality") || Partner.create!(
   contact_name: 'Vizzuality',
   contact_email: 'contact@vizzuality.com',
   logo: File.new("db/fixtures/images/partner/vizzuality@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/vizzuality-light@2x.png"),
   published: true)
 Partner.find_by_name("WRI") || Partner.create!(
   name: 'WRI',
@@ -59,6 +64,7 @@ Partner.find_by_name("WRI") || Partner.create!(
   contact_name: 'WRI',
   contact_email: 'contact@wri.com',
   logo: File.new("db/fixtures/images/partner/wri@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/wri-light@2x.png"),
   published: true)
 Partner.find_by_name("Nasa") || Partner.create!(
   name: 'Nasa',
@@ -66,6 +72,7 @@ Partner.find_by_name("Nasa") || Partner.create!(
   contact_name: 'Nasa',
   contact_email: 'contact@nasa.gov',
   logo: File.new("db/fixtures/images/partner/nasa@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/nasa-light@2x.png"),
   published: true)
 Partner.find_by_name("Washington University") || Partner.create!(
   name: 'Washington University',
@@ -73,6 +80,23 @@ Partner.find_by_name("Washington University") || Partner.create!(
   contact_name: 'UW',
   contact_email: 'contact@uw.edu',
   logo: File.new("db/fixtures/images/partner/university-washington@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/university-washington-light@2x.png"),
+  published: true)
+Partner.find_by_name("Descartes") || Partner.create!(
+  name: 'Descartes',
+  url: 'http://www.descarteslabs.com/',
+  contact_name: 'DL',
+  contact_email: 'contact@descarteslabs.com',
+  logo: File.new("db/fixtures/images/partner/descartes@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/descartes-light@2x.png"),
+  published: true)
+Partner.find_by_name("Esri") || Partner.create!(
+  name: 'Esri',
+  url: 'http://www.esri.com/',
+  contact_name: 'ES',
+  contact_email: 'contact@esri.com',
+  logo: File.new("db/fixtures/images/partner/esri@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/esri-light@2x.png"),
   published: true)
 
 
@@ -84,8 +108,7 @@ widget1 = Widget.find_by_slug("temperature-change") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  widget_type_id: 1,
-  json_spec: '{
+  widget_config: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
       {
@@ -477,8 +500,7 @@ widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   data_url: 'http://api.resourcewatch.org:81/documentation/#/?tags=Dataset',
   published: true,
-  widget_type_id: 1,
-  json_spec: '{
+  widget_config: '{
     "padding": {"top": 30,"left": 40,"bottom": 80,"right": 30},
     "data": [
       {
@@ -884,6 +906,14 @@ widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
     ]
   }',
   partner_id: 2)
+widget3 = Widget.find_by_slug("sonoma-widget") || Widget.create!(
+  title: 'Sonoma widget',
+  slug: 'sonoma-widget',
+  summary: 'Sonoma widget',
+  content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
+  published: true,
+  widget_config: {},
+  partner_id: 2)
 
 
 # Indicators
@@ -895,6 +925,14 @@ indicator1 = Indicator.find_by_title("Indicator widget example") || Indicator.cr
 
 indicator1.widgets << widget1
 indicator1.widgets << widget2
+
+indicatorSonoma = Indicator.find_by_title("Sonoma") || Indicator.create!(
+  id: 2,
+  title: 'Sonoma',
+  summary: 'Sonoma indicators',
+  content: 'This contains the list of the sonoma widgets')
+
+indicatorSonoma.widgets << widget3
 
 # Dashboards
 dashboard = Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.create!(
@@ -910,5 +948,19 @@ dashboard = Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || 
   dashboard.indicator = indicator1
   dashboard.insights << insight1
   dashboard.insights << insight2
+  dashboard.tools << tool1
+  dashboard.tools << tool2
+
+dashboard = Dashboard.find_by_slug("understanding-sonoma-countys-climate-adaptation-plan") || Dashboard.create!(
+  title: 'Understanding Sonoma County\'s Climate Adaptation Plan',
+  slug: 'understanding-sonoma-countys-climate-adaptation-plan',
+  summary: 'Unprecedented warm conditions are projected to occur in both summer and winter seasons. Both extreme wet years and extreme dry years are likely to become more frequent. Preparing for the impacts of this increase weather variability is critically important.',
+  content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
+  indicator_id: 2,
+  image: File.new("db/fixtures/images/headers/bg-sonoma-header.png"),
+  published: true)
+
+  dashboard.indicator = indicatorSonoma
+  dashboard.insights << insightSonoma
   dashboard.tools << tool1
   dashboard.tools << tool2
