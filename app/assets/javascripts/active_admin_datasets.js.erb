@@ -22,8 +22,7 @@
   function getDatasetVisualizations(datasetId) {
     var params = {
       app: 'prep',
-      dataset: datasetId,
-      default: true
+      dataset: datasetId
     }
     return $.get('<%= ENV['RW_API_URL'] %>'+'/widgets', params);
   }
