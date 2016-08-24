@@ -58,8 +58,14 @@ ActiveRecord::Schema.define(version: 20160824112433) do
     t.boolean  "published",          default: false
     t.integer  "partner_id"
     t.integer  "indicator_id"
+    t.text     "related_datasets",   default: [],    array: true
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id", using: :btree
     t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
+  end
+
+  create_table "dashboards_connections", id: false, force: :cascade do |t|
+    t.integer "dashboard_source_id", null: false
+    t.integer "dashboard_target_id", null: false
   end
 
   create_table "dashboards_insights", id: false, force: :cascade do |t|

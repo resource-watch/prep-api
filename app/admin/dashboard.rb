@@ -10,7 +10,15 @@ ActiveAdmin.register Dashboard do
     actions
   end
 
-  permit_params :title, :slug, :summary, :content, :image, :partner_id, :published, :indicator_id, insight_ids:[], tool_ids:[]
+  permit_params :title, :slug, :summary, :content, :image, :partner_id, :published, :indicator_id, insight_ids:[], tool_ids:[], dashboard_ids:[], related_datasets:[]
+
+  conn = Faraday.new(:url => ENV['RW_API_URL']) do |faraday|
+    faraday.request  :url_encoded
+    faraday.adapter  Faraday.default_adapter
+  end
+
+  datasetRequest = conn.get '/datasets', { :app => 'prep' }
+  datasets = JSON.parse datasetRequest.body
 
   form do |f|
     f.semantic_errors
@@ -25,6 +33,11 @@ ActiveAdmin.register Dashboard do
       f.input :indicator, :include_blank => false, required: true
       f.input :insights
       f.input :tools
+      f.input :dashboards, :label => "Related dashboards", collection: @dashboards
+      f.input :related_datasets,
+        as: :select,
+        collection: datasets.map{|dc|[dc['name'],dc['id'],{ :selected => dc['id']===f.object.related_datasets }]},
+        :input_html => { :multiple => true }
       f.input :partner, required: true
       f.input :published, as: :boolean
     end

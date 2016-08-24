@@ -57,7 +57,8 @@ Partner.find_by_name("Vizzuality") || Partner.create!(
   contact_email: 'contact@vizzuality.com',
   logo: File.new("db/fixtures/images/partner/vizzuality@2x.png"),
   white_logo: File.new("db/fixtures/images/partner/vizzuality-light@2x.png"),
-  published: true)
+  published: true,
+  featured: true)
 Partner.find_by_name("WRI") || Partner.create!(
   name: 'WRI',
   url: 'http://www.wri.org/',
@@ -65,7 +66,8 @@ Partner.find_by_name("WRI") || Partner.create!(
   contact_email: 'contact@wri.com',
   logo: File.new("db/fixtures/images/partner/wri@2x.png"),
   white_logo: File.new("db/fixtures/images/partner/wri-light@2x.png"),
-  published: true)
+  published: true,
+  featured: true)
 Partner.find_by_name("Nasa") || Partner.create!(
   name: 'Nasa',
   url: 'https://www.nasa.gov/',
@@ -73,7 +75,8 @@ Partner.find_by_name("Nasa") || Partner.create!(
   contact_email: 'contact@nasa.gov',
   logo: File.new("db/fixtures/images/partner/nasa@2x.png"),
   white_logo: File.new("db/fixtures/images/partner/nasa-light@2x.png"),
-  published: true)
+  published: true,
+  featured: true)
 Partner.find_by_name("Washington University") || Partner.create!(
   name: 'Washington University',
   url: 'http://www.washington.edu/',
@@ -81,7 +84,8 @@ Partner.find_by_name("Washington University") || Partner.create!(
   contact_email: 'contact@uw.edu',
   logo: File.new("db/fixtures/images/partner/university-washington@2x.png"),
   white_logo: File.new("db/fixtures/images/partner/university-washington-light@2x.png"),
-  published: true)
+  published: true,
+  featured: true)
 Partner.find_by_name("Descartes") || Partner.create!(
   name: 'Descartes',
   url: 'http://www.descarteslabs.com/',
@@ -89,7 +93,8 @@ Partner.find_by_name("Descartes") || Partner.create!(
   contact_email: 'contact@descarteslabs.com',
   logo: File.new("db/fixtures/images/partner/descartes@2x.png"),
   white_logo: File.new("db/fixtures/images/partner/descartes-light@2x.png"),
-  published: true)
+  published: true,
+  featured: true)
 Partner.find_by_name("Esri") || Partner.create!(
   name: 'Esri',
   url: 'http://www.esri.com/',
@@ -97,7 +102,8 @@ Partner.find_by_name("Esri") || Partner.create!(
   contact_email: 'contact@esri.com',
   logo: File.new("db/fixtures/images/partner/esri@2x.png"),
   white_logo: File.new("db/fixtures/images/partner/esri-light@2x.png"),
-  published: true)
+  published: true,
+  featured: true)
 
 # Widget_types
 widgetType1 = WidgetType.find_by_name("Chart") || WidgetType.create!(
