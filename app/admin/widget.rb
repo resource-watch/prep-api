@@ -36,7 +36,7 @@ ActiveAdmin.register Widget do
 
     f.semantic_errors
     f.inputs 'Widget Detail' do
-      f.input :widget_type, required: true, :selected => 1
+      f.input :widget_type, required: true
       f.input :dataset, as: :select, collection: datasets.map{|dc| [dc['name'],dc['id']]}
       f.input :visualization, as: :select, collection: visualization['data'].map{|vis| [vis['attributes']['name'], vis['id']]}
       div id: "widget-preview"
