@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824112433) do
+ActiveRecord::Schema.define(version: 20160824150900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160824112433) do
     t.datetime "image_updated_at"
     t.boolean  "published",          default: false
     t.integer  "partner_id"
+    t.string   "attribution"
     t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
   end
 
@@ -134,6 +135,7 @@ ActiveRecord::Schema.define(version: 20160824112433) do
     t.string "title"
     t.text   "summary"
     t.string "url"
+    t.string "attribution"
   end
 
   create_table "widget_types", force: :cascade do |t|
