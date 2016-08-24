@@ -105,6 +105,11 @@ Partner.find_by_name("Esri") || Partner.create!(
   published: true,
   featured: true)
 
+# Widget_types
+widgetType1 = WidgetType.find_by_name("Chart") || WidgetType.create!(
+  name: 'Chart')
+widgetType2 = WidgetType.find_by_name("Embed") || WidgetType.create!(
+  name: 'Embed')
 
 # Widgets
 widget1 = Widget.find_by_slug("temperature-change") || Widget.create!(
@@ -498,6 +503,7 @@ widget1 = Widget.find_by_slug("temperature-change") || Widget.create!(
       }
     ]
   }',
+  widget_type_id: 1,
   partner_id: 1)
 widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
   title: 'Precipitation change',
@@ -911,6 +917,7 @@ widget2 = Widget.find_by_slug("precipitation-change") || Widget.create!(
       }
     ]
   }',
+  widget_type_id: 1,
   partner_id: 2)
 widget3 = Widget.find_by_slug("sonoma-widget") || Widget.create!(
   title: 'Sonoma widget',
@@ -919,6 +926,7 @@ widget3 = Widget.find_by_slug("sonoma-widget") || Widget.create!(
   content: 'Lorem ipsum annual precipitation (in %) for the Puget Sound Lowlands climate division shown relative to the average for 1950-1999 (black horizontal line corresponding 43.6 inches). The dashed line indicating a warming of +1.3ºF (range: +0.7ºF to +1.9ºF)ß from 1895 to 2014. ',
   published: true,
   widget_config: {},
+  widget_type_id: 1,
   partner_id: 2)
 
 

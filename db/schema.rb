@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823114003) do
+ActiveRecord::Schema.define(version: 20160824112433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,10 @@ ActiveRecord::Schema.define(version: 20160823114003) do
     t.string "url"
   end
 
+  create_table "widget_types", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
   create_table "widgets", force: :cascade do |t|
     t.string   "title"
     t.string   "summary"
@@ -143,13 +147,15 @@ ActiveRecord::Schema.define(version: 20160823114003) do
     t.string   "data_url"
     t.text     "content"
     t.text     "widget_config"
-    t.boolean  "published",     default: false
+    t.boolean  "published",      default: false
     t.integer  "partner_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "dataset"
     t.string   "visualization"
+    t.integer  "widget_type_id"
     t.index ["partner_id"], name: "index_widgets_on_partner_id", using: :btree
+    t.index ["widget_type_id"], name: "index_widgets_on_widget_type_id", using: :btree
   end
 
 end

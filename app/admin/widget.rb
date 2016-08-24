@@ -3,6 +3,7 @@ ActiveAdmin.register Widget do
   index do
     selectable_column
     id_column
+    column :widget_type
     column :title
     column :summary
     column :dataset
@@ -12,7 +13,7 @@ ActiveAdmin.register Widget do
     actions
   end
 
-  permit_params :title, :slug, :summary, :content, :dataset, :visualization, :data_url, :widget_config, :partner_id, :published
+  permit_params :widget_type_id, :title, :slug, :summary, :content, :dataset, :visualization, :data_url, :widget_config, :partner_id, :published
 
   conn = Faraday.new(:url => ENV['RW_API_URL']) do |faraday|
     faraday.request  :url_encoded
@@ -35,6 +36,7 @@ ActiveAdmin.register Widget do
 
     f.semantic_errors
     f.inputs 'Widget Detail' do
+      f.input :widget_type, required: true
       f.input :dataset, as: :select, collection: datasets.map{|dc| [dc['name'],dc['id']]}
       f.input :visualization, as: :select, collection: visualization.map{|vis| [vis['attributes']['name'], vis['id']]}
       div id: "widget-preview"
