@@ -7,11 +7,12 @@ ActiveAdmin.register Insight do
     column :summary
     column :content_url
     column :partner
+    column :attribution
     column :published
     actions
   end
 
-  permit_params :title, :slug, :summary, :content, :image, :content_url, :partner_id, :published
+  permit_params :title, :slug, :summary, :content, :image, :content_url, :partner_id, :attribution, :published
 
   form do |f|
     f.semantic_errors
@@ -25,6 +26,7 @@ ActiveAdmin.register Insight do
         : content_tag(:span, "no header image uploaded yet")
       f.input :content_url
       f.input :partner
+      f.input :attribution
       f.input :published, as: :boolean
     end
     f.actions
