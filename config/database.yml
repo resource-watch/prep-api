@@ -83,7 +83,7 @@ test:
 #
 staging:
   <<: *default
-  database: prep_staging
+  database: prep_production
 
 production:
   <<: *default
