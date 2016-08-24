@@ -35,8 +35,8 @@ ActiveAdmin.register Widget do
 
     f.semantic_errors
     f.inputs 'Widget Detail' do
-      f.input :dataset, as: :select, collection: datasets.map{|dc|[dc['name'],dc['id'],{ :selected => dc['id']===f.object.dataset }]}
-      f.input :visualization, as: :select, collection: visualization.map{|dc|[dc['name'],dc['id'],{ :selected => dc['id']===f.object.visualization }]}
+      f.input :dataset, as: :select, collection: datasets.map{|dc| [dc['name'],dc['id']]}
+      f.input :visualization, as: :select, collection: visualization['data'].map{|vis| [vis['attributes']['name'], vis['id']]}
       div id: "widget-preview"
       f.input :title, required: true
       f.input :slug, required: true
