@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818093014) do
+ActiveRecord::Schema.define(version: 20160823114003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,8 +58,14 @@ ActiveRecord::Schema.define(version: 20160818093014) do
     t.boolean  "published",          default: false
     t.integer  "partner_id"
     t.integer  "indicator_id"
+    t.text     "related_datasets",   default: [],    array: true
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id", using: :btree
     t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
+  end
+
+  create_table "dashboards_connections", id: false, force: :cascade do |t|
+    t.integer "dashboard_source_id", null: false
+    t.integer "dashboard_target_id", null: false
   end
 
   create_table "dashboards_insights", id: false, force: :cascade do |t|

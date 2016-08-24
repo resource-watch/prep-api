@@ -6,7 +6,13 @@ class Dashboard < ApplicationRecord
 
   belongs_to :partner
   belongs_to :indicator
+
   accepts_nested_attributes_for :indicator
+
+  has_and_belongs_to_many(:dashboards,
+    :join_table => "dashboards_connections",
+    :foreign_key => "dashboard_source_id",
+    :association_foreign_key => "dashboard_target_id")
 
   has_and_belongs_to_many :insights
   accepts_nested_attributes_for :insights
