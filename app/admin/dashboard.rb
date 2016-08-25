@@ -33,10 +33,10 @@ ActiveAdmin.register Dashboard do
       f.input :indicator, :include_blank => false, required: true
       f.input :insights
       f.input :tools
-      f.input :dashboards, :label => "Related dashboards", collection: @dashboards
+      f.input :dashboards, :label => "Related dashboards", collection: Dashboard.excluding_self(f.object)
       f.input :related_datasets,
         as: :select,
-        collection: datasets.map{|dc|[dc['name'],dc['id'],{ :selected => dc['id']===f.object.related_datasets }]},
+        collection: datasets.reject(&:blank?).map{|dc|[dc['name'],dc['id']]},
         :input_html => { :multiple => true }
       f.input :partner, required: true
       f.input :published, as: :boolean
