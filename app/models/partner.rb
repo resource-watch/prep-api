@@ -1,3 +1,27 @@
+# == Schema Information
+#
+# Table name: partners
+#
+#  id                      :integer          not null, primary key
+#  name                    :string           not null
+#  url                     :string
+#  contact_name            :string
+#  contact_email           :string
+#  logo_file_name          :string
+#  logo_content_type       :string
+#  logo_file_size          :integer
+#  logo_updated_at         :datetime
+#  published               :boolean          default(FALSE)
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  logo_dimensions         :string
+#  white_logo_file_name    :string
+#  white_logo_content_type :string
+#  white_logo_file_size    :integer
+#  white_logo_updated_at   :datetime
+#  featured                :boolean
+#
+
 class Partner < ApplicationRecord
 
   before_save :extract_dimensions
