@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160825095807) do
     t.integer  "partner_id"
     t.integer  "indicator_id"
     t.text     "related_datasets",   default: [],    array: true
+    t.string   "attribution"
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id", using: :btree
     t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
   end
