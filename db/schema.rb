@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825084719) do
+ActiveRecord::Schema.define(version: 20160825095807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20160825084719) do
     t.string   "dataset"
     t.string   "visualization"
     t.integer  "widget_type_id"
+    t.string   "attribution"
     t.index ["partner_id"], name: "index_widgets_on_partner_id", using: :btree
     t.index ["widget_type_id"], name: "index_widgets_on_widget_type_id", using: :btree
   end

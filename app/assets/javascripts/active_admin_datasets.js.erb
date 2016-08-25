@@ -41,6 +41,7 @@
   }
 
   function updateForm(data) {
+    console.log(data);
     form = document.getElementById('widget_form');
     for (var i = 0, formLength=form.elements.length; i < formLength; i++) {
       var input = form.elements[i];
@@ -53,6 +54,9 @@
           break;
         case 'widget[summary]':
           input.value = data.attributes && data.attributes.description ? data.attributes.description : '';
+          break;
+        case 'widget[attribution]':
+          input.value = data.attributes && data.attributes.authors ? data.attributes.authors : '';
           break;
         case 'widget[data_url]':
           input.value = data.attributes && data.attributes.query_url ? data.attributes.query_url : '';

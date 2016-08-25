@@ -13,7 +13,7 @@ ActiveAdmin.register Widget do
     actions
   end
 
-  permit_params :widget_type_id, :title, :slug, :summary, :content, :dataset, :visualization, :data_url, :widget_config, :partner_id, :published
+  permit_params :widget_type_id, :title, :slug, :summary, :content, :dataset, :visualization, :attribution, :data_url, :widget_config, :partner_id, :published
 
   conn = Faraday.new(:url => ENV['RW_API_URL']) do |faraday|
     faraday.request  :url_encoded
@@ -44,6 +44,7 @@ ActiveAdmin.register Widget do
       f.input :slug, required: true
       f.input :summary
       f.input :content
+      f.input :attribution
       f.input :data_url, required: true
       f.input :widget_config, as: :hidden, required: true
       f.input :partner, required: true
