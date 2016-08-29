@@ -51,4 +51,8 @@ class Dashboard < ApplicationRecord
     self.related_datasets = self.related_datasets.reject(&:blank?)
   end
 
+  def self.published
+    self.where(published: true)
+  end
+
 end
