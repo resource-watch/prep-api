@@ -2,8 +2,14 @@ class Api::DashboardDetailSerializer < ActiveModel::Serializer
   attributes :id, :title, :slug, :summary, :image, :content, :related_datasets
 
   has_one :indicator, serializer: Api::IndicatorSerializer
-  has_many :insights
-  has_many :dashboards
-  has_many :tools
+  has_many :insights do
+    object.insights.published
+  end
+  has_many :dashboards do
+    object.dashboards.published
+  end
+  has_many :tools do
+    object.tools.published
+  end
   has_one :partner, serializer: Api::PartnerSerializer
 end

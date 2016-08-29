@@ -12,12 +12,13 @@ ActiveAdmin.register Partner do
     actions
   end
 
-  permit_params :name, :url, :logo, :white_logo, :contact_name, :contact_email, :featured, :published
+  permit_params :name, :description, :url, :logo, :white_logo, :contact_name, :contact_email, :featured, :published
 
   form do |f|
     f.semantic_errors
     f.inputs "Partner Details" do
       f.input :name, required: true
+      f.input :description
       f.input :url
       f.input :contact_name
       f.input :contact_email

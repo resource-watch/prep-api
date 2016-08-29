@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825095807) do
+ActiveRecord::Schema.define(version: 20160829134652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,9 +84,10 @@ ActiveRecord::Schema.define(version: 20160825095807) do
   end
 
   create_table "indicators", force: :cascade do |t|
-    t.string "title"
-    t.text   "summary"
-    t.text   "content"
+    t.string  "title"
+    t.text    "summary"
+    t.text    "content"
+    t.boolean "published", default: false
   end
 
   create_table "indicators_widgets", id: false, force: :cascade do |t|
@@ -130,13 +131,15 @@ ActiveRecord::Schema.define(version: 20160825095807) do
     t.integer  "white_logo_file_size"
     t.datetime "white_logo_updated_at"
     t.boolean  "featured"
+    t.text     "description"
   end
 
   create_table "tools", force: :cascade do |t|
-    t.string "title"
-    t.text   "summary"
-    t.string "url"
-    t.string "attribution"
+    t.string  "title"
+    t.text    "summary"
+    t.string  "url"
+    t.string  "attribution"
+    t.boolean "published",   default: false
   end
 
   create_table "widget_types", force: :cascade do |t|

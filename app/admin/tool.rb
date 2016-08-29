@@ -1,6 +1,17 @@
 ActiveAdmin.register Tool do
 
-  permit_params :title, :summary, :content, :url, :attribution
+  permit_params :title, :summary, :content, :url, :attribution, :published
+
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :summary
+    column :url
+    column :attribution
+    column :published
+    actions
+  end
 
   form do |f|
     f.semantic_errors
@@ -9,6 +20,7 @@ ActiveAdmin.register Tool do
       f.input :summary
       f.input :url
       f.input :attribution
+      f.input :published
     end
     f.actions
   end

@@ -7,7 +7,7 @@ ActiveAdmin.register Indicator do
     id_column
     column :title
     column :summary
-    # column :published
+    column :published
     actions
   end
 
@@ -18,7 +18,7 @@ ActiveAdmin.register Indicator do
       f.input :summary
       f.input :content
       f.input :widgets
-      # f.input :published
+      f.input :published
     end
     f.actions
   end

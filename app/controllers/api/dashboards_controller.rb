@@ -3,7 +3,6 @@ class Api::DashboardsController < ApiController
   # GET /dashboards
   def index
     dashboards = Dashboard.all.where(published: true)
-
     render json: dashboards, each_serializer: Api::DashboardSerializer, status: 200
   end
 
