@@ -1,6 +1,6 @@
 class Api::PartnerSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :url, :logo, :white_logo, :logo_medium,
+  attributes :id, :name, :description, :url, :logo, :white_logo, :logo_medium,
     :white_logo_medium, :logo_size, :contact_name, :contact_email
 
   def logo_size

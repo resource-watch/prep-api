@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829105045) do
+ActiveRecord::Schema.define(version: 20160829134652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20160829105045) do
     t.integer  "white_logo_file_size"
     t.datetime "white_logo_updated_at"
     t.boolean  "featured"
+    t.text     "description"
   end
 
   create_table "tools", force: :cascade do |t|
