@@ -2,6 +2,17 @@ ActiveAdmin.register Tool do
 
   permit_params :title, :summary, :content, :url, :attribution
 
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :summary
+    column :url
+    column :attribution
+    column :published
+    actions
+  end
+
   form do |f|
     f.semantic_errors
     f.inputs 'Tool Detail' do
