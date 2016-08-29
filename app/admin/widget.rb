@@ -7,7 +7,6 @@ ActiveAdmin.register Widget do
     column :title
     column :summary
     column :dataset
-    column :visualization
     column :partner
     column :published
     actions
