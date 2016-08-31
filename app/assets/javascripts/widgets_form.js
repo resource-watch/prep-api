@@ -1,11 +1,11 @@
 
 $(function() {
   var $widgetType = $('#widget_widget_type_id');
-  var $content = $('#widget_content_input');
-  var $summary = $('#widget_summary_input');
+  // var $content = $('#widget_content_input');
+  // var $summary = $('#widget_summary_input');
   var $visualization = $('#widget_visualization_input');
   var $dataset = $('#widget_dataset_input');
-  var inputs = [$content, $summary, $visualization, $dataset];
+  var inputs = [$visualization, $dataset];
 
   setWidgetForm();
 
@@ -16,19 +16,19 @@ $(function() {
   function setWidgetForm() {
     // Value 2 is type 'Embed'
     if ($widgetType.val() === "2" ) {
-      inputs.forEach(function(input) { 
+      inputs.forEach(function(input) {
         input.css({
-          visibility: 'hidden', 
-          position: 'absolute', 
-          top: '-1000px' 
-        }); 
+          visibility: 'hidden',
+          position: 'absolute',
+          top: '-1000px'
+        });
       });
     } else {
-      inputs.forEach(function(input) { 
+      inputs.forEach(function(input) {
         input.css({
-          visibility: 'visible', 
-          position: 'inherit', 
-          top: '0' 
+          visibility: 'visible',
+          position: 'inherit',
+          top: '0'
         });
       });
     }

@@ -39,6 +39,8 @@ gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 source 'https://rails-assets.org' do
   gem 'rails-assets-d3', '~> 3.5.16'
   gem 'rails-assets-vega', '~> 2.5.2'
+  gem 'rails-assets-underscore'
+  gem 'rails-assets-backbone'
 end
 
 group :development, :test do

@@ -1,0 +1,13 @@
+(function(App) {
+
+  App.Collection.Widgets = Backbone.Collection.extend({
+
+    url: '<%= ENV['RW_API_URL'] %>/widgets',
+
+    parse: function(data) {
+      return data.data;
+    }
+
+  });
+
+})(this.App);
