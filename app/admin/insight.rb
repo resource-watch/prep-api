@@ -22,7 +22,7 @@ ActiveAdmin.register Insight do
       f.input :summary
       f.input :content
       f.input :image, as: :file, :hint => f.object.image.present? \
-        ? image_tag(f.object.image.url)
+        ? image_tag(f.object.image.url(:thumb))
         : content_tag(:span, "no header image uploaded yet")
       f.input :content_url
       f.input :partner

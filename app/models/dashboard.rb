@@ -19,7 +19,7 @@
 
 class Dashboard < ApplicationRecord
 
-  has_attached_file :image
+  has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
