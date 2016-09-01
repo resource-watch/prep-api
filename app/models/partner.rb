@@ -24,6 +24,8 @@
 
 class Partner < ApplicationRecord
 
+  default_scope {order('name ASC') }
+
   before_save :extract_dimensions
 
   has_attached_file :logo, styles: { large: "345x150>", medium: "220x50>", thumb: "50x50>" }
