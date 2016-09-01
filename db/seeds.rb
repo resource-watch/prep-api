@@ -55,8 +55,10 @@ Partner.find_by_name("Vizzuality") || Partner.create!(
   url: 'http://vizzuality.com',
   contact_name: 'Vizzuality',
   contact_email: 'contact@vizzuality.com',
-  logo: File.new("db/fixtures/images/partner/vizzuality@2x.png"),
-  white_logo: File.new("db/fixtures/images/partner/vizzuality-light@2x.png"),
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sollicitudin pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pharetra, tortor a imperdiet ultrices, nunc augue ornare lacus, quis ultrices sem lorem id sapien. Sed sodales vitae nisl ut consectetur.',
+  thumbnail: File.new("db/fixtures/images/partner/thumbnail/logo-vizzuality-PP.png"),
+  logo: File.new("db/fixtures/images/partner/logo/vizzuality@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/white_logo/vizzuality-light@2x.png"),
   published: true,
   featured: true)
 Partner.find_by_name("WRI") || Partner.create!(
@@ -64,8 +66,10 @@ Partner.find_by_name("WRI") || Partner.create!(
   url: 'http://www.wri.org/',
   contact_name: 'WRI',
   contact_email: 'contact@wri.com',
-  logo: File.new("db/fixtures/images/partner/wri@2x.png"),
-  white_logo: File.new("db/fixtures/images/partner/wri-light@2x.png"),
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sollicitudin pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pharetra, tortor a imperdiet ultrices, nunc augue ornare lacus, quis ultrices sem lorem id sapien. Sed sodales vitae nisl ut consectetur.',
+  thumbnail: File.new("db/fixtures/images/partner/thumbnail/logo-wri-PP.png"),
+  logo: File.new("db/fixtures/images/partner/logo/wri@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/white_logo/wri-light@2x.png"),
   published: true,
   featured: true)
 Partner.find_by_name("Nasa") || Partner.create!(
@@ -73,8 +77,10 @@ Partner.find_by_name("Nasa") || Partner.create!(
   url: 'https://www.nasa.gov/',
   contact_name: 'Nasa',
   contact_email: 'contact@nasa.gov',
-  logo: File.new("db/fixtures/images/partner/nasa@2x.png"),
-  white_logo: File.new("db/fixtures/images/partner/nasa-light@2x.png"),
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sollicitudin pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pharetra, tortor a imperdiet ultrices, nunc augue ornare lacus, quis ultrices sem lorem id sapien. Sed sodales vitae nisl ut consectetur.',
+  thumbnail: File.new("db/fixtures/images/partner/thumbnail/logo-nasa-PP.png"),
+  logo: File.new("db/fixtures/images/partner/logo/nasa@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/white_logo/nasa-light@2x.png"),
   published: true,
   featured: true)
 Partner.find_by_name("Washington University") || Partner.create!(
@@ -82,17 +88,20 @@ Partner.find_by_name("Washington University") || Partner.create!(
   url: 'http://www.washington.edu/',
   contact_name: 'UW',
   contact_email: 'contact@uw.edu',
-  logo: File.new("db/fixtures/images/partner/university-washington@2x.png"),
-  white_logo: File.new("db/fixtures/images/partner/university-washington-light@2x.png"),
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sollicitudin pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pharetra, tortor a imperdiet ultrices, nunc augue ornare lacus, quis ultrices sem lorem id sapien. Sed sodales vitae nisl ut consectetur.',
+  logo: File.new("db/fixtures/images/partner/logo/university-washington@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/white_logo/university-washington-light@2x.png"),
   published: true,
-  featured: true)
+  featured: false)
 Partner.find_by_name("Descartes") || Partner.create!(
   name: 'Descartes',
   url: 'http://www.descarteslabs.com/',
   contact_name: 'DL',
   contact_email: 'contact@descarteslabs.com',
-  logo: File.new("db/fixtures/images/partner/descartes@2x.png"),
-  white_logo: File.new("db/fixtures/images/partner/descartes-light@2x.png"),
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sollicitudin pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pharetra, tortor a imperdiet ultrices, nunc augue ornare lacus, quis ultrices sem lorem id sapien. Sed sodales vitae nisl ut consectetur.',
+  thumbnail: File.new("db/fixtures/images/partner/thumbnail/logo-descarteslab-PP.png"),
+  logo: File.new("db/fixtures/images/partner/logo/descartes@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/white_logo/descartes-light@2x.png"),
   published: true,
   featured: true)
 Partner.find_by_name("Esri") || Partner.create!(
@@ -100,8 +109,10 @@ Partner.find_by_name("Esri") || Partner.create!(
   url: 'http://www.esri.com/',
   contact_name: 'ES',
   contact_email: 'contact@esri.com',
-  logo: File.new("db/fixtures/images/partner/esri@2x.png"),
-  white_logo: File.new("db/fixtures/images/partner/esri-light@2x.png"),
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam egestas sollicitudin pulvinar. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc pharetra, tortor a imperdiet ultrices, nunc augue ornare lacus, quis ultrices sem lorem id sapien. Sed sodales vitae nisl ut consectetur.',
+  thumbnail: File.new("db/fixtures/images/partner/thumbnail/logo-esri-PP.png"),
+  logo: File.new("db/fixtures/images/partner/logo/esri@2x.png"),
+  white_logo: File.new("db/fixtures/images/partner/white_logo/esri-light@2x.png"),
   published: true,
   featured: true)
 
