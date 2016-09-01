@@ -4,7 +4,7 @@ class Api::PartnerSerializer < ActiveModel::Serializer
 
   def images
     {
-      thumbnail: object.thumbnail.url(:medium),
+      thumbnail: object.thumbnail.url(:large),
       logo: object.logo.url(:medium),
       white_logo: object.white_logo.url(:medium)
     }
