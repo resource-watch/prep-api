@@ -28,9 +28,9 @@ class Partner < ApplicationRecord
 
   before_save :extract_dimensions
 
-  has_attached_file :thumbnail, styles: { large: "345x150>", medium: "140×60>", thumb: "50x50>" }
-  has_attached_file :logo, styles: { medium: "140×60>", thumb: "50x50>" }
-  has_attached_file :white_logo, styles: { medium: "140×60>", thumb: "50x50>" }
+  has_attached_file :thumbnail, styles: { large: "345x150>", medium: "260x65>", thumb: "50x50>" }
+  has_attached_file :logo, styles: { medium: "260x65>", thumb: "50x50>" }
+  has_attached_file :white_logo, styles: { medium: "260x65>", thumb: "50x50>" }
 
   validates_attachment_content_type :thumbnail, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_attachment_content_type :logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
