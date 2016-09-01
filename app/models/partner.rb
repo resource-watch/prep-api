@@ -26,8 +26,6 @@ class Partner < ApplicationRecord
 
   default_scope {order('name ASC') }
 
-  before_save :extract_dimensions
-
   has_attached_file :thumbnail, styles: { large: "345x150>", medium: "260x65>", thumb: "50x50>" }
   has_attached_file :logo, styles: { medium: "260x65>", thumb: "50x50>" }
   has_attached_file :white_logo, styles: { medium: "260x65>", thumb: "50x50>" }
@@ -37,15 +35,6 @@ class Partner < ApplicationRecord
   validates_attachment_content_type :white_logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   private
-
-  # Retrieves dimensions for image logo
-  def extract_dimensions
-    tempfile = logo.queued_for_write[:original]
-    unless tempfile.nil?
-      geometry = Paperclip::Geometry.from_file(tempfile)
-      self.logo_dimensions = [geometry.width.to_i, geometry.height.to_i].join('x')
-    end
-  end
 
   def self.published
     self.where(published: true)
