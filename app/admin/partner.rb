@@ -12,7 +12,7 @@ ActiveAdmin.register Partner do
     actions
   end
 
-  permit_params :name, :description, :url, :logo, :white_logo, :contact_name, :contact_email, :featured, :published
+  permit_params :name, :description, :url, :thumbnail, :logo, :white_logo, :contact_name, :contact_email, :featured, :published
 
   form do |f|
     f.semantic_errors
@@ -22,6 +22,9 @@ ActiveAdmin.register Partner do
       f.input :url
       f.input :contact_name
       f.input :contact_email
+      f.input :thumbnail, as: :file, :hint => defined?(f.object.thumbnail) && f.object.thumbnail.present? \
+        ? image_tag(f.object.thumbnail.url(:thumb))
+        : content_tag(:span, "no partner image uploaded yet")
       f.input :logo, as: :file, :hint => defined?(f.object.logo) && f.object.logo.present? \
         ? image_tag(f.object.logo.url(:thumb))
         : content_tag(:span, "no partner image uploaded yet")
