@@ -15,6 +15,7 @@
 #  partner_id         :integer
 #  indicator_id       :integer
 #  related_datasets   :text             default([]), is an Array
+#  attribution        :string
 #
 
 class Dashboard < ApplicationRecord

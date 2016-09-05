@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901143742) do
+ActiveRecord::Schema.define(version: 20160905090440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160901143742) do
     t.boolean  "published",          default: false
     t.integer  "partner_id"
     t.string   "attribution"
+    t.integer  "template_type",      default: 0
     t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
   end
 

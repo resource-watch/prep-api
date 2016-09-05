@@ -7,6 +7,7 @@
 #  summary     :text
 #  url         :string
 #  attribution :string
+#  published   :boolean          default(FALSE)
 #
 
 class Tool < ApplicationRecord
