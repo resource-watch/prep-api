@@ -15,6 +15,7 @@
 #  published          :boolean          default(FALSE)
 #  partner_id         :integer
 #  attribution        :string
+#  template_type      :integer          default(0)
 #
 
 class Insight < ApplicationRecord

@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  custom: "Custom"
+  template1: "Template 1"
+  template2: "Template 2"

@@ -20,6 +20,11 @@
 #  white_logo_file_size    :integer
 #  white_logo_updated_at   :datetime
 #  featured                :boolean
+#  description             :text
+#  thumbnail_file_name     :string
+#  thumbnail_content_type  :string
+#  thumbnail_file_size     :integer
+#  thumbnail_updated_at    :datetime
 #
 
 class Partner < ApplicationRecord
