@@ -1,12 +1,11 @@
-//= require jquery2
+//= require active_admin/base
+
 //= require jquery_ujs
 //= require d3
 //= require vega
 //= require underscore
 //= require backbone
 //= require select2
-
-//= require active_admin/base
 
 //= require_self
 

@@ -10,7 +10,7 @@
       this.$el.select2({width: '80%'});
       this.widgets = new App.Collection.Widgets();
       this.widgets.on('reset sync', this.render.bind(this));
-      if (this.el.options.length <= 1) {
+      if (this.el && this.el.options.length <= 1) {
         this.$el.prop('disabled', true);
       }
     },
