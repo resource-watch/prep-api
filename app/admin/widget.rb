@@ -20,10 +20,10 @@ ActiveAdmin.register Widget do
     faraday.adapter  Faraday.default_adapter
   end
 
-  datasetRequest = conn.get '/datasets', { :app => 'prep' }
-  datasets = JSON.parse datasetRequest.body
-
   form :html => {:id => 'widget_form'} do |f|
+
+    datasetRequest = conn.get '/datasets', { :app => 'prep' }
+    datasets = JSON.parse datasetRequest.body
 
     if (f.object.dataset)
       params = { :app => 'prep', :datasetId => f.object.dataset, :default => true}
@@ -33,11 +33,14 @@ ActiveAdmin.register Widget do
       visualization = []
     end
 
+    datasets_options = datasets.sort_by!{ |dc| dc['name'] }.map{|dc| [dc['name'],dc['id']]}
+    visualization_options = visualization.sort_by!{ |vis| vis['name'] }.map{|vis| [vis['attributes']['name'], vis['id']]}
+
     f.semantic_errors
     f.inputs 'Widget Detail' do
       # f.input :widget_type, selected: 1, include_blank: false
-      f.input :dataset, as: :select, collection: datasets.sort_by!{ |dc| dc['name'] }.map{|dc| [dc['name'],dc['id']]}, include_blank: '-- Select an option --'
-      f.input :visualization, as: :select, collection: visualization.sort_by!{ |vis| vis['name'] }.map{|vis| [vis['attributes']['name'], vis['id']]}, include_blank: '-- Select an option --'
+      f.input :dataset, as: :select, collection: datasets_options, include_blank: '-- Select an option --'
+      f.input :visualization, as: :select, collection: visualization_options, include_blank: '-- Select an option --'
       div id: "widget-preview"
       f.input :title, required: true
       f.input :slug, required: true
