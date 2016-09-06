@@ -41,6 +41,8 @@
       el: '#widget-preview'
     });
 
+    var initialVisState = visualisationSelector.getState();
+
     datasetSelector.on('change', function(state) {
       visualisationSelector.fetchOptions(state);
     });
@@ -52,6 +54,11 @@
     widgetPreview.on('loaded', function(state) {
       updateForm(state);
     });
+
+    // Preview at begining if visualisation exits
+    if (initialVisState.widgetId && initialVisState.widgetId !== '') {
+      widgetPreview.fetchWidget(initialVisState);
+    }
   });
 
 })(this.App)

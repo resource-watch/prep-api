@@ -24,12 +24,29 @@
         return this.$el.empty();
       }
       var data = this.widget.attributes;
-      var vegaSpec = data.attributes.widgetConfig || {};
+      var widgetSpec = data.attributes.widgetConfig || {};
 
-      vegaSpec.width = this.$el.width();
+      if (data.type === 'embed') {
+        this.renderIframe(widgetSpec);
+      } else if (data.type === 'map') {
+        this.renderMap(widgetSpec);
+      } else {
+        this.renderChart(widgetSpec);
+      }
+    },
 
-      // Creating chart using Vega
-      vg.parse.spec(vegaSpec, function(chart) {
+    renderIframe: function(widgetSpec) {
+      // TODO
+    },
+
+    renderMap: function(widgetSpec) {
+      // TODO
+    },
+
+    // Creating chart using Vega
+    renderChart: function(widgetSpec) {
+      widgetSpec.width = this.$el.width();
+      vg.parse.spec(widgetSpec, function(chart) {
         var chartVis = chart({ el: this.el });
         chartVis.update();
       }.bind(this));
