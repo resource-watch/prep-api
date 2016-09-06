@@ -28,12 +28,18 @@
 
       if (data.type === 'embed') {
         this.renderIframe(widgetSpec);
+      } else if (data.type === 'map') {
+        this.renderMap(widgetSpec);
       } else {
         this.renderChart(widgetSpec);
       }
     },
 
     renderIframe: function(widgetSpec) {
+      // TODO
+    },
+
+    renderMap: function(widgetSpec) {
       // TODO
     },
 
