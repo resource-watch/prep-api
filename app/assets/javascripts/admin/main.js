@@ -59,6 +59,9 @@
     if (initialVisState.widgetId && initialVisState.widgetId !== '') {
       widgetPreview.fetchWidget(initialVisState);
     }
+
+    // Multiple select with select2
+    $('select[multiple]').select2({ width: '70%' });
   });
 
 })(this.App)
