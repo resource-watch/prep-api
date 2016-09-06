@@ -7,8 +7,12 @@
     },
 
     initialize: function() {
+      this.$el.select2({width: '80%'});
       this.widgets = new App.Collection.Widgets();
       this.widgets.on('reset sync', this.render.bind(this));
+      if (this.widgets.length === 0) {
+        this.$el.prop('disabled', true);
+      }
     },
 
     fetchOptions: function(state) {
@@ -32,12 +36,16 @@
 
     render: function() {
       this.$el.empty();
-      this.$el.append(new Option('', ''));
+      this.$el.prop('disabled', true);
+      this.$el.append(new Option('-- Select an option --', ''));
       this.widgets.each(function(widget) {
         var data = widget.attributes;
         var optionElement = new Option(data.attributes.name, data.id);
         this.$el.append(optionElement);
       }.bind(this));
+      if (this.widgets.length > 0) {
+        this.$el.prop('disabled', false);
+      }
     }
 
   });

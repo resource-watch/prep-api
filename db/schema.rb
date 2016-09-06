@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 20160905090440) do
     t.boolean  "published",               default: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
-    t.string   "logo_dimensions"
     t.string   "white_logo_file_name"
     t.string   "white_logo_content_type"
     t.integer  "white_logo_file_size"

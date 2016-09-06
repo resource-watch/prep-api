@@ -6,6 +6,10 @@
       'change': 'triggerChange'
     },
 
+    initialize: function() {
+      this.$el.select2({width: '80%'});
+    },
+
     triggerChange: function() {
       this.trigger('change', this.getState());
     },

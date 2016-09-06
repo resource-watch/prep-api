@@ -4,6 +4,7 @@
 //= require vega
 //= require underscore
 //= require backbone
+//= require select2
 
 //= require active_admin/base
 
