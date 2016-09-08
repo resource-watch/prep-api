@@ -10,6 +10,7 @@ ActiveAdmin.register Insight do
     column :partner
     column :attribution
     column :published
+    column :updated_at
     actions
   end
 

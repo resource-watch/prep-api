@@ -2,7 +2,7 @@ class Api::InsightsController < ApiController
 
   # GET /insights
   def index
-    insights = Insight.all.where(published: true)
+    insights = Insight.all.where(published: true).order(:updated_at).reverse
 
     render json: insights, each_serializer: Api::InsightSerializer, status: 200
   end

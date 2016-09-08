@@ -2,7 +2,7 @@ class Api::DashboardsController < ApiController
 
   # GET /dashboards
   def index
-    dashboards = Dashboard.all.where(published: true)
+    dashboards = Dashboard.all.where(published: true).order(:updated_at).reverse
     render json: dashboards, each_serializer: Api::DashboardSerializer, status: 200
   end
 
