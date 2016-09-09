@@ -8,9 +8,12 @@
 #  url         :string
 #  attribution :string
 #  published   :boolean          default(FALSE)
+#  partner_id  :integer
 #
 
 class Tool < ApplicationRecord
+
+  belongs_to :partner
 
   def self.published
     self.where(published: true)
