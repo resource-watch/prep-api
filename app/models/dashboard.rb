@@ -16,6 +16,8 @@
 #  indicator_id       :integer
 #  related_datasets   :text             default([]), is an Array
 #  attribution        :string
+#  updated_at         :datetime
+#  created_at         :datetime
 #
 
 class Dashboard < ApplicationRecord

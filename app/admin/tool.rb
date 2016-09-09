@@ -1,6 +1,6 @@
 ActiveAdmin.register Tool do
 
-  permit_params :title, :summary, :content, :url, :attribution, :published
+  permit_params :title, :summary, :content, :url, :attribution, :partner_id, :published
 
   index do
     selectable_column
@@ -19,6 +19,7 @@ ActiveAdmin.register Tool do
       f.input :title, required: true
       f.input :summary
       f.input :url
+      f.input :partner
       f.input :attribution
       f.input :published
     end

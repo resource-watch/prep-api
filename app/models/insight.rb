@@ -16,6 +16,8 @@
 #  partner_id         :integer
 #  attribution        :string
 #  template_type      :integer          default(0)
+#  created_at         :datetime
+#  updated_at         :datetime
 #
 
 class Insight < ApplicationRecord

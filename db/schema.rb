@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908163845) do
+ActiveRecord::Schema.define(version: 20160909101510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,8 @@ ActiveRecord::Schema.define(version: 20160908163845) do
     t.string  "url"
     t.string  "attribution"
     t.boolean "published",   default: false
+    t.integer "partner_id"
+    t.index ["partner_id"], name: "index_tools_on_partner_id", using: :btree
   end
 
   create_table "widget_types", force: :cascade do |t|
@@ -190,4 +192,5 @@ ActiveRecord::Schema.define(version: 20160908163845) do
     t.index ["widget_type_id"], name: "index_widgets_on_widget_type_id", using: :btree
   end
 
+  add_foreign_key "tools", "partners"
 end
