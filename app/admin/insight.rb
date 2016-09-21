@@ -11,10 +11,11 @@ ActiveAdmin.register Insight do
     column :attribution
     column :published
     column :updated_at
+    column :embeddable
     actions
   end
 
-  permit_params :title, :slug, :template_type, :summary, :content, :image, :content_url, :partner_id, :attribution, :published
+  permit_params :title, :slug, :template_type, :summary, :content, :image, :content_url, :embeddable, :partner_id, :attribution, :published
 
   form do |f|
     template_types = [[t('custom'), '0', {class:"", checked: false }],
@@ -39,6 +40,7 @@ ActiveAdmin.register Insight do
       f.input :partner
       f.input :attribution
       f.input :published, as: :boolean
+      f.input :embeddable, as: :boolean
     end
     f.actions
   end

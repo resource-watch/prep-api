@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909101510) do
+ActiveRecord::Schema.define(version: 20160921125212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20160909101510) do
     t.integer  "template_type",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "embeddable",         default: true
     t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
   end
 
