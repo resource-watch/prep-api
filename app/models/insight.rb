@@ -18,6 +18,7 @@
 #  template_type      :integer          default(0)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  embeddable         :boolean          default(TRUE)
 #
 
 class Insight < ApplicationRecord
