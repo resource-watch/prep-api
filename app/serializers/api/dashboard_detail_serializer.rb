@@ -8,7 +8,7 @@ class Api::DashboardDetailSerializer < ActiveModel::Serializer
   has_many :dashboards do
     object.dashboards.published
   end
-  has_many :tools do
+  has_many :tools, serializer: Api::ToolSerializer do
     object.tools.published
   end
   has_one :partner, serializer: Api::PartnerSerializer
