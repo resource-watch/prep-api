@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921125212) do
+ActiveRecord::Schema.define(version: 20170118082143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,22 +44,6 @@ ActiveRecord::Schema.define(version: 20160921125212) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.string   "data_fingerprint"
-    t.integer  "assetable_id"
-    t.string   "assetable_type",    limit: 30
-    t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
-    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
   create_table "dashboards", force: :cascade do |t|
@@ -147,7 +131,6 @@ ActiveRecord::Schema.define(version: 20160921125212) do
     t.boolean  "published",               default: false
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
-    t.string   "logo_dimensions"
     t.string   "white_logo_file_name"
     t.string   "white_logo_content_type"
     t.integer  "white_logo_file_size"
@@ -158,6 +141,8 @@ ActiveRecord::Schema.define(version: 20160921125212) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.text     "content"
+    t.string   "partner_type"
   end
 
   create_table "tools", force: :cascade do |t|
