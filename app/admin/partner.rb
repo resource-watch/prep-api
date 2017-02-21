@@ -4,6 +4,7 @@ ActiveAdmin.register Partner do
     selectable_column
     id_column
     column :name
+    column :partner_type
     column :url
     column :contact_name
     column :contact_email
