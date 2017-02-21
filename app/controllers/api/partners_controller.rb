@@ -2,9 +2,8 @@ class Api::PartnersController < ApiController
 
   # GET /partners
   def index
-    if params.has_key?(:featured) && params[:featured] == "true"
-      logger.debug params
-      partners = Partner.featured
+    if params.has_key?(:featured)
+      partners = Partner.featured(params[:featured])
     else
       partners = Partner.published
     end
