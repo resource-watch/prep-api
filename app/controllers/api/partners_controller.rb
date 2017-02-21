@@ -7,7 +7,7 @@ class Api::PartnersController < ApiController
     elsif params.has_key?(:featured)
       partners = Partner.featured(params[:featured]).published
     elsif params.has_key?(:partner_type)
-      partners = Partner.featured(params[:partner_type]).published
+      partners = Partner.partner_type(params[:partner_type]).published
     else
       partners = Partner.published
     end
