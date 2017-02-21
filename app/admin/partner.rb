@@ -20,6 +20,7 @@ ActiveAdmin.register Partner do
       f.input :name, required: true
       f.input :partner_type, as: :select, collection: ['partner', 'founding partner'], required: true
       f.input :description
+      f.input :content
       f.input :url
       f.input :contact_name
       f.input :contact_email

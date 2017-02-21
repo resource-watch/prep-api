@@ -46,7 +46,11 @@ class Partner < ApplicationRecord
   end
 
   def self.featured(is_featured = true)
-    self.where(published: true, featured: is_featured)
+    self.where(featured: is_featured)
+  end
+
+  def self.partners_type(partners_type = 'partner')
+    self.where(partner_type: [partners_type])
   end
 
 end

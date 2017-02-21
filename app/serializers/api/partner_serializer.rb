@@ -1,6 +1,6 @@
 class Api::PartnerSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :description, :url, :images, :contact_name, :contact_email, :featured
+  attributes :id, :name, :partner_type, :description, :content, :url, :images, :contact_name, :contact_email, :featured
 
   def images
     {
