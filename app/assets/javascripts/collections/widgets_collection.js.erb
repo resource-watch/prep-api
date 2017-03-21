@@ -2,7 +2,7 @@
 
   App.Collection.Widgets = Backbone.Collection.extend({
 
-    url: '<%= ENV['RW_API_URL'] %>/widgets',
+    url: '<%= ENV['RW_API_URL'] %>/widget',
 
     parse: function(data) {
       return data.data;
