@@ -18,7 +18,7 @@ ActiveAdmin.register Dashboard do
     faraday.adapter  Faraday.default_adapter
   end
 
-  datasetRequest = conn.get '/datasets', { :app => 'prep' }
+  datasetRequest = conn.get '/dataset', { :application => 'prep' }
   datasets = JSON.parse datasetRequest.body
 
   form do |f|
