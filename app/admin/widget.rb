@@ -22,12 +22,12 @@ ActiveAdmin.register Widget do
 
   form :html => {:id => 'widget_form'} do |f|
 
-    datasetRequest = conn.get '/datasets', { :app => 'prep' }
+    datasetRequest = conn.get '/dataset', { :app => 'prep' }
     datasets = JSON.parse datasetRequest.body
 
     if (f.object.dataset)
       params = { :app => 'prep', :datasetId => f.object.dataset, :default => true}
-      visualizationRequest = conn.get '/widgets/', params
+      visualizationRequest = conn.get '/widget/', params
       visualization = JSON.parse(visualizationRequest.body)['data']
     else
       visualization = []
