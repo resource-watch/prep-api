@@ -22,18 +22,18 @@ ActiveAdmin.register Widget do
 
   form :html => {:id => 'widget_form'} do |f|
 
-    datasetRequest = conn.get '/dataset', { :application => 'prep' }
-    datasets = JSON.parse datasetRequest.body
+    datasetRequest = conn.get '/v1/dataset', { :application => 'prep' }
+    datasets = JSON.parse(datasetRequest.body)['data']
 
     if (f.object.dataset)
       params = { :application => 'prep', :datasetId => f.object.dataset, :default => true}
-      visualizationRequest = conn.get '/widget/', params
+      visualizationRequest = conn.get '/v1/widget/', params
       visualization = JSON.parse(visualizationRequest.body)['data']
     else
       visualization = []
     end
 
-    datasets_options = datasets.sort_by!{ |dc| dc['name'] }.map{|dc| [dc['name'],dc['id']]}
+    datasets_options = datasets.sort_by!{ |dc| dc['attributes']['name'] }.map{|dc| [dc['attributes']['name'],dc['id']]}
     visualization_options = visualization.sort_by!{ |vis| vis['name'] }.map{|vis| [vis['attributes']['name'], vis['id']]}
 
     f.semantic_errors

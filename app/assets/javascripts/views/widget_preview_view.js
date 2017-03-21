@@ -26,9 +26,9 @@
       var data = this.widget.attributes;
       var widgetSpec = data.attributes.widgetConfig || {};
 
-      if (data.type === 'embed') {
+      if (widgetSpec.type === 'embed') {
         this.renderIframe(widgetSpec);
-      } else if (data.type === 'map') {
+      } else if (widgetSpec.type === 'map') {
         this.renderMap(widgetSpec);
       } else {
         this.renderChart(widgetSpec);
