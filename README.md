@@ -7,6 +7,12 @@
 
 ## Install
 
+Requirements:
+
+* NodeJS
+* Ruby 2.4.1
+* Yarn
+
 The app rides on [Ruby on Rails](http://rubyonrails.org).
 
 Clone repo:
@@ -21,8 +27,8 @@ We recommend managing your Ruby installation through
 run multiple Ruby versions for different applications:
 
 ```bash
-$ rbenv install 2.3.1
-$ rbenv local 2.3.1
+$ rbenv install 2.4.1
+$ rbenv local 2.4.1
 ```
 
 Install gem dependencies using [Bundler](http://bundler.io/)
