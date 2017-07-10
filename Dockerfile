@@ -29,7 +29,7 @@ COPY . ./
 # Precompile
 RUN bundle exec rake assets:precompile
 
-EXPOSE 4000
+EXPOSE 3000
 
 # Start puma
 CMD bundle exec rake tmp:clear && bundle exec puma -C config/puma.rb
