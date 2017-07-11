@@ -44,7 +44,7 @@ class Api::IndicatorsController < ApiController
 
     def indicator_params
       # whitelist params
-      params.permit(:title, :summary, :content, :published, widget_ids: [], :published)
+      params.permit(:title, :summary, :content, :published, widget_ids: [])
     end
 
     def set_indicator
