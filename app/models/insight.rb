@@ -27,7 +27,7 @@ class Insight < ApplicationRecord
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
-  belongs_to :partner
+  belongs_to :partner, optional: :true
 
   def self.published(is_published = true)
     self.where(published: is_published)
