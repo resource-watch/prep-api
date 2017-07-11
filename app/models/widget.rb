@@ -23,5 +23,11 @@ class Widget < ApplicationRecord
 
   belongs_to :partner
   belongs_to :widget_type
-  
+
+  private
+
+  def self.published(is_published = true)
+    self.where(published: is_published)
+  end
+
 end

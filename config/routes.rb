@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :insights, param: :slug
     resources :dashboards, param: :slug
     resources :partners, param: :slug
+    resources :indicators, param: :slug
+    resources :tools, param: :slug
   end
 
   # Homepage
