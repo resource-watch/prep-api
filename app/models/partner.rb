@@ -41,8 +41,8 @@ class Partner < ApplicationRecord
 
   private
 
-  def self.published
-    self.where(published: true)
+  def self.published(is_published = true)
+    self.where(published: is_published)
   end
 
   def self.featured(is_featured = true)
