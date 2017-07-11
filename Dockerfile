@@ -1,4 +1,4 @@
-FROM ruby:2.3.1
+FROM ruby:2.4.1
 MAINTAINER David Inga <david.inga@vizzuality.com>
 
 ENV NAME prep-manager

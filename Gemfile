@@ -24,7 +24,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'select2-rails'
-gem 'webpacker', '~> 2.0'
 
 # Active record
 gem 'pg', '~> 0.18'
