@@ -13,12 +13,10 @@ class Api::ToolsController < ApiController
     render json: tools, each_serializer: Api::ToolSerializer, status: 200
   end
 
-  # GET /tools/:slug
+  # GET /tools/:id
   def show
-    tool = Tool.find_by_slug(params[:slug])
-
-    if tool
-      render json: tool, serializer: Api::ToolSerializer, status: 200
+    if @tool
+      render json: @tool, serializer: Api::ToolSerializer, status: 200
     else
       render json: {status: 404, error: 'Tool not found'}
     end
