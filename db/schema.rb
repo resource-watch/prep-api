@@ -15,55 +15,55 @@ ActiveRecord::Schema.define(version: 20170118082143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.string   "author_type"
-    t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  create_table "active_admin_comments", id: :serial, force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.integer "resource_id"
+    t.string "author_type"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "admin_users", id: :serial, force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "dashboards", force: :cascade do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.text     "summary"
-    t.text     "content"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+  create_table "dashboards", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.text "summary"
+    t.text "content"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "published",          default: false
-    t.integer  "partner_id"
-    t.integer  "indicator_id"
-    t.text     "related_datasets",   default: [],    array: true
-    t.string   "attribution"
+    t.boolean "published", default: false
+    t.integer "partner_id"
+    t.integer "indicator_id"
+    t.text "related_datasets", default: [], array: true
+    t.string "attribution"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.index ["indicator_id"], name: "index_dashboards_on_indicator_id", using: :btree
-    t.index ["partner_id"], name: "index_dashboards_on_partner_id", using: :btree
+    t.index ["indicator_id"], name: "index_dashboards_on_indicator_id"
+    t.index ["partner_id"], name: "index_dashboards_on_partner_id"
   end
 
   create_table "dashboards_connections", id: false, force: :cascade do |t|
@@ -72,110 +72,110 @@ ActiveRecord::Schema.define(version: 20170118082143) do
   end
 
   create_table "dashboards_insights", id: false, force: :cascade do |t|
-    t.integer "dashboard_id", null: false
-    t.integer "insight_id",   null: false
-    t.index ["dashboard_id"], name: "index_dashboards_insights_on_dashboard_id", using: :btree
-    t.index ["insight_id"], name: "index_dashboards_insights_on_insight_id", using: :btree
+    t.bigint "dashboard_id", null: false
+    t.bigint "insight_id", null: false
+    t.index ["dashboard_id"], name: "index_dashboards_insights_on_dashboard_id"
+    t.index ["insight_id"], name: "index_dashboards_insights_on_insight_id"
   end
 
   create_table "dashboards_tools", id: false, force: :cascade do |t|
-    t.integer "dashboard_id", null: false
-    t.integer "tool_id",      null: false
-    t.index ["dashboard_id"], name: "index_dashboards_tools_on_dashboard_id", using: :btree
-    t.index ["tool_id"], name: "index_dashboards_tools_on_tool_id", using: :btree
+    t.bigint "dashboard_id", null: false
+    t.bigint "tool_id", null: false
+    t.index ["dashboard_id"], name: "index_dashboards_tools_on_dashboard_id"
+    t.index ["tool_id"], name: "index_dashboards_tools_on_tool_id"
   end
 
-  create_table "indicators", force: :cascade do |t|
-    t.string  "title"
-    t.text    "summary"
-    t.text    "content"
+  create_table "indicators", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.text "content"
     t.boolean "published", default: false
   end
 
   create_table "indicators_widgets", id: false, force: :cascade do |t|
-    t.integer "indicator_id", null: false
-    t.integer "widget_id",    null: false
-    t.index ["indicator_id"], name: "index_indicators_widgets_on_indicator_id", using: :btree
-    t.index ["widget_id"], name: "index_indicators_widgets_on_widget_id", using: :btree
+    t.bigint "indicator_id", null: false
+    t.bigint "widget_id", null: false
+    t.index ["indicator_id"], name: "index_indicators_widgets_on_indicator_id"
+    t.index ["widget_id"], name: "index_indicators_widgets_on_widget_id"
   end
 
-  create_table "insights", force: :cascade do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.text     "summary"
-    t.text     "content"
-    t.string   "content_url"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+  create_table "insights", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.text "summary"
+    t.text "content"
+    t.string "content_url"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "published",          default: false
-    t.integer  "partner_id"
-    t.string   "attribution"
-    t.integer  "template_type",      default: 0
+    t.boolean "published", default: false
+    t.integer "partner_id"
+    t.string "attribution"
+    t.integer "template_type", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "embeddable",         default: true
-    t.index ["partner_id"], name: "index_insights_on_partner_id", using: :btree
+    t.boolean "embeddable", default: true
+    t.index ["partner_id"], name: "index_insights_on_partner_id"
   end
 
-  create_table "partners", force: :cascade do |t|
-    t.string   "name",                                    null: false
-    t.string   "url"
-    t.string   "contact_name"
-    t.string   "contact_email"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
+  create_table "partners", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
     t.datetime "logo_updated_at"
-    t.boolean  "published",               default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.string   "white_logo_file_name"
-    t.string   "white_logo_content_type"
-    t.integer  "white_logo_file_size"
+    t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "white_logo_file_name"
+    t.string "white_logo_content_type"
+    t.integer "white_logo_file_size"
     t.datetime "white_logo_updated_at"
-    t.boolean  "featured"
-    t.text     "description"
-    t.string   "thumbnail_file_name"
-    t.string   "thumbnail_content_type"
-    t.integer  "thumbnail_file_size"
+    t.boolean "featured"
+    t.text "description"
+    t.string "thumbnail_file_name"
+    t.string "thumbnail_content_type"
+    t.integer "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-    t.text     "content"
-    t.string   "partner_type"
+    t.text "content"
+    t.string "partner_type"
   end
 
-  create_table "tools", force: :cascade do |t|
-    t.string  "title"
-    t.text    "summary"
-    t.string  "url"
-    t.string  "attribution"
-    t.boolean "published",   default: false
+  create_table "tools", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.string "url"
+    t.string "attribution"
+    t.boolean "published", default: false
     t.integer "partner_id"
-    t.index ["partner_id"], name: "index_tools_on_partner_id", using: :btree
+    t.index ["partner_id"], name: "index_tools_on_partner_id"
   end
 
-  create_table "widget_types", force: :cascade do |t|
+  create_table "widget_types", id: :serial, force: :cascade do |t|
     t.string "name", null: false
   end
 
-  create_table "widgets", force: :cascade do |t|
-    t.string   "title"
-    t.string   "summary"
-    t.string   "slug"
-    t.string   "data_url"
-    t.text     "content"
-    t.text     "widget_config"
-    t.boolean  "published",      default: false
-    t.integer  "partner_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "dataset"
-    t.string   "visualization"
-    t.integer  "widget_type_id"
-    t.string   "attribution"
-    t.index ["partner_id"], name: "index_widgets_on_partner_id", using: :btree
-    t.index ["widget_type_id"], name: "index_widgets_on_widget_type_id", using: :btree
+  create_table "widgets", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.string "summary"
+    t.string "slug"
+    t.string "data_url"
+    t.text "content"
+    t.text "widget_config"
+    t.boolean "published", default: false
+    t.integer "partner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "dataset"
+    t.string "visualization"
+    t.integer "widget_type_id"
+    t.string "attribution"
+    t.index ["partner_id"], name: "index_widgets_on_partner_id"
+    t.index ["widget_type_id"], name: "index_widgets_on_widget_type_id"
   end
 
   add_foreign_key "tools", "partners"
