@@ -1,6 +1,6 @@
 class Api::DashboardsController < ApiController
 
-  before_action :set_dashboard, only: [:show, :update, :destroy]
+  before_action :set_dashboard, only: [:update, :destroy]
 
   # GET /dashboards
   def index
