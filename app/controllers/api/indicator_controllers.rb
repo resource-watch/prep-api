@@ -13,12 +13,10 @@ class Api::IndicatorsController < ApiController
     render json: indicators, each_serializer: Api::IndicatorSerializer, status: 200
   end
 
-  # GET /indicators/:slug
+  # GET /indicators/:id
   def show
-    indicator = Indicator.find_by_slug(params[:slug])
-
-    if indicator
-      render json: indicator, serializer: Api::IndicatorSerializer, status: 200
+    if @indicator
+      render json: @indicator, serializer: Api::IndicatorSerializer, status: 200
     else
       render json: {status: 404, error: 'Indicator not found'}
     end
