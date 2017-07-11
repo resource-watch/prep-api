@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.find_by_email("admin@example.com" ) || AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
+puts '## Creating insights'
 
 # Insights
 insight1 = Insight.find_by_slug("climate-adaption-knowlegde-exchange") || Insight.create!(
@@ -37,6 +38,9 @@ insightSonoma = Insight.find_by_slug("understanding-sonoma-countys-climate-adapt
   image: File.new("db/fixtures/images/headers/bg-sonoma-header.png"),
   content_url: 'http://resource-watch.github.io/insights/sonoma.html')
 
+puts '.. Finished insights'
+puts '## Creating tools'
+
 
 # Tools
 tool1 = Tool.find_by_title("Climate Adaptation Knowledge Exchange (CAKE)") || Tool.create!(
@@ -48,6 +52,8 @@ tool2 = Tool.find_by_title("AdaptWest Climate Adaptation Planning Database") || 
   summary: 'Access adaptation case studies, virtual library resources, a directory of adaptation practitioners, and a database of relevant tools on this comprehensive website. Users can also participate in community forums or contribute resources.',
   url: 'https://www.nasa.gov/')
 
+puts '.. Finished tools'
+puts '## Creating partners'
 
 # Partners
 Partner.find_by_name("Vizzuality") || Partner.create!(
@@ -115,6 +121,9 @@ Partner.find_by_name("Esri") || Partner.create!(
   white_logo: File.new("db/fixtures/images/partner/white_logo/esri-light@2x.png"),
   published: true,
   featured: true)
+
+puts '.. Finished partners'
+puts '## Creating widgets'
 
 # Widget_types
 widgetType1 = WidgetType.find_by_name("Chart") || WidgetType.create!(
@@ -941,6 +950,9 @@ widget3 = Widget.find_by_slug("sonoma-widget") || Widget.create!(
   partner_id: 2)
 
 
+puts '.. Finished widgets'
+puts '## Creating indicators'
+
 # Indicators
 indicator1 = Indicator.find_by_title("Indicator widget example") || Indicator.create!(
   id: 1,
@@ -958,6 +970,9 @@ indicatorSonoma = Indicator.find_by_title("Sonoma") || Indicator.create!(
   content: 'This contains the list of the sonoma widgets')
 
 indicatorSonoma.widgets << widget3
+
+puts '.. Finished indicators'
+puts '## Creating dashboards'
 
 # Dashboards
 dashboard = Dashboard.find_by_slug("city-planner-assesses-possible-impacts") || Dashboard.create!(
@@ -989,3 +1004,5 @@ dashboard = Dashboard.find_by_slug("understanding-sonoma-countys-climate-adaptat
   dashboard.insights << insightSonoma
   dashboard.tools << tool1
   dashboard.tools << tool2
+
+puts '.. Finished dashboards'

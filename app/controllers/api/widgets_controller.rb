@@ -1,6 +1,6 @@
 class Api::WidgetsController < ApiController
 
-  before_action :set_widget, only: [:show, :update, :destroy]
+  before_action :set_widget, only: [:update, :destroy]
 
   # GET /widgets
   def index
