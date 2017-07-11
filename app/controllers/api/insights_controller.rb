@@ -17,10 +17,8 @@ class Api::InsightsController < ApiController
 
   # GET /insights/:slug
   def show
-    insight = Insight.find_by_slug(params[:slug])
-
-    if insight
-      render json: insight, serializer: Api::InsightSerializer, status: 200
+    if @insight
+      render json: @insight, serializer: Api::InsightSerializer, status: 200
     else
       render json: {status: 404, error: 'Insight not found'}
     end
@@ -46,13 +44,13 @@ class Api::InsightsController < ApiController
 
   private
 
-    def insight_params
-      # whitelist params
-      params.permit(:title, :slug, :template_type, :summary, :content, :image, :content_url, :embeddable, :partner_id, :attribution, :published)
-    end
+  def insight_params
+    # whitelist params
+    params.permit(:title, :slug, :template_type, :summary, :content, :image, :content_url, :embeddable, :partner_id, :attribution, :published)
+  end
 
-    def set_insight
-      @insight = Insight.find(params[:id])
-    end
+  def set_insight
+    @insight = params[:id].id? ? Insight.find(params[:id]) : Insight.find_by_slug(params[:id])
+  end
 
 end
