@@ -29,8 +29,8 @@ class Insight < ApplicationRecord
 
   belongs_to :partner
 
-  def self.published
-    self.where(published: true)
+  def self.published(is_published = true)
+    self.where(published: is_published)
   end
 
 end

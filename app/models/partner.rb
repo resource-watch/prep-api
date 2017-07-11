@@ -29,7 +29,7 @@
 
 class Partner < ApplicationRecord
 
-  default_scope {order('name ASC') }
+  default_scope { order('name ASC') }
 
   has_attached_file :thumbnail, styles: { large: "345x150>", medium: "260x65>", thumb: "50x50>" }
   has_attached_file :logo, styles: { medium: "260x65>", thumb: "50x50>" }

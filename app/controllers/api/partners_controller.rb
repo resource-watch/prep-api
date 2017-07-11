@@ -4,16 +4,20 @@ class Api::PartnersController < ApiController
 
   # GET /partners
   def index
-    published_param = params.has_key?(:published) ? params[:published] : true
+    partners = Partner.all
 
-    if params.has_key?(:featured) and params.has_key?(:partner_type)
-      partners = Partner.featured(params[:featured]).partners_type(params[:partner_type]).published(published_param)
-    elsif params.has_key?(:featured)
-      partners = Partner.featured(params[:featured]).published(published_param)
-    elsif params.has_key?(:partner_type)
-      partners = Partner.partner_type(params[:partner_type]).published(published_param)
+    if params.has_key?(:published)
+      partners = partners.published(params[:published]) if params[:published] != 'all'
     else
-      partners = Partner.published(published_param)
+      partners = partners.published
+    end
+
+    if params.has_key?(:featured)
+      partners = partners.featured(params[:featured])
+    end
+
+    if params.has_key?(:partner_type)
+      partners = partners.featured(params[:partner_type])
     end
 
     render json: partners, each_serializer: Api::PartnerSerializer, status: 200

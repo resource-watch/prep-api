@@ -4,8 +4,14 @@ class Api::InsightsController < ApiController
 
   # GET /insights
   def index
-    published_param = params.has_key?(:published) ? params[:published] : true
-    insights = Insight.all.where(published: published_param).order(:updated_at).reverse
+    insights = Insight.all
+
+    if params.has_key?(:published)
+      insights = insights.published(params[:published]) if params[:published] != 'all'
+    else
+      insights = insights.published
+    end
+    insights = insights.order(:updated_at).reverse
     render json: insights, each_serializer: Api::InsightSerializer, status: 200
   end
 
