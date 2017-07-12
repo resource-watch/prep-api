@@ -23,6 +23,14 @@ class Api::PartnersController < ApiController
     render json: partners, each_serializer: Api::PartnerSerializer, status: 200
   end
 
+  def show
+    if @partner
+      render json: @partner, serializer: Api::PartnerSerializer, status: 200
+    else
+      render json: {status: 404, error: 'Partner not found'}
+    end
+  end
+
   # POST /partners
   def create
     @partner = Partner.new(partner_params)

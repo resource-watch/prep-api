@@ -1,6 +1,6 @@
 class Api::WidgetsController < ApiController
 
-  before_action :set_widget, only: [:update, :destroy]
+  before_action :set_widget, only: [:show, :update, :destroy]
 
   # GET /widgets
   def index
@@ -15,10 +15,8 @@ class Api::WidgetsController < ApiController
 
   # GET /widgets/:slug
   def show
-    widget = Widget.find_by_slug(params[:slug])
-
-    if widget
-      render json: widget, serializer: Api::WidgetSerializer, status: 200
+    if @widget
+      render json: @widget, serializer: Api::WidgetSerializer, status: 200
     else
       render json: {status: 404, error: 'Widget not found'}
     end
@@ -44,13 +42,13 @@ class Api::WidgetsController < ApiController
 
   private
 
-    def widget_params
-      # whitelist params
-      params.permit(:widget_type_id, :title, :slug, :summary, :content, :dataset, :visualization, :attribution, :data_url, :widget_config, :partner_id, :published)
-    end
+  def widget_params
+    # whitelist params
+    params.permit(:widget_type_id, :title, :slug, :summary, :content, :dataset, :visualization, :attribution, :data_url, :widget_config, :partner_id, :published)
+  end
 
-    def set_widget
-      @widget = Widget.find(params[:id])
-    end
+  def set_widget
+    @widget = params[:id].id? ? Widget.find(params[:id]) : Widget.find_by_slug(params[:id])
+  end
 
 end
