@@ -21,6 +21,10 @@ ActiveAdmin.register Dashboard do
   datasetRequest = conn.get '/v1/dataset', { :application => 'prep' }
   datasets = JSON.parse datasetRequest.body
 
+  datasets['data'].each do |d|
+    puts d
+  end
+
   form do |f|
     f.semantic_errors
     f.inputs 'Dashboards Detail' do
@@ -36,9 +40,9 @@ ActiveAdmin.register Dashboard do
       f.input :tools
       f.input :dashboards, :label => "Related dashboards", collection: Dashboard.excluding_self(f.object)
       f.input :related_datasets,
-        as: :select,
-        collection: datasets.reject(&:blank?).map{|dc|[dc['name'],dc['id']]},
-        :input_html => { :multiple => true }
+              collection: datasets['data'].map { |dc| [dc['attributes']['name'], dc['id']] },
+              as: :select,
+              input_html: { multiple: true }
       f.input :attribution
       f.input :partner, required: true
       f.input :published, as: :boolean
