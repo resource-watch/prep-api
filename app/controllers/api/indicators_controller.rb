@@ -6,9 +6,9 @@ class Api::IndicatorsController < ApiController
   def index
     indicators = Indicator.all
     if params.has_key?(:published)
-      indicators = indicators.published(params[:published]) if params[:published] != 'all'
+      indicators = indicators.where(published: params[:published]) unless params[:published].eql? 'all'
     else
-      indicators = indicators.published
+      indicators = indicators.where(published: 'TRUE')
     end
     render json: indicators, each_serializer: Api::IndicatorSerializer, status: 200
   end
