@@ -1,6 +1,8 @@
 FROM ruby:2.4.1
 MAINTAINER David Inga <david.inga@vizzuality.com>
 
+ARG secretKey
+ENV SECRET_KEY_BASE $secretKey
 ENV NAME prep-manager
 
 # Install dependencies
