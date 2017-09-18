@@ -707,7 +707,7 @@ DEPENDENCIES
   activeadmin
   annotate
   autoprefixer-rails
-  aws-sdk (>= 2.0.34)
+  aws-sdk (~> 3)
   byebug
   coffee-rails (~> 4.2)
   devise
