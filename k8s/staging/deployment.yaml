@@ -35,11 +35,6 @@ spec:
           - name: APIGATEWAY_URL
             value: http://production-api.globalforestwatch.org
           - name: AUTH_USERNAME
-            value: "prep"
-          - name: AUTH_PASSWORD
-            value: "true"
-
-          - name: AUTH_USERNAME
             valueFrom:
                 secretKeyRef:
                   name: appsecrets

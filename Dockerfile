@@ -28,9 +28,6 @@ ENV RACK_ENV production
 # Bundle app source
 COPY . ./
 
-# Precompile
-RUN bundle exec rake assets:precompile
-
 EXPOSE 3000
 
 # Start puma
