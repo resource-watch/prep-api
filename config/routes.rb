@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   # Active Admin routes
   # devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 
   # API endpoints
   namespace :api do
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   # Homepage
-  root 'admin/home#index'
+  # root 'admin/home#index'
 
   # Auth
   get 'auth/login', to: 'auth#login'

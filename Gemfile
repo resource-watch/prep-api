@@ -13,10 +13,10 @@ gem 'rails', '~> 5.1.1'
 # Rails plugins
 gem 'puma', '~> 3.7'
 gem 'dotenv-rails'
-gem 'paperclip'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'faraday'
-gem 'aws-sdk', '~> 3'
+gem 'paperclip', '~> 5.1.0'
+gem 'aws-sdk', '~> 2.3.0'
 
 # Assets managment
 gem 'sass-rails', '~> 5.0'
