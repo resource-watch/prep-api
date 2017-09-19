@@ -84,7 +84,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     preserve_files: true,
-    path: "#{ENV.fetch('S3_PATH')}/:attachment/:id/:style/:filename.:extension",
+    path: "#{ENV.fetch('S3_PATH')}/:class/:attachment/:id_partition/:style/:filename",
     s3_region: ENV.fetch('AWS_REGION'),
     s3_credentials: {
       bucket: ENV.fetch('S3_BUCKET_NAME'),
