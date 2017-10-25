@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   # API endpoints
   namespace :api do
     resources :widgets
-    resources :insights
     resources :dashboards
-    resources :partners
     resources :indicators
+    resources :insights
     resources :tools
+    resources :partners
   end
 
   # Homepage
