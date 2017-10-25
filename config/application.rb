@@ -9,7 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 # require "action_cable/engine"
-require "sprockets/railtie"
+# require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -25,6 +25,9 @@ module PreparednesForResilience
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # API mode
+    config.api_only = true
+
     # Setup scaffold
     config.generators do |g|
       g.assets          false
@@ -35,7 +38,7 @@ module PreparednesForResilience
     # CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'localhost', '*.prepdata.org'
         resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put, :patch]
       end
     end

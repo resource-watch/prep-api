@@ -1,10 +1,9 @@
 FROM ruby:2.4.1-alpine
-MAINTAINER David Inga <david.inga@vizzuality.com>
 
 ARG secretKey
 
-ENV RAILS_ENV production
-ENV RACK_ENV production
+ENV RAILS_ENV development
+ENV RACK_ENV development
 ENV SECRET_KEY_BASE $secretKey
 ENV RW_API_URL https://api.resourcewatch.org
 ENV APIGATEWAY_URL http://production-api.globalforestwatch.org
@@ -31,7 +30,7 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --jobs 20 --retry 5 --without development test
+RUN bundle install --jobs 20 --retry 5
 
 # Bundle app source
 ADD . /usr/src/app
@@ -39,4 +38,4 @@ ADD . /usr/src/app
 EXPOSE 3000
 
 # Start puma
-CMD bundle exec rake tmp:clear && bundle exec puma -C config/puma.rb
+CMD bundle exec rake tmp:clear && bundle exec rails server -b 0.0.0.0

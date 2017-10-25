@@ -1,0 +1,31 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    container_name: prep-db-dev
+    volumes:
+      - "./.data:/var/lib/postgresql/data"
+  api:
+    build:
+      dockerfile: Dockerfile-dev
+      context: .
+    ports:
+      - "4001:3000"
+    environment:
+      - POSTGRES_PORT_5432_TCP_ADDR=postgres
+      - POSTGRES_PORT_5432_TCP_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=postgres
+      - RACK_ENV=development
+      - RAILS_ENV=development
+      - PORT=3000
+      - SECRET=keyboard cat
+      - BULLET=enabled
+    restart: always
+    container_name: prep-api-dev
+    links:
+      - postgres
+    volumes:
+      - "./:/usr/src/app"
+      - "./public/system:/usr/src/app/public/system"
+      - "./public/uploads:/usr/src/app/public/uploads"

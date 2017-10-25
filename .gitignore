@@ -22,6 +22,8 @@
 !/log/.keep
 !/tmp/.keep
 *.log
+*.sql
+*.dump
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -34,5 +36,3 @@
 
 # Ignore environment variables
 /.env
-/public/packs
-/node_modules
