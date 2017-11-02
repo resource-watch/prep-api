@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170118082143) do
+ActiveRecord::Schema.define(version: 20171031170808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,21 @@ ActiveRecord::Schema.define(version: 20170118082143) do
     t.boolean "published", default: false
     t.integer "partner_id"
     t.index ["partner_id"], name: "index_tools_on_partner_id"
+  end
+
+  create_table "user_dashboards", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.string "description"
+    t.text "content"
+    t.boolean "published"
+    t.text "summary"
+    t.boolean "private"
+    t.string "user_id"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "widget_types", id: :serial, force: :cascade do |t|

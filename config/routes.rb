@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :insights
     resources :tools
     resources :partners
+    resources :user_dashboards
   end
 
   # Homepage

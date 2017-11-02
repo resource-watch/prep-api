@@ -14,7 +14,6 @@
 #  published               :boolean          default(FALSE)
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
-#  logo_dimensions         :string
 #  white_logo_file_name    :string
 #  white_logo_content_type :string
 #  white_logo_file_size    :integer
@@ -25,6 +24,8 @@
 #  thumbnail_content_type  :string
 #  thumbnail_file_size     :integer
 #  thumbnail_updated_at    :datetime
+#  content                 :text
+#  partner_type            :string
 #
 
 class Partner < ApplicationRecord
