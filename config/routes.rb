@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :tools
     resources :partners
     resources :user_dashboards
+    resources :resources
   end
 
   # Homepage
