@@ -4,12 +4,9 @@ services:
     build: .
     ports:
       - "4001:3000"
-    env_file: .env
     environment:
       - RACK_ENV=production
       - RAILS_ENV=production
       - PORT=3000
     restart: always
-    container_name: prep-manager
-    volumes:
-      - "/home/ubuntu/prep-manager/uploads:/usr/src/prep-manager/public/system"
+    container_name: prep-api
