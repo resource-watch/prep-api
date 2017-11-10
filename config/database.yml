@@ -88,5 +88,4 @@ staging:
 
 production:
   <<: *default
-  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "" } %>
-  database: prep_production
+  url: <%= ENV['POSTGRES_URL'] %>
