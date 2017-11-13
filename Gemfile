@@ -16,6 +16,7 @@ gem 'dotenv-rails'
 gem 'paperclip'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'faraday'
+gem 'aws-sdk', '~> 2.3.0'
 
 # Assets managment
 gem 'sass-rails', '~> 5.0'
