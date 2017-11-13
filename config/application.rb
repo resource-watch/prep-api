@@ -38,7 +38,7 @@ module PreparednesForResilience
     # CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'www.prepdata.org', 'prepdata.org', 'staging.prepdata.org', 'beta.prepdata.org', /\Ahttp:\/\/localhost(:\d+)?\z/
+        origins 'www.prepdata.org', 'prepdata.org', 'staging.prepdata.org', 'beta.prepdata.org', 'preproduction.prepdata.org', /\Ahttp:\/\/localhost(:\d+)?\z/
         resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put, :patch]
       end
     end
