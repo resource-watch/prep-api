@@ -42,7 +42,7 @@ class Api::ResourcesController < ApiController
 
   def resource_params
     # whitelist params
-    params.permit(:title, :slug, :description, :irl, :photo)
+    params.permit(:title, :slug, :description, :url, :photo)
   end
 
   def set_resource
