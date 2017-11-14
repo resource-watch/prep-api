@@ -1,5 +1,5 @@
 class Api::ResourceSerializer < ActiveModel::Serializer
-  attributes :id, :title, :slug, :description, :url, :photo
+  attributes :id, :title, :slug, :description, :url, :photo, :resource_type, :published
 
   def photo
     {
