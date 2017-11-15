@@ -4,7 +4,7 @@ class Api::ResourcesController < ApiController
 
   # GET /resources
   def index
-    resources = Resource.all
+    resources = Resource.filter(filterable_params(params))
 
     resources = resources.order(:updated_at).reverse
     render json: resources, each_serializer: Api::ResourceSerializer, status: 200
@@ -42,11 +42,15 @@ class Api::ResourcesController < ApiController
 
   def resource_params
     # whitelist params
-    params.permit(:title, :slug, :description, :irl, :photo)
+    params.permit(:title, :slug, :description, :url, :photo, :resource_type, :published)
   end
 
   def set_resource
     @resource = params[:id].id? ? Resource.find(params[:id]) : Resource.find_by_slug(params[:id])
+  end
+
+  def filterable_params(params)
+    params.slice(:published, :resource_type)
   end
 
 end
