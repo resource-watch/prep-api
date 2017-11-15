@@ -4,6 +4,7 @@ class Api::ResourceSerializer < ActiveModel::Serializer
   def photo
     {
         thumb: object.photo.url(:thumb),
+        medium: object.photo.url(:medium),
         original: object.photo.url(:original)
     }
   end
