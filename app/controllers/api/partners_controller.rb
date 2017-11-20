@@ -17,7 +17,7 @@ class Api::PartnersController < ApiController
     end
 
     if params.has_key?(:partner_type)
-      partners = partners.featured(params[:partner_type])
+      partners = partners.partner_type(params[:partner_type])
     end
 
     render json: partners, each_serializer: Api::PartnerSerializer, status: 200
