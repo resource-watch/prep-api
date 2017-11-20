@@ -32,7 +32,8 @@ module PreparednesForResilience
     config.generators do |g|
       g.assets          false
       g.helper          false
-      g.test            false
+      g.test_framework :rspec, fixture: true
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
     # CORS

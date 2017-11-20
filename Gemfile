@@ -20,6 +20,8 @@ gem 'faraday'
 gem 'paperclip', '~> 5.1.0'
 gem 'aws-sdk', '~> 2.3.0'
 
+gem 'awesome_print', '1.6.1'
+
 # Active record
 gem 'pg', '~> 0.18'
 # Active record serializer
@@ -28,16 +30,25 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Active admin
 gem 'devise'
 gem 'draper'
+gem 'simple_command'
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails', '4.8.0'
+end
+
+group :test do
+  gem 'rspec-rails', '3.5.0'
+  gem 'database_cleaner', '1.5.3'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors', '2.1.1'
+  gem 'binding_of_caller', '0.7.2'
   gem 'web-console', '>= 3.3.0'
   gem 'annotate'
 end
