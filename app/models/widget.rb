@@ -20,6 +20,8 @@
 #
 
 class Widget < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   belongs_to :partner
   belongs_to :widget_type
@@ -30,4 +32,9 @@ class Widget < ApplicationRecord
     self.where(published: is_published)
   end
 
+  private
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 end

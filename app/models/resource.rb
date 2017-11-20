@@ -27,7 +27,7 @@ class Resource < ApplicationRecord
   do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
-  friendly_id :title, use: %i[slugged]
+  friendly_id :title, use: :slugged
 
   validates_presence_of :title
   validates_presence_of :resource_type
@@ -57,5 +57,9 @@ class Resource < ApplicationRecord
       'Climate resilience tools and services',
       'Climate data portals'
     ]
+  end
+
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 end
