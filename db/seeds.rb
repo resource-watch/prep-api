@@ -1006,3 +1006,4 @@ dashboard = Dashboard.find_by_slug("understanding-sonoma-countys-climate-adaptat
   dashboard.tools << tool2
 
 puts '.. Finished dashboards'
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

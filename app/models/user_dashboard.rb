@@ -25,7 +25,7 @@ class UserDashboard < ApplicationRecord
   do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
-  friendly_id :name, use: %i[slugged]
+  friendly_id :name, use: [:slugged, :finders]
 
   validates_presence_of :name
 
@@ -39,7 +39,6 @@ class UserDashboard < ApplicationRecord
     end
     user_dashboards
   end
-
 
   private
 
