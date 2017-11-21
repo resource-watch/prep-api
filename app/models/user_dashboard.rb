@@ -48,4 +48,8 @@ class UserDashboard < ApplicationRecord
     image.original_filename = 'file.jpg'
     self.photo = image
   end
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
 end
