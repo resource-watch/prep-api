@@ -36,6 +36,20 @@ class Resource < ApplicationRecord
   scope :published, -> (published) { where published: published }
   scope :resource_type, -> (resource_type) { where resource_type: resource_type }
 
+  def accepted_resource_type
+    unless Resource.resource_types.include? resource_type
+      errors.add(:resource_type, "is not a valid one")
+    end
+  end
+
+  def self.resource_types
+    [
+      'Understanding impacts of climate change',
+      'Climate resilience tools and services',
+      'Climate data portals'
+    ]
+  end
+
   private
 
   def parse_image
@@ -43,20 +57,6 @@ class Resource < ApplicationRecord
     image = Paperclip.io_adapters.for(image_base)
     image.original_filename = 'file.jpg'
     self.photo = image
-  end
-
-  def accepted_resource_type
-    unless resource_types.include? resource_type
-      errors.add(:resource_type, "is not a valid one")
-    end
-  end
-
-  def resource_types
-    [
-      'Understanding impacts of climate change',
-      'Climate resilience tools and services',
-      'Climate data portals'
-    ]
   end
 
   def should_generate_new_friendly_id?

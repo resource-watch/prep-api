@@ -2,11 +2,13 @@
 #
 # Table name: indicators
 #
-#  id        :integer          not null, primary key
-#  title     :string
-#  summary   :text
-#  content   :text
-#  published :boolean          default(FALSE)
+#  id         :integer          not null, primary key
+#  title      :string
+#  summary    :text
+#  content    :text
+#  published  :boolean          default(FALSE)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Indicator < ApplicationRecord

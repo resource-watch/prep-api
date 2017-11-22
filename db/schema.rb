@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120163149) do
+ActiveRecord::Schema.define(version: 20171122145424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20171120163149) do
     t.text "summary"
     t.text "content"
     t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "indicators_widgets", id: false, force: :cascade do |t|
@@ -167,6 +169,8 @@ ActiveRecord::Schema.define(version: 20171120163149) do
     t.string "attribution"
     t.boolean "published", default: false
     t.integer "partner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["partner_id"], name: "index_tools_on_partner_id"
   end
 
@@ -183,6 +187,8 @@ ActiveRecord::Schema.define(version: 20171120163149) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "widget_types", id: :serial, force: :cascade do |t|
