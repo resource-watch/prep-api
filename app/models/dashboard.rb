@@ -21,6 +21,8 @@
 #
 
 class Dashboard < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
 
@@ -58,4 +60,9 @@ class Dashboard < ApplicationRecord
     self.where(published: is_published)
   end
 
+  private
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 end
