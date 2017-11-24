@@ -22,8 +22,6 @@ gem 'aws-sdk', '~> 2.3.0'
 
 # Active record
 gem 'pg', '~> 0.18'
-gem 'activeresource'
-gem "activeresource-response"
 
 # Active record serializer
 gem 'active_model_serializers', '~> 0.10.0'
