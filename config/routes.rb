@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   # Active Admin routes
-  get 'admin', to: 'admin/dashboard_page#index'
+  get 'admin', to: 'admin/dashboards#index'
   ActiveAdmin.routes(self)
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  # devise_for :admin_users, ActiveAdmin::Devise.config
 
   # API endpoints
   namespace :api do

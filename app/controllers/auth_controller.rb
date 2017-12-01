@@ -6,14 +6,15 @@ class AuthController < ApplicationController
       redirect_to_apigateway
     else
       session[:user_token] = token
-      redirect_to root_path
+      redirect_to admin_root_path
     end
   end
 
   def logout
+    logout_api_gateway
     session.delete(:user_token)
     session.delete(:current_user)
-    redirect_to_apigateway
+    redirect_after_logout
   end
 
 end
