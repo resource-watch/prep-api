@@ -230,7 +230,6 @@ ActiveAdmin.setup do |config|
   config.namespace :admin do |admin|
     admin.build_menu :utility_navigation do |menu|
       menu.add label: "Logout", url: :auth_logout_path
-      # admin.add_logout_button_to_menu menu
     end
   end
 
