@@ -11,8 +11,8 @@ class AuthController < ApplicationController
   end
 
   def logout
-    session[:user_token].destroy
-    session[:current_user].destroy
+    session.delete(:user_token)
+    session.delete(:current_user)
     logout_apigateway
   end
 
