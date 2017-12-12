@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def access_denied(exception)
-    render json: { unpermitted: exception.message }
+    logout_apigateway
   end
 
   private
