@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# AdminUser.find_by_email("admin@example.com" ) || AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 puts '## Creating insights'
 
@@ -1006,4 +1005,3 @@ dashboard = Dashboard.find_by_slug("understanding-sonoma-countys-climate-adaptat
   dashboard.tools << tool2
 
 puts '.. Finished dashboards'
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
