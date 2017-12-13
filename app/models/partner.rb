@@ -30,8 +30,6 @@
 
 class Partner < ApplicationRecord
 
-  default_scope { order('name ASC') }
-
   has_attached_file :thumbnail, styles: { large: "345x150>", medium: "260x65>", thumb: "50x50>" }
   has_attached_file :logo, styles: { medium: "260x65>", thumb: "50x50>" }
   has_attached_file :white_logo, styles: { medium: "260x65>", thumb: "50x50>" }
@@ -39,19 +37,5 @@ class Partner < ApplicationRecord
   validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\z/
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
   validates_attachment_content_type :white_logo, content_type: /\Aimage\/.*\z/
-
-  private
-
-  def self.published(is_published = true)
-    self.where(published: is_published)
-  end
-
-  def self.featured(is_featured = true)
-    self.where(featured: is_featured)
-  end
-
-  def self.partner_type(partner_type = 'partner')
-    self.where(partner_type: partner_type)
-  end
 
 end

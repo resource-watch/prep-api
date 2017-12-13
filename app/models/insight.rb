@@ -22,6 +22,7 @@
 #
 
 class Insight < ApplicationRecord
+
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
@@ -31,13 +32,10 @@ class Insight < ApplicationRecord
 
   belongs_to :partner, optional: :true
 
-  def self.published(is_published = true)
-    self.where(published: is_published)
-  end
-
   private
 
   def should_generate_new_friendly_id?
     title_changed?
   end
+
 end

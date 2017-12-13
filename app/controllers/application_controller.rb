@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ApiHelper
+
   protect_from_forgery with: :exception
 
   before_action :set_current_user
@@ -31,15 +33,7 @@ class ApplicationController < ActionController::Base
     logout_apigateway
   end
 
-  private
-
-  def connect_gateway
-    Faraday.new(url: "#{ENV['APIGATEWAY_URL']}") do |faraday|
-      faraday.request  :url_encoded             # form-encode POST params
-      faraday.response :logger                  # log requests to STDOUT
-      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-    end
-  end
+  protected
 
   def set_current_user
     current_user if session[:user_token].present?

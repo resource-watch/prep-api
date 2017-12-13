@@ -22,6 +22,7 @@
 #
 
 class Dashboard < ApplicationRecord
+
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
@@ -118,4 +119,5 @@ class Dashboard < ApplicationRecord
 
     contents
   end
+
 end

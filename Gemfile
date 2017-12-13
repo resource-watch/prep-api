@@ -32,6 +32,10 @@ gem 'pg', '~> 0.18'
 # Active record serializer
 gem 'active_model_serializers', '~> 0.10.0'
 
+# JSON API
+gem 'jsonapi-resources'
+gem 'jsonapi-utils', '~> 0.7.0'
+
 # Active admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
@@ -40,6 +44,7 @@ gem 'draper'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
 end
 
 group :development do

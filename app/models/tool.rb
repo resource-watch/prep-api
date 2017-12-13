@@ -17,8 +17,4 @@ class Tool < ApplicationRecord
 
   belongs_to :partner, optional: :true
 
-  def self.published(is_published = true)
-    self.where(published: is_published)
-  end
-
 end

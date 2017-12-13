@@ -18,23 +18,21 @@
 #
 
 class Resource < ApplicationRecord
-  include Filterable
 
   before_validation :parse_image
+
   attr_accessor :image_base
-  has_attached_file :photo, styles: { medium: "345x150>", thumb: "100x100>" }
-  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
-  do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
+  has_attached_file :photo, styles: { medium: "345x150>", thumb: "100x100>" }
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+  do_not_validate_attachment_file_type :photo
+
   validates_presence_of :title
   validates_presence_of :resource_type
   validate :accepted_resource_type
-
-  scope :published, -> (published) { where published: published }
-  scope :resource_type, -> (resource_type) { where resource_type: resource_type }
 
   def accepted_resource_type
     unless Resource.resource_types.include? resource_type
@@ -62,4 +60,5 @@ class Resource < ApplicationRecord
   def should_generate_new_friendly_id?
     title_changed?
   end
+
 end

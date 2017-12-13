@@ -20,27 +20,19 @@
 #
 
 class UserDashboard < ApplicationRecord
+
   before_validation :parse_image
+
   attr_accessor :image_base
-  has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }
-  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
-  do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
 
+  has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
+  do_not_validate_attachment_file_type :photo
+
   validates_presence_of :name
-
-  def self.fetch_all(options = {})
-    user_dashboards = UserDashboard.all
-
-    if options[:filter]
-      %w[name slug published private user_id].each do |filter|
-        user_dashboards = user_dashboards.where("#{filter}": options[:filter]["#{filter}"]) if options[:filter]["#{filter}"].present?
-      end
-    end
-    user_dashboards
-  end
 
   private
 
@@ -54,4 +46,5 @@ class UserDashboard < ApplicationRecord
   def should_generate_new_friendly_id?
     name_changed?
   end
+
 end

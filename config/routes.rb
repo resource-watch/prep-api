@@ -6,15 +6,17 @@ Rails.application.routes.draw do
 
   # API endpoints
   namespace :api do
-    resources :widgets
-    resources :dashboards
-    resources :indicators
-    resources :insights
-    resources :tools
-    resources :partners
-    resources :user_dashboards
-    resources :resources
+
+    jsonapi_resources :widgets
+    jsonapi_resources :dashboards
+    jsonapi_resources :indicators
+    jsonapi_resources :insights
+    jsonapi_resources :tools
+    jsonapi_resources :partners
+    jsonapi_resources :user_dashboards
+    jsonapi_resources :resources
     resources :temporary_content_images, only: [:create]
+
   end
 
   # Auth
