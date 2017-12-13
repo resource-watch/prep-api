@@ -1,6 +1,5 @@
 class ApiController < ActionController::API
   include JSONAPI::ActsAsResourceController
-  include JSONAPI::Utils
   include ApiHelper
 
   before_action :authenticate, except: [:index, :show]

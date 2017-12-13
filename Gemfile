@@ -34,7 +34,6 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 # JSON API
 gem 'jsonapi-resources'
-gem 'jsonapi-utils', '~> 0.7.0'
 
 # Active admin
 gem 'activeadmin', github: 'activeadmin'
