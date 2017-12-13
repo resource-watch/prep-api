@@ -15,6 +15,8 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 
 class UserDashboard < ApplicationRecord
@@ -25,7 +27,7 @@ class UserDashboard < ApplicationRecord
   do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
   validates_presence_of :name
 

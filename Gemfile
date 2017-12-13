@@ -22,10 +22,12 @@ gem 'aws-sdk', '~> 2.3.0'
 
 # Active record
 gem 'pg', '~> 0.18'
+
 # Active record serializer
 gem 'active_model_serializers', '~> 0.10.0'
 
 # Active admin
+gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'draper'
 

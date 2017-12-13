@@ -23,7 +23,7 @@
 
 class Insight < ApplicationRecord
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: [:slugged, :finders]
 
   has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
 

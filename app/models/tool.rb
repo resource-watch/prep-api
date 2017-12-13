@@ -9,6 +9,8 @@
 #  attribution :string
 #  published   :boolean          default(FALSE)
 #  partner_id  :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class Tool < ApplicationRecord

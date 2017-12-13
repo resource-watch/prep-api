@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114172102) do
+ActiveRecord::Schema.define(version: 20171212120638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
 
   create_table "dashboards", id: :serial, force: :cascade do |t|
     t.string "title"
@@ -59,6 +73,8 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.text "summary"
     t.text "content"
     t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "indicators_widgets", id: false, force: :cascade do |t|
@@ -136,6 +152,8 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.string "attribution"
     t.boolean "published", default: false
     t.integer "partner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["partner_id"], name: "index_tools_on_partner_id"
   end
 
@@ -152,6 +170,8 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "widget_types", id: :serial, force: :cascade do |t|
