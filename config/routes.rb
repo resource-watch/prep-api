@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   # Auth
-  get 'auth/login', to: 'auth#login'
-  get 'auth/logout', to: 'auth#logout'
+  get 'authentication/login', to: 'auth#login'
+  get 'authentication/logout', to: 'auth#logout'
 
 end
