@@ -23,6 +23,8 @@ spec:
           limits:
             memory: "512Mi"
         env:
+          - name: RAILS_LOG_TO_STDOUT
+            value: "true"
           - name: RACK_ENV
             value: production
           - name: RAILS_ENV
