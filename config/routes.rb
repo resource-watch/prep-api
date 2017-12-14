@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Active Admin routes
-  get 'admin', to: 'admin/dashboards#index'
+  get 'manager', to: 'manager/dashboards#index'
   ActiveAdmin.routes(self)
 
   # API endpoints
