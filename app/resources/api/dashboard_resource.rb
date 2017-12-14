@@ -12,5 +12,13 @@ module Api
     has_many :dashboards
     has_many :insights
     has_many :tools
+
+    def image
+      {
+        large: @model.image.url(:large),
+        medium: @model.image.url(:medium),
+        thumb: @model.image.url(:thumb)
+      }
+    end
   end
 end

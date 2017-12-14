@@ -9,5 +9,13 @@ module Api
     filters :title, :slug, :content_url, :published, :partner_id, :template_type, :embeddable
 
     has_one :partner
+
+    def image
+      {
+        large: @model.image.url(:large),
+        medium: @model.image.url(:medium),
+        thumb: @model.image.url(:thumb)
+      }
+    end
   end
 end
