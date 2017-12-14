@@ -7,7 +7,7 @@ ENV RAILS_ENV production
 ENV RACK_ENV production
 ENV SECRET_KEY_BASE $secretKey
 ENV RW_API_URL https://api.resourcewatch.org
-ENV APIGATEWAY_URL http://production-api.globalforestwatch.org
+ENV APIGATEWAY_URL https://production-api.globalforestwatch.org
 
 # Install dependencies
 RUN apk update && \
