@@ -70,19 +70,19 @@ ActiveAdmin.register Dashboard do
       row :attribution
       row :dashboards do
         d.dashboards
-          .map { |r| link_to(r.title, admin_dashboard_path(r)) }
+          .map { |r| link_to(r.title, manager_dashboard_path(r)) }
           .join
           .html_safe
       end
       row :insights do
         d.insights
-          .map { |r| link_to(r.title, admin_insight_path(r)) }
+          .map { |r| link_to(r.title, manager_insight_path(r)) }
           .join(', ')
           .html_safe
       end
       row :tools do
         d.tools
-          .map { |r| link_to(r.title, admin_tool_path(r)) }
+          .map { |r| link_to(r.title, manager_tool_path(r)) }
           .join(', ')
           .html_safe
       end
