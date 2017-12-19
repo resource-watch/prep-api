@@ -23,6 +23,9 @@ gem 'faraday'
 gem 'paperclip', '~> 5.1.0'
 gem 'aws-sdk', '~> 2.3.0'
 
+# Cronjobs
+gem 'whenever', :require => false
+
 # Active record
 gem 'pg', '~> 0.18'
 
