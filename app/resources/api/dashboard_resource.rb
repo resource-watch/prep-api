@@ -3,7 +3,7 @@ module Api
     caching
     
     attributes :title, :slug, :summary, :content, :image, :published, :partner_id,
-               :indicator_id, :related_datasets, :attribution, :created_at, :updated_at
+               :indicator_id, :related_datasets, :attribution, :created_at, :updated_at, :user_id
 
     filters :title, :slug, :published, :partner_id, :indicator_id
 
