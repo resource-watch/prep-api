@@ -18,6 +18,7 @@
 #  attribution        :string
 #  updated_at         :datetime
 #  created_at         :datetime
+#  user_id            :string
 #
 
 class Dashboard < ApplicationRecord
