@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :partners
     resources :user_dashboards
     resources :resources
+    resources :temporary_content_images, only: [:create]
   end
 
   # Auth
