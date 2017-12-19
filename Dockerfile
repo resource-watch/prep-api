@@ -37,4 +37,6 @@ RUN bundle install --jobs 20 --retry 5 --without development test
 ADD . /usr/src/app
 
 EXPOSE 3000
+
+CMD bundle exec rake tmp:clear && bundle exec puma -C config/puma.rb
 ENTRYPOINT ["./entrypoint.sh"]
