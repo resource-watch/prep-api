@@ -141,6 +141,8 @@ GEM
       activerecord (>= 4.1)
       concurrent-ruby
       railties (>= 4.1)
+    jsonapi-utils (0.7.0)
+      jsonapi-resources (= 0.9.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -306,14 +308,15 @@ DEPENDENCIES
   faraday
   friendly_id
   jsonapi-resources
+  jsonapi-utils (~> 0.7.0)
   listen (>= 3.0.5, < 3.2)
   paperclip (~> 5.1.0)
   pg (~> 0.18)
   puma (~> 3.7)
   rack-cors
   rails (~> 5.1.2)
-  sass-rails (>= 5.0)
   rspec-rails
+  sass-rails (>= 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
