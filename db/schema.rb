@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20171219163631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "content_images", force: :cascade do |t|
-    t.integer "dashboard_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
   create_table "dashboards", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -140,15 +130,6 @@ ActiveRecord::Schema.define(version: 20171219163631) do
     t.datetime "photo_updated_at"
     t.string "resource_type"
     t.boolean "published", default: false
-  end
-
-  create_table "temporary_content_images", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
   end
 
   create_table "tools", id: :serial, force: :cascade do |t|
