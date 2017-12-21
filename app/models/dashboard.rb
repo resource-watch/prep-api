@@ -61,6 +61,10 @@ class Dashboard < ApplicationRecord
     self.where(published: is_published)
   end
 
+  scope :user_id, ->(user_id) {
+    where(user_id: user_id)
+  }
+
   private
 
   def should_generate_new_friendly_id?

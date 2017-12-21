@@ -12,6 +12,8 @@ class Api::DashboardsController < ApiController
       dashboards = dashboards.published
     end
 
+    dashboards = dashboards.user_id(params[:user]) if params.has_key?(:user)
+
     dashboards = dashboards.order(:updated_at).reverse
     render json: dashboards, each_serializer: Api::DashboardSerializer, status: 200
   end
