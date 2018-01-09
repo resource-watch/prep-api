@@ -34,13 +34,20 @@ class Api::PartnersController < ApiController
   # POST /partners
   def create
     @partner = Partner.new(partner_params)
-    render json: @partner, status: 201 if @partner.save
+    if @partner.save
+      render json: @partner, status: 201
+    else
+      render json: { status: :unprocessable_entity, errors: @partner.errors }, status: 422
+    end
   end
 
   # PUT /partners/:id
   def update
-    @partner.update(partner_params)
-    render json: @partner
+    if @partner.update(partner_params)
+      render json: @partner
+    else
+      render json: { status: :unprocessable_entity, errors: @partner.errors }, status: 422
+    end
   end
 
   # DELETE /partners/:id
