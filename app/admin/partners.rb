@@ -44,7 +44,9 @@ ActiveAdmin.register Partner do
       f.input :featured
       f.input :description
       f.input :content
-      f.input :partner_type
+      f.input :partner_type, as: :select,
+                              collection: Partner.partner_types,
+                              include_blank: false
       f.input :thumbnail, as: :file, hint: f.object.thumbnail.present? ? \
         image_tag(f.object.thumbnail.url) : content_tag(:span, 'No image yet')
       f.input :logo, as: :file, hint: f.object.logo.present? ? \
