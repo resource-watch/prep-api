@@ -18,6 +18,7 @@
 #  attribution        :string
 #  updated_at         :datetime
 #  created_at         :datetime
+#  user_id            :string
 #
 
 class Dashboard < ApplicationRecord
@@ -31,7 +32,7 @@ class Dashboard < ApplicationRecord
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   belongs_to :partner, optional: :true
-  belongs_to :indicator
+  belongs_to :indicator, optional: :true
 
   accepts_nested_attributes_for :indicator
 
@@ -47,6 +48,10 @@ class Dashboard < ApplicationRecord
   accepts_nested_attributes_for :tools
 
   before_save :sanitize_related_datasets
+
+  scope :user_id, ->(user_id) {
+    where(user_id: user_id)
+  }
 
   def self.excluding_self(dashboard=nil)
     dashboards = Dashboard.all

@@ -44,9 +44,10 @@ class Resource < ApplicationRecord
 
   def self.resource_types
     [
-      'Understanding impacts of climate change',
-      'Climate resilience tools and services',
-      'Climate data portals'
+      'Understanding Climate Change Impacts',
+      'Climate Assessment & Preparedness Tools',
+      'Climate Data Portals',
+      'Multi-resource Platforms'
     ]
   end
 
