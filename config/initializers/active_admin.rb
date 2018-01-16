@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "PREP Admin"
+  config.site_title = "Preparednes For Resilience"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -16,7 +16,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  config.site_title_image = "preplogo@2x.png"
+  # config.site_title_image = "logo.png"
 
   # == Default Namespace
   #
@@ -33,7 +33,7 @@ ActiveAdmin.setup do |config|
   #   config.default_namespace = false
   #
   # Default:
-  # config.default_namespace = :admin
+  config.default_namespace = :manager
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -63,7 +63,7 @@ ActiveAdmin.setup do |config|
   # method in a before filter of all controller actions to
   # ensure that there is a user with proper rights. You can use
   # CanCanAdapter or make your own. Please refer to documentation.
-  # config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  config.authorization_adapter = "AdminAuthorization"
 
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
@@ -78,7 +78,7 @@ ActiveAdmin.setup do |config|
   # because, by default, user gets redirected to Dashboard. If user
   # doesn't have access to Dashboard, he'll end up in a redirect loop.
   # Method provided here should be defined in application_controller.rb.
-  # config.on_unauthorized_access = :access_denied
+  config.on_unauthorized_access = :access_denied
 
   # == Current User
   #
@@ -116,7 +116,6 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   # config.root_to = 'dashboard#index'
-  config.root_to = 'home#index'
 
   # == Admin Comments
   #
@@ -124,7 +123,7 @@ ActiveAdmin.setup do |config|
   #
   # You can completely disable comments:
   config.comments = false
-
+  #
   # You can change the name under which comments are registered:
   # config.comments_registration_name = 'AdminComment'
   #
@@ -149,7 +148,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources and pages from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_action :do_something_awesome
 
   # == Localize Date/Time Format
   #
@@ -182,6 +181,13 @@ ActiveAdmin.setup do |config|
   # resources or you can disable them globally from here.
   #
   # config.breadcrumb = false
+
+  # == Create Another Checkbox
+  #
+  # Create another checkbox is disabled by default. You can customize it for individual
+  # resources or you can enable them globally from here.
+  #
+  # config.create_another = true
 
   # == Register Stylesheets & Javascripts
   #
@@ -218,21 +224,14 @@ ActiveAdmin.setup do |config|
   #       admin.add_logout_button_to_menu menu
   #     end
   #   end
-
+  #
+  # If you wanted to add a static menu item to the default menu provided:
+  
   config.namespace :admin do |admin|
     admin.build_menu :utility_navigation do |menu|
       menu.add label: "Logout", url: :auth_logout_path
-      # admin.add_logout_button_to_menu menu
     end
   end
-
-  # If you wanted to add a static menu item to the default menu provided:
-  #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :default do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #     end
-  #   end
 
   # == Download Links
   #
@@ -280,4 +279,18 @@ ActiveAdmin.setup do |config|
   # of those filters by default here.
   #
   # config.include_default_association_filters = true
+
+  # == Footer
+  #
+  # By default, the footer shows the current Active Admin version. You can
+  # override the content of the footer here.
+  #
+  # config.footer = 'my custom footer text'
+
+  # == Sorting
+  #
+  # By default ActiveAdmin::OrderClause is used for sorting logic
+  # You can inherit it with own class and inject it for all resources
+  #
+  # config.order_clause = MyOrderClause
 end

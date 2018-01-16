@@ -12,6 +12,8 @@ class Api::DashboardsController < ApiController
       dashboards = dashboards.published
     end
 
+    dashboards = dashboards.user_id(params[:user]) if params.has_key?(:user)
+
     dashboards = dashboards.order(:updated_at).reverse
     render json: dashboards, each_serializer: Api::DashboardSerializer, status: 200
   end
@@ -28,13 +30,18 @@ class Api::DashboardsController < ApiController
   # POST /dashboard
   def create
     @dashboard = Dashboard.new(dashboard_params)
-    render json: @dashboard, status: 201 if @dashboard.save
+    if @dashboard.save
+      @dashboard.manage_content(request.base_url)
+      render json: @dashboard, status: 201
+    end
   end
 
   # PUT /dashboard/:id
   def update
-    @dashboard.update(dashboard_params)
-    render json: @dashboard
+    if @dashboard.update(dashboard_params)
+      @dashboard.manage_content(request.base_url)
+      render json: @dashboard
+    end
   end
 
   # DELETE /dashboard/:id
@@ -47,7 +54,7 @@ class Api::DashboardsController < ApiController
 
   def dashboard_params
     # whitelist params
-    params.permit(:title, :slug, :summary, :content, :image, :partner_id, :attribution, :published, :indicator_id, insight_ids:[], tool_ids:[], dashboard_ids:[], related_datasets:[])
+    params.permit(:title, :slug, :summary, :content, :user_id, :image, :partner_id, :attribution, :published, :indicator_id, insight_ids:[], tool_ids:[], dashboard_ids:[], related_datasets:[])
   end
 
   def set_dashboard

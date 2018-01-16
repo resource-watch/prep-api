@@ -22,10 +22,12 @@
 #
 
 class Insight < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders]
 
   has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
 
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   belongs_to :partner, optional: :true
 
@@ -33,4 +35,9 @@ class Insight < ApplicationRecord
     self.where(published: is_published)
   end
 
+  private
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 end

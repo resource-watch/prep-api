@@ -1,11 +1,7 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
   before_action :set_current_user
-
-  # before_action :http_basic_authenticate if Rails.env == 'production'
 
   def jwt_authentication
     unless session.key?('user_token')
@@ -15,33 +11,40 @@ class ApplicationController < ActionController::Base
 
   def current_user
     unless session.key?('current_user')
-      connect = Faraday.new(url: "#{ENV['APIGATEWAY_URL']}") do |faraday|
-        faraday.request  :url_encoded             # form-encode POST params
-        faraday.response :logger                  # log requests to STDOUT
-        faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
-      end
-
+      connect = connect_gateway
       connect.authorization :Bearer, session[:user_token]
-      response = connect.get('/auth/checkLogged');
+      response = connect.get('/auth/check-logged')
 
       session[:current_user] = response.body
     end
   end
 
   def redirect_to_apigateway
-    redirect_to "#{ENV['APIGATEWAY_URL']}/auth?callbackUrl=#{auth_login_url}&token=true"
+    redirect_to "#{ENV['APIGATEWAY_URL']}/auth?callbackUrl=#{authentication_login_url}&token=true"
+  end
+
+  def logout_apigateway
+    redirect_to "#{ENV['APIGATEWAY_URL']}/auth/logout?callbackUrl=#{authentication_login_url}&token=true"
+  end
+
+  def access_denied(exception)
+    logout_apigateway
   end
 
   private
 
-    def http_basic_authenticate
-      authenticate_or_request_with_http_basic do |name, password|
-        name == ENV['AUTH_USERNAME'] && password == ENV['AUTH_PASSWORD']
-      end
+  def connect_gateway
+    Faraday.new(url: "#{ENV['APIGATEWAY_URL']}") do |faraday|
+      faraday.request  :url_encoded             # form-encode POST params
+      faraday.response :logger                  # log requests to STDOUT
+      faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
     end
+  end
 
-    def set_current_user
-      @current_user = session[:current_user] || nil
-    end
+  def set_current_user
+    current_user if session[:user_token].present?
+    @current_user = session[:current_user] || nil
+    Thread.current[:user] = @current_user # set on thread to use it on admin_authorization model
+  end
 
 end

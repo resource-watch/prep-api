@@ -1,53 +1,33 @@
-ActiveAdmin.register Dashboard do
+ActiveAdmin.register_page "Dashboard Page" do
 
-  index do
-    selectable_column
-    id_column
-    column :title
-    column :summary
-    column :partner
-    column :attribution
-    column :published
-    actions
-  end
+  menu false
 
-  permit_params :title, :slug, :summary, :content, :image, :partner_id, :attribution, :published, :indicator_id, insight_ids:[], tool_ids:[], dashboard_ids:[], related_datasets:[]
-
-  conn = Faraday.new(:url => ENV['RW_API_URL']) do |faraday|
-    faraday.request  :url_encoded
-    faraday.adapter  Faraday.default_adapter
-  end
-
-  datasetRequest = conn.get '/v1/dataset', { :application => 'prep' }
-  datasets = JSON.parse datasetRequest.body
-
-  datasets['data'].each do |d|
-    puts d
-  end
-
-  form do |f|
-    f.semantic_errors
-    f.inputs 'Dashboards Detail' do
-      f.input :title, required: true
-      f.input :slug, required: true
-      f.input :summary
-      f.input :content
-      f.input :image, as: :file, :hint => f.object.image.present? \
-        ? image_tag(f.object.image.url)
-        : content_tag(:span, "no header image uploaded yet")
-      f.input :indicator, :include_blank => false, required: true
-      f.input :insights
-      f.input :tools
-      f.input :dashboards, :label => "Related dashboards", collection: Dashboard.excluding_self(f.object)
-      f.input :related_datasets,
-              collection: datasets['data'].map { |dc| [dc['attributes']['name'], dc['id']] },
-              as: :select,
-              input_html: { multiple: true }
-      f.input :attribution
-      f.input :partner, required: true
-      f.input :published, as: :boolean
+  content title: proc{ I18n.t("active_admin.dashboard") } do
+    div class: "blank_slate_container", id: "dashboard_default_message" do
+      span class: "blank_slate" do
+        span I18n.t("active_admin.dashboard_welcome.welcome")
+        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+      end
     end
-    f.actions
-  end
 
+    # Here is an example of a simple dashboard with columns and panels.
+    #
+    # columns do
+    #   column do
+    #     panel "Recent Posts" do
+    #       ul do
+    #         Post.recent(5).map do |post|
+    #           li link_to(post.title, admin_post_path(post))
+    #         end
+    #       end
+    #     end
+    #   end
+
+    #   column do
+    #     panel "Info" do
+    #       para "Welcome to ActiveAdmin."
+    #     end
+    #   end
+    # end
+  end # content
 end

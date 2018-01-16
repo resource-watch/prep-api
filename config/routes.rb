@@ -1,24 +1,24 @@
 Rails.application.routes.draw do
 
   # Active Admin routes
-  # devise_for :admin_users, ActiveAdmin::Devise.config
+  get 'manager', to: 'manager/dashboards#index'
   ActiveAdmin.routes(self)
 
   # API endpoints
   namespace :api do
     resources :widgets
-    resources :insights
     resources :dashboards
-    resources :partners
     resources :indicators
+    resources :insights
     resources :tools
+    resources :partners
+    resources :user_dashboards
+    resources :resources
+    resources :temporary_content_images, only: [:create]
   end
 
-  # Homepage
-  root 'admin/home#index'
-
   # Auth
-  get 'auth/login', to: 'auth#login'
-  get 'auth/logout', to: 'auth#logout'
+  get 'authentication/login', to: 'auth#login'
+  get 'authentication/logout', to: 'auth#logout'
 
 end

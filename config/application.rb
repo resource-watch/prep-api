@@ -25,6 +25,9 @@ module PreparednesForResilience
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # API mode
+    config.api_only = false
+
     # Setup scaffold
     config.generators do |g|
       g.assets          false
@@ -35,10 +38,13 @@ module PreparednesForResilience
     # CORS
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins 'www.prepdata.org', 'prepdata.org', 'staging.prepdata.org', 'beta.prepdata.org', 'preproduction.prepdata.org', /\Ahttp:\/\/localhost(:\d+)?\z/
         resource '*', :headers => :any, :methods => [:get, :post, :options, :delete, :put, :patch]
       end
     end
 
+    # For active admin views
+    config.middleware.use ActionDispatch::Flash
   end
 end
+

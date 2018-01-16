@@ -17,11 +17,15 @@ spec:
       - name: {name}-staging
         image: vizzuality/{name}
         imagePullPolicy: Always
+        args:
+          - start
         resources:
           requests:
             memory: "0Mi"
             cpu: "0m"
         env:
+          - name: RAILS_LOG_TO_STDOUT
+            value: "true"
           - name: RACK_ENV
             value: production
           - name: RAILS_ENV
@@ -33,7 +37,7 @@ spec:
           - name: RW_API_URL
             value: https://api.resourcewatch.org/v1
           - name: APIGATEWAY_URL
-            value: http://production-api.globalforestwatch.org
+            value: https://production-api.globalforestwatch.org
           - name: AUTH_USERNAME
             valueFrom:
                 secretKeyRef:
