@@ -25,6 +25,8 @@ class Dashboard < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
+  has_many :content_images, dependent: :destroy
+
   has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
@@ -47,6 +49,10 @@ class Dashboard < ApplicationRecord
 
   before_save :sanitize_related_datasets
 
+  scope :user_id, ->(user_id) {
+    where(user_id: user_id)
+  }
+
   def self.excluding_self(dashboard=nil)
     dashboards = Dashboard.all
     dashboards = dashboards.where.not(id: dashboard.id) if dashboard
@@ -61,13 +67,59 @@ class Dashboard < ApplicationRecord
     self.where(published: is_published)
   end
 
-  scope :user_id, ->(user_id) {
-    where(user_id: user_id)
-  }
+  def manage_content(base_url)
+    content_images.each(&:destroy)
+    contents = JSON.parse(content)
+
+    contents.each do |content_block|
+      if content_block['type'] == 'image'
+        contents = assign_content_image_url(contents, content_block, base_url)
+      elsif content_block['type'] == 'grid'
+        content_block['content'].each do |content|
+          if content && content['type'] == 'image'
+            contents = assign_content_image_url(contents, content, base_url, is_grid = true, grid = content_block)
+          end
+        end
+      end
+    end
+
+    update_column(:content, contents.to_json)
+  end
 
   private
 
   def should_generate_new_friendly_id?
     title_changed?
+  end
+
+  def create_content_image(content)
+    uri = URI.parse(content['content']['src'])
+
+    if uri.query.present?
+      params = CGI.parse(uri.query)
+
+      if params['temp_id'].present?
+        temp = TemporaryContentImage.find(params['temp_id'].first)
+        content_image = ContentImage.create(dashboard_id: id, image: temp.image)
+
+        temp.destroy
+        content_image
+      end
+    end
+  end
+
+  def assign_content_image_url(contents, content, base_url, is_grid = false, grid = nil)
+    content_image = create_content_image(content)
+
+    if content_image.present?
+      if is_grid
+        contents.find { |content_block| content_block['id'] == grid['id'] }['content']
+                .find { |grid_item| grid_item['id'] == content['id'] }['content']['src'] = content_image.image.url(:cover)
+      else
+        contents.find { |item| item['id'] == content['id'] }['content']['src'] = content_image.image.url(:cover)
+      end
+    end
+
+    contents
   end
 end

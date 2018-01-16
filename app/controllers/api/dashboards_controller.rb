@@ -30,13 +30,18 @@ class Api::DashboardsController < ApiController
   # POST /dashboard
   def create
     @dashboard = Dashboard.new(dashboard_params)
-    render json: @dashboard, status: 201 if @dashboard.save
+    if @dashboard.save
+      @dashboard.manage_content(request.base_url)
+      render json: @dashboard, status: 201
+    end
   end
 
   # PUT /dashboard/:id
   def update
-    @dashboard.update(dashboard_params)
-    render json: @dashboard
+    if @dashboard.update(dashboard_params)
+      @dashboard.manage_content(request.base_url)
+      render json: @dashboard
+    end
   end
 
   # DELETE /dashboard/:id
