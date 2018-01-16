@@ -17,7 +17,7 @@ class Api::PartnersController < ApiController
     end
 
     if params.has_key?(:partner_type)
-      partners = partners.featured(params[:partner_type])
+      partners = partners.partner_type(params[:partner_type])
     end
 
     render json: partners, each_serializer: Api::PartnerSerializer, status: 200
@@ -34,13 +34,20 @@ class Api::PartnersController < ApiController
   # POST /partners
   def create
     @partner = Partner.new(partner_params)
-    render json: @partner, status: 201 if @partner.save
+    if @partner.save
+      render json: @partner, status: 201
+    else
+      render json: { status: :unprocessable_entity, errors: @partner.errors }, status: 422
+    end
   end
 
   # PUT /partners/:id
   def update
-    @partner.update(partner_params)
-    render json: @partner
+    if @partner.update(partner_params)
+      render json: @partner
+    else
+      render json: { status: :unprocessable_entity, errors: @partner.errors }, status: 422
+    end
   end
 
   # DELETE /partners/:id

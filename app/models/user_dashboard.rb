@@ -15,6 +15,8 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 
 class UserDashboard < ApplicationRecord
@@ -25,7 +27,7 @@ class UserDashboard < ApplicationRecord
   do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
-  friendly_id :name, use: %i[slugged]
+  friendly_id :name, use: [:slugged, :finders]
 
   validates_presence_of :name
 
@@ -40,7 +42,6 @@ class UserDashboard < ApplicationRecord
     user_dashboards
   end
 
-
   private
 
   def parse_image
@@ -48,5 +49,9 @@ class UserDashboard < ApplicationRecord
     image = Paperclip.io_adapters.for(image_base)
     image.original_filename = 'file.jpg'
     self.photo = image
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed?
   end
 end

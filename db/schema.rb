@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114172102) do
+ActiveRecord::Schema.define(version: 20171219163631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_images", force: :cascade do |t|
+    t.integer "dashboard_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "dashboards", id: :serial, force: :cascade do |t|
     t.string "title"
@@ -31,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.string "attribution"
     t.datetime "updated_at"
     t.datetime "created_at"
+    t.string "user_id"
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id"
     t.index ["partner_id"], name: "index_dashboards_on_partner_id"
   end
@@ -59,6 +70,8 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.text "summary"
     t.text "content"
     t.boolean "published", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "indicators_widgets", id: false, force: :cascade do |t|
@@ -129,6 +142,15 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.boolean "published", default: false
   end
 
+  create_table "temporary_content_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "tools", id: :serial, force: :cascade do |t|
     t.string "title"
     t.text "summary"
@@ -136,6 +158,8 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.string "attribution"
     t.boolean "published", default: false
     t.integer "partner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["partner_id"], name: "index_tools_on_partner_id"
   end
 
@@ -152,6 +176,8 @@ ActiveRecord::Schema.define(version: 20171114172102) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "widget_types", id: :serial, force: :cascade do |t|

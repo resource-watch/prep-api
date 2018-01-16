@@ -27,7 +27,7 @@ class Resource < ApplicationRecord
   do_not_validate_attachment_file_type :photo
 
   extend FriendlyId
-  friendly_id :title, use: %i[slugged]
+  friendly_id :title, use: [:slugged, :finders]
 
   validates_presence_of :title
   validates_presence_of :resource_type
@@ -35,6 +35,21 @@ class Resource < ApplicationRecord
 
   scope :published, -> (published) { where published: published }
   scope :resource_type, -> (resource_type) { where resource_type: resource_type }
+
+  def accepted_resource_type
+    unless Resource.resource_types.include? resource_type
+      errors.add(:resource_type, "is not a valid one")
+    end
+  end
+
+  def self.resource_types
+    [
+      'Understanding Climate Change Impacts',
+      'Climate Assessment & Preparedness Tools',
+      'Climate Data Portals',
+      'Multi-resource Platforms'
+    ]
+  end
 
   private
 
@@ -45,17 +60,7 @@ class Resource < ApplicationRecord
     self.photo = image
   end
 
-  def accepted_resource_type
-    unless resource_types.include? resource_type
-      errors.add(:resource_type, "is not a valid one")
-    end
-  end
-
-  def resource_types
-    [
-      'Understanding impacts of climate change',
-      'Climate resilience tools and services',
-      'Climate data portals'
-    ]
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 end
