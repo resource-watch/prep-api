@@ -22,7 +22,7 @@
 class UserDashboard < ApplicationRecord
   before_validation :parse_image
   attr_accessor :image_base
-  has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_attached_file :photo, styles: { medium: "300x>", thumb: "100x>" }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
   do_not_validate_attachment_file_type :photo
 

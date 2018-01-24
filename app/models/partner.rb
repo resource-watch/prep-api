@@ -32,9 +32,9 @@ class Partner < ApplicationRecord
 
   default_scope { order('name ASC') }
 
-  has_attached_file :thumbnail, styles: { large: "345x150#", medium: "260x65#", thumb: "50x50#" }
-  has_attached_file :logo, styles: { medium: "260x65#", thumb: "50x50#" }
-  has_attached_file :white_logo, styles: { medium: "260x65#", thumb: "50x50#" }
+  has_attached_file :thumbnail, styles: { large: "345x>", medium: "260x>", thumb: "50x>" }
+  has_attached_file :logo, styles: { medium: "260x>", thumb: "50x>" }
+  has_attached_file :white_logo, styles: { medium: "260x>", thumb: "50x>" }
 
   validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\z/
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
