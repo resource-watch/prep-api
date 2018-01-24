@@ -11,6 +11,7 @@
 
 # Ignore MacOSX files
 /.DS_Store
+/.data
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
