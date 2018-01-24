@@ -27,7 +27,7 @@ class Dashboard < ApplicationRecord
 
   has_many :content_images, dependent: :destroy
 
-  has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
+  has_attached_file :image, styles: { large: "1280x>", medium: "680x>", thumb: "100x>" }
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 

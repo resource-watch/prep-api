@@ -25,7 +25,7 @@ class Insight < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
-  has_attached_file :image, styles: { large: "1280x1024>", medium: "680x480>", thumb: "100x100>" }
+  has_attached_file :image, styles: { large: "1280x>", medium: "680x>", thumb: "100x>" }
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
