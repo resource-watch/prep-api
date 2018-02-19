@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :user_dashboards
     resources :resources
     resources :temporary_content_images, only: [:create]
+    resources :profiles, only: [:show, :create, :update, :destroy]
   end
 
   # Auth
