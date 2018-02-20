@@ -53,7 +53,7 @@ spec:
             valueFrom:
                 secretKeyRef:
                   name: dbsecrets
-                  key: PREP_MANAGER_STAGING_POSTGRES_URL
+                  key: PREP_MANAGER_POSTGRES_URL
           - name: S3_BUCKET_NAME
             value: "wri-api-backups"
           - name: S3_PATH
