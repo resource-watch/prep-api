@@ -77,11 +77,11 @@ spec:
             valueFrom:
                 secretKeyRef:
                   name: dbsecrets
-                  key: PREP_MANAGER_PREPRODUCTION_POSTGRES_URL
+                  key: PREP_MANAGER_POSTGRES_URL
           - name: S3_BUCKET_NAME
             value: "wri-api-backups"
           - name: S3_PATH
-            value: "prep/preproduction"
+            value: "prep/production"
           - name: AWS_REGION
             value: "us-east-1"
           - name: AWS_ACCESS_KEY_ID
