@@ -59,8 +59,6 @@ spec:
             value: "3000"
           - name: RAILS_SERVE_STATIC_FILES
             value: "true"
-          - name: RW_API_URL
-            value: https://api.resourcewatch.org/v1
           - name: APIGATEWAY_URL
             value: http://production-api.globalforestwatch.org
           - name: AUTH_USERNAME
