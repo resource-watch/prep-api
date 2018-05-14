@@ -5,11 +5,14 @@ class Api::PartnersController < ApiController
   # GET /partners
   def index
     partners =
-      case params[:env]
-      when 'staging'
-        Partner.staging
-      when 'pre-production'
-        Partner.pre_production
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Partner.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Partner.where(id: ids)
       else
         Partner.production
       end
@@ -72,9 +75,14 @@ class Api::PartnersController < ApiController
     end
 
     def set_partner
-      env = params[:env].tr('-', '_')
+      environments = params[:env].present? ? params[:env].split(',') : ['production']
+      partner = Partner.find_by(id: params[:id])
 
-      @partner = Partner.find_by(id: params[:id], env => true)
+      matches = environments.map do |env|
+        partner.public_send(env)
+      end
+
+      @partner = matches.include?(true) ? partner : nil
     end
 
 end

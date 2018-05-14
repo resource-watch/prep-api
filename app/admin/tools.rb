@@ -14,7 +14,7 @@ ActiveAdmin.register Tool do
   controller do
     def permitted_params
       params.permit(:id, tool: [:title, :summary, :partner_id,
-                                :production, :staging, :pre_production,
+                                :production, :staging, :preproduction,
                                 :attribution, :url, :published])
     end
   end
@@ -38,7 +38,7 @@ ActiveAdmin.register Tool do
       f.input :attribution
       f.input :published
       f.input :production
-      f.input :pre_production
+      f.input :preproduction
       f.input :staging
       f.input :partner
     end
@@ -53,7 +53,7 @@ ActiveAdmin.register Tool do
       row :attribution
       row :published
       row :production
-      row :pre_production
+      row :preproduction
       row :staging
       row :partner
       row :updated_at

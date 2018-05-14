@@ -5,11 +5,14 @@ class Api::ResourcesController < ApiController
   # GET /resources
   def index
     resources =
-      case params[:env]
-      when 'staging'
-        Resource.staging
-      when 'pre-production'
-        Resource.pre_production
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Resource.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Resource.where(id: ids)
       else
         Resource.production
       end
@@ -55,9 +58,14 @@ class Api::ResourcesController < ApiController
   end
 
   def set_resource
-    env = params[:env].tr('-', '_')
+    environments = params[:env].present? ? params[:env].split(',') : ['production']
+    resource = params[:id].id? ? Resource.find_by(id: params[:id]) : Resource.find_by(slug: params[:id])
 
-    @resource = params[:id].id? ? Resource.find_by(id: params[:id], env => true) : Resource.find_by(id: params[:id], env => true)
+    matches = environments.map do |env|
+      resource.public_send(env)
+    end
+
+    @resource = matches.include?(true) ? resource : nil
   end
 
   def filterable_params(params)

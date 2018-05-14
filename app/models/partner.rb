@@ -42,7 +42,7 @@ class Partner < ApplicationRecord
   validate :accepted_partner_type
 
   scope :production, -> { where(production: true) }
-  scope :pre_production, -> { where(pre_production: true) }
+  scope :preproduction, -> { where(preproduction: true) }
   scope :staging, -> { where(staging: true) }
 
   def accepted_partner_type

@@ -5,11 +5,14 @@ class Api::ToolsController < ApiController
   # GET /tools
   def index
     tools =
-      case params[:env]
-      when 'staging'
-        Tool.staging
-      when 'pre-production'
-        Tool.pre_production
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Tool.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Tool.where(id: ids)
       else
         Tool.production
       end
@@ -57,9 +60,14 @@ class Api::ToolsController < ApiController
     end
 
     def set_tool
-      env = params[:env].tr('-', '_')
+      environments = params[:env].present? ? params[:env].split(',') : ['production']
+      tool = Tool.find_by(id: params[:id])
 
-      @tool = Tool.find_by(id: params[:id], env => true)
+      matches = environments.map do |env|
+        tool.public_send(env)
+      end
+
+      @tool = matches.include?(true) ? tool : nil
     end
 
 end

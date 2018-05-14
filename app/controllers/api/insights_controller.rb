@@ -5,11 +5,14 @@ class Api::InsightsController < ApiController
   # GET /insights
   def index
     insights =
-      case params[:env]
-      when 'staging'
-        Insight.staging
-      when 'pre-production'
-        Insight.pre_production
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Insight.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Insight.where(id: ids)
       else
         Insight.production
       end
@@ -58,9 +61,14 @@ class Api::InsightsController < ApiController
   end
 
   def set_insight
-    env = params[:env].tr('-', '_')
+    environments = params[:env].present? ? params[:env].split(',') : ['production']
+    insight = params[:id].id? ? Insight.find_by(id: params[:id]) : Insight.find_by(slug: params[:id])
 
-    @insight = params[:id].id? ? Insight.find_by(id: params[:id], env => true) : Insight.find_by(slug: params[:id], env => true)
+    matches = environments.map do |env|
+      insight.public_send(env)
+    end
+
+    @insight = matches.include?(true) ? insight : nil
   end
 
 end

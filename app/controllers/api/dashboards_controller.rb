@@ -5,11 +5,14 @@ class Api::DashboardsController < ApiController
   # GET /dashboards
   def index
     dashboards =
-      case params[:env]
-      when 'staging'
-        Dashboard.staging
-      when 'pre-production'
-        Dashboard.pre_production
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Dashboard.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Dashboard.where(id: ids)
       else
         Dashboard.production
       end
@@ -66,9 +69,14 @@ class Api::DashboardsController < ApiController
   end
 
   def set_dashboard
-    env = params[:env].tr('-', '_')
+    environments = params[:env].present? ? params[:env].split(',') : ['production']
+    dashboard = params[:id].id? ? Dashboard.find_by(id: params[:id]) : Dashboard.find_by(slug: params[:id])
 
-    @dashboard = params[:id].id? ? Dashboard.find_by(id: params[:id], env => true) : Dashboard.find_by(slug: params[:id], env => true)
+    matches = environments.map do |env|
+      dashboard.public_send(env)
+    end
+
+    @dashboard = matches.include?(true) ? dashboard : nil
   end
 
 end

@@ -12,7 +12,7 @@ ActiveAdmin.register Insight do
   controller do
     def permitted_params
       params.permit(:id, insight: [:title, :published, :summary, :content, :content_url,
-                                   :production, :staging, :pre_production, :partner_id,
+                                   :production, :staging, :preproduction, :partner_id,
                                    :attribution, :template_type, :embeddable])
     end
   end
@@ -32,7 +32,7 @@ ActiveAdmin.register Insight do
       f.input :title
       f.input :published
       f.input :production
-      f.input :pre_production
+      f.input :preproduction
       f.input :staging
       f.input :summary
       f.input :content
@@ -53,7 +53,7 @@ ActiveAdmin.register Insight do
       row :slug
       row :published
       row :production
-      row :pre_production
+      row :preproduction
       row :staging
       row :summary
       row :content
