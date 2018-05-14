@@ -4,7 +4,15 @@ class Api::InsightsController < ApiController
 
   # GET /insights
   def index
-    insights = Insight.all
+    insights =
+      case params[:env]
+      when 'staging'
+        Insight.staging
+      when 'pre-production'
+        Insight.pre_production
+      else
+        Insight.production
+      end
 
     if params.has_key?(:published)
       insights = insights.published(params[:published]) if params[:published] != 'all'
@@ -50,7 +58,9 @@ class Api::InsightsController < ApiController
   end
 
   def set_insight
-    @insight = params[:id].id? ? Insight.find(params[:id]) : Insight.find_by_slug(params[:id])
+    env = params[:env].tr('-', '_')
+
+    @insight = params[:id].id? ? Insight.find_by(id: params[:id], env => true) : Insight.find_by(slug: params[:id], env => true)
   end
 
 end

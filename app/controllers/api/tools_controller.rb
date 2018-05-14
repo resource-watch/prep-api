@@ -4,7 +4,16 @@ class Api::ToolsController < ApiController
 
   # GET /tools
   def index
-    tools = Tool.all
+    tools =
+      case params[:env]
+      when 'staging'
+        Tool.staging
+      when 'pre-production'
+        Tool.pre_production
+      else
+        Tool.production
+      end
+
     if params.has_key?(:published)
       tools = tools.published(params[:published]) if params[:published] != 'all'
     else
@@ -48,7 +57,9 @@ class Api::ToolsController < ApiController
     end
 
     def set_tool
-      @tool = Tool.find(params[:id])
+      env = params[:env].tr('-', '_')
+
+      @tool = Tool.find_by(id: params[:id], env => true)
     end
 
 end

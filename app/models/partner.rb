@@ -41,6 +41,10 @@ class Partner < ApplicationRecord
   validates_attachment_content_type :white_logo, content_type: /\Aimage\/.*\z/
   validate :accepted_partner_type
 
+  scope :production, -> { where(production: true) }
+  scope :pre_production, -> { where(pre_production: true) }
+  scope :staging, -> { where(staging: true) }
+
   def accepted_partner_type
     unless Partner.partner_types.include? partner_type
       errors.add(:partner_type, "is not a valid one")

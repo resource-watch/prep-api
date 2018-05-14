@@ -15,6 +15,7 @@ ActiveAdmin.register Resource do
   controller do
     def permitted_params
       params.permit(:id, resource: [:title, :description, :published,
+                                    :production, :staging, :pre_production,
                                     :resource_type, :url, :photo])
     end
   end
@@ -39,6 +40,9 @@ ActiveAdmin.register Resource do
                               collection: Resource.resource_types,
                               include_blank: false
       f.input :published
+      f.input :production
+      f.input :pre_production
+      f.input :staging
       f.input :photo, as: :file, hint: f.object.photo.present? ? \
         image_tag(f.object.photo.url) : content_tag(:span, 'No image yet')
     end
@@ -53,6 +57,9 @@ ActiveAdmin.register Resource do
       row :url
       row :resource_type
       row :published
+      row :production
+      row :pre_production
+      row :staging
       row :photo do
         image_tag(d.photo.url(:thumb)) unless d.photo.blank?
       end

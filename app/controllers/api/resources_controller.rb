@@ -4,7 +4,16 @@ class Api::ResourcesController < ApiController
 
   # GET /resources
   def index
-    resources = Resource.filter(filterable_params(params))
+    resources =
+      case params[:env]
+      when 'staging'
+        Resource.staging
+      when 'pre-production'
+        Resource.pre_production
+      else
+        Resource.production
+      end
+      .filter(filterable_params(params))
 
     resources = resources.order(:updated_at).reverse
     render json: resources, each_serializer: Api::ResourceSerializer, status: 200
@@ -46,7 +55,9 @@ class Api::ResourcesController < ApiController
   end
 
   def set_resource
-    @resource = params[:id].id? ? Resource.find(params[:id]) : Resource.find_by_slug(params[:id])
+    env = params[:env].tr('-', '_')
+
+    @resource = params[:id].id? ? Resource.find_by(id: params[:id], env => true) : Resource.find_by(id: params[:id], env => true)
   end
 
   def filterable_params(params)

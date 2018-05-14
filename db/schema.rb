@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219104835) do
+ActiveRecord::Schema.define(version: 20180511150048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20180219104835) do
     t.datetime "updated_at"
     t.datetime "created_at"
     t.string "user_id"
+    t.boolean "production", default: true
+    t.boolean "pre_production", default: false
+    t.boolean "staging", default: false
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id"
     t.index ["partner_id"], name: "index_dashboards_on_partner_id"
   end
@@ -98,6 +101,9 @@ ActiveRecord::Schema.define(version: 20180219104835) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "embeddable", default: true
+    t.boolean "production", default: true
+    t.boolean "pre_production", default: false
+    t.boolean "staging", default: false
     t.index ["partner_id"], name: "index_insights_on_partner_id"
   end
 
@@ -125,6 +131,9 @@ ActiveRecord::Schema.define(version: 20180219104835) do
     t.datetime "thumbnail_updated_at"
     t.text "content"
     t.string "partner_type"
+    t.boolean "production", default: true
+    t.boolean "pre_production", default: false
+    t.boolean "staging", default: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -151,6 +160,9 @@ ActiveRecord::Schema.define(version: 20180219104835) do
     t.datetime "photo_updated_at"
     t.string "resource_type"
     t.boolean "published", default: false
+    t.boolean "production", default: true
+    t.boolean "pre_production", default: false
+    t.boolean "staging", default: false
   end
 
   create_table "temporary_content_images", force: :cascade do |t|
@@ -171,6 +183,9 @@ ActiveRecord::Schema.define(version: 20180219104835) do
     t.integer "partner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "production", default: true
+    t.boolean "pre_production", default: false
+    t.boolean "staging", default: false
     t.index ["partner_id"], name: "index_tools_on_partner_id"
   end
 

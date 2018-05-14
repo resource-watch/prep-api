@@ -36,6 +36,10 @@ class Dashboard < ApplicationRecord
 
   accepts_nested_attributes_for :indicator
 
+  scope :production, -> { where(production: true) }
+  scope :pre_production, -> { where(pre_production: true) }
+  scope :staging, -> { where(staging: true) }
+
   has_and_belongs_to_many(:dashboards,
     :join_table => "dashboards_connections",
     :foreign_key => "dashboard_source_id",

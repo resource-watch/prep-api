@@ -4,7 +4,15 @@ class Api::PartnersController < ApiController
 
   # GET /partners
   def index
-    partners = Partner.all
+    partners =
+      case params[:env]
+      when 'staging'
+        Partner.staging
+      when 'pre-production'
+        Partner.pre_production
+      else
+        Partner.production
+      end
 
     if params.has_key?(:published)
       partners = partners.published(params[:published]) if params[:published] != 'all'
@@ -64,7 +72,9 @@ class Api::PartnersController < ApiController
     end
 
     def set_partner
-      @partner = Partner.find(params[:id])
+      env = params[:env].tr('-', '_')
+
+      @partner = Partner.find_by(id: params[:id], env => true)
     end
 
 end

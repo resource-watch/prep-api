@@ -35,6 +35,9 @@ class Resource < ApplicationRecord
 
   scope :published, -> (published) { where published: published }
   scope :resource_type, -> (resource_type) { where resource_type: resource_type }
+  scope :production, -> { where(production: true) }
+  scope :pre_production, -> { where(pre_production: true) }
+  scope :staging, -> { where(staging: true) }
 
   def accepted_resource_type
     unless Resource.resource_types.include? resource_type

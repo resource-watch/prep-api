@@ -31,6 +31,10 @@ class Insight < ApplicationRecord
 
   belongs_to :partner, optional: :true
 
+  scope :production, -> { where(production: true) }
+  scope :pre_production, -> { where(pre_production: true) }
+  scope :staging, -> { where(staging: true) }
+
   def self.published(is_published = true)
     self.where(published: is_published)
   end

@@ -4,7 +4,15 @@ class Api::DashboardsController < ApiController
 
   # GET /dashboards
   def index
-    dashboards = Dashboard.all
+    dashboards =
+      case params[:env]
+      when 'staging'
+        Dashboard.staging
+      when 'pre-production'
+        Dashboard.pre_production
+      else
+        Dashboard.production
+      end
 
     if params.has_key?(:published)
       dashboards = dashboards.published(params[:published]) if params[:published] != 'all'
@@ -58,7 +66,9 @@ class Api::DashboardsController < ApiController
   end
 
   def set_dashboard
-    @dashboard = params[:id].id? ? Dashboard.find(params[:id]) : Dashboard.find_by_slug(params[:id])
+    env = params[:env].tr('-', '_')
+
+    @dashboard = params[:id].id? ? Dashboard.find_by(id: params[:id], env => true) : Dashboard.find_by(slug: params[:id], env => true)
   end
 
 end
