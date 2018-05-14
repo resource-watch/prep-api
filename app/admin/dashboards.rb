@@ -11,7 +11,7 @@ ActiveAdmin.register Dashboard do
   filter :partner
   filter :indicator
   filter :insights
-  filter :toolssl
+  filter :tools
   filter :updated_at
   filter :created_at
 
