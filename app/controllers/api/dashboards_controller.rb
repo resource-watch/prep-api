@@ -65,7 +65,10 @@ class Api::DashboardsController < ApiController
 
   def dashboard_params
     # whitelist params
-    params.permit(:title, :slug, :summary, :content, :user_id, :image, :partner_id, :attribution, :published, :indicator_id, insight_ids:[], tool_ids:[], dashboard_ids:[], related_datasets:[])
+    params.permit(:title, :slug, :summary, :content, :user_id, :image,
+                  :partner_id, :attribution, :published, :indicator_id,
+                  :production, :preproduction, :staging, insight_ids: [],
+                  tool_ids: [], dashboard_ids: [], related_datasets: [])
   end
 
   def set_dashboard
