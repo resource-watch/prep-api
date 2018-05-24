@@ -19,6 +19,7 @@ ActiveAdmin.register Dashboard do
     def permitted_params
       params.permit(:id, dashboard: [:title, :published, :partner_id, :indicator_id,
                                      :summary, :content, :related_datasets, :attribution,
+                                     :production, :staging, :preproduction,
                                      :image, dashboard_ids: [], insight_ids: [], tool_ids: []])
     end
   end
@@ -39,6 +40,9 @@ ActiveAdmin.register Dashboard do
     f.inputs do
       f.input :title
       f.input :published
+      f.input :production
+      f.input :preproduction
+      f.input :staging
       f.input :partner
       f.input :indicator, include_blank: false
       f.input :summary
@@ -61,6 +65,9 @@ ActiveAdmin.register Dashboard do
       row :summary
       row :content
       row :published
+      row :production
+      row :preproduction
+      row :staging
       row :image do
         image_tag(d.image.url(:thumb)) unless d.image.blank?
       end

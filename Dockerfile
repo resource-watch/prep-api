@@ -1,12 +1,10 @@
 FROM ruby:2.4.1-alpine
-MAINTAINER David Inga <david.inga@vizzuality.com>
 
 ARG secretKey
 
 ENV RAILS_ENV production
 ENV RACK_ENV production
 ENV SECRET_KEY_BASE $secretKey
-ENV RW_API_URL https://api.resourcewatch.org
 ENV APIGATEWAY_URL https://production-api.globalforestwatch.org
 
 # Install dependencies

@@ -4,7 +4,18 @@ class Api::PartnersController < ApiController
 
   # GET /partners
   def index
-    partners = Partner.all
+    partners =
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Partner.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Partner.where(id: ids)
+      else
+        Partner.production
+      end
 
     if params.has_key?(:published)
       partners = partners.published(params[:published]) if params[:published] != 'all'
@@ -64,7 +75,14 @@ class Api::PartnersController < ApiController
     end
 
     def set_partner
-      @partner = Partner.find(params[:id])
+      environments = params[:env].present? ? params[:env].split(',') : ['production']
+      partner = Partner.find_by(id: params[:id])
+
+      matches = environments.map do |env|
+        partner.public_send(env)
+      end
+
+      @partner = matches.include?(true) ? partner : nil
     end
 
 end

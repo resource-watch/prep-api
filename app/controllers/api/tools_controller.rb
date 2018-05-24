@@ -4,7 +4,19 @@ class Api::ToolsController < ApiController
 
   # GET /tools
   def index
-    tools = Tool.all
+    tools =
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Tool.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Tool.where(id: ids)
+      else
+        Tool.production
+      end
+
     if params.has_key?(:published)
       tools = tools.published(params[:published]) if params[:published] != 'all'
     else
@@ -48,7 +60,14 @@ class Api::ToolsController < ApiController
     end
 
     def set_tool
-      @tool = Tool.find(params[:id])
+      environments = params[:env].present? ? params[:env].split(',') : ['production']
+      tool = Tool.find_by(id: params[:id])
+
+      matches = environments.map do |env|
+        tool.public_send(env)
+      end
+
+      @tool = matches.include?(true) ? tool : nil
     end
 
 end
