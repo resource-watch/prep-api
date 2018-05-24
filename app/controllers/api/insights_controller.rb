@@ -4,7 +4,18 @@ class Api::InsightsController < ApiController
 
   # GET /insights
   def index
-    insights = Insight.all
+    insights =
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Insight.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Insight.where(id: ids)
+      else
+        Insight.production
+      end
 
     if params.has_key?(:published)
       insights = insights.published(params[:published]) if params[:published] != 'all'
@@ -50,7 +61,14 @@ class Api::InsightsController < ApiController
   end
 
   def set_insight
-    @insight = params[:id].id? ? Insight.find(params[:id]) : Insight.find_by_slug(params[:id])
+    environments = params[:env].present? ? params[:env].split(',') : ['production']
+    insight = params[:id].id? ? Insight.find_by(id: params[:id]) : Insight.find_by(slug: params[:id])
+
+    matches = environments.map do |env|
+      insight.public_send(env)
+    end
+
+    @insight = matches.include?(true) ? insight : nil
   end
 
 end

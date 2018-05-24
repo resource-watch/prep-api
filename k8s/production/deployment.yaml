@@ -13,6 +13,32 @@ spec:
       labels:
         name: {name}
     spec:
+      tolerations:
+      - key: "type"
+        operator: "Equal"
+        value: "webapps"
+        effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: type
+                operator: In
+                values:
+                - webapps
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: name
+                  operator: In
+                  values:
+                  - {name}
+              topologyKey: kubernetes.io/hostname
+
       containers:
       - name: {name}
         image: vizzuality/{name}
@@ -35,8 +61,6 @@ spec:
             value: "3000"
           - name: RAILS_SERVE_STATIC_FILES
             value: "true"
-          - name: RW_API_URL
-            value: https://api.resourcewatch.org/v1
           - name: APIGATEWAY_URL
             value: https://production-api.globalforestwatch.org
           - name: AUTH_USERNAME

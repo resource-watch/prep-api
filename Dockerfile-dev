@@ -5,7 +5,6 @@ ARG secretKey
 ENV RAILS_ENV development
 ENV RACK_ENV development
 ENV SECRET_KEY_BASE $secretKey
-ENV RW_API_URL https://api.resourcewatch.org
 ENV APIGATEWAY_URL https://production-api.globalforestwatch.org
 
 # Install dependencies

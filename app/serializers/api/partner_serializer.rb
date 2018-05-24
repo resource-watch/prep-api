@@ -1,6 +1,6 @@
 class Api::PartnerSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :partner_type, :description, :content,
+  attributes :id, :name, :partner_type, :description, :content, :production, :preproduction, :staging,
              :url, :contact_name, :contact_email, :featured, :published, :thumbnail, :logo, :white_logo, :images
 
   # Support for old site

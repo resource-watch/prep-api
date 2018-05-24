@@ -4,7 +4,18 @@ class Api::DashboardsController < ApiController
 
   # GET /dashboards
   def index
-    dashboards = Dashboard.all
+    dashboards =
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Dashboard.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Dashboard.where(id: ids)
+      else
+        Dashboard.production
+      end
 
     if params.has_key?(:published)
       dashboards = dashboards.published(params[:published]) if params[:published] != 'all'
@@ -54,11 +65,21 @@ class Api::DashboardsController < ApiController
 
   def dashboard_params
     # whitelist params
-    params.permit(:title, :slug, :summary, :content, :user_id, :image, :partner_id, :attribution, :published, :indicator_id, insight_ids:[], tool_ids:[], dashboard_ids:[], related_datasets:[])
+    params.permit(:title, :slug, :summary, :content, :user_id, :image,
+                  :partner_id, :attribution, :published, :indicator_id,
+                  :production, :preproduction, :staging, insight_ids: [],
+                  tool_ids: [], dashboard_ids: [], related_datasets: [])
   end
 
   def set_dashboard
-    @dashboard = params[:id].id? ? Dashboard.find(params[:id]) : Dashboard.find_by_slug(params[:id])
+    environments = params[:env].present? ? params[:env].split(',') : ['production']
+    dashboard = params[:id].id? ? Dashboard.find_by(id: params[:id]) : Dashboard.find_by(slug: params[:id])
+
+    matches = environments.map do |env|
+      dashboard.public_send(env)
+    end
+
+    @dashboard = matches.include?(true) ? dashboard : nil
   end
 
 end

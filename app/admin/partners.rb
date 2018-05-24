@@ -18,6 +18,7 @@ ActiveAdmin.register Partner do
     def permitted_params
       params.permit(:id, partner: [:name, :url, :contact_name, :contact_email,
                                    :published, :featured, :description, :content,
+                                   :production, :staging, :preproduction,
                                    :partner_type, :thumbnail, :logo, :white_logo])
     end
   end
@@ -41,6 +42,9 @@ ActiveAdmin.register Partner do
       f.input :contact_name
       f.input :contact_email
       f.input :published
+      f.input :production
+      f.input :preproduction
+      f.input :staging
       f.input :featured
       f.input :description
       f.input :content
@@ -64,6 +68,9 @@ ActiveAdmin.register Partner do
       row :contact_name
       row :contact_email
       row :published
+      row :production
+      row :preproduction
+      row :staging
       row :featured
       row :description
       row :content

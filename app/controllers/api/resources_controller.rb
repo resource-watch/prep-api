@@ -4,7 +4,19 @@ class Api::ResourcesController < ApiController
 
   # GET /resources
   def index
-    resources = Resource.filter(filterable_params(params))
+    resources =
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          Resource.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        Resource.where(id: ids)
+      else
+        Resource.production
+      end
+      .filter(filterable_params(params))
 
     resources = resources.order(:updated_at).reverse
     render json: resources, each_serializer: Api::ResourceSerializer, status: 200
@@ -46,7 +58,14 @@ class Api::ResourcesController < ApiController
   end
 
   def set_resource
-    @resource = params[:id].id? ? Resource.find(params[:id]) : Resource.find_by_slug(params[:id])
+    environments = params[:env].present? ? params[:env].split(',') : ['production']
+    resource = params[:id].id? ? Resource.find_by(id: params[:id]) : Resource.find_by(slug: params[:id])
+
+    matches = environments.map do |env|
+      resource.public_send(env)
+    end
+
+    @resource = matches.include?(true) ? resource : nil
   end
 
   def filterable_params(params)
