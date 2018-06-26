@@ -19,6 +19,9 @@
 #  updated_at         :datetime
 #  created_at         :datetime
 #  user_id            :string
+#  production         :boolean          default(TRUE)
+#  preproduction      :boolean          default(FALSE)
+#  staging            :boolean          default(FALSE)
 #
 
 class Dashboard < ApplicationRecord

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514151008) do
+ActiveRecord::Schema.define(version: 20180626093547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20180514151008) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "core_datasets", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.string "country_iso"
+    t.string "subcategory"
+    t.text "dataset_ids", default: [], array: true
+    t.text "tags", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "dashboards", id: :serial, force: :cascade do |t|

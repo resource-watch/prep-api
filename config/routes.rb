@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :partners
     resources :user_dashboards
     resources :resources
+    resources :core_datasets
     resources :temporary_content_images, only: [:create]
     resources :profiles, only: [:show, :create, :update, :destroy]
   end
