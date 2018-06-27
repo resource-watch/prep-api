@@ -4,8 +4,25 @@ class Api::CoreDatasetsController < ApiController
 
   # GET /core_datasets
   def index
-    @core_datasets = CoreDataset.all
-    render json: @core_datasets, each_serializer: Api::CoreDatasetSerializer, status: 200
+    core_datasets =
+      if params[:env].present?
+        environments = params[:env].split(',')
+
+        ids = environments.map do |env|
+          CoreDataset.where(env => true)
+        end.flatten.uniq.pluck(:id)
+
+        CoreDataset.where(id: ids)
+      else
+        CoreDataset.production
+      end
+
+    if params.has_key?(:published)
+      core_datasets = core_datasets.where(published: params[:published]) unless params[:published].eql? 'all'
+    else
+      core_datasets = core_datasets.where(published: 'TRUE')
+    end
+    render json: core_datasets, each_serializer: Api::CoreDatasetSerializer, status: 200
   end
 
   def show
@@ -45,11 +62,18 @@ class Api::CoreDatasetsController < ApiController
 
     def core_dataset_params
       # whitelist params
-      params.permit(:title, :country_iso, :subcategory, dataset_ids: [], tags: [])
+      params.permit(:title, :country_iso, :subcategory, :published, :staging,
+                    :preproduction, :production, dataset_ids: [], tags: [])
     end
 
     def set_core_dataset
-      @core_dataset = CoreDataset.find_by(id: params[:id])
-    end
+      environments = params[:env].present? ? params[:env].split(',') : ['production']
+      core_dataset = params[:id].id? ? CoreDataset.find_by(id: params[:id]) : CoreDataset.find_by(slug: params[:id])
 
+      matches = environments.map do |env|
+        core_dataset.public_send(env)
+      end
+
+      @core_dataset = matches.include?(true) ? core_dataset : nil
+    end
 end

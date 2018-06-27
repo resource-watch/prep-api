@@ -24,6 +24,10 @@ class CoreDataset < ApplicationRecord
 
   validates :subcategory, inclusion: { in: CoreDataset.subcategories }
 
+  scope :production, -> { where(production: true) }
+  scope :preproduction, -> { where(preproduction: true) }
+  scope :staging, -> { where(staging: true) }
+
   def should_generate_new_friendly_id?
     title_changed?
   end
