@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180710095316) do
+ActiveRecord::Schema.define(version: 20180710135036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180710095316) do
     t.boolean "production", default: true
     t.boolean "preproduction", default: false
     t.boolean "staging", default: false
+    t.string "tags", default: [], array: true
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id"
     t.index ["partner_id"], name: "index_dashboards_on_partner_id"
   end
