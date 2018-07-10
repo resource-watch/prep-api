@@ -12,4 +12,5 @@ class Api::DashboardDetailSerializer < ActiveModel::Serializer
     object.tools.published
   end
   has_one :partner, serializer: Api::PartnerSerializer
+  has_one :author, serializer: Api::AuthorSerializer
 end

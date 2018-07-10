@@ -34,10 +34,12 @@ class Dashboard < ApplicationRecord
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
-  belongs_to :partner, optional: :true
-  belongs_to :indicator, optional: :true
+  belongs_to :partner, optional: true
+  belongs_to :indicator, optional: true
+  has_one :author, required: false
 
   accepts_nested_attributes_for :indicator
+  accepts_nested_attributes_for :author, allow_destroy: true
 
   scope :production, -> { where(production: true) }
   scope :preproduction, -> { where(preproduction: true) }

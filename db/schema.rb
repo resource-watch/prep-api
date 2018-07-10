@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627145037) do
+ActiveRecord::Schema.define(version: 20180710095316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "thumbnail_file_name"
+    t.string "thumbnail_content_type"
+    t.integer "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string "white_logo_file_name"
+    t.string "white_logo_content_type"
+    t.integer "white_logo_file_size"
+    t.datetime "white_logo_updated_at"
+    t.integer "dashboard_id"
+  end
 
   create_table "content_images", force: :cascade do |t|
     t.integer "dashboard_id"

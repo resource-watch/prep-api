@@ -2,15 +2,19 @@
 #
 # Table name: core_datasets
 #
-#  id          :integer          not null, primary key
-#  title       :string
-#  slug        :string
-#  country_iso :string
-#  subcategory :string
-#  dataset_ids :text             default([]), is an Array
-#  tags        :text             default([]), is an Array
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id            :integer          not null, primary key
+#  title         :string
+#  slug          :string
+#  country_iso   :string
+#  subcategory   :string
+#  dataset_ids   :text             default([]), is an Array
+#  tags          :text             default([]), is an Array
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  published     :boolean          default(FALSE)
+#  production    :boolean          default(TRUE)
+#  preproduction :boolean          default(FALSE)
+#  staging       :boolean          default(FALSE)
 #
 
 class CoreDataset < ApplicationRecord
