@@ -23,6 +23,7 @@
 #  preproduction      :boolean          default(FALSE)
 #  staging            :boolean          default(FALSE)
 #  tags               :string           default([]), is an Array
+#  locations          :string           default([]), is an Array
 #
 
 class Dashboard < ApplicationRecord
@@ -47,6 +48,8 @@ class Dashboard < ApplicationRecord
   scope :staging, -> { where(staging: true) }
   scope :or_tags, ->(tag) { where('tags && ?', "{#{tag}}")}
   scope :and_tags, ->(tag) { where('tags @> ?', "{#{tag}}")}
+  scope :or_locations, ->(location) { where('locations && ?', "{#{location}}")}
+  scope :and_locations, ->(location) { where('locations @> ?', "{#{location}}")}
 
   has_and_belongs_to_many(:dashboards,
     :join_table => "dashboards_connections",

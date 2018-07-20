@@ -1,6 +1,6 @@
 class Api::DashboardDetailSerializer < ActiveModel::Serializer
   attributes :id, :title, :slug, :summary, :image, :content, :related_datasets,
-             :published, :user_id, :production, :preproduction, :staging, :tags
+             :published, :user_id, :production, :preproduction, :staging, :tags, :locations
 
   has_one :indicator, serializer: Api::IndicatorSerializer
   has_many :insights do
