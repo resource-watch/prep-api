@@ -15,6 +15,9 @@
 #  photo_updated_at   :datetime
 #  resource_type      :string
 #  published          :boolean          default(FALSE)
+#  production         :boolean          default(TRUE)
+#  preproduction      :boolean          default(FALSE)
+#  staging            :boolean          default(FALSE)
 #
 
 class Resource < ApplicationRecord

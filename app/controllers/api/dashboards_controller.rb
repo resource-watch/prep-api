@@ -23,6 +23,22 @@ class Api::DashboardsController < ApiController
       dashboards = dashboards.published
     end
 
+    if params.has_key?(:or_tags)
+      dashboards = dashboards.or_tags(params[:or_tags])
+    end
+
+    if params.has_key?(:and_tags)
+      dashboards = dashboards.and_tags(params[:and_tags])
+    end
+
+    if params.has_key?(:or_locations)
+      dashboards = dashboards.or_locations(params[:or_locations])
+    end
+
+    if params.has_key?(:and_locations)
+      dashboards = dashboards.and_locations(params[:and_locations])
+    end
+
     dashboards = dashboards.user_id(params[:user]) if params.has_key?(:user)
 
     dashboards = dashboards.order(:updated_at).reverse
@@ -67,8 +83,10 @@ class Api::DashboardsController < ApiController
     # whitelist params
     params.permit(:title, :slug, :summary, :content, :user_id, :image,
                   :partner_id, :attribution, :published, :indicator_id,
-                  :production, :preproduction, :staging, insight_ids: [],
-                  tool_ids: [], dashboard_ids: [], related_datasets: [])
+                  :production, :preproduction, :staging, insight_ids: [], locations: [],
+                  tool_ids: [], dashboard_ids: [], related_datasets: [], tags: [],
+                  author_attributes: [:id, :name, :url, :contact_name, :contact_email,
+                  :thumbnail, :logo, :white_logo, :_destroy])
   end
 
   def set_dashboard

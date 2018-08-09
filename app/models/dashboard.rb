@@ -19,6 +19,11 @@
 #  updated_at         :datetime
 #  created_at         :datetime
 #  user_id            :string
+#  production         :boolean          default(TRUE)
+#  preproduction      :boolean          default(FALSE)
+#  staging            :boolean          default(FALSE)
+#  tags               :string           default([]), is an Array
+#  locations          :string           default([]), is an Array
 #
 
 class Dashboard < ApplicationRecord
@@ -31,14 +36,20 @@ class Dashboard < ApplicationRecord
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
-  belongs_to :partner, optional: :true
-  belongs_to :indicator, optional: :true
+  belongs_to :partner, optional: true
+  belongs_to :indicator, optional: true
+  has_one :author, required: false
 
   accepts_nested_attributes_for :indicator
+  accepts_nested_attributes_for :author, allow_destroy: true
 
   scope :production, -> { where(production: true) }
   scope :preproduction, -> { where(preproduction: true) }
   scope :staging, -> { where(staging: true) }
+  scope :or_tags, ->(tag) { where('tags && ?', "{#{tag}}")}
+  scope :and_tags, ->(tag) { where('tags @> ?', "{#{tag}}")}
+  scope :or_locations, ->(location) { where('locations && ?', "{#{location}}")}
+  scope :and_locations, ->(location) { where('locations @> ?', "{#{location}}")}
 
   has_and_belongs_to_many(:dashboards,
     :join_table => "dashboards_connections",
