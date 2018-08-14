@@ -19,6 +19,9 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  embeddable         :boolean          default(TRUE)
+#  production         :boolean          default(TRUE)
+#  preproduction      :boolean          default(FALSE)
+#  staging            :boolean          default(FALSE)
 #
 
 class Insight < ApplicationRecord

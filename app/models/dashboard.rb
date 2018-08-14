@@ -19,6 +19,11 @@
 #  updated_at         :datetime
 #  created_at         :datetime
 #  user_id            :string
+#  production         :boolean          default(TRUE)
+#  preproduction      :boolean          default(FALSE)
+#  staging            :boolean          default(FALSE)
+#  tags               :string           default([]), is an Array
+#  locations          :string           default([]), is an Array
 #
 
 class Dashboard < ApplicationRecord
@@ -31,14 +36,20 @@ class Dashboard < ApplicationRecord
 
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
-  belongs_to :partner, optional: :true
-  belongs_to :indicator, optional: :true
+  belongs_to :partner, optional: true
+  belongs_to :indicator, optional: true
+  has_one :author, required: false
 
   accepts_nested_attributes_for :indicator
+  accepts_nested_attributes_for :author, allow_destroy: true
 
   scope :production, -> { where(production: true) }
   scope :preproduction, -> { where(preproduction: true) }
   scope :staging, -> { where(staging: true) }
+  scope :or_tags, ->(tag) { where('tags && ?', "{#{tag}}")}
+  scope :and_tags, ->(tag) { where('tags @> ?', "{#{tag}}")}
+  scope :or_locations, ->(location) { where('locations && ?', "{#{location}}")}
+  scope :and_locations, ->(location) { where('locations @> ?', "{#{location}}")}
 
   has_and_belongs_to_many(:dashboards,
     :join_table => "dashboards_connections",
@@ -79,9 +90,11 @@ class Dashboard < ApplicationRecord
       if content_block['type'] == 'image'
         contents = assign_content_image_url(contents, content_block, base_url)
       elsif content_block['type'] == 'grid'
-        content_block['content'].each do |content|
-          if content && content['type'] == 'image'
-            contents = assign_content_image_url(contents, content, base_url, is_grid = true, grid = content_block)
+        content_block['content'].compact.each do |column|
+          column.each do |content|
+            if content && content['type'] == 'image'
+              contents = assign_content_image_url(contents, content, base_url, is_grid = true, grid = content_block)
+            end
           end
         end
       end
@@ -117,7 +130,7 @@ class Dashboard < ApplicationRecord
 
     if content_image.present?
       if is_grid
-        contents.find { |content_block| content_block['id'] == grid['id'] }['content']
+        contents.find { |content_block| content_block['id'] == grid['id'] }['content'].flatten
                 .find { |grid_item| grid_item['id'] == content['id'] }['content']['src'] = content_image.image.url(:cover)
       else
         contents.find { |item| item['id'] == content['id'] }['content']['src'] = content_image.image.url(:cover)

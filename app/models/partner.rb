@@ -26,6 +26,9 @@
 #  thumbnail_updated_at    :datetime
 #  content                 :text
 #  partner_type            :string
+#  production              :boolean          default(TRUE)
+#  preproduction           :boolean          default(FALSE)
+#  staging                 :boolean          default(FALSE)
 #
 
 class Partner < ApplicationRecord

@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514151008) do
+ActiveRecord::Schema.define(version: 20180720084846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url"
+    t.string "contact_name"
+    t.string "contact_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "thumbnail_file_name"
+    t.string "thumbnail_content_type"
+    t.integer "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.integer "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string "white_logo_file_name"
+    t.string "white_logo_content_type"
+    t.integer "white_logo_file_size"
+    t.datetime "white_logo_updated_at"
+    t.integer "dashboard_id"
+  end
 
   create_table "content_images", force: :cascade do |t|
     t.integer "dashboard_id"
@@ -23,6 +45,21 @@ ActiveRecord::Schema.define(version: 20180514151008) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "core_datasets", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.string "country_iso"
+    t.string "subcategory"
+    t.text "dataset_ids", default: [], array: true
+    t.text "tags", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "published", default: false
+    t.boolean "production", default: true
+    t.boolean "preproduction", default: false
+    t.boolean "staging", default: false
   end
 
   create_table "dashboards", id: :serial, force: :cascade do |t|
@@ -45,6 +82,8 @@ ActiveRecord::Schema.define(version: 20180514151008) do
     t.boolean "production", default: true
     t.boolean "preproduction", default: false
     t.boolean "staging", default: false
+    t.string "tags", default: [], array: true
+    t.string "locations", default: [], array: true
     t.index ["indicator_id"], name: "index_dashboards_on_indicator_id"
     t.index ["partner_id"], name: "index_dashboards_on_partner_id"
   end

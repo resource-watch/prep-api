@@ -1,5 +1,6 @@
 class Api::DashboardDetailSerializer < ActiveModel::Serializer
-  attributes :id, :title, :slug, :summary, :image, :content, :related_datasets, :published, :user_id, :production, :preproduction, :staging
+  attributes :id, :title, :slug, :summary, :image, :content, :related_datasets,
+             :published, :user_id, :production, :preproduction, :staging, :tags, :locations
 
   has_one :indicator, serializer: Api::IndicatorSerializer
   has_many :insights do
@@ -12,4 +13,5 @@ class Api::DashboardDetailSerializer < ActiveModel::Serializer
     object.tools.published
   end
   has_one :partner, serializer: Api::PartnerSerializer
+  has_one :author, serializer: Api::AuthorSerializer
 end
