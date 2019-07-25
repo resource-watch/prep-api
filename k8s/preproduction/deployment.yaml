@@ -69,7 +69,7 @@ spec:
                   key: PREP_MANAGER_AUTH_USERNAME
           - name: AUTH_PASSWORD
             valueFrom:
-                SecretKeyRef:
+                secretKeyRef:
                   name: appsecrets
                   key: PREP_MANAGER_AUTH_PASSWORD
           - name: POSTGRES_URL
