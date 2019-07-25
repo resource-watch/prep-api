@@ -1,6 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  namespace: prep
   labels:
     name: {name}-preproduction
   name: {name}-preproduction
@@ -68,7 +69,7 @@ spec:
                   key: PREP_MANAGER_AUTH_USERNAME
           - name: AUTH_PASSWORD
             valueFrom:
-                secretKeyRef:
+                SecretKeyRef:
                   name: appsecrets
                   key: PREP_MANAGER_AUTH_PASSWORD
           - name: POSTGRES_URL
