@@ -27,7 +27,7 @@ gem 'aws-sdk', '~> 2.3.0'
 gem 'whenever', :require => false
 
 # Active record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.2'
 
 # Active record serializer
 gem 'active_model_serializers', '~> 0.10.0'
