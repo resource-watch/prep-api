@@ -3,16 +3,14 @@ kind: Deployment
 metadata:
   namespace: prep
   labels:
-    name: {name}
-  name: {name}
+    name: prep-api
+  name: prep-api
 spec:
   revisionHistoryLimit: 2
   template:
     metadata:
-      annotations:
-        chaos.alpha.kubernetes.io/enabled: "true"
       labels:
-        name: {name}
+        name: prep-api
     spec:
       tolerations:
       - key: "type"
@@ -37,20 +35,22 @@ spec:
                 - key: name
                   operator: In
                   values:
-                  - {name}
+                  - prep-api
               topologyKey: kubernetes.io/hostname
 
       containers:
-      - name: {name}
-        image: vizzuality/{name}
+      - name: prep-api
+        image: vizzuality/prep-api
         imagePullPolicy: Always
         args:
           - start
         resources:
           requests:
-            memory: "128Mi"
+            cpu: "0.5"
+            memory: "256M"
           limits:
-            memory: "512Mi"
+            cpu: "1"
+            memory: "512M"
         env:
           - name: RAILS_LOG_TO_STDOUT
             value: "true"
