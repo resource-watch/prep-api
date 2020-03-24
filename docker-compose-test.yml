@@ -14,6 +14,7 @@ services:
       RACK_ENV: test
       PORT: 3000
       SECRET: keyboard cat
+      WAIT_HOSTS: postgres:5432
     container_name: prep-api-test
     command: test
     depends_on:

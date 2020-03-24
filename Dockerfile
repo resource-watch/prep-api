@@ -32,6 +32,9 @@ COPY Gemfile.lock Gemfile.lock
 RUN bundle install --jobs 20 --retry 5
 ADD . /usr/src/app
 
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
+
 EXPOSE 3000
 ENTRYPOINT ["./entrypoint.sh"]
 

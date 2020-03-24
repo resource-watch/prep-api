@@ -10,6 +10,7 @@ case "$1" in
         ;;
     test)
         echo "Running Test"
+        /wait
         RAILS_ENV=test bundle exec rake db:drop db:create db:schema:load
         exec bundle exec rspec spec
         ;;
