@@ -1,6 +1,6 @@
 # Administrator and API for [PREP application](https://github.com/resource-watch/prep-app)
 
-[![Build Status](https://travis-ci.org/resource-watch/prep-manager.svg?branch=master)](https://travis-ci.org/resource-watch/prep-manager)
+[![Build Status](https://travis-ci.org/resource-watch/prep-api.svg?branch=develop)](https://travis-ci.org/resource-watch/prep-api)
 
 ![PREP](screenshot.png?raw=true "The Climate Partnership for Resilience and Preparedness")
 
