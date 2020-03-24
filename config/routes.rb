@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'health', to: 'health#health'
 
   # Active Admin routes
   get 'manager', to: 'manager/dashboards#index'

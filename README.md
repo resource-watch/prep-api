@@ -1,6 +1,7 @@
 # Administrator and API for [PREP application](https://github.com/resource-watch/prep-app)
 
-[![Build Status](https://travis-ci.org/resource-watch/prep-manager.svg?branch=master)](https://travis-ci.org/resource-watch/prep-manager)
+[![Build Status](https://travis-ci.org/resource-watch/prep-api.svg?branch=master)](https://travis-ci.org/resource-watch/prep-api)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/59331ed7504c0e00db4c/test_coverage)](https://codeclimate.com/github/resource-watch/prep-api/test_coverage)
 
 ![PREP](screenshot.png?raw=true "The Climate Partnership for Resilience and Preparedness")
 

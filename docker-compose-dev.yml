@@ -1,14 +1,12 @@
 version: '2'
 services:
   postgres:
-    image: postgres
+    image: postgres:9.6.2
     container_name: prep-db-dev
     volumes:
       - "./.data:/var/lib/postgresql/data"
   api:
-    build:
-      dockerfile: Dockerfile-dev
-      context: .
+    build: .
     ports:
       - "4001:3000"
     environment:
