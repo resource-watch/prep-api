@@ -2,12 +2,12 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   namespace: prep
-  name: {name}-preproduction
+  name: prep-api-preproduction
 spec:
   scaleTargetRef:
     apiVersion: apps/v1beta1
     kind: Deployment
-    name: {name}-preproduction
+    name: prep-api-preproduction
   minReplicas: 1
   maxReplicas: 4
   targetCPUUtilizationPercentage: 50
