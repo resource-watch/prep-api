@@ -1,0 +1,25 @@
+language: ruby
+rvm:
+  - 2.4.1
+services:
+  - postgresql
+addons:
+  postgresql: 9.6
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3b081ff80e8e5daad437601e11c015e434531b1edb2a798173ec9dd41e589e86
+    - LOCAL_URL=http://localhost:3000
+    - RAILS_ENV=test
+    - SECRET_KEY_BASE=secret
+
+before_script:
+  - RAILS_ENV=test bundle exec rake db:drop db:create db:schema:load
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script:
+  - bundle exec rspec spec --fail-fast
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
