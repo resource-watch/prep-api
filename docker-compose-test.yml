@@ -22,7 +22,7 @@ services:
 
   postgres:
     image: postgres:9.6.2
-    container_name: prep-db-test
+    container_name: prep-api-db-test
     ports:
       - "5432"
     environment:
