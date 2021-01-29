@@ -18,8 +18,6 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      annotations:
-        chaos.alpha.kubernetes.io/enabled: "true"
       labels:
         name: prep-api-staging
     spec:
@@ -90,7 +88,7 @@ spec:
                 secretKeyRef:
                   key: S3_SECRET_ACCESS_KEY
                   name: mssecrets
-          image: vizzuality/prep-api
+          image: gfwdockerhub/prep-api
           imagePullPolicy: Always
           name: prep-api-staging
           ports:
@@ -106,6 +104,8 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
+      imagePullSecrets:
+        - name: regcred
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
@@ -115,4 +115,3 @@ spec:
           key: type
           operator: Equal
           value: webapps
-status: {}
